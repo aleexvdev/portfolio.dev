@@ -1,0 +1,53 @@
+---
+import { BriefcaseBusiness, FolderCode, UserRound, Mail, Sun } from "lucide-astro";
+import { ThemeDropdown } from "@/components/react/ThemeDropdown"
+---
+
+<header class="w-full h-16 max-w-screen-xl mx-auto">
+  <div class="w-full h-full flex items-center justify-between px-6 py-4">
+    <div class="w-max h-full flex items-center">
+      <h1 class="text-base font-semibold leading-6 text-white">AV.</h1>
+    </div>
+    <nav class="w-full flex items-center justify-center gap-x-6">
+      <li class="text">
+        <a href="#experience" aria-label="experience" class="flex items-center gap-x-2">
+          <BriefcaseBusiness size="16" />
+          <span class="text-base leading-6 font-medium">Experience</span>
+        </a>
+      </li>
+      <li>
+        <a href="#projects" aria-label="projects" class="flex items-center gap-x-2">
+          <FolderCode size="16" />
+          <span class="text-base leading-6 font-medium">Projects</span>
+        </a>
+      </li>
+      <li>
+        <a href="#about-me" aria-label="about-me" class="flex items-center gap-x-2">
+          <UserRound size="16" /> 
+          <span class="text-base leading-6 font-medium">About me</span>
+        </a>
+      </li>
+      <li>
+        <a href="#contact" aria-label="contact" class="flex items-center gap-x-2">
+          <Mail size="16" />
+          <span class="text-base leading-6 font-medium">Contact</span>          
+        </a>
+      </li>
+    </nav>
+    <div class="w-max h-full flex items-center">
+      <ThemeDropdown client:load />
+    </div>
+  </div>
+</header>
+
+<style>
+  li {
+    list-style: none;
+    text-decoration: none;
+    color: #FFFF;
+
+    &:hover {
+      color: #FFEA9F;
+    }
+  }
+</style>
