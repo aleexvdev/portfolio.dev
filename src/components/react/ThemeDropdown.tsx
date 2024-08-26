@@ -9,11 +9,11 @@ export const ThemeDropdown = () => {
   const themeIcon = (icon: string) => {
     switch (icon) {
       case "Light":
-        return <Sun size="20" className="text-white" />;
+        return <Sun className="w-5 h-5 text-white" />;
       case "Dark":
-        return <Moon size="20" className="text-white" />;
+        return <Moon className="w-5 h-5 text-white" />;
       default:
-        return <Computer size="20" className="text-white" />;
+        return <Computer className="w-5 h-5 text-white" />;
     }
   }
 

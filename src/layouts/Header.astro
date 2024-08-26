@@ -6,31 +6,31 @@ import { ThemeDropdown } from "@/components/react/ThemeDropdown"
 <header class="w-full h-16 max-w-screen-lg mx-auto">
   <div class="w-full h-full flex items-center justify-between px-6 py-4">
     <div class="w-max h-full flex items-center">
-      <h1 class="text-base font-semibold leading-6 text-white">AV.</h1>
+      <h1 class="text-3xl font-bold leading-6 text-[#FFEA9F]">av.</h1>
     </div>
-    <nav class="w-full flex items-center justify-center gap-x-6">
+    <nav class="w-full flex items-center justify-center gap-x-7 text-white">
       <li class="text">
         <a href="#experience" aria-label="experience" class="flex items-center gap-x-2">
-          <BriefcaseBusiness size="16" />
-          <span class="text-base leading-6 font-medium">Experience</span>
+          <BriefcaseBusiness class="w-5 h-5" />
+          <span class="text-base leading-6 font-medium text-nowrap">Experience</span>
         </a>
       </li>
       <li>
         <a href="#projects" aria-label="projects" class="flex items-center gap-x-2">
-          <FolderCode size="16" />
-          <span class="text-base leading-6 font-medium">Projects</span>
+          <FolderCode class="w-5 h-5" />
+          <span class="text-base leading-6 font-medium text-nowrap">Projects</span>
         </a>
       </li>
       <li>
         <a href="#about-me" aria-label="about-me" class="flex items-center gap-x-2">
-          <UserRound size="16" /> 
-          <span class="text-base leading-6 font-medium">About me</span>
+          <UserRound class="w-5 h-5" /> 
+          <span class="text-base leading-6 font-medium text-nowrap">About</span>
         </a>
       </li>
       <li>
         <a href="#contact" aria-label="contact" class="flex items-center gap-x-2">
-          <Mail size="16" />
-          <span class="text-base leading-6 font-medium">Contact</span>          
+          <Mail class="w-5 h-5" />
+          <span class="text-base leading-6 font-medium text-nowrap">Contact</span>          
         </a>
       </li>
     </nav>
@@ -41,6 +41,11 @@ import { ThemeDropdown } from "@/components/react/ThemeDropdown"
 </header>
 
 <style>
+  h1 {
+    background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   li {
     list-style: none;
     text-decoration: none;

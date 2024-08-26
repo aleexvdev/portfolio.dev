@@ -1,0 +1,26 @@
+---
+import type { SVGProps } from "react";
+
+interface SectionProps {
+  title: string;
+  icon: React.FC<SVGProps<SVGSVGElement>>;
+}
+
+const { title, icon: Icon } = Astro.props as SectionProps;
+---
+
+<section
+  class="w-full h-screen px-6 bg-black text-white"
+  aria-labelledby="experiencia-title"
+>
+  <div class="w-full flex items-center justify-start gap-x-4">
+    <div class="bg-[#FFEA9F] rounded-lg p-px shadow-sm shadow-[#FFEA9F]">
+      <div class="bg-[#151515] p-2 rounded-lg">
+        <Icon className="text-white w-8 h-8" /> 
+      </div>
+    </div>
+    <h2 class="text-white text-4xl font-medium text-nowrap">{title}</h2>
+    <div class="w-full h-px bg-[#292929]" />
+  </div>
+  <slot />
+</section>
