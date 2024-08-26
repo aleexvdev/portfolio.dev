@@ -1,42 +1,44 @@
 ---
-import { BriefcaseBusiness, FolderCode, UserRound, Mail } from "lucide-astro";
+import { BriefcaseBusiness, FolderCode, UserRound, Mail, LayoutDashboard } from "lucide-astro";
 import { ThemeDropdown } from "@/components/react/ThemeDropdown";
+import { DialogMenu } from "@/components/react/DialogMenu";
 ---
 
-<header id="main-header" class="w-full h-20 fixed transition-colors duration-300">
+<header id="main-header" class="w-full h-20 fixed z-50 transition-colors duration-300">
   <div class="w-full h-full flex justify-center max-w-screen-lg mx-auto">
     <div class="w-full h-full flex items-center justify-between px-6 py-4">
       <div class="w-max h-full flex items-center">
         <h1 class="text-3xl font-bold leading-6 gradient-text select-none">av.</h1>
       </div>
-      <nav class="w-full flex items-center justify-center gap-x-7 text-white">
-        <li class="text">
-          <a href="#experience" aria-label="experience" class="flex items-center gap-x-2">
+      <nav class="w-full hidden lg:flex items-center justify-center gap-x-7">
+        <li class="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+          <a href="#experience" aria-label="experience" class="flex items-center gap-x-2 cursor-pointer">
             <BriefcaseBusiness class="w-5 h-5" />
             <span class="text-base leading-6 font-medium text-nowrap">Experience</span>
           </a>
         </li>
-        <li>
-          <a href="#projects" aria-label="projects" class="flex items-center gap-x-2">
+        <li class="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+          <a href="#projects" aria-label="projects" class="flex items-center gap-x-2 cursor-pointer">
             <FolderCode class="w-5 h-5" />
             <span class="text-base leading-6 font-medium text-nowrap">Projects</span>
           </a>
         </li>
-        <li>
-          <a href="#about-me" aria-label="about-me" class="flex items-center gap-x-2">
+        <li class="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+          <a href="#about-me" aria-label="about-me" class="flex items-center gap-x-2 cursor-pointer">
             <UserRound class="w-5 h-5" /> 
             <span class="text-base leading-6 font-medium text-nowrap">About</span>
           </a>
         </li>
-        <li>
-          <a href="#contact" aria-label="contact" class="flex items-center gap-x-2">
+        <li class="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+          <a href="#contact" aria-label="contact" class="flex items-center gap-x-2 cursor-pointer">
             <Mail class="w-5 h-5" />
-            <span class="text-base leading-6 font-medium text-nowrap">Contact</span>          
+            <span class="text-base leading-6 font-medium text-nowrap">Contact</span>
           </a>
         </li>
       </nav>
-      <div class="w-max h-full flex items-center">
+      <div class="w-max h-full flex items-center gap-x-1">
         <ThemeDropdown client:load />
+        <DialogMenu client:load />
       </div>
     </div>
   </div>
@@ -60,17 +62,6 @@ import { ThemeDropdown } from "@/components/react/ThemeDropdown";
     background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
-
-  li {
-    list-style: none;
-    text-decoration: none;
-    color: #FFFF;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #FFEA9F;
-    }
   }
 
   #main-header {

@@ -1,10 +1,9 @@
 import { themes } from "@/data/data";
 import { useDropdown } from "@/hooks/useDropdown";
 import { Computer, Moon, Sun } from "lucide-react";
-import { useState, useRef, useEffect } from "react";
 
 export const ThemeDropdown = () => {
-  const { isActive, selectedItem, toggleDropdown, selectItem, dropdownRef } = useDropdown("system");
+  const { isActive, selectedItem, toggleDropdown, selectItem, dropdownRef } = useDropdown("System");
 
   const themeIcon = (icon: string) => {
     switch (icon) {
