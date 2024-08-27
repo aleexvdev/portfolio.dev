@@ -1,0 +1,94 @@
+---
+interface CardHeroProps {
+  title: string;
+  subtitle: string;
+}
+const { title, subtitle } = Astro.props;
+---
+
+<div class="w-full h-full">
+  <div class="w-full flex flex-col gap-y-2">
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-20 md:w-40 h-4 bg-gradient-aurora"></div>
+      <div class="block w-16 md:w-24 h-4 bg-gradient-sunset"></div>
+      <div class="block w-4 h-4 rounded-full bg-gradient-neon"></div>
+      <div class="lg:block w-10 md:w-16 h-4 bg-gradient-purple-haze"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-40 md:w-80 h-4 bg-gradient-cyber-glow"></div>
+      <div class="block w-24 md:w-24 h-4 bg-gradient-velvet-night"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-12 md:w-24 h-4 bg-gradient-solar-flare"></div>
+      <div class="block w-5 h-4 bg-gradient-ocean-breeze"></div>
+      <div class="block w-8 md:w-16 h-4 bg-gradient-mystic-dawn"></div>
+      <div class="block w-20 md:w-40 h-4 bg-gradient-midnight-city"></div>
+      <div class="block w-20 md:w-20 h-4 bg-gradient-tropical-sunset"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-44 h-4 bg-gradient-arctic-aurora"></div>
+      <div class="block w-24 h-4 bg-gradient-cosmic-dust"></div>
+      <div class="block w-4 h-4 rounded-full bg-gradient-sunrise-glow"></div>
+      <div class="block w-32 h-4 bg-gradient-deep-sea"></div>
+      <div class="block w-20 h-4 bg-gradient-flamingo-beach"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2 ml-10">
+      <div class="block w-32 h-4 bg-gradient-electric-violet"></div>
+      <div class="block w-5 h-4 bg-gradient-desert-mirage"></div>
+      <div class="block w-40 h-4 bg-gradient-mystic-forest"></div>
+      <div class="block w-56 h-4 bg-gradient-sunset-boulevard"></div>
+    </div>
+    <div class="w-full md:ml-10 py-5 flex flex-col items-center md:items-start">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight text-white tracking-normal text-nowrap text-center"
+      >
+        {title}
+      </h1>
+      <p
+        class="text-xl md:text-2xl lg:text-2xl leading-relaxed font-medium text-white tracking-normal text-center"
+      >
+        {subtitle}
+      </p>
+    </div>
+    <div class="w-max flex items-center gap-x-2 ml-10">
+      <div class="block w-44 h-4 bg-gradient-sunset-boulevard"></div>
+      <div class="block w-4 h-4 rounded-full bg-gradient-mystic-forest"></div>
+      <div class="block w-28 h-4 bg-gradient-desert-mirage"></div>
+      <div class="block w-56 h-4 bg-gradient-electric-violet"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-40 h-4 bg-gradient-deep-sea"></div>
+      <div class="block w-20 h-4 bg-gradient-sunrise-glow"></div>
+      <div class="block w-32 h-4 bg-gradient-cosmic-dust"></div>
+      <div class="block w-36 h-4 bg-gradient-flamingo-beach"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-52 h-4 bg-gradient-arctic-aurora"></div>
+      <div class="block w-24 h-4 bg-gradient-tropical-sunset"></div>
+      <div class="block w-40 h-4 bg-gradient-midnight-city"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-64 h-4 bg-gradient-solar-flare"></div>
+      <div class="block w-32 h-4 bg-gradient-ocean-breeze"></div>
+      <div class="block w-5 h-4 bg-gradient-mystic-dawn"></div>
+    </div>
+    <div class="w-max flex items-center gap-x-2">
+      <div class="block w-24 h-4 bg-gradient-neon"></div>
+      <div class="block w-5 h-4 bg-gradient-purple-haze"></div>
+      <div class="block w-24 h-4 bg-gradient-cyber-glow"></div>
+      <div class="block w-4 h-4 rounded-full bg-gradient-sunset"></div>
+      <div class="block w-24 h-4 bg-gradient-aurora"></div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* h1 {
+    background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  } */
+  .triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+</style>
