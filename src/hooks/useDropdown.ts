@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react';
 
 export const useDropdown = (initialTheme: string) => {
   const [isActive, setIsActive] = useState<boolean>(false);
