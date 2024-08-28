@@ -11,7 +11,7 @@ export const DialogMenu = () => {
   return (
     <Drawer.Root shouldScaleBackground>
       <Drawer.Trigger asChild>
-        <button className="flex items-center justify-center p-2 hover:bg-[#292929] rounded-md transition-colors duration-300 lg:hidden cursor-pointer">
+        <button className="flex items-center justify-center p-2 hover:bg-[#292929] rounded-md transition-colors duration-300 md:hidden cursor-pointer">
           <LayoutDashboard className="w-5 h-5 text-white" />
         </button>
       </Drawer.Trigger>
@@ -22,7 +22,7 @@ export const DialogMenu = () => {
             <div className="mx-auto w-32 h-1.5 flex-shrink-0 rounded-full bg-zinc-500" />
             <div className="max-w-md mx-auto py-10 md:mb-8">
               <Drawer.Title className="font-medium"></Drawer.Title>
-              <nav className="w-full flex flex-col items-center justify-center gap-y-3 mb-5">
+              <nav className="w-full flex flex-col items-center justify-center gap-y-3">
                 <li className="text-white list-none transition-colors duration-300 hover:text-[#FFEA9F]">
                   <a
                     href="#experience"
