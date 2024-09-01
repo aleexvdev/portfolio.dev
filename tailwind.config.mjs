@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+      boxShadow: {
+        'inner-custom': 'inset 0 0 10px #252525', // Sombra interna personalizada
+      },
       backgroundImage: {
         'gradient-aurora': 'linear-gradient(135deg, #00C6FF, #0072FF, #00C6FF, #1DE9B6, #1DE9B6)',
         'gradient-sunset': 'linear-gradient(135deg, #FF4E50, #F9D423, #FC913A, #F94E6D, #FB3B00)',

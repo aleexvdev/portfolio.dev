@@ -10,16 +10,11 @@ const { title, icon: Icon } = Astro.props as SectionProps;
 ---
 
 <section
-  class="w-full h-max px-6 text-white"
+  class="w-full h-max px-6 pb-20 flex flex-col items-center justify-center overflow-hidden"
   aria-labelledby="experiencia-title"
 >
   <div class="w-full flex items-center justify-start gap-x-4 pb-10">
-    <div class="bg-[#FFEA9F] rounded-lg p-px shadow-sm shadow-[#FFEA9F]">
-      <div class="bg-[#151515] p-2 rounded-lg">
-        <Icon className="text-white w-8 h-8" /> 
-      </div>
-    </div>
-    <h2 class="text-white text-4xl font-bold text-nowrap">{title}</h2>
+    <h2 class="text-white text-5xl font-bold text-nowrap">{title}</h2>
     <div class="w-full h-px bg-[#292929]" />
   </div>
   <slot />
