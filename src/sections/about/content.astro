@@ -1,0 +1,591 @@
+---
+import { Section } from "@/layouts";
+import { SendHorizontal, UserRoundCheck } from "lucide-astro";
+import Times from "@/components/svelte/Times.svelte";
+---
+
+<Section title="Un poco sobre mí" icon={UserRoundCheck}>
+  <div
+    class="w-full h-full bg-transparent flex flex-col items-center justify-center"
+  >
+    <div
+      class="grid p-0 grid-cols-1 grid-rows-6 lg:grid-cols-3 lg:grid-rows-8 h-full gap-y-3 lg:gap-3 bg-dark w-full"
+    >
+      <article
+        class="flex flex-col items-center justify-between col-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start">
+          <h1
+            class="w-full lg:text-4xl mb-6 font-bold flex flex-col items-start text-white gap-y-2"
+          >
+            <span class="text-2xl lg:text-2xl">Hola</span>
+            <span class="text-4xl lg:text-5xl">Soy Alex</span>
+          </h1>
+        </header>
+        <div class="w-full h-full flex flex-col items-end justify-end relative">
+          <div
+            class="absolute left-20 -top-20 lg:-top-9 lg:left-0 w-full h-full flex items-center justify-center"
+          >
+            <img
+              src="public/images/profile.png"
+              alt="Alexvdev. 🤟"
+              class="w-36 h-auto object-cover bg-transparent"
+              style="mask-image: linear-gradient(black 80%, transparent);"
+            />
+          </div>
+          <button
+            class="w-full bg-transparent text-white flex items-center justify-between gap-x-2"
+          >
+            <div
+              class="flex items-center justify-center bg-black/90 px-4 py-1.5 rounded-3xl w-full"
+            >
+              <span class="w-full text-gray-400 text-nowrap text-sm text-left"
+                >Click to message</span
+              >
+            </div>
+            <div
+              class="flex items-center justify-center bg-blue-700 p-2 rounded-full"
+            >
+              <SendHorizontal class="text-white w-5 h-5" />
+            </div>
+          </button>
+        </div>
+      </article>
+      <article
+        class="flex flex-col items-start justify-start col-span-2 row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start mb-6">
+          <h1
+            class="w-full text-3xl font-bold flex flex-col items-start text-white"
+          >
+            Mi lado personal
+          </h1>
+        </header>
+        <div class="w-full h-full max flex-col items-start justify-start mb-5">
+          <p class="w-full text-white/75 font-light text-base mb-5">
+            Me considero una persona resiliente, responsable y optimista. No
+            importa cuán complejo sea el desafío que enfrente, siempre encuentro
+            una manera de superarlo, manteniendo una perspectiva positiva y una
+            fuerte independencia en mis decisiones y acciones. Además de ser
+            resiliente, me considero una persona comprometida y enfocada en mis
+            metas.
+          </p>
+          <p class="w-full text-white/75 font-light text-base mb-5">
+            Siempre busco mejorar y aprender de cada experiencia, lo que me
+            permite crecer tanto personal como profesionalmente. Estoy
+            convencido de que cada reto es una oportunidad para evolucionar y
+            que con determinación y una actitud positiva, todo es posible.
+          </p>
+        </div>
+        <div class="w-full h-full flex overflow-x-auto gap-4 px-6 py-4">
+          <div
+            class="relative flex flex-col items-center justify-center bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
+          >
+            <div
+              class="relative flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="public/images/pasta.png"
+                alt="Foods"
+                class="w-14 h-auto object-cover"
+              />
+            </div>
+            <span
+              class="px-2 pb-2 text-white font-semibold text-center text-xs mt-1"
+            >
+              ❤️ Pastas
+            </span>
+          </div>
+          <div
+            class="relative flex flex-col items-center justify-center bg-gradient-to-br from-green-500 to-yellow-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
+          >
+            <div
+              class="relative flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="public/images/basketball.png"
+                alt="Basketball"
+                class="w-14 h-auto object-cover absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 -ml-3"
+              />
+              <img
+                src="public/images/soccer.png"
+                alt="Soccer"
+                class="w-14 h-auto object-cover absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 ml-3"
+              />
+            </div>
+            <span
+              class="px-2 pb-2 text-white font-semibold text-center text-xs mt-1"
+            >
+              💪🏻 Deportes
+            </span>
+          </div>
+          <div
+            class="relative flex flex-col items-center justify-center bg-gradient-to-br from-red-500 to-orange-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
+          >
+            <div
+              class="relative flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="public/images/dog.png"
+                alt="Dog"
+                class="w-12 h-auto object-cover"
+              />
+            </div>
+            <span
+              class="px-2 pb-2 text-white font-semibold text-center text-xs mt-1"
+            >
+              😍 Perro
+            </span>
+          </div>
+          <div
+            class="relative flex flex-col items-center justify-center bg-gradient-to-br from-blue-500 to-teal-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
+          >
+            <div
+              class="relative flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="public/images/cat.png"
+                alt="Cat"
+                class="w-12 h-auto object-cover"
+              />
+            </div>
+            <span
+              class="px-2 pb-2 text-white font-semibold text-center text-xs mt-1"
+            >
+              🥰 Gato
+            </span>
+          </div>
+          <div
+            class="relative flex flex-col items-center justify-center bg-gradient-to-br from-pink-500 to-indigo-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
+          >
+            <div
+              class="relative flex items-center justify-center w-full h-full"
+            >
+              <img
+                src="public/images/joystick.png"
+                alt="Joystick"
+                class="w-12 h-auto object-cover"
+              />
+            </div>
+            <span
+              class="px-2 pb-2 text-white font-semibold text-center text-xs mt-1"
+            >
+              😎 Juegos
+            </span>
+          </div>
+        </div>
+      </article>
+      <article
+        class="flex flex-col col-span-1 row-span-4 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start mb-6">
+          <h1
+            class="w-full text-3xl font-bold flex flex-col items-left text-white"
+          >
+            Mis habilidades
+          </h1>
+        </header>
+        <div class="w-full h-full flex items-start justify-center">
+          <div
+            class="wrapper flex flex-row lg:flex-col items-center justify-center relative w-full h-full overflow-hidden bg-[#171717] lg:mx-10 rounded-3xl border border-gray-600/20 shadow-inner-custom"
+          >
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item1"
+            >
+              <img
+                src="public/images/skills/javascript.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item2"
+            >
+              <img
+                src="public/images/skills/typescript.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item3"
+            >
+              <img
+                src="public/images/skills/php.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item4"
+            >
+              <img
+                src="public/images/skills/node-js.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item5"
+            >
+              <img
+                src="public/images/skills/express-js.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item6"
+            >
+              <img
+                src="public/images/skills/laravel.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item7"
+            >
+              <img
+                src="public/images/skills/react.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item8"
+            >
+              <img
+                src="public/images/skills/angular.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item9"
+            >
+              <img
+                src="public/images/skills/nextjs.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item10"
+            >
+              <img
+                src="public/images/skills/mysql.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item11"
+            >
+              <img
+                src="public/images/skills/mongodb.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item12"
+            >
+              <img
+                src="public/images/skills/postgresql.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item13"
+            >
+              <img
+                src="public/images/skills/jest.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item14"
+            >
+              <img
+                src="public/images/skills/docker.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div
+              class="max-h-20 bg-black/90 absolute rounded-3xl item flex items-center justify-center p-4 item15"
+            >
+              <img
+                src="public/images/skills/git.png"
+                alt="Mis skills"
+                class="w-max h-max object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </article>
+      <article
+        class="relative flex flex-col col-span-2 row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start mb-6">
+          <h1
+            class="w-full text-3xl font-bold flex flex-col items-start text-white"
+          >
+            En el trabajo
+          </h1>
+        </header>
+        <div class="w-full h-max flex flex-col items-start justify-start">
+          <p class="w-full text-white/75 font-light text-base mb-5">
+            Con casi 3 años de experiencia en desarrollo web, me especializo en
+            crear aplicaciones escalables y adaptadas a las necesidades del
+            cliente. Mi enfoque combina un entendimiento profundo de los
+            requisitos con la capacidad de trabajar eficazmente en equipos
+            multidisciplinarios o de manera independiente. Soy adaptable y
+            proactivo, siempre buscando mejorar procesos y contribuir al éxito
+            de cada proyecto.
+          </p>
+          <p class="w-full text-white/75 font-light text-base mb-5">
+            Estoy continuamente explorando nuevas tecnologías y metodologías
+            para mantenerme actualizado con las mejores prácticas en el campo,
+            lo que me permite contribuir de manera significativa a los proyectos
+            en los que trabajo.
+          </p>
+        </div>
+        <div
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 overflow-hidden w-4/5 mx-auto h-auto shadow-2xl shadow-black/20 opacity-80 rounded-t-lg transition-transform duration-500 hover:scale-105"
+          style="mask-image: linear-gradient(black 60%, transparent);"
+        >
+          <img
+            src="public/images/method_work.png"
+            alt="Mi trabajo"
+            class="w-full h-full object-cover rounded-t-lg filter contrast-125 brightness-90 saturate-150 transition-all duration-500 hover:contrast-150 hover:brightness-100"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </article>
+      <article
+        class="flex flex-col col-span-2 row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start mb-6">
+          <h1
+            class="w-full text-3xl font-bold flex flex-col items-start text-white"
+          >
+            Educación
+          </h1>
+        </header>
+        <div class="w-full">
+          <h2
+            class="text-white text-2xl text-wrap font-semibold hover:text-[#22C55E]"
+          >
+            Bachiller en Ingeniería Informática
+          </h2>
+          <div class="w-full mt-2 mb-3 flex items-start justify-start">
+            <span class="text-nowrap text-[#6E6E6F] font-normal text-lg"
+              >Lima, Perú</span
+            >
+            <span class="w-px h-5 bg-[#6E6E6F] mx-2 my-1"></span>
+            <span class="text-nowrap text-[#6E6E6F] font-normal text-lg">
+              2016 - 2021
+            </span>
+          </div>
+          <p class="text-white/75 font-normal text-base">
+            Graduado por la Universidad Nacional José Faustino Sánchez Carrión
+            en Ingeniería Informática, donde desarrollé una base sólida en áreas
+            clave como la gestión de tecnologías de la información, desarrollo
+            de software, y la seguridad informática. Mi formación me preparó
+            para alinear estrategias empresariales con soluciones tecnológicas
+            avanzadas, garantizando la eficiencia y seguridad en los sistemas de
+            información.
+          </p>
+        </div>
+      </article>
+      <article
+        class="w-full flex flex-col col-span-1 row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+      >
+        <header class="w-full h-max flex items-start mb-6">
+          <h1
+            class="w-full text-3xl font-bold flex flex-col items-start text-white"
+          >
+            Mi ubicación
+          </h1>
+        </header>
+        <div class="w-full h-full">
+          <div class="w-full h-full flex flex-col items-center justify-end">
+            <div
+              class="w-full flex flex-col items-center justify-center gap-y-2"
+            >
+              <p class="text-white text-4xl font-bold">
+                Sede en
+                <span
+                  class="bg-gradient-to-r from-red-600 via-white to-red-600 bg-clip-text text-transparent"
+                >
+                  Lima
+                </span>
+              </p>
+              <div class="flex items-center gap-x-2">
+                <img
+                  src="public/images/bandera.png"
+                  alt="Bandera de Perú"
+                  class="w-6 h-6 object-cover"
+                />
+                <p class="text-white/90 text-2xl">Perú</p>
+              </div>
+              <p class="text-white/75 text-base">7 horas delante de ti</p>
+            </div>
+            <div class="w-full h-px bg-[#6E6E6F] my-4"></div>
+            <div class="w-full flex flex-col items-center justify-center">
+              <div class="w-full flex items-end justify-center gap-x-2">
+                <Times />
+                <span class="text-white text-lg">CEST</span>
+              </div>
+              <p
+                class="text-white/75 text-wrap text-center font-medium text-base"
+              >
+                Domingo, 1 de septiembre de 2022
+              </p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</Section>
+
+<style>
+  .bounce-top {
+    animation: animate-bounce-top 5s ease-in-out infinite;
+  }
+  .bounce-bottom {
+    animation: animate-bounce-bottom 5s ease-in-out infinite;
+  }
+  .wrapper {
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .item {
+    top: max(calc(80px * 15), 100%);
+    animation: scrollLeft 30s linear infinite;
+  }
+
+  .item1 {
+    animation-delay: calc(30s / 15 * (15 - 1) * -1);
+  }
+
+  .item2 {
+    animation-delay: calc(30s / 15 * (15 - 2) * -1);
+  }
+
+  .item3 {
+    animation-delay: calc(30s / 15 * (15 - 3) * -1);
+  }
+
+  .item4 {
+    animation-delay: calc(30s / 15 * (15 - 4) * -1);
+  }
+
+  .item5 {
+    animation-delay: calc(30s / 15 * (15 - 5) * -1);
+  }
+
+  .item6 {
+    animation-delay: calc(30s / 15 * (15 - 6) * -1);
+  }
+
+  .item7 {
+    animation-delay: calc(30s / 15 * (15 - 7) * -1);
+  }
+
+  .item8 {
+    animation-delay: calc(30s / 15 * (15 - 8) * -1);
+  }
+  .item9 {
+    animation-delay: calc(30s / 15 * (15 - 9) * -1);
+  }
+  .item10 {
+    animation-delay: calc(30s / 15 * (15 - 10) * -1);
+  }
+  .item11 {
+    animation-delay: calc(30s / 15 * (15 - 11) * -1);
+  }
+  .item12 {
+    animation-delay: calc(30s / 15 * (15 - 12) * -1);
+  }
+  .item13 {
+    animation-delay: calc(30s / 15 * (15 - 13) * -1);
+  }
+  .item14 {
+    animation-delay: calc(30s / 15 * (15 - 14) * -1);
+  }
+  .item15 {
+    animation-delay: calc(30s / 15 * (15 - 15) * -1);
+  }
+
+  @keyframes scrollLeft {
+    to {
+      top: -200px;
+    }
+  }
+
+  @keyframes animate-bounce-top {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  @keyframes animate-bounce-bottom {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+  }
+  .bounce-container:hover .bounce-top,
+  .bounce-container:hover .bounce-bottom {
+    animation: none;
+  }
+</style>
