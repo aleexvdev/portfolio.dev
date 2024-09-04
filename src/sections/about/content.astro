@@ -1,14 +1,16 @@
 ---
 import { Section } from "@/layouts";
-import { Bookmark, Heart, MessageCircle, SendHorizontal, Share2, UserRoundCheck } from "lucide-astro";
+import { Bookmark, Heart, MessageCircle, Share2, UserRoundCheck } from "lucide-astro";
 import Times from "@/components/svelte/Times.svelte";
+import { InfiniteScrollHorizontal } from './components/InfiniteScrollHorizontal';
+import { images } from "./data/images";
 ---
 
 <Section title="Un poco sobre mí" icon={UserRoundCheck}>
   <div
     class="w-full h-full bg-transparent flex flex-col items-center justify-center"
   >
-    <div class="grid p-0 grid-cols-1  lg:grid-cols-3 lg:grid-rows-8 h-full w-full gap-y-3 lg:gap-3">
+    <div class="grid p-0 grid-cols-1  lg:grid-cols-3 lg:grid-rows-8 h-full w-full gap-y-4 lg:gap-3">
       <article
         class="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
       >
@@ -185,175 +187,7 @@ import Times from "@/components/svelte/Times.svelte";
         <div
           class="w-full h-full flex flex-col items-center justify-center gap-y-0 lg:gap-y-6"
         >
-          <div
-            class="wrapper w-full h-20 lg:h-full flex items-center justify-center overflow-hidden rounded-xl"
-          >
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item1 overflow-hidden"
-            >
-              <img
-                src="./images/skills/javascript.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item2 overflow-hidden"
-            >
-              <img
-                src="./images/skills/typescript.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item3 overflow-hidden"
-            >
-              <img
-                src="./images/skills/php.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item4 overflow-hidden"
-            >
-              <img
-                src="./images/skills/node-js.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item5 overflow-hidden"
-            >
-              <img
-                src="./images/skills/Express.js_dark.svg"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item6 overflow-hidden"
-            >
-              <img
-                src="./images/skills/laravel.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item7 overflow-hidden"
-            >
-              <img
-                src="./images/skills/react.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item8 overflow-hidden"
-            >
-              <img
-                src="./images/skills/angular.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item9 overflow-hidden"
-            >
-              <img
-                src="./images/skills/nextjs.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item10 overflow-hidden"
-            >
-              <img
-                src="./images/skills/mysql.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item11 overflow-hidden"
-            >
-              <img
-                src="./images/skills/mongodb.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item12 overflow-hidden"
-            >
-              <img
-                src="./images/skills/postgresql.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item13 overflow-hidden"
-            >
-              <img
-                src="./images/skills/jest.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item14 overflow-hidden"
-            >
-              <img
-                src="./images/skills/docker.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <div
-              class="max-h-20 absolute rounded-3xl item flex items-center justify-center p-4 item15 overflow-hidden"
-            >
-              <img
-                src="./images/skills/git.png"
-                alt="Mis skills"
-                class="w-max h-max object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-          </div>
+          <InfiniteScrollHorizontal images={images} client:load />
         </div>
       </article>
       <article
@@ -483,69 +317,3 @@ import Times from "@/components/svelte/Times.svelte";
     </div>
   </div>
 </Section>
-
-<style>
-  .wrapper {
-    mask-image: linear-gradient(
-      to left,
-      rgba(0, 0, 0, 0),
-      rgba(0, 0, 0, 1) 20%,
-      rgba(0, 0, 0, 1) 80%,
-      rgba(0, 0, 0, 0)
-    );
-  }
-  .item {
-    left: max(calc(80px * 15), 100%);
-    animation: scrollLeft 30s linear infinite;
-  }
-  .item1 {
-    animation-delay: calc(30s / 15 * (15 - 1) * -1);
-  }
-  .item2 {
-    animation-delay: calc(30s / 15 * (15 - 2) * -1);
-  }
-  .item3 {
-    animation-delay: calc(30s / 15 * (15 - 3) * -1);
-  }
-  .item4 {
-    animation-delay: calc(30s / 15 * (15 - 4) * -1);
-  }
-  .item5 {
-    animation-delay: calc(30s / 15 * (15 - 5) * -1);
-  }
-  .item6 {
-    animation-delay: calc(30s / 15 * (15 - 6) * -1);
-  }
-  .item7 {
-    animation-delay: calc(30s / 15 * (15 - 7) * -1);
-  }
-  .item8 {
-    animation-delay: calc(30s / 15 * (15 - 8) * -1);
-  }
-  .item9 {
-    animation-delay: calc(30s / 15 * (15 - 9) * -1);
-  }
-  .item10 {
-    animation-delay: calc(30s / 15 * (15 - 10) * -1);
-  }
-  .item11 {
-    animation-delay: calc(30s / 15 * (15 - 11) * -1);
-  }
-  .item12 {
-    animation-delay: calc(30s / 15 * (15 - 12) * -1);
-  }
-  .item13 {
-    animation-delay: calc(30s / 15 * (15 - 13) * -1);
-  }
-  .item14 {
-    animation-delay: calc(30s / 15 * (15 - 14) * -1);
-  }
-  .item15 {
-    animation-delay: calc(30s / 15 * (15 - 15) * -1);
-  }
-  @keyframes scrollLeft {
-    to {
-      left: -200px;
-    }
-  }
-</style>

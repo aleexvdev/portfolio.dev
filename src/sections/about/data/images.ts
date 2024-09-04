@@ -29,7 +29,7 @@ export const images = [
   },
   {
     id: '5',
-    path: 'public/images/skills/express-js.png',
+    path: 'public/images/skills/Express.js_dark.svg',
     alt: 'Express.js',
     title: 'Express.js',
     description: 'Express.js'
