@@ -10,7 +10,7 @@ import { images } from "./data/images";
   <div
     class="w-full h-full bg-transparent flex flex-col items-center justify-center"
   >
-    <div class="grid p-0 grid-cols-1  lg:grid-cols-3 lg:grid-rows-8 h-full w-full gap-y-4 lg:gap-3">
+    <div class="grid p-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 h-full w-full gap-y-4 md:gap-3">
       <article
         class="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
       >
@@ -23,7 +23,7 @@ import { images } from "./data/images";
             />
           </div>
           <div class="w-full h-full ml-4 flex flex-col items-start justify-center gap-y-1">
-            <p class="text-white/90 text-base lg:text-lg font-medium tracking-wide text-nowrap">Alexander Valverde</p>
+            <p class="text-white/90 text-lg md:text-xl lg:text-xl font-medium tracking-wide text-nowrap">Alexander Valverde</p>
             <div class="w-full flex items-center justify-between gap-x-2">
               <span class="text-white/50 font-normal text-sm">@aleexvdev</span>
               <span class="text-white/90 bg-green-700 px-2 py-1 rounded-2xl font-normal text-xs">En línea</span>
@@ -55,13 +55,13 @@ import { images } from "./data/images";
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
-            class="w-full text-2xl lg:text-3xl font-bold flex flex-col items-start text-white"
+            class="w-full text-2xl md:text-3xl font-bold flex flex-col items-start text-white"
           >
             Mi lado personal
           </h1>
         </header>
-        <div class="w-full h-full max flex-col items-start justify-start mb-5">
-          <p class="w-full text-white/75 font-light text-sm lg:text-base mb-5">
+        <div class="w-full h-full max flex-col items-start justify-start mb-0">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
             Me considero una persona resiliente, responsable y optimista. No
             importa cuán complejo sea el desafío que enfrente, siempre encuentro
             una manera de superarlo, manteniendo una perspectiva positiva y una
@@ -69,14 +69,14 @@ import { images } from "./data/images";
             resiliente, me considero una persona comprometida y enfocada en mis
             metas.
           </p>
-          <p class="w-full text-white/75 font-light text-sm lg:text-base mb-5">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
             Siempre busco mejorar y aprender de cada experiencia, lo que me
             permite crecer tanto personal como profesionalmente. Estoy
             convencido de que cada reto es una oportunidad para evolucionar y
             que con determinación y una actitud positiva, todo es posible.
           </p>
         </div>
-        <div class="w-full h-full flex overflow-x-auto gap-4 px-6 py-4">
+        <div class="w-full h-full flex overflow-x-auto gap-4 px-6 py-4 lg:mt-5">
           <div
             class="relative flex flex-col items-center justify-center bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl shadow-lg transform hover:scale-105 hover:rotate-2 transition-transform duration-500 ease-in-out w-24 h-24"
           >
@@ -179,7 +179,7 @@ import { images } from "./data/images";
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
-            class="w-full text-2xl lg:text-3xl font-bold flex flex-col items-left text-white"
+            class="w-full text-2xl md:text-3xl font-bold flex flex-col items-left text-white"
           >
             Mis habilidades
           </h1>
@@ -191,17 +191,17 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="relative flex flex-col col-span-1 row-span-2 lg:col-span-3 lg:row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="relative flex flex-col col-span-1 row-span-2 md:col-span-2 md:row-span-3 lg:col-span-3 lg:row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
-            class="w-full text-2xl lg:text-3xl font-bold flex flex-col items-start text-white"
+            class="w-full text-2xl md:text-3xl font-bold flex flex-col items-start text-white"
           >
             En el trabajo
           </h1>
         </header>
-        <div class="w-full h-max flex flex-col items-start justify-start mb-24 lg:mb-0">
-          <p class="w-full text-white/75 font-light text-sm lg:text-base mb-5">
+        <div class="w-full h-max flex flex-col items-start justify-start mb-24 md:mb-48 lg:mb-0">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
             Con casi 3 años de experiencia en desarrollo web, me especializo en
             crear aplicaciones escalables y adaptadas a las necesidades del
             cliente. Mi enfoque combina un entendimiento profundo de los
@@ -210,7 +210,7 @@ import { images } from "./data/images";
             proactivo, siempre buscando mejorar procesos y contribuir al éxito
             de cada proyecto.
           </p>
-          <p class="w-full text-white/75 font-light text-sm lg:text-base mb-5">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
             Estoy continuamente explorando nuevas tecnologías y metodologías
             para mantenerme actualizado con las mejores prácticas en el campo,
             lo que me permite contribuir de manera significativa a los proyectos
@@ -218,7 +218,7 @@ import { images } from "./data/images";
           </p>
         </div>
         <div
-          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 overflow-hidden w-[95%] lg:w-4/5 mx-auto h-auto shadow-2xl shadow-black/20 opacity-80 rounded-t-lg transition-transform duration-500 hover:scale-105"
+          class="absolute bottom-0 left-1/2 transform -translate-x-1/2 overflow-hidden w-[95%] md:w-[90%] lg:w-4/5 mx-auto h-auto shadow-2xl shadow-black/20 opacity-80 rounded-t-lg transition-transform duration-500 hover:scale-105"
           style="mask-image: linear-gradient(black 60%, transparent);"
         >
           <img
@@ -231,31 +231,31 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="flex flex-col col-span-1 row-span-1 lg:col-span-2 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
-            class="w-full text-2xl lg:text-3xl font-bold flex flex-col items-start text-white"
+            class="w-full text-2xl md:text-3xl font-bold flex flex-col items-start text-white"
           >
             Educación
           </h1>
         </header>
         <div class="w-full">
           <h2
-            class="text-white text-xl lg:text-2xl text-wrap font-semibold hover:text-[#22C55E]"
+            class="text-white text-xl md:text-2xl text-wrap font-semibold hover:text-[#22C55E]"
           >
             Bachiller en Ingeniería Informática
           </h2>
           <div class="w-full mt-2 mb-3 flex items-start justify-start">
-            <span class="text-nowrap text-[#6E6E6F] font-normal text-base lg:text-lg"
+            <span class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg"
               >Lima, Perú</span
             >
-            <span class="w-px h-4 lg:h-5 bg-[#6E6E6F] mx-2 my-1"></span>
-            <span class="text-nowrap text-[#6E6E6F] font-normal text-base lg:text-lg">
+            <span class="w-px h-4 md:h-5 bg-[#6E6E6F] mx-2 my-1"></span>
+            <span class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg">
               2016 - 2021
             </span>
           </div>
-          <p class="text-white/75 font-normal text-sm lg:text-base">
+          <p class="text-white/75 font-normal text-sm md:text-base">
             Graduado por la Universidad Nacional José Faustino Sánchez Carrión
             en Ingeniería Informática, donde desarrollé una base sólida en áreas
             clave como la gestión de tecnologías de la información, desarrollo
@@ -267,21 +267,21 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="w-full flex flex-col col-span-1 row-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="w-full flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
-            class="w-full text-2xl lg:text-3xl font-bold flex flex-col items-start text-white"
+            class="w-full text-2xl md:text-3xl font-bold flex flex-col items-start text-white"
           >
             Mi ubicación
           </h1>
         </header>
         <div class="w-full h-full">
-          <div class="w-full h-full flex flex-col items-center justify-end">
+          <div class="w-full h-full flex flex-col md:flex-row lg:flex-col items-center justify-center md:justify-center lg:justify-center">
             <div
-              class="w-full flex flex-col items-center justify-center gap-y-2"
+              class="w-full flex flex-col items-center justify-center gap-y-2k"
             >
-              <p class="text-white text-3xl lg:text-4xl font-bold">
+              <p class="text-white text-3xl md:text-4xl font-bold">
                 Sede en
                 <span
                   class="bg-gradient-to-r from-red-600 via-white to-red-600 bg-clip-text text-transparent"
@@ -295,18 +295,18 @@ import { images } from "./data/images";
                   alt="Bandera de Perú"
                   class="w-6 h-6 object-cover"
                 />
-                <p class="text-white/90 text-xl lg:text-2xl">Perú</p>
+                <p class="text-white/90 text-xl md:text-2xl">Perú</p>
               </div>
-              <p class="text-white/75 text-sm lg:text-base">Botame tu Gaaaa!</p>
+              <p class="text-white/75 text-sm md:text-base">Botame tu Gaaaa!</p>
             </div>
-            <div class="w-full h-px bg-[#6E6E6F] my-4"></div>
+            <div class="w-full h-px bg-[#6E6E6F] my-4 md:w-px md:h-[90%] md:my-0 md:mx-4 lg:mx-0 lg:my-4 lg:h-px lg:w-full"></div>
             <div class="w-full flex flex-col items-center justify-center">
               <div class="w-full h-max flex items-end justify-center gap-x-2">
                 <Times />
-                <span class="text-white text-base lg:text-lg mb-0.5 lg:mb-0">CEST</span>
+                <span class="text-white text-base md:text-lg mb-0.5 md:mb-0">CEST</span>
               </div>
               <p
-                class="text-white/75 text-wrap text-center font-medium text-sm lg:text-base"
+                class="text-white/75 text-wrap text-center font-medium text-sm md:text-base"
               >
                 Domingo, 1 de septiembre de 2022
               </p>

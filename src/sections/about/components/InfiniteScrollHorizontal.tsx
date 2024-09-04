@@ -69,7 +69,7 @@ export const InfiniteScrollHorizontal = ({ images }: Props) => {
             <img
               src={image.path}
               alt={image.alt}
-              className="w-auto h-14 lg:h-16 object-cover"
+              className="w-auto h-14 md:h-16 object-cover"
               loading="lazy"
               decoding="async"
             />
