@@ -1,6 +1,7 @@
 export interface ImageGallery {
-  id: string;
-  path: string;
+  id: number;
+  path_dark: string;
+  path_light: string;
   alt: string;
   title: string;
   description: string;

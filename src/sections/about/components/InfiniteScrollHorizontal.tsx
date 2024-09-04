@@ -67,7 +67,7 @@ export const InfiniteScrollHorizontal = ({ images }: Props) => {
             whileTap={{ scale: 0.95 }}
           >
             <img
-              src={image.path}
+              src={image.path_dark}
               alt={image.alt}
               className="w-auto h-14 md:h-16 object-cover"
               loading="lazy"
