@@ -23,7 +23,7 @@ export const DialogMenu = () => {
             <div className="max-w-md mx-auto py-10 md:mb-8">
               <Drawer.Title className="font-medium"></Drawer.Title>
               <nav className="w-full flex flex-col items-center justify-center gap-y-3">
-                <li className="text-white list-none transition-colors duration-300 hover:text-[#FFEA9F]">
+                <li className="text-white list-none transition-colors duration-300 hover:text-[#22C55E]">
                   <a
                     href="#experience"
                     aria-label="experience"
@@ -35,7 +35,7 @@ export const DialogMenu = () => {
                     </span>
                   </a>
                 </li>
-                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#22C55E]">
                   <a
                     href="#projects"
                     aria-label="projects"
@@ -47,7 +47,7 @@ export const DialogMenu = () => {
                     </span>
                   </a>
                 </li>
-                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#22C55E]">
                   <a
                     href="#about-me"
                     aria-label="about-me"
@@ -59,7 +59,7 @@ export const DialogMenu = () => {
                     </span>
                   </a>
                 </li>
-                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#FFEA9F]">
+                <li className="text-white list-none transition-colors duration-300 ease-out hover:text-[#22C55E]">
                   <a
                     href="#contact"
                     aria-label="contact"
