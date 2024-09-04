@@ -17,16 +17,16 @@ export const images = [
   },
   {
     id: 3,
-    path_light: './images/skills/javascript.png',
-    path_dark: './images/skills/javascript.png',
+    path_light: './images/skills/javascript.svg',
+    path_dark: './images/skills/javascript.svg',
     alt: 'Javascript',
     title: 'Javascript',
     description: 'Javascript'
   },
   {
     id: 4,
-    path_dark: './images/skills/typescript.png',
-    path_light: './images/skills/typescript.png',
+    path_dark: './images/skills/typescript.svg',
+    path_light: './images/skills/typescript.svg',
     alt: 'Typescript',
     title: 'Typescript',
     description: 'Typescript'
@@ -81,8 +81,8 @@ export const images = [
   },
   {
     id: 11,
-    path_dark: './images/skills/nextjs_dark.svg',
-    path_light: './images/skills/nextjs_light.svg',
+    path_dark: './images/skills/nextjs.svg',
+    path_light: './images/skills/nextjs.svg',
     alt: 'Next.js',
     title: 'Next.js',
     description: 'Next.js'

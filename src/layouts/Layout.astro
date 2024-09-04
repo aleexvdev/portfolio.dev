@@ -1,9 +1,9 @@
 ---
-import '@fontsource-variable/onest';
+import "@fontsource-variable/onest";
 
 // #F1F5F9
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,29 +11,32 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
 </html>
 <style is:global>
-	* {
-		margin: 0;
-		padding: 0;
-		box-sizing: border-box;
-		scroll-behavior: smooth;
-	}
-	html {
-		font-family: "Onest Variable", system-ui, sans-serif;
-		background: #09090B;
-		overflow-x: hidden;
-		/* background: #F1F5F9; */
-	}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    background: #09090b;
+    overflow-x: hidden;
+    /* background: #F1F5F9; */
+  }
+  .hover-pause:hover .animate-slide-logos {
+    animation-play-state: paused;
+  }
 </style>

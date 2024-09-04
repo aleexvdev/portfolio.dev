@@ -27,7 +27,23 @@ export default {
         'gradient-desert-mirage': 'linear-gradient(135deg, #F7971E, #FFD200, #FF512F, #F09819)',
         'gradient-mystic-forest': 'linear-gradient(135deg, #2E8B57, #3CB371, #20B2AA, #008080)',
         'gradient-sunset-boulevard': 'linear-gradient(135deg, #FC5C7D, #6A82FB, #FC466B, #3F5EFB)',
-      }
+      },
+      animation: {
+        "slide-logos": "slide-logos 60s linear infinite",
+      },
+      keyframes: {
+        "slide-logos": {
+          to: { transform: "translateX(calc(-50% - 2rem))" },
+        },
+        aurora: {
+          from: {
+            backgroundPosition: "50% 50%, 50% 50%",
+          },
+          to: {
+            backgroundPosition: "350% 50%, 350% 50%",
+          },
+        },
+      },
 		},
 	},
 	plugins: [],
