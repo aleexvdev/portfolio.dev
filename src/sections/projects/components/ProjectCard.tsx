@@ -29,7 +29,7 @@ export const ProjectCard = ({ project }: Props) => {
         <div className="md:w-2/5 relative">
           <img
             className="w-full h-64 md:h-full object-cover object-center"
-            src="public/images/projects/project_1.png"
+            src={image}
             alt="Project preview"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
@@ -80,26 +80,6 @@ export const ProjectCard = ({ project }: Props) => {
               ))}
             </div>
           </div>
-          {/* <div className="flex justify-between items-center">
-            <motion.a
-              href="#"
-              className="flex items-end justify-center text-blue-400 hover:text-blue-300 transition duration-150 ease-in-out space-x-1"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <GithubIcon className="w-6 h-6 mb-1" />
-              <span className="text-base text-pretty">View Code</span>
-            </motion.a>
-            <motion.a
-              href="#"
-              className="flex items-end justify-center text-green-400 hover:text-green-300 transition duration-150 ease-in-out space-x-1"
-              // whileHover={{ scale: 1.1 }}
-              // whileTap={{ scale: 0.95 }}
-            >
-              <SquareArrowOutUpRight className="w-6 h-6 mb-1" />
-              <span className="text-base text-pretty">Live Demo</span>
-            </motion.a>
-          </div> */}
         </div>
         <motion.div
           className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
