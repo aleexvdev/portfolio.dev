@@ -44,7 +44,7 @@ export const ProjectCard = ({ project }: Props) => {
         <div className="md:w-3/5 p-6 flex flex-col justify-between">
           <div className="w-full h-full flex flex-col items-start justify-between">
             <header className="w-full flex items-center justify-between mb-2">
-              <h2 className="text-2xl md:text-3xl font-bold flex flex-col items-start text-white mb-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-white">
                 {projectName}
               </h2>
               <div className="flex items-center gap-x-2">
