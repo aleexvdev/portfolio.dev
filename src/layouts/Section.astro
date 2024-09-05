@@ -4,18 +4,23 @@ import type { SVGProps } from "react";
 interface SectionProps {
   title: string;
   icon: React.FC<SVGProps<SVGSVGElement>>;
+  label: string;
 }
 
-const { title, icon: Icon } = Astro.props as SectionProps;
+const { title, icon: Icon, label } = Astro.props as SectionProps;
 ---
 
 <section
   class="w-full h-max px-6 pb-20 flex flex-col items-center justify-center overflow-hidden"
-  aria-labelledby="experiencia-title"
+  aria-labelledby={label}
 >
   <div class="w-full flex items-center justify-start gap-x-4 pb-10">
-    <h2 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-nowrap">{title}</h2>
-    <div class="w-full h-px bg-[#292929]" />
+    <h2
+      class="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-nowrap"
+    >
+      {title}
+    </h2>
+    <div class="w-full h-px bg-[#2B2B2B]"></div>
   </div>
   <slot />
 </section>

@@ -1,0 +1,12 @@
+---
+import { Section } from "@/layouts";
+import { ProjectList } from "./components/ProjectList";
+---
+
+<Section title="Proyectos" label="projects">
+  <div
+    class="w-full h-full bg-transparent flex flex-col items-center justify-center"
+  >
+    <ProjectList client:load />
+  </div>
+</Section>

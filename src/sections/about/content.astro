@@ -1,39 +1,65 @@
 ---
 import { Section } from "@/layouts";
-import { Bookmark, Heart, MessageCircle, Share2, UserRoundCheck } from "lucide-astro";
+import {
+  Bookmark,
+  Heart,
+  MessageCircle,
+  Share2,
+  UserRoundCheck,
+} from "lucide-astro";
 import Times from "@/components/svelte/Times.svelte";
-import { InfiniteScrollHorizontal } from './components/InfiniteScrollHorizontal';
+import { InfiniteScrollHorizontal } from "./components/InfiniteScrollHorizontal";
 import { images } from "./data/images";
 ---
 
-<Section title="Un poco sobre mí" icon={UserRoundCheck}>
+<Section title="Un poco sobre mí" icon={UserRoundCheck} label="about-me">
   <div
     class="w-full h-full bg-transparent flex flex-col items-center justify-center"
   >
-    <div class="grid p-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 h-full w-full gap-y-4 md:gap-3">
+    <div
+      class="grid p-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 h-full w-full gap-y-4 md:gap-3"
+    >
       <article
-        class="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 border border-gray-700/20 rounded-3xl p-7"
+        style={{
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start justify-between">
-          <div class="w-24 h-auto bg-white/70 rounded-full overflow-hidden border border-green-500">
+          <div
+            class="w-24 h-auto bg-white/70 rounded-full overflow-hidden border border-green-500"
+          >
             <img
               src="./images/profile.png"
               alt="Alexvdev. 🤟"
               class="w-full h-full object-cover bg-transparent"
             />
           </div>
-          <div class="w-full h-full ml-4 flex flex-col items-start justify-center gap-y-1">
-            <p class="text-white/90 text-lg md:text-xl lg:text-xl font-medium tracking-wide text-nowrap">Alexander Valverde</p>
+          <div
+            class="w-full h-full ml-4 flex flex-col items-start justify-center gap-y-1"
+          >
+            <p
+              class="text-white/90 text-lg md:text-xl lg:text-xl font-medium tracking-wide text-nowrap"
+            >
+              Alexander Valverde
+            </p>
             <div class="w-full flex items-center justify-between gap-x-2">
               <span class="text-white/50 font-normal text-sm">@aleexvdev</span>
-              <span class="text-white/90 bg-green-700 px-2 py-1 rounded-2xl font-normal text-xs">En línea</span>
+              <span
+                class="text-white/90 bg-green-700 px-2 py-1 rounded-2xl font-normal text-xs"
+                >En línea</span
+              >
             </div>
           </div>
         </header>
         <div class="w-full h-full bg-black mt-5 p-5 rounded-t-lg">
-          <p class="text-white/90 text-lg lg:text-2xl font-medium">"Si lo puedes imaginar, lo puedes programar."</p>
+          <p class="text-white/90 text-lg lg:text-2xl font-medium">
+            "Si lo puedes imaginar, lo puedes programar."
+          </p>
         </div>
-        <div class="w-full h-20 flex items-center justify-between bg-white px-2.5 rounded-b-lg">
+        <div
+          class="w-full h-20 flex items-center justify-between bg-white px-2.5 rounded-b-lg"
+        >
           <div class="w-full h-full flex items-center justify-start gap-x-4">
             <button>
               <Heart class="w-5 h-5" />
@@ -51,7 +77,10 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="flex flex-col items-start justify-start col-span-1 row-span-2 lg:col-span-2 lg:row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="flex flex-col items-start justify-start col-span-1 row-span-2 lg:col-span-2 lg:row-span-3 border border-gray-700/20 rounded-3xl p-7"
+        style={{ 
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
@@ -61,7 +90,7 @@ import { images } from "./data/images";
           </h1>
         </header>
         <div class="w-full h-full max flex-col items-start justify-start mb-0">
-          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5 text-pretty">
             Me considero una persona resiliente, responsable y optimista. No
             importa cuán complejo sea el desafío que enfrente, siempre encuentro
             una manera de superarlo, manteniendo una perspectiva positiva y una
@@ -69,7 +98,7 @@ import { images } from "./data/images";
             resiliente, me considero una persona comprometida y enfocada en mis
             metas.
           </p>
-          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5 text-pretty">
             Siempre busco mejorar y aprender de cada experiencia, lo que me
             permite crecer tanto personal como profesionalmente. Estoy
             convencido de que cada reto es una oportunidad para evolucionar y
@@ -175,7 +204,10 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="flex flex-col col-span-1 row-span-1 lg:col-span-1 lg:row-span-1 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="flex flex-col col-span-1 row-span-1 lg:col-span-1 lg:row-span-1 border border-gray-700/20 rounded-3xl p-7"
+        style={{ 
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
@@ -191,7 +223,10 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="relative flex flex-col col-span-1 row-span-2 md:col-span-2 md:row-span-3 lg:col-span-3 lg:row-span-3 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="relative flex flex-col col-span-1 row-span-2 md:col-span-2 md:row-span-3 lg:col-span-3 lg:row-span-3 border border-gray-700/20 rounded-3xl p-7"
+        style={{ 
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
@@ -200,8 +235,10 @@ import { images } from "./data/images";
             En el trabajo
           </h1>
         </header>
-        <div class="w-full h-max flex flex-col items-start justify-start mb-24 md:mb-48 lg:mb-0">
-          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
+        <div
+          class="w-full h-max flex flex-col items-start justify-start mb-24 md:mb-48 lg:mb-0"
+        >
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5 text-pretty">
             Con casi 3 años de experiencia en desarrollo web, me especializo en
             crear aplicaciones escalables y adaptadas a las necesidades del
             cliente. Mi enfoque combina un entendimiento profundo de los
@@ -210,7 +247,7 @@ import { images } from "./data/images";
             proactivo, siempre buscando mejorar procesos y contribuir al éxito
             de cada proyecto.
           </p>
-          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5">
+          <p class="w-full text-white/75 font-light text-sm md:text-base mb-5 text-pretty">
             Estoy continuamente explorando nuevas tecnologías y metodologías
             para mantenerme actualizado con las mejores prácticas en el campo,
             lo que me permite contribuir de manera significativa a los proyectos
@@ -231,7 +268,10 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 border border-gray-700/20 rounded-3xl p-7"
+        style={{ 
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
@@ -247,11 +287,14 @@ import { images } from "./data/images";
             Bachiller en Ingeniería Informática
           </h2>
           <div class="w-full mt-2 mb-3 flex items-start justify-start">
-            <span class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg"
+            <span
+              class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg"
               >Lima, Perú</span
             >
             <span class="w-px h-4 md:h-5 bg-[#6E6E6F] mx-2 my-1"></span>
-            <span class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg">
+            <span
+              class="text-nowrap text-[#6E6E6F] font-normal text-base md:text-lg"
+            >
               2016 - 2021
             </span>
           </div>
@@ -267,7 +310,10 @@ import { images } from "./data/images";
         </div>
       </article>
       <article
-        class="w-full flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1 border border-gray-700/20 rounded-3xl bg-[#1D1D1D] p-7"
+        class="w-full flex flex-col col-span-1 row-span-1 md:col-span-2 md:row-span-1 lg:col-span-1 lg:row-span-1 border border-gray-700/20 rounded-3xl p-7"
+        style={{ 
+          background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
+        }}
       >
         <header class="w-full h-max flex items-start mb-6">
           <h1
@@ -277,7 +323,9 @@ import { images } from "./data/images";
           </h1>
         </header>
         <div class="w-full h-full">
-          <div class="w-full h-full flex flex-col md:flex-row lg:flex-col items-center justify-center md:justify-center lg:justify-center">
+          <div
+            class="w-full h-full flex flex-col md:flex-row lg:flex-col items-center justify-center md:justify-center lg:justify-center"
+          >
             <div
               class="w-full flex flex-col items-center justify-center gap-y-2k"
             >
@@ -299,11 +347,16 @@ import { images } from "./data/images";
               </div>
               <p class="text-white/75 text-sm md:text-base">Botame tu Gaaaa!</p>
             </div>
-            <div class="w-full h-px bg-[#6E6E6F] my-4 md:w-px md:h-[90%] md:my-0 md:mx-4 lg:mx-0 lg:my-4 lg:h-px lg:w-full"></div>
+            <div
+              class="w-full h-px bg-[#6E6E6F] my-4 md:w-px md:h-[90%] md:my-0 md:mx-4 lg:mx-0 lg:my-4 lg:h-px lg:w-full"
+            >
+            </div>
             <div class="w-full flex flex-col items-center justify-center">
               <div class="w-full h-max flex items-end justify-center gap-x-2">
                 <Times />
-                <span class="text-white text-base md:text-lg mb-0.5 md:mb-0">CEST</span>
+                <span class="text-white text-base md:text-lg mb-0.5 md:mb-0"
+                  >CEST</span
+                >
               </div>
               <p
                 class="text-white/75 text-wrap text-center font-medium text-sm md:text-base"
