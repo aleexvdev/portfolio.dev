@@ -1,43 +1,89 @@
 ---
+import { Tooltip } from "@/components/react/Tooltip";
 import CardHero from "./components/CardHero.astro";
 import { FileText, Github, Linkedin, Mail } from "lucide-astro";
 ---
 
-<section class="w-full h-max px-6 flex items-center justify-center overflow-hidden" aria-labelledby="hero-title">
+<section
+  class="w-full h-max px-6 flex items-center justify-center overflow-hidden pt-36 lg:pt-40"
+  aria-labelledby="hero-title"
+>
   <div class="w-full h-full flex flex-col space-y-8 items-center">
-    <CardHero title="Alexander Valverde" subtitle={"Desarrollador Full Stack"} />
-    <div class="w-full h-full flex flex-col items-center space-y-4 md:space-y-0 md:space-x-4 mt-2 md:flex-row">
-      <div class="w-max h-full relative inline-flex overflow-hidden rounded-lg p-px">
-        <div class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"></div>
-        <div class="w-full h-full flex items-center justify-center space-x-3 backdrop-blur-3xl px-3 py-2 bg-[#0C0A09] rounded-lg">
-          <span class="block w-3 h-3 rounded-full bg-green-500 animate-custom-pulse"></span>
-          <span class="ripple absolute left-0 w-3 h-3 rounded-full bg-green-500"></span>
-          <span class="inline-flex text-sm font-normal text-white text-nowrap">Disponible para trabajar</span>
+    <CardHero
+      title="Alexander Valverde"
+      subtitle={"Desarrollador Full Stack"}
+    />
+    <div
+      class="w-full h-full flex flex-col items-center space-y-4 md:space-y-0 md:space-x-4 mt-2 md:flex-row pb-16"
+    >
+      <div
+        class="w-max h-full relative inline-flex overflow-hidden rounded-lg p-px"
+      >
+        <div
+          class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
+        >
+        </div>
+        <div
+          class="w-full h-full flex items-center justify-center space-x-3 backdrop-blur-3xl px-3 py-2 bg-[#0C0A09] rounded-lg"
+        >
+          <span
+            class="block w-3 h-3 rounded-full bg-green-500 animate-custom-pulse"
+          ></span>
+          <span class="ripple absolute left-0 w-3 h-3 rounded-full bg-green-500"
+          ></span>
+          <span class="inline-flex text-sm font-normal text-white text-nowrap"
+            >Disponible para trabajar</span
+          >
         </div>
       </div>
       <div class="w-44 h-0.5 rounded-xl md:w-0.5 md:h-10 bg-gray-500"></div>
-      <div class="w-max flex items-center space-x-4">
-        <a href="https://www.linkedin.com/in/alexvdev/" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition">
-          <Linkedin class="w-7 h-7" />
-        </a>
-        <a href="https://github.com/aleexvdev" aria-label="GitHub" class="text-gray-400 hover:text-white transition">
-          <Github class="w-7 h-7" />
-        </a>
-        <a href="mailto:alexvalverde.dev@example.com" aria-label="Curriculum" class="text-gray-400 hover:text-white transition">
-          <FileText class="w-7 h-7" />
-        </a>
-        <a href="mailto:alexvalverde.dev@example.com" aria-label="Email" class="text-gray-400 hover:text-white transition">
-          <Mail class="w-7 h-7" />
-        </a>
+      <div class="w-max flex items-center gap-x-2 relative">
+        <Tooltip content="LinkedIn" position="bottom" client:load>
+          <a
+            href="https://www.linkedin.com/in/alexvdev/"
+            target="_blank"
+            aria-label="LinkedIn"
+            class="flex items-center justify-center px-3 py-2 bg-transparent text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+          >
+            <Linkedin class="w-7 h-7" />
+          </a>
+        </Tooltip>
+        <Tooltip content="GitHub" position="bottom" client:load>
+          <a
+            href="https://github.com/aleexvdev"
+            aria-label="GitHub"
+            class="flex items-center justify-center px-3 py-2 bg-transparent text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+          >
+            <Github class="w-7 h-7" />
+          </a>
+        </Tooltip>
+        <Tooltip content="Curriculum" position="bottom" client:load>
+          <a
+            href="mailto:alexvalverde.dev@example.com"
+            aria-label="Curriculum"
+            class="flex items-center justify-center px-3 py-2 bg-transparent text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+          >
+            <FileText class="w-7 h-7" />
+          </a>
+        </Tooltip>
+        <Tooltip content="Email" position="bottom" client:load>
+          <a
+            href="mailto:alexvalverde.dev@example.com"
+            aria-label="Email"
+            class="flex items-center justify-center px-3 py-2 bg-transparent text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+          >
+            <Mail class="w-7 h-7" />
+          </a>
+        </Tooltip>
       </div>
     </div>
   </div>
 </section>
 
-
 <style>
   @keyframes custom-pulse {
-    0%, 100% {
+    0%,
+    100% {
       transform: scale(1);
       opacity: 1;
     }

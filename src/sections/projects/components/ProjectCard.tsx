@@ -31,7 +31,9 @@ export const ProjectCard = ({ project }: Props) => {
           <img
             className="w-full h-64 md:h-full object-cover object-center"
             src={image}
-            alt="Project preview"
+            alt={projectName}
+            loading="lazy"
+            decoding="async"
           />
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
             <a
@@ -53,18 +55,20 @@ export const ProjectCard = ({ project }: Props) => {
                   <a
                     href={github}
                     target="_blank"
+                    aria-label="Repositorio de GitHub"
                     className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
                   >
-                    <Github className="w-6 h-6" />
+                    <Github className="w-7 h-7" />
                   </a>
                 </Tooltip>
                 <Tooltip content="¡Pruébalo!" position="bottom" animation={true}>
                   <a
                     href={liveDemo}
                     target="_blank"
+                    aria-label="Ver proyecto"
                     className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
                   >
-                    <SquareArrowOutUpRight className="w-6 h-6" />
+                    <SquareArrowOutUpRight className="w-7 h-7" />
                   </a>
                 </Tooltip>
               </div>
