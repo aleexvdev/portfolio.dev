@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, SquareArrowOutUpRight } from "lucide-react";
 import type { Project } from "../types/types";
+import { Tooltip } from "@/components/react/Tooltip";
 
 interface Props {
   project: Project;
@@ -41,19 +42,31 @@ export const ProjectCard = ({ project }: Props) => {
             </a>
           </div>
         </div>
-        <div className="md:w-3/5 p-6 flex flex-col justify-between">
+        <div className="md:w-3/5 py-6 px-8 flex flex-col justify-between">
           <div className="w-full h-full flex flex-col items-start justify-between">
             <header className="w-full flex items-center justify-between mb-2">
               <h2 className="text-2xl md:text-3xl font-bold text-white">
                 {projectName}
               </h2>
               <div className="flex items-center gap-x-2">
-                <a href={github} target="_blank" className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-gray-600">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href={liveDemo} target="_blank" className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-gray-600">
-                  <SquareArrowOutUpRight className="w-6 h-6" />
-                </a>
+                <Tooltip content="Repositorio de GitHub" position="bottom" animation={true}>
+                  <a
+                    href={github}
+                    target="_blank"
+                    className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+                  >
+                    <Github className="w-6 h-6" />
+                  </a>
+                </Tooltip>
+                <Tooltip content="¡Pruébalo!" position="bottom" animation={true}>
+                  <a
+                    href={liveDemo}
+                    target="_blank"
+                    className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
+                  >
+                    <SquareArrowOutUpRight className="w-6 h-6" />
+                  </a>
+                </Tooltip>
               </div>
             </header>
             <p className="mb-4 text-white/75 font-light text-sm md:text-base text-pretty">
@@ -65,11 +78,7 @@ export const ProjectCard = ({ project }: Props) => {
                   key={id}
                   className="relative flex items-center justify-center px-4 py-2 text-base font-medium tracking-wide rounded-2xl bg-[#0b0b0b] text-white/90 select-none border border-white/10 transition-colors duration-300 ease-out group"
                 >
-                  <img
-                    src={icon}
-                    alt={name}
-                    className="w-5 h-5"
-                  />
+                  <img src={icon} alt={name} className="w-5 h-5" />
                   <span className="ml-2 text-nowrap text-sm font-medium text-white/90">
                     {name}
                   </span>
