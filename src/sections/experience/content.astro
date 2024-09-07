@@ -1,9 +1,12 @@
 ---
 import { Section } from "@/layouts";
-import { Briefcase } from "lucide-astro";
-
+import { ExperienceList } from "./components/ExperienceList";
 ---
 
-<Section title="¿Dónde he trabajado?" icon={Briefcase} label="experience">
-  <div class="text-white">Experiencia</div>
+<Section title="¿Dónde he trabajado?" label="experience">
+  <div
+    class="w-full h-full bg-transparent flex flex-col items-center justify-center"
+  >
+    <ExperienceList client:load />
+  </div>
 </Section>
