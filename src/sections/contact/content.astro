@@ -1,17 +1,19 @@
 ---
 import { Section } from "@/layouts";
 import { FormContact, SocialChannels } from "./components";
+import { ButtonLink } from "@/components/react/ButtonLink";
 ---
 
 <Section title="Envíame un mensaje" label="contact">
   <div class="w-full h-full bg-transparent">
-    <div class="w-full grid grid-cols-4 grid-rows-4 gap-6">
+    <div class="w-full grid grid-cols-1 lg:grid-cols-4 grid-rows-4 gap-6">
       <div class="col-span-2 row-span-4">
         <header class="w-full h-max flex items-start mb-6">
           <h2
             class="w-full text-lg md:text-xl lg:text-lg text-pretty font-medium text-center text-white/75"
           >
-            Completa el formulario y me pondré en contacto contigo a la brevedad.
+            Completa el formulario y me pondré en contacto contigo a la
+            brevedad.
           </h2>
         </header>
         <div
@@ -28,13 +30,17 @@ import { FormContact, SocialChannels } from "./components";
             Contáctame cuando quieras
           </h2>
         </header>
-        <p class="w-full text-white/75 text-base md:text-lg mb-6 text-pretty font-medium">
-          ¿Tienes alguna pregunta o idea en mente? O simplemente quieres conectar. Escríbeme y estaré encantado de responderte.
+        <p
+          class="w-full text-white/75 text-base md:text-lg mb-6 text-pretty font-medium"
+        >
+          ¿Tienes alguna pregunta o idea en mente? O simplemente quieres
+          conectar. Escríbeme y estaré encantado de responderte.
         </p>
         <div class="w-full flex items-center justify-center mt-2">
-          <a
+          <ButtonLink 
+            client:load 
             href="mailto:alexvalverde.dev@gmail.com"
-            class="w-max flex items-start justify-start bg-white/10 rounded-xl px-5 py-3 text-white hover:text-[#22C55E]"
+            className="w-max flex items-start justify-start bg-white/10 rounded-xl px-5 py-3 text-white hover:text-[#22C55E] transition-colors duration-300"
           >
             <img
               src="./images/social/gmail.svg"
@@ -44,7 +50,7 @@ import { FormContact, SocialChannels } from "./components";
             <p class="font-medium text-base md:text-lg">
               alexvalverde.dev@gmail.com
             </p>
-          </a>
+          </ButtonLink>
         </div>
       </div>
       <div class="col-span-2 row-span-2 rounded-3xl p-7">
