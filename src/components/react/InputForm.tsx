@@ -25,7 +25,7 @@ export const InputForm = ({ label, placeholder, type, name, id, disabled = false
   return (
     <>
       <label
-        className="ml-1 text-sm md:text-base lg:text-lg font-medium text-black dark:text-white/75 leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+        className="ml-1 text-sm md:text-base lg:text-lg font-medium text-black dark:text-white leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
         htmlFor="name"
       >
         {label}
