@@ -30,8 +30,19 @@ export default {
       },
       animation: {
         "slide-logos": "slide-logos 60s linear infinite",
+        'custom-pulse': 'custom-pulse 1.2s infinite',
+        'ripple': 'ripple-effect 1.2s infinite',
+        'spin-slow': 'spin 2s linear infinite',
       },
       keyframes: {
+        'custom-pulse': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.1)', opacity: '0.6' },
+        },
+        'ripple-effect': {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(2)', opacity: '0' },
+        },
         "slide-logos": {
           to: { transform: "translateX(calc(-50% - 2rem))" },
         },
