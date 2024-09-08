@@ -22,16 +22,16 @@ export const socials: Social[] = [
     icon_dark: "./images/social/discord.svg",
     icon_light: "./images/social/discord.svg"
   },
-  {
+  /* {
     id: 4,
     name: "Threads",
     path: "#",
     icon_dark: "./images/social/threads_dark.svg",
     icon_light: "./images/social/threads_light.svg"
-  },
+  }, */
   {
     id: 5,
-    name: "skype",
+    name: "Skype",
     path: "https://join.skype.com/invite/5e8c0c7d-d5f6-4f0a-b2e7-a2c2f5d4d0e1",
     icon_dark: "./images/social/skype.svg",
     icon_light: "./images/social/skype.svg"

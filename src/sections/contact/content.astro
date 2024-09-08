@@ -1,35 +1,64 @@
 ---
 import { Section } from "@/layouts";
 import { FormContact, SocialChannels } from "./components";
-
 ---
 
 <Section title="Envíame un mensaje" label="contact">
   <div class="w-full h-full bg-transparent">
     <div class="w-full grid grid-cols-4 grid-rows-4 gap-6">
-      <div class="col-span-2 row-span-4 bg-black border border-gray-700/20 rounded-3xl p-7">
+      <div class="col-span-2 row-span-4">
         <header class="w-full h-max flex items-start mb-6">
-          <h2 class="w-full text-lg md:text-xl lg:text-lg font-semibold text-center text-white">Completa el formulario y me pondré en contacto contigo pronto.</h2>
+          <h2
+            class="w-full text-lg md:text-xl lg:text-lg text-pretty font-medium text-center text-white/75"
+          >
+            Completa el formulario y me pondré en contacto contigo a la brevedad.
+          </h2>
         </header>
-        <FormContact client:load />
+        <div
+          class="bg-[#0E0C0C] border border-green-700/20 rounded-3xl px-7 shadow-lg shadow-[#202d1e] transition-all duration-300 hover:shadow-xl hover:shadow-[#202d1e]"
+        >
+          <FormContact client:load />
+        </div>
       </div>
-      <div class="col-span-2 row-span-2 bg-black border border-gray-700/20 rounded-3xl p-7">
+      <div class="col-span-2 row-span-2 rounded-3xl p-7">
         <header class="w-full h-max flex items-start mb-6">
-          <h2 class="w-full text-lg md:text-xl lg:text-2xl font-semibold text-left text-[#22C55E]">Contáctame cuando quieras</h2>
+          <h2
+            class="w-full text-lg md:text-xl lg:text-2xl font-semibold text-left text-[#22C55E]"
+          >
+            Contáctame cuando quieras
+          </h2>
         </header>
-        <p class="w-full text-white/75 text-base md:text-lg mb-6">Si tienes una pregunta, un proyecto en mente, o simplemente quieres saludar, mi correo es:</p>
+        <p class="w-full text-white/75 text-base md:text-lg mb-6 text-pretty font-medium">
+          ¿Tienes alguna pregunta o idea en mente? O simplemente quieres conectar. Escríbeme y estaré encantado de responderte.
+        </p>
         <div class="w-full flex items-center justify-center mt-2">
-          <a href="mailto:alexvalverde.dev@gmail.com" class="w-max flex items-start justify-start bg-white/10 rounded-xl px-5 py-3 text-white hover:text-[#22C55E]">
-            <img src="./images/social/gmail.svg" alt="Gmail" class="w-6 h-6 mr-2" />
-            <p class="font-medium text-base md:text-lg">alexvalverde.dev@gmail.com</p>
+          <a
+            href="mailto:alexvalverde.dev@gmail.com"
+            class="w-max flex items-start justify-start bg-white/10 rounded-xl px-5 py-3 text-white hover:text-[#22C55E]"
+          >
+            <img
+              src="./images/social/gmail.svg"
+              alt="Gmail"
+              class="w-6 h-6 mr-2"
+            />
+            <p class="font-medium text-base md:text-lg">
+              alexvalverde.dev@gmail.com
+            </p>
           </a>
         </div>
       </div>
-      <div class="col-span-2 row-span-2 bg-black border border-gray-700/20 rounded-3xl p-7">
+      <div class="col-span-2 row-span-2 rounded-3xl p-7">
         <header class="w-full h-max flex items-start mb-6">
-          <h2 class="w-full text-lg md:text-xl lg:text-2xl font-semibold text-left text-[#22C55E]">¡Muchas gracias por tu tiempo!</h2>
+          <h2
+            class="w-full text-lg md:text-xl lg:text-2xl text-pretty font-medium text-left text-[#22C55E]"
+          >
+            ¡Muchas gracias por tu tiempo!
+          </h2>
         </header>
-        <p class="w-full text-white/75 text-base md:text-lg mb-6">Si así lo prefieres, no dudes en contactarme a través de cualquiera de estos canales:</p>
+        <p class="w-full text-white/75 text-base md:text-lg mb-6">
+          Si así lo prefieres, no dudes en contactarme a través de cualquiera de
+          estos canales:
+        </p>
         <SocialChannels client:load />
       </div>
     </div>

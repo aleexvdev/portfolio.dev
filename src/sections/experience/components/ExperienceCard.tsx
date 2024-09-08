@@ -41,8 +41,7 @@ export const ExperienceCard = ({ experience }: Props) => {
       variants={itemVariants}
       className="relative w-full rounded-2xl overflow-hidden shadow-xl shadow-[#141211] transition-all duration-300"
       whileHover={{
-        boxShadow:
-          "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
       }}
     >
       <motion.div
