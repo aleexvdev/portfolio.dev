@@ -161,8 +161,8 @@ export const AnimatedHero = ({ title, subtitle }: Props) => {
           variants={itemVariants}
         >
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight tracking-normal text-wrap text-center bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-green-400 to-green-200"
-            style={{ textShadow: "0px 4px 6px rgba(0, 0, 0, 0.6)" }}
+            className="text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight tracking-normal text-wrap text-center bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-green-400 to-green-500"
+            style={{ textShadow: "0px 4px 6px rgba(0, 0, 0, 0.346)" }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}

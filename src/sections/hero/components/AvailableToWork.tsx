@@ -5,7 +5,7 @@ export const AvailableToWork = () => {
       <div className="w-full h-full flex items-center justify-center space-x-3 backdrop-blur-3xl px-3 py-2 bg-[#0C0A09] rounded-lg">
         <span className="block w-3 h-3 rounded-full bg-green-500 animate-custom-pulse"></span>
         <span className="animate-ripple absolute left-0 w-3 h-3 rounded-full bg-green-500"></span>
-        <span className="inline-flex text-sm font-normal text-white text-nowrap">
+        <span className="inline-flex text-sm md:text-base lg:text-lg font-normal text-white text-nowrap">
           Disponible para trabajar
         </span>
       </div>
