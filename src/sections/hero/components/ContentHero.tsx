@@ -18,7 +18,7 @@ export const ContentHero = ({ children }: Props) => {
     >
       {children}
       <motion.div
-        className="w-full h-full flex flex-col items-center justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-0 mt-2 md:flex-row pb-16"
+        className="w-full h-full flex flex-col items-center md:items-start justify-center md:justify-between space-y-4 md:space-y-0 md:space-x-0 mt-2 md:flex-row pb-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.5 }}
