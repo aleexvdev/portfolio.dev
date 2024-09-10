@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import type { Experience } from "../types/types";
 import {
+  ArrowRight,
   Building2,
   CalendarDays,
   ChevronDown,
@@ -27,7 +28,8 @@ const itemVariants = {
 };
 
 export const ExperienceCard = ({ experience }: Props) => {
-  const { id, company, role, period, description, achievements, skills } = experience;
+  const { id, company, role, period, description, achievements, skills } =
+    experience;
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isActive, setIsActive] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -35,11 +37,13 @@ export const ExperienceCard = ({ experience }: Props) => {
 
   useEffect(() => {
     const checkTouchDevice = () => {
-      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
     };
     checkTouchDevice();
-    window.addEventListener('resize', checkTouchDevice);
-    return () => window.removeEventListener('resize', checkTouchDevice);
+    window.addEventListener("resize", checkTouchDevice);
+    return () => window.removeEventListener("resize", checkTouchDevice);
   }, []);
 
   useEffect(() => {
@@ -56,12 +60,13 @@ export const ExperienceCard = ({ experience }: Props) => {
   const cardVariants = {
     inactive: {
       background: "transparent",
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
     active: {
-      background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)",
-      transition: { duration: 0.3 }
-    }
+      background:
+        "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)",
+      transition: { duration: 0.3 },
+    },
   };
 
   return (
@@ -69,9 +74,14 @@ export const ExperienceCard = ({ experience }: Props) => {
       key={id}
       variants={itemVariants}
       className="relative w-full rounded-2xl overflow-hidden shadow-lg shadow-[#141211] transition-all duration-300"
-      whileHover={!isTouchDevice ? {
-        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-      } : {}}
+      whileHover={
+        !isTouchDevice
+          ? {
+              boxShadow:
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            }
+          : {}
+      }
     >
       <motion.div
         className="p-6 cursor-pointer"
@@ -98,7 +108,9 @@ export const ExperienceCard = ({ experience }: Props) => {
             </div>
             <p className="text-base md:text-lg text-[#6E6E6F]">{role}</p>
           </div>
-          <div className="flex items-center text-sm md:text-base text-white/90 mt-4 md:mt-0">
+          <div
+            className={`flex items-center text-sm md:text-base text-white/90 mt-4 md:mt-0 ${isActive ? "text-[#ffea00]" : "text-white"}`}
+          >
             <CalendarDays className="mr-2" size={16} />
             {period}
           </div>
@@ -123,9 +135,16 @@ export const ExperienceCard = ({ experience }: Props) => {
               </h4>
               <ul className="space-y-2 text-white/75 pl-6">
                 {achievements.map((achievement, i) => (
-                  <li key={i} className="list-disc">
-                    {achievement}
-                  </li>
+                  <motion.li
+                    key={i}
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                  >
+                    <ArrowRight className={`w-5 h-5 mr-2 ${isActive ? "text-[#22C55E]" : "text-white"} flex-shrink-0`} />
+                    <span>{achievement}</span>
+                  </motion.li>
                 ))}
               </ul>
             </div>
