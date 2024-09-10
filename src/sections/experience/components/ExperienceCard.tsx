@@ -1,13 +1,10 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
 import type { Experience } from "../types/types";
 import {
-  Award,
-  Bolt,
   Building2,
   CalendarDays,
   ChevronDown,
-  LucideAward,
   Sparkles,
   Target,
 } from "lucide-react";
@@ -30,42 +27,71 @@ const itemVariants = {
 };
 
 export const ExperienceCard = ({ experience }: Props) => {
-  const { id, company, role, period, description, achievements, skills } =
-    experience;
+  const { id, company, role, period, description, achievements, skills } = experience;
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
+  const controls = useAnimation();
+
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0);
+    };
+    checkTouchDevice();
+    window.addEventListener('resize', checkTouchDevice);
+    return () => window.removeEventListener('resize', checkTouchDevice);
+  }, []);
+
+  useEffect(() => {
+    controls.start(isActive ? "active" : "inactive");
+  }, [isActive, controls]);
+
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setIsActive(!isActive);
+    }
+    setIsExpanded(!isExpanded);
+  };
+
+  const cardVariants = {
+    inactive: {
+      background: "transparent",
+      transition: { duration: 0.3 }
+    },
+    active: {
+      background: "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)",
+      transition: { duration: 0.3 }
+    }
+  };
 
   return (
     <motion.article
       key={id}
       variants={itemVariants}
-      className="relative w-full rounded-2xl overflow-hidden shadow-xl shadow-[#141211] transition-all duration-300"
-      whileHover={{
-        boxShadow:
-          "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-      }}
+      className="relative w-full rounded-2xl overflow-hidden shadow-lg shadow-[#141211] transition-all duration-300"
+      whileHover={!isTouchDevice ? {
+        boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      } : {}}
     >
       <motion.div
         className="p-6 cursor-pointer"
-        onClick={() => setIsExpanded(!isExpanded)}
-        initial={{ background: "transparent" }}
-        whileHover={{
-          background:
-            "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)",
-        }}
-        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
+        onClick={handleInteraction}
+        variants={cardVariants}
+        initial="inactive"
+        animate={controls}
+        whileHover={!isTouchDevice ? "active" : {}}
+        onHoverStart={() => !isTouchDevice && setIsActive(true)}
+        onHoverEnd={() => !isTouchDevice && setIsActive(false)}
       >
         <div className="flex flex-col md:flex-row justify-between items-start mb-4">
           <div>
             <div className="flex items-center mb-1 transition-colors duration-300">
               <Building2
-                className={`mr-2 ${isHovered ? "text-[#22C55E]" : "text-white"}`}
+                className={`mr-2 ${isActive ? "text-[#22C55E]" : "text-white"}`}
                 size={20}
               />
               <h3
-                className={`text-xl md:text-2xl font-semibold text-pretty ${isHovered ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-xl md:text-2xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
               >
                 {company}
               </h3>
@@ -90,7 +116,7 @@ export const ExperienceCard = ({ experience }: Props) => {
           <div className="mt-4 space-y-4">
             <div className="mb-6">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isHovered ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-lg font-semibold mb-4 flex items-center ${isActive ? "text-[#22C55E]" : "text-white"}`}
               >
                 <Target className="mr-2" size={20} />
                 Logros Destacados
@@ -105,7 +131,7 @@ export const ExperienceCard = ({ experience }: Props) => {
             </div>
             <div className="mb-4">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isHovered ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-lg font-semibold mb-4 flex items-center ${isActive ? "text-[#22C55E]" : "text-white"}`}
               >
                 <Sparkles className="mr-2" size={20} />
                 Habilidades Clave
@@ -129,7 +155,7 @@ export const ExperienceCard = ({ experience }: Props) => {
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
         initial={{ width: "0%" }}
-        animate={{ width: isHovered ? "100%" : "0%" }}
+        animate={{ width: isActive ? "100%" : "0%" }}
         transition={{ duration: 0.3 }}
       />
     </motion.article>
