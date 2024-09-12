@@ -109,7 +109,7 @@ export const ExperienceCard = ({ experience }: Props) => {
             <p className="text-base md:text-lg text-[#6E6E6F]">{role}</p>
           </div>
           <div
-            className={`flex items-center text-sm md:text-base text-white/90 mt-4 md:mt-0 ${isActive ? "text-[#ffea00]" : "text-white"}`}
+            className={`flex items-center text-sm md:text-base mt-4 md:mt-0 ${isActive ? "text-[#ffea00]" : "text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
             {period}
