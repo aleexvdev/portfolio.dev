@@ -13,7 +13,7 @@ export const projects: Project[] = [
       },
       urlSmall: {
         url: "./images/projects/project_foody_mobile.png",
-        style: "left-[45%] rotate-6 top-28 scale-125"
+        style: "left-[33%] lg:left-[45%] rotate-3 lg:rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
     skills: [
@@ -39,7 +39,7 @@ export const projects: Project[] = [
       },
       urlSmall: {
         url: "./images/projects/project_foody_mobile.png",
-        style: "left-[45%] rotate-6 top-28 scale-125"
+        style: "left-[33%] lg:left-[45%] rotate-3 lg:rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
     skills: [
@@ -65,7 +65,7 @@ export const projects: Project[] = [
       },
       urlSmall: {
         url: "./images/projects/project_foody_mobile.png",
-        style: "left-[45%] rotate-6 top-28 scale-125"
+        style: "left-[33%] lg:left-[45%] rotate-3 lg:rotate-6 top-20 lg:top-28 scale-110 lg:scale-110"
       },
     },
     skills: [

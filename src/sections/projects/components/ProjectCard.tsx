@@ -34,7 +34,7 @@ export const ProjectCard = ({ project }: Props) => {
           <p className="text-sm md:text-base lg:text-lg text-white/55 mb-4 text-pretty">
             {description}
           </p>
-          <div className="w-full">
+          <div className="w-full h-max">
             <div className="flex flex-wrap gap-2">
               {skills.map(({ name, color, icon }, index) => (
                 <motion.span
@@ -52,7 +52,7 @@ export const ProjectCard = ({ project }: Props) => {
             </div>
           </div>
         </div>
-        <div className="w-full flex items-center justify-between md:justify-start mt-5 md:mt-10 gap-x-2 lg:gap-x-8">
+        <div className="w-full flex items-center justify-between lg:justify-start mt-5 md:mt-10 gap-x-2 md:gap-x-8">
           <a
             href={repoLink}
             target="_blank"
@@ -75,8 +75,8 @@ export const ProjectCard = ({ project }: Props) => {
           </a>
         </div>
       </div>
-      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 bottom-0 right-0 ${image.urlLarge.style} transition-all duration-300`}>
-        <img src={image.urlLarge.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
+      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 bottom-0 right-0 ${image.urlSmall.style} transition-all duration-300`}>
+        <img src={image.urlSmall.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
       </div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
