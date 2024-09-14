@@ -73,7 +73,7 @@ export const ExperienceCard = ({ experience }: Props) => {
     <motion.article
       key={id}
       variants={itemVariants}
-      className="relative w-full rounded-2xl overflow-hidden shadow-lg shadow-[#141211] transition-all duration-300"
+      className="relative w-full rounded-3xl overflow-hidden shadow-lg shadow-[#141211] transition-all duration-300"
       whileHover={
         !isTouchDevice
           ? {
@@ -100,11 +100,11 @@ export const ExperienceCard = ({ experience }: Props) => {
                 className={`mr-2 ${isActive ? "text-[#22C55E]" : "text-white"}`}
                 size={20}
               />
-              <h3
+              <h2
                 className={`text-xl md:text-2xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
               >
                 {company}
-              </h3>
+              </h2>
             </div>
             <p className="text-base md:text-lg text-[#6E6E6F]">{role}</p>
           </div>
@@ -115,7 +115,7 @@ export const ExperienceCard = ({ experience }: Props) => {
             {period}
           </div>
         </div>
-        <p className="text-sm md:text-base text-white/75 mb-4">{description}</p>
+        <p className="text-sm md:text-base text-white/75 mb-4 text-pretty">{description}</p>
         <motion.div
           initial={false}
           animate={{

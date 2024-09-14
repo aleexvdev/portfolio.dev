@@ -1,15 +1,26 @@
 export interface Project {
-  id: number;
-  projectName: string;
+  title: string;
   description: string;
-  image: string;
-  liveDemo: string;
-  github: string;
-  tags: Tags[];
+  image: ProjectImage;
+  skills: Tags[];
+  repoLink: string;
+  viewLink: string;
+  iconUrl: string;
 }
 
 export interface Tags {
-  id: number;
   name: string;
-  icon: string;
+  color: string;
+  icon?: string;
+}
+
+export interface ProjectImage {
+  urlLarge: ProjectImageUrl;
+  urlMedium: ProjectImageUrl;
+  urlSmall: ProjectImageUrl;
+}
+
+export interface ProjectImageUrl {
+  url: string;
+  style: string;
 }

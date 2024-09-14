@@ -39,7 +39,7 @@ export const ProjectList = () => {
       variants={containerVariants}
     >
       {projects.map((project, index) => (
-        <motion.div key={project.id} variants={cardVariants}>
+        <motion.div key={index} variants={cardVariants}>
           <ProjectCard project={project} />
         </motion.div>
       ))}

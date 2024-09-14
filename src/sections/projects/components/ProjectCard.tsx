@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Github, SquareArrowOutUpRight } from "lucide-react";
+import {
+  ArrowRight,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import type { Project } from "../types/types";
-import { Tooltip } from "@/components/react/Tooltip";
 
 interface Props {
   project: Project;
@@ -10,97 +13,77 @@ interface Props {
 
 export const ProjectCard = ({ project }: Props) => {
   const [isHovered, setIsHovered] = useState(false);
-  const { projectName, description, image, liveDemo, github, tags } = project;
+
+  const { title, description, image, skills, repoLink, viewLink, iconUrl } =
+    project;
 
   return (
-    <article className="w-full flex items-center justify-center bg-[#09090b]">
-      <motion.div
-        className="w-full rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row relative"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        whileHover={{ scale: 1.01 }}
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
-        style={{
-          background:
-            "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgb(27,27,31,0.7) 100%)",
-        }}
-      >
-        <div className="md:w-2/5 relative">
-          <img
-            className="w-full h-64 md:h-full object-cover object-center"
-            src={image}
-            alt={projectName}
-            loading="lazy"
-            decoding="async"
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-            <a
-              href={liveDemo}
-              className="text-white text-xl font-bold hover:underline"
-            >
-              View Project
-            </a>
+    <motion.article
+      className={`w-full h-max flex items-center justify-start rounded-3xl px-12 py-10 transition-all duration-300 border border-gray-600/20 bg-[#181818] relative overflow-hidden`}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+    >
+      <div className="h-full w-3/5 flex flex-col items-center justify-between">
+        <div className="flex flex-col items-start justify-start">
+          <div className="bg-black rounded-2xl p-2 mb-2 flex items-center justify-center">
+            <img src={iconUrl} alt={title} className="w-14 h-14 object-cover" />
           </div>
-        </div>
-        <div className="md:w-3/5 py-6 px-8 flex flex-col justify-between">
-          <div className="w-full h-full flex flex-col items-start justify-between">
-            <header className="w-full flex items-center justify-between mb-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-white">
-                {projectName}
-              </h2>
-              <div className="flex items-center gap-x-2">
-                <Tooltip content="Repositorio de GitHub" position="bottom" animation={true}>
-                  <a
-                    href={github}
-                    target="_blank"
-                    aria-label="Repositorio de GitHub"
-                    className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
-                  >
-                    <Github className="w-7 h-7" />
-                  </a>
-                </Tooltip>
-                <Tooltip content="¡Pruébalo!" position="bottom" animation={true}>
-                  <a
-                    href={liveDemo}
-                    target="_blank"
-                    aria-label="Ver proyecto"
-                    className="flex items-center justify-center px-2 py-2 bg-transparent text-white rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#292929]"
-                  >
-                    <SquareArrowOutUpRight className="w-7 h-7" />
-                  </a>
-                </Tooltip>
-              </div>
-            </header>
-            <p className="mb-4 text-white/75 font-light text-sm md:text-base text-pretty">
-              {description}
-            </p>
+          <h2 className="w-full text-xl md:text-2xl lg:text-3xl font-semibold text-pretty text-white mb-4">
+            {title}
+          </h2>
+          <p className="text-sm md:text-base text-white/55 mb-4 text-pretty">
+            {description}
+          </p>
+          <div className="w-full">
             <div className="flex flex-wrap gap-2">
-              {tags.map(({ id, name, icon }) => (
-                <span
-                  key={id}
-                  className="relative flex items-center justify-center px-4 py-2 text-base font-medium tracking-wide rounded-2xl bg-[#0b0b0b] text-white/90 select-none border border-white/10 transition-colors duration-300 ease-out group"
+              {skills.map(({ name, color, icon }, index) => (
+                <motion.span
+                  key={index}
+                  className={`px-3 py-2 rounded-xl text-sm font-medium bg-opacity-50 flex items-center justify-center bg-black cursor-default`}
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
                 >
                   <img src={icon} alt={name} className="w-5 h-5" />
-                  <span className="ml-2 text-nowrap text-sm font-medium text-white/90">
+                  <span className={`ml-2 text-sm md:text-base  ${color}`}>
                     {name}
                   </span>
-                  <div className="absolute inset-0 flex justify-center overflow-hidden rounded-full">
-                    <div className="h-full w-full bg-gradient-to-r from-gray-200 via-gray-300 to-gray-400 opacity-20 transform translate-x-[-150%] skew-x-12 transition-transform duration-700 group-hover:translate-x-[150%] group-hover:opacity-50"></div>
-                  </div>
-                </span>
+                </motion.span>
               ))}
             </div>
           </div>
         </div>
-        <motion.div
-          className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
-          initial={{ width: "0%" }}
-          animate={{ width: isHovered ? "100%" : "0%" }}
-          transition={{ duration: 0.3 }}
-        />
-      </motion.div>
-    </article>
+        <div className="w-full flex items-center justify-start mt-10 gap-x-8">
+          <a
+            href={repoLink}
+            target="_blank"
+            aria-label="Repositorio de GitHub"
+            className="group w-max flex items-center justify-center space-x-2 rounded-lg bg-transparent px-4 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
+          >
+            <Github className="w-6 h-6" />
+            <span className="text-sm md:text-base font-semibold">Ver Repositorio</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href={viewLink}
+            target="_blank"
+            aria-label="Visitar sitio web"
+            className="group w-max flex items-center justify-center space-x-2 rounded-lg bg-transparent px-4 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
+          >
+            <ExternalLink className="w-6 h-6" />
+            <span className="text-sm md:text-base font-semibold">Visitar Sitio</span>
+            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
+      <div className={`h-full w-max absolute bg-transparent px-2 bottom-0 right-0 ${image.urlLarge.style} transition-all duration-300`}>
+        <img src={image.urlLarge.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
+      </div>
+      <motion.div
+        className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
+        initial={{ width: "0%" }}
+        animate={{ width: isHovered ? "100%" : "0%" }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.article>
   );
 };
