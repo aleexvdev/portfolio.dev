@@ -4,15 +4,15 @@ export const projects: Project[] = [
   {
     image: {
       urlLarge: {
-        url: "./images/projects/project_foody_desktop.png",
+        url: "./images/projects/project_todo_desktop.png",
         style: "left-[60%] scale-90"
       },
       urlMedium: {
-        url: "./images/projects/project_foody_tablet.png",
+        url: "./images/projects/project_todo_tablet.png",
         style: "left-[55%] top-5 rotate-6 scale-90"
       },
       urlSmall: {
-        url: "./images/projects/project_foody_mobile.png",
+        url: "./images/projects/project_todo_mobile.png",
         style: "left-[33%] lg:left-[45%] rotate-3 lg:rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
@@ -30,15 +30,15 @@ export const projects: Project[] = [
   {
     image: {
       urlLarge: {
-        url: "./images/projects/project_foody_desktop.png",
+        url: "./images/projects/project_weather_desktop.png",
         style: "left-[60%] scale-90"
       },
       urlMedium: {
-        url: "./images/projects/project_foody_tablet.png",
+        url: "./images/projects/project_weather_tablet.png",
         style: "left-[55%] top-5 rotate-6 scale-90"
       },
       urlSmall: {
-        url: "./images/projects/project_foody_mobile.png",
+        url: "./images/projects/project_weather_mobile.png",
         style: "left-[33%] lg:left-[45%] rotate-3 lg:rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },

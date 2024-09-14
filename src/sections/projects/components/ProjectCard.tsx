@@ -25,10 +25,10 @@ export const ProjectCard = ({ project }: Props) => {
     >
       <div className="h-full w-full md:w-3/5 flex flex-col items-center justify-between">
         <div className="flex flex-col items-start justify-start">
-          <div className="bg-black rounded-2xl p-2 mb-2 flex items-center justify-center">
-            <img src={iconUrl} alt={title} className="w-14 h-14 object-cover" />
+          <div className="bg-black bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
+            <img src={iconUrl} alt={title} className="w-16 h-16 object-cover" />
           </div>
-          <h2 className="w-full text-xl md:text-2xl lg:text-4xl font-semibold text-pretty text-white mb-4">
+          <h2 className="w-full text-xl md:text-3xl lg:text-4xl font-semibold text-pretty text-white mb-4">
             {title}
           </h2>
           <p className="text-sm md:text-base lg:text-lg text-white/55 mb-4 text-pretty">
