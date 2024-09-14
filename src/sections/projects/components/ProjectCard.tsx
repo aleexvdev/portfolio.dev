@@ -19,7 +19,7 @@ export const ProjectCard = ({ project }: Props) => {
 
   return (
     <motion.article
-      className={`w-full h-max flex items-center justify-start rounded-3xl px-6 py-5 md:px-12 md:py-10 transition-all duration-300 border border-gray-600/20 bg-[#181818] relative overflow-hidden`}
+      className={`w-full h-max flex items-center justify-start rounded-3xl px-5 py-5 md:px-6 md:py-5 lg:px-12 lg:py-10 transition-all duration-300 border border-gray-600/20 bg-[#181818] relative overflow-hidden`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
@@ -31,7 +31,7 @@ export const ProjectCard = ({ project }: Props) => {
           <h2 className="w-full text-xl md:text-3xl lg:text-4xl font-semibold text-pretty text-white mb-4">
             {title}
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-white/55 mb-4 text-pretty">
+          <p className="text-sm md:text-base lg:text-lg text-white/75 mb-4 text-pretty leading-relaxed">
             {description}
           </p>
           <div className="w-full h-max">
@@ -44,7 +44,7 @@ export const ProjectCard = ({ project }: Props) => {
                   transition={{ duration: 0.2 }}
                 >
                   <img src={icon} alt={name} className="w-5 h-5" />
-                  <span className={`ml-2 text-sm md:text-base ${color}`}>
+                  <span className={`ml-2 text-sm md:text-base lg:text-lg ${color}`}>
                     {name}
                   </span>
                 </motion.span>
@@ -52,7 +52,7 @@ export const ProjectCard = ({ project }: Props) => {
             </div>
           </div>
         </div>
-        <div className="w-full flex items-center justify-between lg:justify-start mt-5 md:mt-10 gap-x-2 md:gap-x-8">
+        <div className="w-full flex items-center justify-between md:justify-start mt-5 md:mt-10 gap-x-2 md:gap-x-8">
           <a
             href={repoLink}
             target="_blank"
@@ -60,7 +60,7 @@ export const ProjectCard = ({ project }: Props) => {
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
           >
             <Github className="w-6 h-6" />
-            <span className="text-xs md:text-base font-semibold">Ver Repositorio</span>
+            <span className="text-sm lg:text-base font-semibold">Ver Repositorio</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
@@ -70,13 +70,13 @@ export const ProjectCard = ({ project }: Props) => {
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
           >
             <ExternalLink className="w-6 h-6" />
-            <span className="text-xs md:text-base font-semibold">Visitar Sitio</span>
+            <span className="text-sm lg:text-base font-semibold">Visitar Sitio</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>
-      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 bottom-0 right-0 ${image.urlSmall.style} transition-all duration-300`}>
-        <img src={image.urlSmall.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
+      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlLarge.style} transition-all duration-300`}>
+        <img src={image.urlLarge.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
       </div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
