@@ -20,7 +20,7 @@ export const EducationCard = () => {
       >
         <header className="w-full h-max flex items-start mb-6">
           <h2
-            className={`text-2xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
+            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
           >
             Educación
           </h2>
@@ -30,15 +30,15 @@ export const EducationCard = () => {
             Bachiller en Ingeniería Informática
           </h3>
           <div className="w-full mt-2 mb-3 flex items-start justify-start">
-            <span className={`text-nowrap font-normal text-sm md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
+            <span className={`text-nowrap font-normal text-base md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
               Lima, Perú
             </span>
             <span className={`w-px h-4 md:h-5 bg-[#6E6E6F] mx-2 my-1 ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}></span>
-            <span className={`text-nowrap font-normal text-sm md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
+            <span className={`text-nowrap font-normal text-base md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
               2016 - 2021
             </span>
           </div>
-          <p className={`text-sm md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}>
+          <p className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}>
             Graduado por la Universidad Nacional José Faustino Sánchez Carrión
             en Ingeniería Informática, donde desarrollé una base sólida en áreas
             clave como la gestión de tecnologías de la información, desarrollo

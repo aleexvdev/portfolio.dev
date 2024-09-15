@@ -48,7 +48,7 @@ export const UbicationCard = () => {
                 <p className="text-white/90 text-xl md:text-2xl">Perú</p>
               </div>
               <p
-                className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"}  text-center text-pretty`}
+                className={`text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"}  text-center text-pretty`}
               >
                 {timeDifference}
               </p>
