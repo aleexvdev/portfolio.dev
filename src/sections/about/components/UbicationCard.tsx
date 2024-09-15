@@ -56,15 +56,15 @@ export const UbicationCard = () => {
             <div className="w-4/5 h-px bg-[#6E6E6F] my-4 md:w-px md:h-32 md:my-0 md:mx-4 lg:mx-0 lg:my-6 lg:h-px lg:w-4/5"></div>
             <div className="w-full flex flex-col items-center justify-end lg:justify-center">
               <div className="w-full h-max flex items-end justify-center gap-x-2">
-                <span className="text-[#22C55E] text-center text-nowrap font-bold text-3xl md:text-5xl w-max">
+                <span className="text-[#22C55E] text-center text-nowrap font-bold text-4xl md:text-5xl w-max">
                   {hours === 0 ? "00" : hours}:{minutes < 10 ? `0${minutes}` : minutes}
                 </span>
-                <span className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} text-center text-pretty mb-0.5 md:mb-0.5 lg:mb-0.5`}>
+                <span className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} text-center text-pretty mb-0.5 md:mb-0.5 lg:mb-0.5`}>
                   UTC-5
                 </span>
               </div>
               <p
-                className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} text-center text-pretty mt-2`}
+                className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} text-center text-pretty mt-2`}
               >
                 {currentDate}
               </p>
