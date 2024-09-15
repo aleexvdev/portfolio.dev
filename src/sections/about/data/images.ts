@@ -71,14 +71,14 @@ export const images = [
     title: 'React',
     description: 'React'
   },
-  {
+  /* {
     id: 10,
     path_dark: './images/skills/angular.svg',
     path_light: './images/skills/angular.svg',
     alt: 'Angular',
     title: 'Angular',
     description: 'Angular'
-  },
+  }, */
   {
     id: 11,
     path_dark: './images/skills/nextjs.svg',
@@ -143,14 +143,14 @@ export const images = [
     title: 'TailwindCSS',
     description: 'TailwindCSS'
   },
-  {
+  /* {
     id: 19,
     path_dark: './images/skills/jest.svg',
     path_light: './images/skills/jest.svg',
     alt: 'Jest',
     title: 'Jest',
     description: 'Jest'
-  }, 
+  },  */
   {
     id: 20,
     path_dark: './images/skills/git.svg',

@@ -105,7 +105,11 @@ export const ExperienceCard = ({ experience }: Props) => {
                 {company}
               </h2>
             </div>
-            <p className={`text-base md:text-lg lg:text-xl ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>{role}</p>
+            <p
+              className={`text-base md:text-lg lg:text-xl ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}
+            >
+              {role}
+            </p>
           </div>
           <div
             className={`flex items-center mt-4 md:mt-0 ${isActive ? "text-[#22C55E]" : "text-white/75"}`}
@@ -114,7 +118,11 @@ export const ExperienceCard = ({ experience }: Props) => {
             <span className="text-sm md:text-base lg:text-lg">{period}</span>
           </div>
         </div>
-        <p className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}>{description}</p>
+        <p
+          className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
+        >
+          {description}
+        </p>
         <motion.div
           initial={false}
           animate={{
@@ -141,8 +149,14 @@ export const ExperienceCard = ({ experience }: Props) => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                   >
-                    <ArrowRight className={`w-5 h-5 mr-2 ${isActive ? "text-[#22C55E]" : "text-white"} flex-shrink-0`} />
-                    <span className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-2 text-pretty`}>{achievement}</span>
+                    <ArrowRight
+                      className={`w-5 h-5 mr-2 ${isActive ? "text-[#22C55E]" : "text-white"} flex-shrink-0`}
+                    />
+                    <span
+                      className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-2 text-pretty`}
+                    >
+                      {achievement}
+                    </span>
                   </motion.li>
                 ))}
               </ul>
