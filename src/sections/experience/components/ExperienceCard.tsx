@@ -97,16 +97,16 @@ export const ExperienceCard = ({ experience }: Props) => {
           <div>
             <div className="flex items-center mb-1 transition-colors duration-300">
               <Building2
-                className={`mr-2 w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 ${isActive ? "text-[#22C55E]" : "text-white"}`}
+                className={`mr-2 w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 ${isActive ? "text-[#22C55E]" : "text-white"}`}
               />
               <h2
-                className={`text-xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
               >
                 {company}
               </h2>
             </div>
             <p
-              className={`text-base md:text-lg lg:text-xl ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}
+              className={`text-lg md:text-lg lg:text-xl ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}
             >
               {role}
             </p>
@@ -115,11 +115,11 @@ export const ExperienceCard = ({ experience }: Props) => {
             className={`flex items-center mt-4 md:mt-0 ${isActive ? "text-[#22C55E]" : "text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
-            <span className="text-sm md:text-base lg:text-lg">{period}</span>
+            <span className="text-base md:text-base lg:text-lg">{period}</span>
           </div>
         </div>
         <p
-          className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
+          className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
         >
           {description}
         </p>
@@ -153,7 +153,7 @@ export const ExperienceCard = ({ experience }: Props) => {
                       className={`w-5 h-5 mr-2 ${isActive ? "text-[#22C55E]" : "text-white"} flex-shrink-0`}
                     />
                     <span
-                      className={`text-sm md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-2 text-pretty`}
+                      className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-2 text-pretty`}
                     >
                       {achievement}
                     </span>

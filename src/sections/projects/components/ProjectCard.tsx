@@ -28,10 +28,10 @@ export const ProjectCard = ({ project }: Props) => {
           <div className="bg-black bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
             <img src={iconUrl} alt={title} className="w-16 h-16 object-cover" />
           </div>
-          <h2 className="w-full text-xl md:text-3xl lg:text-4xl font-semibold text-pretty text-white mb-4">
+          <h2 className="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-white mb-4">
             {title}
           </h2>
-          <p className="text-sm md:text-base lg:text-lg text-white/75 mb-4 text-pretty leading-relaxed">
+          <p className="text-base md:text-base lg:text-lg text-white/75 mb-4 text-pretty leading-relaxed">
             {description}
           </p>
           <div className="w-full h-max">
@@ -59,7 +59,7 @@ export const ProjectCard = ({ project }: Props) => {
             aria-label="Repositorio de GitHub"
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
           >
-            <Github className="w-6 h-6" />
+            <Github className="w-5 h-5 md:w-6 md:h-6" />
             <span className="text-sm lg:text-base font-semibold">Ver Repositorio</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
@@ -69,14 +69,14 @@ export const ProjectCard = ({ project }: Props) => {
             aria-label="Visitar sitio web"
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
           >
-            <ExternalLink className="w-6 h-6" />
+            <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
             <span className="text-sm lg:text-base font-semibold">Visitar Sitio</span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
       </div>
-      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlLarge.style} transition-all duration-300`}>
-        <img src={image.urlLarge.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
+      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlSmall.style} transition-all duration-300`}>
+        <img src={image.urlSmall.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
       </div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"

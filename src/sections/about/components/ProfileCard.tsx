@@ -66,7 +66,7 @@ export const ProfileCard = () => {
   };
 
   return (
-    <article className="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 rounded-3xl p-7 border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl">
+    <article className="flex flex-col items-center justify-stretch col-span-1 row-span-1 lg:col-span-1 lg:row-span-2 rounded-3xl p-6 md:p-7 border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl">
       <header className="w-full h-max flex items-start justify-between">
         <div className="w-24 h-auto bg-white/80 rounded-full overflow-hidden border border-green-500">
           <img
@@ -76,7 +76,7 @@ export const ProfileCard = () => {
           />
         </div>
         <div className="w-full h-full ml-4 flex flex-col items-start justify-center gap-y-1">
-          <h2 className="text-white text-lg md:text-xl lg:text-xl font-medium tracking-wide text-nowrap">
+          <h2 className="text-white text-xl md:text-xl lg:text-xl font-medium tracking-wide text-nowrap">
             Alexander Valverde
           </h2>
           <div className="w-full flex items-center justify-between gap-x-2">
@@ -93,14 +93,14 @@ export const ProfileCard = () => {
           </div>
         </div>
       </header>
-      <div className="w-full h-full bg-neutral-800/50 mt-5 px-3 py-2 rounded-t-lg">
+      <div className="w-full h-full min-h-52 lg:min-h-0 bg-neutral-800/50 mt-5 px-3 py-2 rounded-t-lg">
         <Slider
           quotes={motivationalQuotes}
           interval={5000}
           setCurrentQuote={setCurrentQuote}
         />
       </div>
-      <div className="w-full h-20 flex items-center justify-between bg-white px-2.5 rounded-b-lg">
+      <div className="w-full h-16 flex items-center justify-between bg-white px-2.5 rounded-b-lg">
         <div className="w-full h-full flex items-center justify-start gap-x-4">
           <button
             onClick={toggleLike}

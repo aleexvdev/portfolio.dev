@@ -37,21 +37,21 @@ export const PersonalSideCard = () => {
   return (
     <article className="relative overflow-hidden flex flex-col items-center justify-start col-span-1 row-span-2 lg:col-span-2 lg:row-span-3 rounded-3xl border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl">
       <motion.div
-        className="p-7 lg:p-8 w-full h-full"
+        className="p-6 md:p-6 lg:p-8 w-full h-full"
         whileHover={!isTouchDevice ? "active" : {}}
         onHoverStart={() => !isTouchDevice && setIsActive(true)}
         onHoverEnd={() => !isTouchDevice && setIsActive(false)}
       >
         <header className="w-full h-max flex items-start mb-6">
           <h2
-            className={`text-xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
+            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
           >
             Mi lado personal
           </h2>
         </header>
         <div className="w-full h-max flex-col items-start justify-start mb-14">
           <p
-            className={`text-sm md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"} mb-5`}
+            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"} mb-5`}
           >
             Me considero una persona resiliente, responsable y optimista. No
             importa cuán complejo sea el desafío que enfrente, siempre encuentro
@@ -61,7 +61,7 @@ export const PersonalSideCard = () => {
             metas.
           </p>
           <p
-            className={`text-sm md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}
+            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}
           >
             Siempre busco mejorar y aprender de cada experiencia, lo que me
             permite crecer tanto personal como profesionalmente. Estoy
@@ -69,34 +69,34 @@ export const PersonalSideCard = () => {
             que con determinación y una actitud positiva, todo es posible.
           </p>
         </div>
-        <div className="w-full h-max flex justify-between items-center px-10">
+        <div className="w-full h-max flex justify-between items-center px-4 lg:px-10">
           <motion.img
             src="./images/soccer.png"
             alt="Soccer"
-            className="w-20 h-20 object-cover"
+            className="w-14 h-14 lg:w-20 lg:h-20 object-cover"
             variants={ballVariants}
-            animate={isActive ? "active" : "active"}
+            animate={"active"}
           />
           <motion.img
             src="./images/dog.png"
             alt="Perrito"
-            className="w-20 h-20 object-contain"
+            className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={dogVariants}
-            animate={isActive ? "active" : "active"}
+            animate={"active"}
           />
           <motion.img
             src="/images/pasta.png" 
             alt="Pasta"
-            className="w-20 h-20 object-contain"
+            className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={bounceVariants}
-            animate={isActive ? "active" : "active"}
+            animate={"active"}
           />
           <motion.img
             src="./images/joystick.png"
             alt="Joystick"
-            className="w-20 h-20 object-contain"
+            className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={joystickVariants}
-            animate={isActive ? "active" : "active"}
+            animate={"active"}
           />
         </div>
       </motion.div>

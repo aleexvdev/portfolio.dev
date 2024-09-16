@@ -8,7 +8,7 @@ import { UbicationCard } from './UbicationCard'
 
 export const BentoGridAbout = () => {
   return (
-    <div className="grid p-0 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 h-full w-full gap-y-4 md:gap-4">
+    <div className="grid p-0 grid-cols-1 grid-flow-row md:grid-cols-2 lg:grid-cols-3 lg:grid-rows-6 h-full w-full gap-y-4 md:gap-4">
       <ProfileCard />
       <PersonalSideCard />
       <SkillsCard />
