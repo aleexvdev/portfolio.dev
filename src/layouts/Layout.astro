@@ -30,11 +30,21 @@ const { title } = Astro.props;
     box-sizing: border-box;
     scroll-behavior: smooth;
   }
+  :root {
+    /* color-scheme: light dark; */
+    --bg-light: #f1f5f9;
+    --bg-dark: #09090b;
+  }
   html {
     font-family: "Onest Variable", system-ui, sans-serif;
-    background: #09090b;
+    /* background: #09090b; */
+    background-color: var(--bg-dark);
     overflow-x: hidden;
     /* background: #F1F5F9; */
+    scroll-padding-top: 6rem;
+  }
+  html.light {
+    background-color: var(--bg-light);
   }
   .hover-pause:hover .animate-slide-logos {
     animation-play-state: paused;

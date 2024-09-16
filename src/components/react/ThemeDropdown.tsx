@@ -1,6 +1,7 @@
 import { themes } from "@/data/data";
 import { useDropdown } from "@/hooks/useDropdown";
 import { Computer, Moon, Sun } from "lucide-react";
+import { useEffect } from "react";
 
 export const ThemeDropdown = () => {
   const { isActive, selectedItem, toggleDropdown, selectItem, dropdownRef } = useDropdown("System");
@@ -15,6 +16,23 @@ export const ThemeDropdown = () => {
         return <Computer className="w-5 h-5 text-white" />;
     }
   }
+
+  const applyTheme = (theme: string) => {
+    if (theme === "System") {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", prefersDark);
+      document.documentElement.style.backgroundColor = prefersDark ? "#09090b" : "#F1F5F9";
+    } else {
+      const isDark = theme === "Dark";
+      document.documentElement.classList.toggle("dark", isDark);
+      document.documentElement.style.backgroundColor = isDark ? "#09090b" : "#F1F5F9";
+    }
+  };
+
+  useEffect(() => {
+    applyTheme(selectedItem);
+    localStorage.setItem("theme", selectedItem);
+  }, [selectedItem]);
 
   return (
     <div className="relative">
