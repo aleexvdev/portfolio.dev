@@ -21,11 +21,11 @@ export const ThemeDropdown = () => {
     if (theme === "System") {
       const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
       document.documentElement.classList.toggle("dark", prefersDark);
-      document.documentElement.style.backgroundColor = prefersDark ? "#09090b" : "#F1F5F9";
+      document.documentElement.style.backgroundColor = prefersDark ? "#09090b" : "#F7F7FE";
     } else {
       const isDark = theme === "Dark";
       document.documentElement.classList.toggle("dark", isDark);
-      document.documentElement.style.backgroundColor = isDark ? "#09090b" : "#F1F5F9";
+      document.documentElement.style.backgroundColor = isDark ? "#09090b" : "#F7F7FE";
     }
   };
 

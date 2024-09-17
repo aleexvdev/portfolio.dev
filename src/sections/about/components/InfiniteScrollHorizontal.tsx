@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import type { ImageGallery } from "../types/type";
+
 interface Props {
   images: ImageGallery[];
 }
@@ -14,8 +15,9 @@ export const InfiniteScrollHorizontal = ({ images }: Props) => {
       }}
     >
       <div className="w-max flex flex-nowrap space-x-6 animate-slide-logos">
-        {images.concat(images).map((image) => (
+        {images.concat(images).map((image, key) => (
           <motion.img
+            key={key}
             src={image.path_dark}
             alt={image.alt}
             loading="eager"

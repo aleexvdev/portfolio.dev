@@ -6,13 +6,14 @@ interface SectionProps {
   icon: React.FC<SVGProps<SVGSVGElement>>;
   label: string;
   id: string;
+  class?: string;
 }
 
 const { title, icon: Icon, label, id } = Astro.props as SectionProps;
 ---
 
 <section
-  class="w-full h-max px-6 pb-10 flex flex-col items-center justify-center overflow-hidden"
+  class="w-full h-max px-6 pb-10 lg:pt-32 flex flex-col items-center justify-center overflow-hidden"
   id={id}
   aria-labelledby={label}
 >
