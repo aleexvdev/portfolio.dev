@@ -12,7 +12,9 @@ const navItems = [
 ---
 
 <header class="w-full h-max fixed z-50 transition-colors duration-300">
-  <div class="w-full h-full flex justify-center max-w-screen-lg mx-auto relative">
+  <div
+    class="w-full h-full flex justify-center max-w-screen-lg mx-auto relative"
+  >
     <div
       id="main-header"
       class="w-full h-max flex items-center justify-between px-6 py-1 md:px-6 md:py-3 rounded-3xl transition-all duration-300"
@@ -69,7 +71,6 @@ const navItems = [
   window.addEventListener("load", updateHeader);
   window.addEventListener("resize", updateHeader);
 
-  // Add animation classes on load
   document.addEventListener("DOMContentLoaded", () => {
     header?.classList.add("animate-in");
     navItems.forEach((item, index) => {
@@ -105,12 +106,14 @@ const navItems = [
     margin-left: 12px;
     margin-right: 12px;
     backdrop-filter: blur(10px);
-    background-color: rgba(56, 56, 56, 0.8);
+    background-color: #383838cc;
     box-shadow:
       0 10px 15px -3px rgba(0, 0, 0, 0.1),
       0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
-
+  .light #main-header.scrolled {
+    background-color: #f7f7fecc;
+  }
   #main-header.scrolled:hover {
     box-shadow:
       0 20px 25px -5px rgba(0, 0, 0, 0.1),
@@ -126,11 +129,9 @@ const navItems = [
   .nav-item.animate-in {
     animation: fadeInDown 0.5s forwards;
   }
-
   .nav-item.active a {
     color: #22c55e;
   }
-
   @keyframes fadeInDown {
     from {
       opacity: 0;

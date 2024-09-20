@@ -36,7 +36,7 @@ export const Tooltip = ({
         {visible && (
           <>
             <motion.div
-              className={`absolute w-max z-20 px-3 py-2 bg-[#292929] text-white text-sm font-medium rounded-lg shadow-xl backdrop-blur-sm ${positionClasses[position]}`}
+              className={`absolute w-max z-20 px-3 py-2 bg-[#d2d2d2] dark:bg-[#292929] text-black dark:text-white text-sm font-semibold tracking-wide rounded-lg shadow-xl backdrop-blur-sm ${positionClasses[position]}`}
               initial={{
                 opacity: 0,
                 y: position === "top" ? -5 : 5,
@@ -53,7 +53,7 @@ export const Tooltip = ({
             >
               {content}
               <span
-                className={`absolute h-2 w-2 bg-[#292929] transform rotate-45 ${
+                className={`absolute h-2 w-2 dark:bg-[#292929] bg-[#d2d2d2] transform rotate-45 ${
                   position === "top"
                     ? "bottom-[-4px] left-1/2 transform -translate-x-1/2"
                     : position === "bottom"
