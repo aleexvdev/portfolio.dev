@@ -35,7 +35,7 @@ export const PersonalSideCard = () => {
   };
 
   return (
-    <article className="relative overflow-hidden flex flex-col items-center justify-start col-span-1 row-span-2 lg:col-span-2 lg:row-span-3 rounded-3xl border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl">
+    <article className="relative overflow-hidden flex flex-col items-center justify-start col-span-1 row-span-2 lg:col-span-2 lg:row-span-3 rounded-3xl border border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] transition-all duration-300 hover:shadow-xl">
       <motion.div
         className="p-6 md:p-6 lg:p-8 w-full h-full"
         whileHover={!isTouchDevice ? "active" : {}}
@@ -44,14 +44,14 @@ export const PersonalSideCard = () => {
       >
         <header className="w-full h-max flex items-start mb-6">
           <h2
-            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
+            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#2563EB]" : "text-black dark:text-white"}`}
           >
             Mi lado personal
           </h2>
         </header>
         <div className="w-full h-max flex-col items-start justify-start mb-14">
           <p
-            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"} mb-5`}
+            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"} mb-5`}
           >
             Me considero una persona resiliente, responsable y optimista. No
             importa cuán complejo sea el desafío que enfrente, siempre encuentro
@@ -61,7 +61,7 @@ export const PersonalSideCard = () => {
             metas.
           </p>
           <p
-            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}
+            className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"}`}
           >
             Siempre busco mejorar y aprender de cada experiencia, lo que me
             permite crecer tanto personal como profesionalmente. Estoy

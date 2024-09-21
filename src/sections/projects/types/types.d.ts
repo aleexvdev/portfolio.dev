@@ -23,4 +23,5 @@ export interface ProjectImage {
 export interface ProjectImageUrl {
   url: string;
   style: string;
+  pulseStyle?: string;
 }

@@ -11,7 +11,7 @@ export const EducationCard = () => {
   }, [isActive, controls]);
 
   return (
-    <article className="relative overflow-hidden flex flex-col items-center justify-stretch col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 rounded-3xl border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl">
+    <article className="relative overflow-hidden flex flex-col items-center justify-stretch col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 rounded-3xl border border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] transition-all duration-300 hover:shadow-xl">
       <motion.div
         className="p-6 md:p-6 lg:p-8 w-full h-full"
         whileHover={!isTouchDevice ? "active" : {}}
@@ -20,25 +20,25 @@ export const EducationCard = () => {
       >
         <header className="w-full h-max flex items-start mb-6">
           <h2
-            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
+            className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#2563EB]" : "text-black dark:text-white"}`}
           >
             Educación
           </h2>
         </header>
         <div className="w-full">
-          <h3 className={`text-xl md:text-2xl text-wrap font-semibold ${isActive ? "text-[#22C55E]" : "text-white"}`}>
+          <h3 className={`text-xl md:text-2xl text-wrap font-semibold ${isActive ? "text-[#2563EB]" : "text-black dark:text-white"}`}>
             Bachiller en Ingeniería Informática
           </h3>
           <div className="w-full mt-2 mb-3 flex items-start justify-start">
-            <span className={`text-nowrap font-normal text-base md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
+            <span className={`text-nowrap font-semibold text-base md:text-base lg:text-lg ${isActive ? "text-stone-600 dark:text-stone-400" : "text-stone-500 dark:text-[#6E6E6F]"}`}>
               Lima, Perú
             </span>
-            <span className={`w-px h-4 md:h-5 bg-[#6E6E6F] mx-2 my-1 ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}></span>
-            <span className={`text-nowrap font-normal text-base md:text-base lg:text-lg ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}>
+            <span className={`w-px h-4 md:h-5 bg-stone-500 dark:text-[#6E6E6F] mx-2 my-1 ${isActive ? "text-stone-600 dark:text-stone-400" : "text-[#6E6E6F]"}`}></span>
+            <span className={`text-nowrap font-semibold text-base md:text-base lg:text-lg ${isActive ? "text-stone-600 dark:text-stone-400" : "text-stone-500 dark:text-[#6E6E6F]"}`}>
               2016 - 2021
             </span>
           </div>
-          <p className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-white/90" : "text-white/75"}`}>
+          <p className={`text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium ${isActive ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"}`}>
             Graduado por la Universidad Nacional José Faustino Sánchez Carrión
             en Ingeniería Informática, donde desarrollé una base sólida en áreas
             clave como la gestión de tecnologías de la información, desarrollo

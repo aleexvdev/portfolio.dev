@@ -1,10 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  ExternalLink,
-  Github,
-} from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import type { Project } from "../types/types";
 
 interface Props {
@@ -12,20 +8,64 @@ interface Props {
 }
 
 export const ProjectCard = ({ project }: Props) => {
-  const [isHovered, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 
   const { title, description, image, skills, repoLink, viewLink, iconUrl } =
     project;
+
+  const images = [image.urlLarge, image.urlMedium, image.urlSmall];
+
+  useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
+    };
+    checkTouchDevice();
+    window.addEventListener("resize", checkTouchDevice);
+    return () => window.removeEventListener("resize", checkTouchDevice);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setIsActive(!isActive);
+    }
+  };
 
   return (
     <motion.article
       className={`w-full h-max flex items-center justify-start rounded-3xl px-5 py-5 md:px-6 md:py-5 
         lg:px-12 lg:py-10 transition-colors duration-300 border 
-        border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] relative overflow-hidden`}
+        border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] relative overflow-hidden mb-8`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      whileHover={
+        !isTouchDevice
+          ? {
+              boxShadow:
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 20px 20px -2px rgba(0, 0, 0, 0.05)",
+            }
+          : {}
+      }
     >
-      <div className="h-full w-full md:w-3/5 flex flex-col items-center justify-between">
+      <motion.div
+        className="h-full w-full md:w-3/5 flex flex-col items-center justify-between"
+        onClick={handleInteraction}
+        whileHover={!isTouchDevice ? "active" : {}}
+        onHoverStart={() => !isTouchDevice && setIsActive(true)}
+        onHoverEnd={() => !isTouchDevice && setIsActive(false)}
+      >
         <div className="flex flex-col items-start justify-start">
           <div className="bg-white dark:bg-black opacity-80 dark:bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
             <img src={iconUrl} alt={title} className="w-16 h-16 object-cover" />
@@ -46,7 +86,9 @@ export const ProjectCard = ({ project }: Props) => {
                   transition={{ duration: 0.2 }}
                 >
                   <img src={icon} alt={name} className="w-5 h-5" />
-                  <span className={`ml-2 text-sm md:text-base lg:text-lg ${color}`}>
+                  <span
+                    className={`ml-2 text-sm md:text-base lg:text-lg ${color}`}
+                  >
                     {name}
                   </span>
                 </motion.span>
@@ -62,7 +104,9 @@ export const ProjectCard = ({ project }: Props) => {
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-black dark:text-white transition-all duration-300 hover:text-[#2563EB] cursor-pointer z-10"
           >
             <Github className="w-5 h-5 md:w-6 md:h-6" />
-            <span className="text-sm lg:text-base font-semibold">Ver Repositorio</span>
+            <span className="text-sm lg:text-base font-semibold">
+              Ver Repositorio
+            </span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
           <a
@@ -72,13 +116,34 @@ export const ProjectCard = ({ project }: Props) => {
             className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-black dark:text-white transition-all duration-300 hover:text-[#2563EB] cursor-pointer z-10"
           >
             <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
-            <span className="text-sm lg:text-base font-semibold">Visitar Sitio</span>
+            <span className="text-sm lg:text-base font-semibold">
+              Visitar Sitio
+            </span>
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </a>
         </div>
-      </div>
-      <div className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlSmall.style} transition-all duration-300`}>
-        <img src={image.urlSmall.url} alt={title} className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`} />
+      </motion.div>
+      {/* <div
+        className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlSmall.style} transition-all duration-300`}
+      >
+        <img
+          src={image.urlSmall.url}
+          alt={title}
+          className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+        />
+      </div> */}
+      <div
+        className={`h-full w-max absolute hidden md:block bg-transparent px-2  ${images[currentImageIndex].style} transition-all duration-300`}
+      >
+        <motion.img
+          key={currentImageIndex} 
+          src={images[currentImageIndex].url}
+          alt={title}
+          className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        />
       </div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
