@@ -63,8 +63,6 @@ export const ExperienceCard = ({ experience }: Props) => {
       transition: { duration: 0.3 },
     },
     active: {
-      background:
-        "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)",
       transition: { duration: 0.3 },
     },
   };
@@ -73,12 +71,13 @@ export const ExperienceCard = ({ experience }: Props) => {
     <motion.article
       key={id}
       variants={itemVariants}
-      className="relative w-full rounded-3xl overflow-hidden border border-gray-600/20 bg-[#181818] transition-all duration-300 hover:shadow-xl"
+      className="relative w-full rounded-3xl overflow-hidden border border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] transition-colors duration-300 mb-8"
       whileHover={
         !isTouchDevice
           ? {
-              boxShadow:
-                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            boxShadow:
+            "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 20px 20px -2px rgba(0, 0, 0, 0.05)",
+          
             }
           : {}
       }
@@ -94,32 +93,32 @@ export const ExperienceCard = ({ experience }: Props) => {
         onHoverEnd={() => !isTouchDevice && setIsActive(false)}
       >
         <div className="flex flex-col md:flex-row justify-between items-start mb-4">
-          <div>
-            <div className="flex items-center mb-1 transition-colors duration-300">
-              <Building2
-                className={`mr-2 w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 ${isActive ? "text-[#22C55E]" : "text-white"}`}
-              />
-              <h2
-                className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive ? "text-[#22C55E]" : "text-white"}`}
-              >
-                {company}
-              </h2>
-            </div>
-            <p
-              className={`text-lg md:text-lg lg:text-xl ${isActive ? "text-stone-400" : "text-[#6E6E6F]"}`}
+        <div>
+          <div className="flex items-center mb-1 transition-colors duration-300">
+            <Building2
+              className={`mr-2 w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 ${isActive || isExpanded ? "text-[#2563EB]" : "text-gray-900 dark:text-white"}`}
+            />
+            <h2
+              className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive || isExpanded ? "text-[#2563EB]" : "text-gray-900 dark:text-white"}`}
             >
-              {role}
-            </p>
+              {company}
+            </h2>
           </div>
+          <p
+            className={`text-lg md:text-lg lg:text-xl font-medium ${isActive || isExpanded ? "text-gray-600 dark:text-stone-400" : "text-gray-500 dark:text-[#6E6E6F]"}`}
+          >
+            {role}
+          </p>
+        </div>
           <div
-            className={`flex items-center mt-4 md:mt-0 ${isActive ? "text-[#22C55E]" : "text-white/75"}`}
+            className={`flex items-center mt-4 md:mt-0 ${isActive || isExpanded ? "text-[#2563EB]" : "text-black/75 dark:text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
-            <span className="text-base md:text-base lg:text-lg">{period}</span>
+            <span className="text-base md:text-base lg:text-lg font-medium">{period}</span>
           </div>
         </div>
         <p
-          className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
+          className={`text-base md:text-base lg:text-lg leading-relaxed font-medium ${isActive || isExpanded ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"} mb-4 text-pretty`}
         >
           {description}
         </p>
@@ -135,7 +134,7 @@ export const ExperienceCard = ({ experience }: Props) => {
           <div className="mt-4 space-y-4">
             <div className="mb-6">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isActive ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-black dark:text-white"}`}
               >
                 <Target className="mr-2" size={20} />
                 Logros Destacados
@@ -144,16 +143,16 @@ export const ExperienceCard = ({ experience }: Props) => {
                 {achievements.map((achievement, i) => (
                   <motion.li
                     key={i}
-                    className="flex items-start"
+                    className="flex items-start mb-4"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                   >
                     <ArrowRight
-                      className={`w-5 h-5 mr-2 ${isActive ? "text-[#22C55E]" : "text-white"} flex-shrink-0`}
+                      className={`w-5 h-5 mr-2 mt-1 ${isActive || isExpanded ? "text-[#2563EB]" : "text-black dark:text-white"} flex-shrink-0`}
                     />
                     <span
-                      className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive ? "text-white/90" : "text-white/75"} mb-2 text-pretty`}
+                      className={`text-base md:text-base lg:text-lg leading-relaxed ${isActive || isExpanded ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"} text-pretty`}
                     >
                       {achievement}
                     </span>
@@ -163,7 +162,7 @@ export const ExperienceCard = ({ experience }: Props) => {
             </div>
             <div className="mb-4">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isActive ? "text-[#22C55E]" : "text-white"}`}
+                className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-black dark:text-white"}`}
               >
                 <Sparkles className="mr-2" size={20} />
                 Habilidades Clave
@@ -181,13 +180,13 @@ export const ExperienceCard = ({ experience }: Props) => {
           animate={{ rotate: isExpanded ? 180 : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <ChevronDown className="text-white/75" size={24} />
+          <ChevronDown className="text-black/75 dark:text-white/75" size={24} />
         </motion.div>
       </motion.div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
         initial={{ width: "0%" }}
-        animate={{ width: isActive ? "100%" : "0%" }}
+        animate={{ width: isActive || isExpanded ? "100%" : "0%" }}
         transition={{ duration: 0.3 }}
       />
     </motion.article>

@@ -29,7 +29,7 @@ export const experiences: Experience[] = [
         id: 3,
         name: "Javascript",
         icon: "./images/skills/javascript.svg"
-        },
+      },
       {
         id: 4,
         name: "Jquery",

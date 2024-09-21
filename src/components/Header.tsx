@@ -27,7 +27,7 @@ export const Header = () => {
       <div className="w-full h-full flex justify-center max-w-screen-lg mx-auto relative">
         <div 
           className={`w-full h-max flex items-center justify-between px-6 py-1 md:py-3 rounded-3xl transition-all duration-300 
-            ${scrolled ? "mt-5 bg-[#f1f1f1cc] dark:bg-[#383838cc] backdrop-blur-md" : "mt-2 bg-transparent backdrop-blur-none"}`}
+            ${scrolled ? "mt-5 mx-4 bg-[#f1f1f1cc] dark:bg-[#383838cc] backdrop-blur-md" : "mt-2 bg-transparent backdrop-blur-none"}`}
           style={{ 
             boxShadow: scrolled ? "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" : "none"
           }}

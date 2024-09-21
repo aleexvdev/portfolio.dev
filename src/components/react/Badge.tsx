@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   id: number;
   title: string;
@@ -7,13 +5,14 @@ interface Props {
 }
 
 export const Badge = ({ id, title, icon }: Props) => {
+
   return (
     <span
       key={id}
-      className="relative flex items-center justify-center px-4 py-2 text-base font-medium tracking-wide rounded-2xl bg-[#0b0b0b] text-white/90 select-none border border-white/10 transition-colors duration-300 ease-out group"
+      className="relative flex items-center justify-center px-4 py-2 text-base font-medium tracking-wide rounded-2xl bg-[#bfc1c5] dark:bg-[#0b0b0b] text-black/90 dark:text-white/90 select-none border border-white/10 transition-colors duration-300 ease-out group"
     >
       <img src={icon} alt={title} className="w-5 h-5" />
-      <span className="ml-2 text-nowrap text-sm font-medium text-white/90">
+      <span className="ml-2 text-nowrap text-sm font-medium text-black/90 dark:text-white/90">
         {title}
       </span>
       <div className="absolute inset-0 flex justify-center overflow-hidden rounded-full">

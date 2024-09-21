@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import { experiences } from "../lib/data";
 import { ExperienceCard } from "./ExperienceCard";
 import { motion, useAnimation, useInView } from "framer-motion";
@@ -26,15 +26,16 @@ export const ExperienceList = () => {
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: {
+    visible: (index: number) => ({
       y: 0,
       opacity: 1,
       transition: {
         type: "spring",
         damping: 20,
         stiffness: 50,
+        delay: index * 0.3,
       },
-    },
+    }),
   };
 
   return (
@@ -44,15 +45,12 @@ export const ExperienceList = () => {
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
     >
-      <motion.div
-        ref={ref}
-        className="w-full space-y-8"
-      >
+      <motion.div ref={ref} className="w-full space-y-8">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}
             variants={itemVariants}
-            custom={index}
+            custom={index} 
           >
             <ExperienceCard experience={exp} />
           </motion.div>

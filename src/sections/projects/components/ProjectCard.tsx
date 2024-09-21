@@ -19,19 +19,21 @@ export const ProjectCard = ({ project }: Props) => {
 
   return (
     <motion.article
-      className={`w-full h-max flex items-center justify-start rounded-3xl px-5 py-5 md:px-6 md:py-5 lg:px-12 lg:py-10 transition-all duration-300 border border-gray-600/20 bg-[#181818] relative overflow-hidden`}
+      className={`w-full h-max flex items-center justify-start rounded-3xl px-5 py-5 md:px-6 md:py-5 
+        lg:px-12 lg:py-10 transition-colors duration-300 border 
+        border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] relative overflow-hidden`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
       <div className="h-full w-full md:w-3/5 flex flex-col items-center justify-between">
         <div className="flex flex-col items-start justify-start">
-          <div className="bg-black bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
+          <div className="bg-white dark:bg-black opacity-80 dark:bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
             <img src={iconUrl} alt={title} className="w-16 h-16 object-cover" />
           </div>
-          <h2 className="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-white mb-4">
+          <h2 className="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-black dark:text-white mb-4">
             {title}
           </h2>
-          <p className="text-base md:text-base lg:text-lg text-white/75 mb-4 text-pretty leading-relaxed">
+          <p className="text-base md:text-base lg:text-lg text-black/75 dark:text-white/75 mb-4 text-pretty leading-relaxed font-medium">
             {description}
           </p>
           <div className="w-full h-max">
@@ -39,7 +41,7 @@ export const ProjectCard = ({ project }: Props) => {
               {skills.map(({ name, color, icon }, index) => (
                 <motion.span
                   key={index}
-                  className={`px-3 py-2 rounded-xl font-medium bg-opacity-50 flex items-center justify-center bg-black cursor-default`}
+                  className={`px-3 py-2 rounded-xl font-medium bg-opacity-50 flex items-center justify-center bg-[#bfc1c5] dark:bg-black cursor-default`}
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
@@ -57,7 +59,7 @@ export const ProjectCard = ({ project }: Props) => {
             href={repoLink}
             target="_blank"
             aria-label="Repositorio de GitHub"
-            className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
+            className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-black dark:text-white transition-all duration-300 hover:text-[#2563EB] cursor-pointer z-10"
           >
             <Github className="w-5 h-5 md:w-6 md:h-6" />
             <span className="text-sm lg:text-base font-semibold">Ver Repositorio</span>
@@ -67,7 +69,7 @@ export const ProjectCard = ({ project }: Props) => {
             href={viewLink}
             target="_blank"
             aria-label="Visitar sitio web"
-            className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-white transition-all duration-300 hover:text-green-500 cursor-pointer z-10"
+            className="group w-max flex items-center justify-center space-x-1.5 md:space-x-2 rounded-lg bg-transparent px-0 py-3 text-black dark:text-white transition-all duration-300 hover:text-[#2563EB] cursor-pointer z-10"
           >
             <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
             <span className="text-sm lg:text-base font-semibold">Visitar Sitio</span>
