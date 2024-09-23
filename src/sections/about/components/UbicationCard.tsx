@@ -6,19 +6,37 @@ export const UbicationCard = () => {
   const currentDate = useCurrentDate();
   const { hours, minutes } = useCurrentTime();
   const timeDifference = useTimeDifference();
-  const userTimeZone = useUserTimeZone();
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isTouchDevice, setIsTouchDevice] = useState<boolean>(false);
   const controls = useAnimation();
 
   useEffect(() => {
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        "ontouchstart" in window || navigator.maxTouchPoints > 0
+      );
+    };
+    checkTouchDevice();
+    window.addEventListener("resize", checkTouchDevice);
+    return () => window.removeEventListener("resize", checkTouchDevice);
+  }, []);
+
+  useEffect(() => {
     controls.start(isActive ? "active" : "inactive");
   }, [isActive, controls]);
+
+  
+  const handleInteraction = () => {
+    if (isTouchDevice) {
+      setIsActive(!isActive);
+    }
+  };
 
   return (
     <article className="relative overflow-hidden w-full h-full flex flex-col items-center justify-center col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-1 lg:row-span-1 rounded-3xl border border-gray-600/20 bg-[#F1F5F9] dark:bg-[#181818] transition-all duration-300 hover:shadow-xl">
       <motion.div
         className="p-6 md:p-6 lg:p-8 w-full h-full"
+        onClick={handleInteraction}
         whileHover={!isTouchDevice ? "active" : {}}
         onHoverStart={() => !isTouchDevice && setIsActive(true)}
         onHoverEnd={() => !isTouchDevice && setIsActive(false)}
@@ -35,7 +53,7 @@ export const UbicationCard = () => {
             <div className="w-full flex flex-col items-center justify-center gap-y-2 lg:pt-6">
               <p className="text-black dark:text-white text-3xl md:text-4xl font-bold">
                 Sede en
-                <span className="bg-gradient-to-r from-red-600 via-slate-300 dark:via-white to-red-600 bg-clip-text text-transparent ml-2">
+                <span className="bg-gradient-to-r from-red-600 dark:from-red-600 via-slate-300 dark:via-white to-red-600 dark:to-red-600 bg-clip-text text-transparent ml-2">
                   Lima
                 </span>
               </p>
