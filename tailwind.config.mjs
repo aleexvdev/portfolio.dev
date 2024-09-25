@@ -7,6 +7,16 @@ export default {
       boxShadow: {
         'inner-custom': 'inset 0 0 10px #252525', // Sombra interna personalizada
       },
+      textFillColor: {
+        'autofill-custom-dark': {
+          '-webkit-text-fill-color': '#a8a29e', 
+          '-webkit-box-shadow': '0 0 0px 1000px #181818 inset',
+        },
+        'autofill-custom-light': {
+          '-webkit-text-fill-color': '#57534e', 
+          '-webkit-box-shadow': '0 0 0px 1000px #F1F5F9 inset',
+        },
+      },
       backgroundImage: {
         'gradient-aurora': 'linear-gradient(135deg, #00C6FF, #0072FF, #00C6FF, #1DE9B6, #1DE9B6)',
         'gradient-sunset': 'linear-gradient(135deg, #FF4E50, #F9D423, #FC913A, #F94E6D, #FB3B00)',
@@ -58,5 +68,18 @@ export default {
       },
 		},
 	},
-	plugins: [],
+	plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.autofill-custom-dark': {
+          '-webkit-text-fill-color': '#a8a29e',
+          '-webkit-box-shadow': '0 0 0px 1000px #181818 inset',
+        },
+        '.autofill-custom-light': {
+          '-webkit-text-fill-color': '#57534e',
+          '-webkit-box-shadow': '0 0 0px 1000px #F1F5F9 inset',
+        },
+      }, ['responsive', 'hover']);
+    },
+  ],
 }

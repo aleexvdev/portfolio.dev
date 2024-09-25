@@ -48,7 +48,10 @@ export const Header = () => {
           </div>
           <div className="w-full hidden md:flex items-center justify-center gap-x-7">
             {navItems.map((item, index) => (
-              <li className={`text-black dark:text-white list-none transition-colors duration-300 ease-out hover:text-[#2563EB] hover:dark:text-[#2563EB]`}>
+              <li 
+                key={index}
+                className={`text-black dark:text-white list-none transition-colors duration-300 ease-out hover:text-[#2563EB] hover:dark:text-[#2563EB]`}
+              >
                 <a
                 href={item.href}
                 aria-label={item.href.slice(1)}
