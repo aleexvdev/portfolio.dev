@@ -1,12 +1,12 @@
 ---
 import { Section } from "@/layouts";
 import { FormContact, SocialChannels } from "./components";
-import { ButtonLink } from "@/components/react/ButtonLink";
 import { TemplateForm } from "./components/TemplateForm";
+import { LinkComponent } from "@/components/react/LinkComponent";
 ---
 
 <Section title="Envíame un mensaje" label="contacto" id="contacto">
-  <div class="w-full h-full bg-transparent pb-16">
+  <div class="w-full h-full bg-transparent">
     <header class="w-full h-max flex items-start mb-6">
       <h2
         class="w-full text-lg md:text-xl lg:text-2xl text-pretty font-medium text-left text-black dark:text-white"
@@ -14,56 +14,63 @@ import { TemplateForm } from "./components/TemplateForm";
         Construyamos algo asombroso.
       </h2>
     </header>
-    <div class="w-full flex flex-col items-center justify-center gap-y-4">
-      <TemplateForm client:load />
-    </div>
-
-    <!-- <div class="w-full grid grid-cols-1 lg:grid-cols-4 grid-rows-4 gap-6">
-      <div class="col-span-2 row-span-2 rounded-3xl p-7">
-        <header class="w-full h-max flex items-start mb-6">
-          <h2
-            class="w-full text-lg md:text-xl lg:text-2xl font-semibold text-left text-[#22C55E]"
-          >
-            Contáctame cuando quieras
-          </h2>
+    <div
+      class="w-full grid grid-cols-1 md:grid-cols-2 gap-y-4 md:gap-y-4 gap-x-0 md:gap-x-4"
+    >
+      <div class="col-span-1 md:col-span-2">
+        <TemplateForm client:load />
+      </div>
+      <div
+        class="relative overflow-hidden flex flex-col items-start justify-start col-span-1 bg-transparent transition-all duration-300 p-8"
+      >
+        <header
+          class="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-black dark:text-white text-center mb-4"
+        >
+          Contáctame cuando quieras
         </header>
         <p
-          class="w-full text-white/75 text-base md:text-lg mb-6 text-pretty font-medium"
+          class="w-full text-base text-center md:text-base lg:text-lg text-pretty leading-relaxed font-medium text-black/75 dark:text-white/75 mb-4 md:mb-10"
         >
-          ¿Tienes alguna pregunta o idea en mente? O simplemente quieres
-          conectar. Escríbeme y estaré encantado de responderte.
+          Tu próximo gran proyecto podría estar a un email de distancia. Ya sea
+          para resolver dudas, explorar colaboraciones o simplemente
+          intercambiar ideas, estoy listo para escucharte.
         </p>
-        <div class="w-full flex items-center justify-center mt-2">
-          <ButtonLink
-            client:load
-            href="mailto:alexvalverde.dev@gmail.com"
-            className="w-max flex items-start justify-start bg-white/10 rounded-xl px-5 py-3 text-white hover:text-[#22C55E] transition-colors duration-300"
-          >
-            <img
-              src="./images/social/gmail.svg"
-              alt="Gmail"
-              class="w-6 h-6 mr-2"
-            />
-            <p class="font-medium text-base md:text-lg">
-              alexvalverde.dev@gmail.com
-            </p>
-          </ButtonLink>
+        <div class="w-full flex items-center justify-center h-full">
+          <div class="w-max">
+            <LinkComponent href="mailto:alexvalverde.dev@gmail.com" client:load>
+              <img
+                src="./images/social/gmail.svg"
+                alt="Gmail"
+                class="w-6 h-6 mr-4"
+              />
+              <span class="text-base md:text-lg lg:text-xl font-medium">
+                alexvalverde.dev@gmail.com
+              </span>
+            </LinkComponent>
+          </div>
         </div>
       </div>
-      <div class="col-span-2 row-span-2 rounded-3xl p-7">
-        <header class="w-full h-max flex items-start mb-6">
-          <h2
-            class="w-full text-lg md:text-xl lg:text-2xl text-pretty font-medium text-left text-[#22C55E]"
-          >
-            ¡Muchas gracias por tu tiempo!
-          </h2>
+      <div
+        class="relative overflow-hidden flex flex-col items-start justify-start col-span-1 bg-transparent transition-all duration-300 p-8"
+      >
+        <header
+          class="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-black dark:text-white text-center mb-4"
+        >
+          ¡Muchas gracias por tu tiempo!
         </header>
-        <p class="w-full text-white/75 text-base md:text-lg mb-6">
-          Si así lo prefieres, no dudes en contactarme a través de cualquiera de
-          estos canales:
+        <p
+          class="w-full text-base text-center md:text-base lg:text-lg text-pretty leading-relaxed font-medium text-black/75 dark:text-white/75"
+        >
+          Conéctate conmigo en las redes y descubre cómo podemos colaborar en
+          proyectos emocionantes.
+        </p>
+        <p
+          class="w-full text-base text-center md:text-base lg:text-lg text-pretty leading-relaxed font-medium text-black/75 dark:text-white/75 mb-6 md:mb-10"
+        >
+          Tu idea <span class="text-green-600">+</span> mi experiencia <span class="text-green-600">=</span> ¡posibilidades infinitas!
         </p>
         <SocialChannels client:load />
       </div>
-    </div> -->
+    </div>
   </div>
 </Section>

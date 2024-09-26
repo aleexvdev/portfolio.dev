@@ -9,11 +9,11 @@ export default {
       },
       textFillColor: {
         'autofill-custom-dark': {
-          '-webkit-text-fill-color': '#a8a29e', 
+          '-webkit-text-fill-color': '#8d8d8d', 
           '-webkit-box-shadow': '0 0 0px 1000px #181818 inset',
         },
         'autofill-custom-light': {
-          '-webkit-text-fill-color': '#57534e', 
+          '-webkit-text-fill-color': '#999999', 
           '-webkit-box-shadow': '0 0 0px 1000px #F1F5F9 inset',
         },
       },
@@ -72,11 +72,11 @@ export default {
     function ({ addUtilities }) {
       addUtilities({
         '.autofill-custom-dark': {
-          '-webkit-text-fill-color': '#a8a29e',
+          '-webkit-text-fill-color': '#8d8d8d',
           '-webkit-box-shadow': '0 0 0px 1000px #181818 inset',
         },
         '.autofill-custom-light': {
-          '-webkit-text-fill-color': '#57534e',
+          '-webkit-text-fill-color': '#999999',
           '-webkit-box-shadow': '0 0 0px 1000px #F1F5F9 inset',
         },
       }, ['responsive', 'hover']);
