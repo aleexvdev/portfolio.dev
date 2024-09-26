@@ -10,6 +10,8 @@ const navItems = [
   { href: "#contacto", icon: Mail, text: "Contacto" },
 ];
 
+const logo = "{av.}";
+
 export const Header = () => {
   const [scrolled, setScrolled] = useState<boolean>(false);
 
@@ -35,7 +37,7 @@ export const Header = () => {
           <div className="w-max h-max flex items-center">
             <a
               href="/#"
-              className="text-2xl lg:text-3xl font-bold leading-6 gradient-text select-none transition-transform duration-200"
+              className="text-2xl lg:text-3xl font-bold leading-6 gradient-text select-none transition-transform duration-200 flex flex-col items-center justify-center"
               style={{
                 background:
                   "linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%)",
@@ -43,7 +45,7 @@ export const Header = () => {
                 WebkitTextFillColor: "transparent",
               }}
             >
-              av.
+              {logo}
             </a>
           </div>
           <div className="w-full hidden md:flex items-center justify-center gap-x-7">
