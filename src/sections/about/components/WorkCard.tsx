@@ -33,8 +33,6 @@ export const WorkCard = () => {
       transition: { duration: 0.3 },
     },
     active: {
-      /* background:
-        "linear-gradient(90deg, rgba(40, 40, 45, 0.5) 0%, rgba(27, 27, 31, 0.7) 100%)", */
       transition: { duration: 0.3 },
     },
   };

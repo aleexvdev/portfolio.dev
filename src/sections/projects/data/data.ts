@@ -4,15 +4,15 @@ export const projects: Project[] = [
   {
     image: {
       urlLarge: {
-        url: "./images/projects/project_weather_desktop.png",
+        url: "./images/projects/project_weather_desktop",
         style: "left-[60%] scale-90"
       },
       urlMedium: {
-        url: "./images/projects/project_weather_tablet.png",
+        url: "./images/projects/project_weather_tablet",
         style: "left-[55%] top-8 rotate-12 scale-90"
       },
       urlSmall: {
-        url: "./images/projects/project_weather_mobile.png",
+        url: "./images/projects/project_weather_mobile",
         style: "bottom-0 left-[40%] lg:left-[40%] rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
@@ -27,20 +27,20 @@ export const projects: Project[] = [
     title: "Weather App",
     repoLink: "https://github.com/aleexvdev/weather-app/",
     viewLink: "https://weatherapp-alexvdev.netlify.app/",
-    iconUrl: "./images/projects/weather.png"
+    iconUrl: "./images/projects/weather"
   },
   {
     image: {
       urlLarge: {
-        url: "./images/projects/project_todo_desktop.png",
+        url: "./images/projects/project_todo_desktop",
         style: "left-[60%] scale-90"
       },
       urlMedium: {
-        url: "./images/projects/project_todo_tablet.png",
+        url: "./images/projects/project_todo_tablet",
         style: "left-[55%] top-8 rotate-12 scale-90"
       },
       urlSmall: {
-        url: "./images/projects/project_todo_mobile.png",
+        url: "./images/projects/project_todo_mobile",
         style: "bottom-0 left-[40%] lg:left-[40%] rotate-6 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
@@ -55,20 +55,20 @@ export const projects: Project[] = [
     title: "ToDo App",
     repoLink: "https://github.com/aleexvdev/app-todolist/",
     viewLink: "https://alexvdev-todolist.netlify.app/",
-    iconUrl: "./images/projects/todolist.png"
+    iconUrl: "./images/projects/todolist"
   },
   {
     image: {
       urlLarge: {
-        url: "./images/projects/project_foody_desktop.png",
+        url: "./images/projects/project_foody_desktop",
         style: "left-[60%] scale-90"
       },
       urlMedium: {
-        url: "./images/projects/project_foody_tablet.png",
+        url: "./images/projects/project_foody_tablet",
         style: "left-[55%] top-8 rotate-12 scale-90"
       },
       urlSmall: {
-        url: "./images/projects/project_foody_mobile.png",
+        url: "./images/projects/project_foody_mobile",
         style: "bottom-0 left-[40%] lg:left-[40%] rotate-6 top-16 top-20 lg:top-28 scale-110 lg:scale-125"
       },
     },
@@ -84,6 +84,6 @@ export const projects: Project[] = [
     title: "Food Recipes",
     repoLink: "https://github.com/aleexvdev/food-recipes/",
     viewLink: "https://foodrecipes-alexvdev.netlify.app/",
-    iconUrl: "./images/projects/food-recipes.png"
+    iconUrl: "./images/projects/food-recipes"
   },
 ];

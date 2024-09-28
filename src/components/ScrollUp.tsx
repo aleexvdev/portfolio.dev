@@ -48,7 +48,7 @@ export const ScrollUp = () => {
 
   return (
     <motion.div
-      className={`fixed bottom-8 right-8 z-50 ${
+      className={`fixed bottom-3 right-3 md:bottom-3 md:right-3 lg:bottom-8 lg:right-8 z-50 ${
         isVisible ? "opacity-100" : "opacity-0"
       } transition-opacity duration-300`}
       initial={{ scale: 0, rotate: -180 }}

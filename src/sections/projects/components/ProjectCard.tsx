@@ -68,7 +68,14 @@ export const ProjectCard = ({ project }: Props) => {
       >
         <div className="flex flex-col items-start justify-start">
           <div className="bg-white dark:bg-black opacity-80 dark:bg-opacity-20 rounded-2xl mb-2 flex items-center justify-center">
-            <img src={iconUrl} alt={title} className="w-16 h-16 object-cover" />
+            <picture>
+              <source srcSet={`${iconUrl}.webp`} type="image/webp" />
+              <img
+                src={`${iconUrl}.png`}
+                alt={title}
+                className="w-16 h-16 object-cover"
+              />
+            </picture>
           </div>
           <h2 className="w-full text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-black dark:text-white mb-4">
             {title}
@@ -123,27 +130,21 @@ export const ProjectCard = ({ project }: Props) => {
           </a>
         </div>
       </motion.div>
-      {/* <div
-        className={`h-full w-max absolute hidden md:block bg-transparent px-2 ${image.urlSmall.style} transition-all duration-300`}
-      >
-        <img
-          src={image.urlSmall.url}
-          alt={title}
-          className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
-        />
-      </div> */}
       <div
         className={`h-full w-max absolute hidden md:block bg-transparent px-2  ${images[currentImageIndex].style} transition-all duration-300`}
       >
-        <motion.img
-          key={currentImageIndex} 
-          src={images[currentImageIndex].url}
-          alt={title}
-          className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        />
+        <picture>
+          <source srcSet={`${images[currentImageIndex].url}.webp`} type="image/webp" />
+          <motion.img
+            key={currentImageIndex}
+            src={`${images[currentImageIndex].url}.png`}
+            alt={title}
+            className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          />
+        </picture>
       </div>
       <motion.div
         className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
