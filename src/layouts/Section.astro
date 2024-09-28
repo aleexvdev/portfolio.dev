@@ -13,17 +13,68 @@ const { title, icon: Icon, label, id } = Astro.props as SectionProps;
 ---
 
 <section
-  class="w-full h-max px-6 pt-24 md:pt-28 lg:pt-32 flex flex-col items-center justify-center overflow-hidden transition-all duration-500"
+  class="w-full h-max px-6 pt-24 md:pt-28 lg:pt-32 flex flex-col items-center justify-center overflow-hidden transition-all duration-500 opacity-0 animate-fade-in"
   id={id}
   aria-labelledby={label}
 >
   <div class="inline-flex w-full items-center justify-start gap-x-4 pb-10">
-    <h2
-      class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold text-pretty w-max transition-all duration-500"
-    >
-      {title}
-    </h2>
-    <div class="ml-2 h-px grow translate-y-full bg-[#463f3f] dark:bg-[#e0e0e0] transition-all duration-500"></div>
+    <div class="flex items-center space-x-4">
+      <div class="text-primary dark:text-primary-dark animate-icon-pop">
+        {Icon}
+      </div>
+      <h2
+        class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold text-pretty w-max transition-all duration-500 animate-fade-in-up"
+      >
+        {title}
+      </h2>
+    </div>
   </div>
-  <slot />
+  <div class="animate-fade-in-up animation-delay-200">
+    <slot />
+  </div>
 </section>
+
+<style>
+  @keyframes iconPop {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0); opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-icon-pop {
+    animation: iconPop 0.5s ease-out forwards;
+    animation-delay: 2.3s;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.5s ease-out forwards;
+    animation-delay: 2.3s;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+    animation-delay: 2.3s;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 2.2s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-icon-pop,
+    .animate-fade-in-up,
+    .animate-fade-in {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>
