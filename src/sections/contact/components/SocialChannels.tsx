@@ -9,6 +9,7 @@ export const SocialChannels = () => {
           <a
             href={path}
             aria-label={name}
+            target="_blank"
             className="flex items-center justify-center p-2 bg-transparent rounded-lg overflow-hidden transition duration-300 ease-out hover:dark:bg-[#292929] bg-[#d2d2d2]"
           >
             <img

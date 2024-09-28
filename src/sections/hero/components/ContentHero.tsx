@@ -58,6 +58,7 @@ export const ContentHero = ({ children }: Props) => {
               <motion.a
                 href="https://github.com/aleexvdev"
                 aria-label="GitHub"
+                target="_blank"
                 className="flex items-center justify-center px-3 py-2 bg-transparent text-black/90 dark:text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#d2d2d2] hover:dark:bg-[#292929]"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -69,6 +70,7 @@ export const ContentHero = ({ children }: Props) => {
               <motion.a
                 href="mailto:alexvalverde.dev@example.com"
                 aria-label="Curriculum"
+                target="_blank"
                 className="flex items-center justify-center px-3 py-2 bg-transparent text-black/90 dark:text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#d2d2d2] hover:dark:bg-[#292929]"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
@@ -80,6 +82,7 @@ export const ContentHero = ({ children }: Props) => {
               <motion.a
                 href="mailto:alexvalverde.dev@example.com"
                 aria-label="Email"
+                target="_blank"
                 className="flex items-center justify-center px-3 py-2 bg-transparent text-black/90 dark:text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#d2d2d2] hover:dark:bg-[#292929]"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
