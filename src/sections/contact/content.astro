@@ -3,9 +3,10 @@ import { Section } from "@/layouts";
 import { SocialChannels } from "./components";
 import { TemplateForm } from "./components/TemplateForm";
 import { LinkComponent } from "@/components/react/LinkComponent";
+import { MailCheck } from "lucide-astro";
 ---
 
-<Section title="Envíame un mensaje" label="contacto" id="contacto">
+<Section title="Envíame un mensaje" label="contacto" id="contacto" icon={MailCheck}>
   <div class="w-full h-full bg-transparent">
     <header class="w-full h-max flex items-start mb-6">
       <h2

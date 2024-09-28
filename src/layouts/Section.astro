@@ -1,12 +1,9 @@
 ---
-import type { SVGProps } from "react";
-
 interface SectionProps {
   title: string;
-  icon: React.FC<SVGProps<SVGSVGElement>>;
+  icon: any;
   label: string;
   id: string;
-  class?: string;
 }
 
 const { title, icon: Icon, label, id } = Astro.props as SectionProps;
@@ -17,11 +14,15 @@ const { title, icon: Icon, label, id } = Astro.props as SectionProps;
   id={id}
   aria-labelledby={label}
 >
-  <div class="inline-flex w-full items-center justify-start gap-x-4 pb-10">
+  <div class="inline-flex w-full items-center justify-start gap-x-6 pb-10">
     <div class="flex items-center space-x-4">
-      <div class="text-primary dark:text-primary-dark animate-icon-pop">
-        {Icon}
-      </div>
+      {
+        Icon && (
+          <div class="text-primary dark:text-primary-dark animate-icon-pop">
+            <Icon class="w-10 h-10 text-black dark:text-white" />
+          </div>
+        )
+      }
       <h2
         class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold text-pretty w-max transition-all duration-500 animate-fade-in-up"
       >
@@ -36,18 +37,34 @@ const { title, icon: Icon, label, id } = Astro.props as SectionProps;
 
 <style>
   @keyframes iconPop {
-    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
-    100% { transform: scale(1) rotate(0); opacity: 1; }
+    0% {
+      transform: scale(0) rotate(-180deg);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1) rotate(0);
+      opacity: 1;
+    }
   }
 
   @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 
   .animate-icon-pop {
