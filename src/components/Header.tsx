@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const navItems = [
   { href: "#experiencia", icon: BriefcaseBusiness, text: "Experiencia" },
   { href: "#proyectos", icon: FolderCode, text: "Proyectos" },
-  { href: "#sobre-mi", icon: UserRound, text: "Sobre mi" },
+  { href: "#sobre-mi", icon: UserRound, text: "Sobre mí" },
   { href: "#contacto", icon: Mail, text: "Contacto" },
 ];
 

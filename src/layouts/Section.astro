@@ -14,17 +14,13 @@ const { title, icon: Icon, label, id } = Astro.props as SectionProps;
   id={id}
   aria-labelledby={label}
 >
-  <div class="inline-flex w-full items-center justify-start gap-x-6 pb-10">
-    <div class="flex items-center space-x-4">
-      {
-        Icon && (
-          <div class="text-primary dark:text-primary-dark animate-icon-pop">
-            <Icon class="w-10 h-10 text-black dark:text-white" />
-          </div>
-        )
-      }
+  <div class="inline-flex w-full items-start gap-x-6 pb-10">
+    <div class="flex items-start space-x-4">
+      <div class="text-primary dark:text-primary-dark animate-icon-pop">
+        <Icon class="w-10 h-10 text-black dark:text-white" />
+      </div>
       <h2
-        class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold text-pretty w-max transition-all duration-500 animate-fade-in-up"
+        class="text-black dark:text-white text-3xl md:text-4xl lg:text-5xl font-bold w-auto transition-all duration-500 animate-fade-in-up text-pretty break-words"
       >
         {title}
       </h2>
