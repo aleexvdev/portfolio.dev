@@ -1,14 +1,27 @@
 ---
+import { Header } from "@/components/Header";
+import { ScrollUp } from "@/components/ScrollUp";
+import { Layout, Footer } from "@/layouts";
+import {
+  About,
+  Hero,
+  CallToAction,
+  Projects,
+  Experience,
+  Contact,
+} from "@/sections";
 
-import { Header } from '@/components/Header';
-import { ScrollUp } from '@/components/ScrollUp';
-import { Layout, Footer } from '@/layouts';
-import { About, Hero, CallToAction, Projects, Experience, Contact } from '@/sections';
-
+const title = "Alexander Valverde | Ingeniero Informático";
+const description = "Desarrollador Full Stack con 2 años de experiencia en el desarrollo de software y programación web.";
+const canonicalPathname = "/hola";
 ---
 
 <!-- Primer Layout -->
-<Layout title="Alexander Valverde | Ingeniero Informático"></Layout>
+<Layout
+  title={title}
+  description={description}
+  canonicalPathname={canonicalPathname}
+>
   <Header client:load />
   <ScrollUp client:load />
   <Hero />
