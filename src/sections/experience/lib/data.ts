@@ -9,7 +9,7 @@ export const experiences: Experience[] = [
     description: "Contribuyo al desarrollo y soporte del ERP de facturación electrónica mediante la implementación de nuevas funcionalidades, con un enfoque en mejorar la eficiencia operativa y la experiencia del usuario. Trabajo en soluciones robustas y escalables, además de encargarme del mantenimiento continuo del sistema para garantizar su estabilidad y rendimiento. Aseguro que cada desarrollo esté alineado con los objetivos estratégicos de la empresa, contribuyendo activamente a la optimización y crecimiento del ERP.",
     achievements: [
       "Desarrollo e implementación de nuevas funcionalidades que mejoraron la eficiencia en los procesos del ERP de facturación electrónica.",
-      "Participación activa en la planificación y revisión de módulos clave, contribuyendo a la alineación de los desarrollos técnicos con las necesidades empresariales.",
+      "Planificación y revisión de módulos clave, contribuyendo a la alineación de los desarrollos técnicos con las necesidades empresariales.",
       "Optimización de las diferentes interfaces de usuario, mejorando la accesibilidad y la usabilidad del sistema.",
       "Colaboración en equipos multidisciplinarios para asegurar entregas de alta calidad y cumplimiento de plazos.",
       "Desarrollo de soluciones robustas y escalables para manejar grandes cantidades de datos y usuarios.",
