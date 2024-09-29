@@ -71,7 +71,7 @@ export const ProfileCard = () => {
         <div className="w-24 h-auto bg-black/80 dark:bg-white/80 rounded-full overflow-hidden border border-green-500">
           <img
             src="./images/profile.png"
-            alt="Alexvdev. 🤟"
+            alt="Alexander Valverde"
             className="w-full h-full object-cover bg-transparent scale-110"
           />
         </div>
