@@ -19,9 +19,10 @@ const {
   nofollow = false,
   ...props
 } = Astro.props;
+console.log(Astro.site?.origin)
 
 // Función para generar URLs completas de producción
-const makeProductionUrl = (pathname: string) => `${site}${pathname}`;
+const makeProductionUrl = (pathname: string) => `${pathname}`;
 
 // Limpieza de datos de entrada
 const cleanTitle = title.trim();
@@ -33,7 +34,7 @@ const keywords =
   "desarrollo de software, programación web, ingeniero informático, Php, Laravel, Node.js, React, Full Stack, aplicaciones web, SEO, programador web, JavaScript, tecnologías web";
 const imageAltText =
   "Imagen destacada para la página de desarrollo de software y programación web en español";
-const ogImage = makeProductionUrl("/og-image-es.png"); // Imagen optimizada para Open Graph
+const ogImage = makeProductionUrl("/og-image-es.png"); 
 ---
 
 <!-- Meta Tags esenciales -->

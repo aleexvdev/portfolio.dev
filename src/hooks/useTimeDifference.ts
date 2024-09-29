@@ -17,7 +17,6 @@ export const useTimeDifference = () => {
           // const peruTimeZone = "America/New_York";
           const peruTimeZone = "America/Lima";
           const difference = getTimeZoneOffset(userTimeZone) - getTimeZoneOffset(peruTimeZone);
-          console.log(difference);
           let message: string;
           if (difference > 0) {
             message = `${Math.abs(difference)}h por detrás de ti.`;
