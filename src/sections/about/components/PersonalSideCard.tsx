@@ -73,6 +73,7 @@ export const PersonalSideCard = () => {
           <motion.img
             src="./images/soccer.png"
             alt="Soccer"
+            loading="lazy"
             className="w-14 h-14 lg:w-20 lg:h-20 object-cover"
             variants={ballVariants}
             animate={"active"}
@@ -80,6 +81,7 @@ export const PersonalSideCard = () => {
           <motion.img
             src="./images/dog.png"
             alt="Perrito"
+            loading="lazy"
             className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={dogVariants}
             animate={"active"}
@@ -87,6 +89,7 @@ export const PersonalSideCard = () => {
           <motion.img
             src="/images/pasta.png" 
             alt="Pasta"
+            loading="lazy"
             className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={bounceVariants}
             animate={"active"}
@@ -94,6 +97,7 @@ export const PersonalSideCard = () => {
           <motion.img
             src="./images/joystick.png"
             alt="Joystick"
+            loading="lazy"
             className="w-14 h-14 lg:w-20 lg:h-20 object-contain"
             variants={joystickVariants}
             animate={"active"}

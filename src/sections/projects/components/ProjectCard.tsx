@@ -139,6 +139,7 @@ export const ProjectCard = ({ project }: Props) => {
             key={currentImageIndex}
             src={`${images[currentImageIndex].url}.png`}
             alt={title}
+            loading="lazy"
             className={`w-full h-full object-cover transition-all duration-300 ${isHovered ? "scale-105" : "scale-100"}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

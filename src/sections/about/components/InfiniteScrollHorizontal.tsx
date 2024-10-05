@@ -20,8 +20,7 @@ export const InfiniteScrollHorizontal = ({ images }: Props) => {
             key={key}
             src={image.path_dark}
             alt={image.alt}
-            loading="eager"
-            decoding="async"
+            loading="lazy"
             className="w-auto h-12 md:h-14 lg:h-14 object-cover p-1"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
