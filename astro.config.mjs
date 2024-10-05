@@ -9,7 +9,7 @@ dotenv.config();
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react(), svelte()],
-  output: 'hybrid',
+  // output: 'hybrid',
   adapter: node({
     mode: 'standalone'
   }),
