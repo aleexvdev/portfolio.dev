@@ -9,7 +9,6 @@ import {
 import { ButtonComponent } from "@/components/react/ButtonComponent";
 import { motion } from "framer-motion";
 import { useState } from "react";
-// import { sendEmail } from "@/services/server";
 
 export const TemplateForm = () => {
   const [formData, setFormData] = useState({
@@ -34,17 +33,6 @@ export const TemplateForm = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Formulario enviado:", formData);
-    /* try {
-      await sendEmail({
-        email: formData.email,
-        name: formData.name,
-        subject: formData.subject,
-        message: formData.message,
-      });
-      console.log("Correo enviado con éxito");
-    } catch (error) {
-      console.log("Error al enviar el correo:", error);
-    } */
   };
 
   // Función para resetear el formulario
