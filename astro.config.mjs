@@ -11,7 +11,7 @@ export default defineConfig({
   adapter: node({
     mode: "standalone"
   }),
-  experimental: {
+  /* experimental: {
     env: {
       schema: {
         EMAIL_HOST: envField.string({
@@ -36,5 +36,5 @@ export default defineConfig({
         }),
       }
     }
-  },
+  }, */
 });

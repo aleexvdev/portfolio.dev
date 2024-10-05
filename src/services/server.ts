@@ -1,4 +1,4 @@
-import nodemailer from 'nodemailer';
+/* import nodemailer from 'nodemailer';
 
 interface EmailOptions {
   email: string;
@@ -39,4 +39,4 @@ export const sendEmail = async (options: EmailOptions) => {
   } catch (error) {
     console.error("Error sending email:", error);
   }
-};
+}; */
