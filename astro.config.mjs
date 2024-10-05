@@ -11,12 +11,7 @@ dotenv.config();
 export default defineConfig({
   integrations: [tailwind(), react(), svelte()],
   output: 'server',
-  adapter: [
-    node({
-      mode: 'standalone'
-    }),
-    netlify()
-  ],
+  adapter: netlify(),
   vite: {
     ssr: {
       noExternal: ['react-icons'],
