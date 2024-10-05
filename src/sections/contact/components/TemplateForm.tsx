@@ -1,5 +1,6 @@
 import {
   AtSign,
+  Loader2,
   Mail,
   MessagesSquare,
   RefreshCw,
@@ -9,6 +10,8 @@ import {
 import { ButtonComponent } from "@/components/react/ButtonComponent";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useToast } from "@/hooks/useToast";
+import { Toast } from "@/components/react/Toast";
 
 export const TemplateForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +20,7 @@ export const TemplateForm = () => {
     subject: "",
     message: "",
   });
+  const { toastState, showToast } = useToast();
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -32,10 +36,32 @@ export const TemplateForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Formulario enviado:", formData);
+    showToast("loading", "Enviando email...");
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(
+          data.message || `HTTP error! status: ${response.status}`
+        );
+      }
+      showToast(
+        "success",
+        "¡Email enviado!"
+      );
+      handleReset();
+    } catch (error) {
+      showToast(
+        "error",
+        "¡Error! Por favor, inténtelo de nuevo más tarde."
+      );
+      console.error("Error:", error);
+    }
   };
 
-  // Función para resetear el formulario
   const handleReset = () => {
     setFormData({
       email: "",
@@ -187,17 +213,32 @@ export const TemplateForm = () => {
                     Reset
                   </span>
                 </ButtonComponent>
-                <ButtonComponent type="submit" disabled={!isFormValid}>
-                  <Send className="w-5 h-5" />
-                  <span className="text-base md:text-lg lg:text-xl font-medium">
-                    Enviar
-                  </span>
+                <ButtonComponent
+                  type="submit"
+                  disabled={!isFormValid}
+                >
+                  {toastState.type === "loading" && isFormValid ? (
+                    <>
+                      <Loader2 className="w-5 h-5" />
+                      <span className="text-base md:text-lg lg:text-xl font-medium">
+                        Enviando
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-5 h-5" />
+                      <span className="text-base md:text-lg lg:text-xl font-medium">
+                        Enviar
+                      </span>
+                    </>
+                  )}
                 </ButtonComponent>
               </motion.div>
             </div>
           </motion.div>
         </form>
       </div>
+      <Toast {...toastState} />
     </motion.div>
   );
 };

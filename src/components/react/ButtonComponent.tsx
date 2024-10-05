@@ -20,6 +20,9 @@ export const ButtonComponent = ({ children, type, disabled, onClick }: ButtonCom
       disabled={disabled}
       type={type}
       onClick={onClick}
+      style={{ 
+        cursor: disabled ? "not-allowed" : "pointer",
+      }}
     >
       <motion.div
         className="absolute bottom-0 left-0 right-0 h-[2px]"
