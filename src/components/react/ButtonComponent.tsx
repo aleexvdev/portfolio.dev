@@ -14,7 +14,7 @@ export const ButtonComponent = ({ children, type, disabled, onClick }: ButtonCom
 
   return (
     <motion.button
-      className="relative w-full md:w-max flex items-center justify-center text-black dark:text-white/75 hover:dark:text-white bg-white/50 hover:bg-white dark:bg-black px-6 py-3 rounded-xl overflow-hidden transition-colors duration-300"
+      className={`relative w-full md:w-max flex items-center justify-center text-black dark:text-white/75 ${disabled ? "" : "hover:dark:text-white"} bg-white/50 hover:bg-white dark:bg-black px-6 py-3 rounded-xl overflow-hidden transition-colors duration-300`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       disabled={disabled}

@@ -217,13 +217,22 @@ export const TemplateForm = () => {
                   type="submit"
                   disabled={!isFormValid}
                 >
-                  {toastState.type === "loading" && isFormValid ? (
-                    <>
-                      <Loader2 className="w-5 h-5" />
-                      <span className="text-base md:text-lg lg:text-xl font-medium">
-                        Enviando
-                      </span>
-                    </>
+                  {isFormValid ? (
+                    toastState.type === "loading" ? (
+                      <>
+                        <Loader2 className="w-5 h-5" />
+                        <span className="text-base md:text-lg lg:text-xl font-medium">
+                          Enviando
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-5 h-5" />
+                        <span className="text-base md:text-lg lg:text-xl font-medium">
+                          Enviar
+                        </span>
+                      </>
+                    )
                   ) : (
                     <>
                       <Send className="w-5 h-5" />

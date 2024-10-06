@@ -4,7 +4,7 @@ import { useState } from 'react';
 export const useToast = () => {
   const [toastState, setToastState] = useState<ToastProps>({
     isVisible: false,
-    type: "loading",
+    type: "",
     message: "",
   });
 
@@ -13,7 +13,7 @@ export const useToast = () => {
     message: string
   ) => {
     setToastState({ isVisible: true, type, message });
-    if (type !== "loading") {
+    if (type !== "loading" && type !== "") {
       setTimeout(() => {
         setToastState((prev) => ({ ...prev, isVisible: false }));
       }, 3000);

@@ -5,81 +5,127 @@ interface TemplateEmailProps {
   message: string;
 }
 
-export const TemplateEmail = ({ email, name, subject, message  }: TemplateEmailProps) => {
+export const TemplateEmail = ({
+  email,
+  name,
+  subject,
+  message,
+}: TemplateEmailProps) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto">
-      <h1 className="text-3xl font-bold text-center text-gray-800 mb-6">
-        ¡Gracias por contactarme, {name}!
-      </h1>
-      <p className="text-gray-700 mb-4">
-        Hemos recibido tu mensaje y me pondremos en contacto con usted pronto.
-      </p>
-      <p className="text-gray-700 mb-6">
-        Si necesitas asistencia inmediata, no dudes en comunicarte por este
-        medio o por mis redes sociales.
-      </p>
-
-      <div className="bg-white p-4 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold mb-2 text-purple-600">
-          Detalles de contacto:
+    <div style={{
+      fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
+      maxWidth: '600px',
+      margin: '0 auto',
+      padding: '30px',
+      backgroundColor: '#ffffff',
+      borderRadius: '8px',
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    }}>
+      <div style={{
+        borderBottom: '2px solid #3498db',
+        paddingBottom: '20px',
+        marginBottom: '30px',
+      }}>
+        <h1 style={{
+          fontSize: '28px',
+          fontWeight: '300',
+          color: '#2c3e50',
+          marginBottom: '10px',
+          textAlign: 'center',
+        }}>
+          Nuevo Mensaje de Contacto
+        </h1>
+        <p style={{
+          fontSize: '16px',
+          color: '#7f8c8d',
+          margin: '0',
+          textAlign: 'center',
+        }}>
+          Recibido a través de tu Portafolio Web
+        </p>
+      </div>
+      
+      <div style={{
+        backgroundColor: '#f9f9f9',
+        padding: '20px',
+        borderRadius: '6px',
+        marginBottom: '30px',
+        border: '1px solid #ecf0f1',
+      }}>
+        <h2 style={{
+          fontSize: '22px',
+          color: '#2980b9',
+          marginBottom: '15px',
+          fontWeight: '400',
+        }}>
+          Detalles del Remitente
         </h2>
-        <p className="text-gray-600">
-          Nombre: <span className="font-bold">{name}</span>
+        <p style={{
+          fontSize: '16px',
+          color: '#34495e',
+          margin: '0 0 10px 0',
+          lineHeight: '1.6',
+        }}>
+          <strong>Nombre:</strong> {name}
         </p>
-        <p className="text-gray-600">
-          Correo electrónico:{" "}
-          <span className="font-bold">{email}</span>
+        <p style={{
+          fontSize: '16px',
+          color: '#34495e',
+          margin: '0 0 10px 0',
+          lineHeight: '1.6',
+        }}>
+          <strong>Email:</strong> {email}
         </p>
-        <p className="text-gray-600">
-          Mensaje: <span className="font-bold">{message}</span>
+        <p style={{
+          fontSize: '16px',
+          color: '#34495e',
+          margin: '0',
+          lineHeight: '1.6',
+        }}>
+          <strong>Asunto:</strong> {subject}
         </p>
       </div>
-      <div className="mt-6">
-        <img
-          src="https://alexvdev.netlify.app/og-image-es.png"
-          alt="Banner"
-          className="w-full rounded-lg shadow-md"
-        />
-      </div>
-
-      <div className="mt-6">
-        <h2 className="text-xl font-semibold mb-2 text-purple-600">
-          Síguenos en redes sociales:
+      
+      <div style={{
+        backgroundColor: '#ffffff',
+        padding: '20px',
+        borderRadius: '6px',
+        marginBottom: '30px',
+        border: '1px solid #bdc3c7',
+      }}>
+        <h2 style={{
+          fontSize: '22px',
+          color: '#2980b9',
+          marginBottom: '15px',
+          fontWeight: '400',
+        }}>
+          Mensaje
         </h2>
-        <div className="flex space-x-4">
-          <a
-            href="https://www.facebook.com"
-            className="bg-blue-600 text-white py-2 px-4 rounded-full shadow-md hover:bg-blue-500 transition duration-300"
-          >
-            Facebook
-          </a>
-          <a
-            href="https://www.twitter.com"
-            className="bg-blue-400 text-white py-2 px-4 rounded-full shadow-md hover:bg-blue-300 transition duration-300"
-          >
-            Twitter
-          </a>
-          <a
-            href="https://www.instagram.com"
-            className="bg-purple-600 text-white py-2 px-4 rounded-full shadow-md hover:bg-purple-500 transition duration-300"
-          >
-            Instagram
-          </a>
-          <a
-            href="https://www.linkedin.com"
-            className="bg-blue-700 text-white py-2 px-4 rounded-full shadow-md hover:bg-blue-600 transition duration-300"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </div>
-
-      <footer className="mt-8 text-center text-gray-500">
-        <p>
-          &copy; {new Date().getFullYear()} Tu Empresa. Todos los derechos
-          reservados.
+        <p style={{
+          fontSize: '16px',
+          color: '#34495e',
+          lineHeight: '1.6',
+          whiteSpace: 'pre-wrap',
+          margin: '0',
+        }}>
+          {message}
         </p>
-      </footer>
+      </div>
+      
+      <div style={{
+        fontSize: '14px',
+        color: '#7f8c8d',
+        borderTop: '1px solid #ecf0f1',
+        paddingTop: '20px',
+        textAlign: 'center',
+      }}>
+        <p style={{margin: '0 0 10px 0'}}>
+          Este es un mensaje automático. Por favor, responde directamente a {email} para continuar la conversación.
+        </p>
+        <p style={{margin: '0'}}>
+          ©2024 Alexander Valverde. Todos los derechos reservados.
+        </p>
+      </div>
     </div>
   );
 };
