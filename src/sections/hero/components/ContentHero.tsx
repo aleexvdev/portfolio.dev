@@ -68,7 +68,7 @@ export const ContentHero = ({ children }: Props) => {
             </Tooltip>
             <Tooltip content="Curriculum" position="bottom">
               <motion.a
-                href="https://drive.google.com/file/d/1S2TCrTiIJOrA5x78eespQ_pGoEiBTIWH/view?usp=drive_link"
+                href="https://drive.google.com/file/d/1Lj-Fx0J0Mazz9DKWsw1egcyUl7zzGUDP/view?usp=sharing"
                 aria-label="Curriculum"
                 target="_blank"
                 className="flex items-center justify-center px-3 py-2 bg-transparent text-black/90 dark:text-white/90 rounded-lg overflow-hidden transition duration-300 ease-out hover:bg-[#d2d2d2] hover:dark:bg-[#292929]"
