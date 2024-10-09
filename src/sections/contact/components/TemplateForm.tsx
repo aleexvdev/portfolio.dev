@@ -34,20 +34,30 @@ export const TemplateForm = () => {
   const onSubmit = async (formData: any) => {
     showToast("loading", "Enviando email...");
     try {
-      const token = window.turnstile.getResponse();
-      const rptaCf = await fetch("/api/cf/route", {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        throw new Error(
+          data.message || `HTTP error! status: ${response.status}`
+        );
+      }
+      showToast("success", "¡Email enviado!");
+      reset();
+      /* const token = window.turnstile.getResponse();
+      const rptaCf = await fetch("/api/cf", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ token }),
       });
-
       const { success } = await rptaCf.json();
 
       if (success) {
-        console.log('soy un success');
-        const response = await fetch("/api/email/route", {
+        const response = await fetch("/api/email", {
           method: "POST",
           body: JSON.stringify(formData),
         });
@@ -65,7 +75,7 @@ export const TemplateForm = () => {
           "error",
           "¡Error Interno! Por favor, inténtelo de nuevo más tarde."
         );
-      }
+      } */
     } catch (error) {
       showToast("error", "¡Error! Por favor, inténtelo de nuevo más tarde.");
       console.error("Error:", error);

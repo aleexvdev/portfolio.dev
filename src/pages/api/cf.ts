@@ -13,7 +13,9 @@ export const POST: APIRoute = async (context: APIContext) => {
   try {
     const { token } = await request.json();
     const secret = process.env.TURNSTILE_SECRET_KEY!;
-    const ip = request.headers.get("x-forwarded-for");
+    const ip = request.headers.get("x-forwarded-for") || request.headers.get("cf-connecting-ip");
+    console.log("ip:" + ip);
+    console.log("token:" + token);
 
     if (!secret || !token || !ip) {
       return new Response(JSON.stringify({ success: false }), {
