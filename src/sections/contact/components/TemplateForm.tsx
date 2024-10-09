@@ -302,6 +302,9 @@ export const TemplateForm = () => {
             </div>
           </motion.div>
         </form>
+        <div className="text-center text-sm font-semibold text-gray-800 dark:text-gray-400 mt-4">
+          <span>No conservo ni comparto ninguno de tus datos personales.</span>
+        </div>
       </div>
       <Toast {...toastState} />
     </motion.div>
