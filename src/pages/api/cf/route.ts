@@ -16,7 +16,12 @@ export const POST: APIRoute = async (context: APIContext) => {
     const ip = request.headers.get("x-forwarded-for");
 
     if (!secret || !token || !ip) {
-      return new Response("Missing required parameters", { status: 400 });
+      return new Response(JSON.stringify({ success: false }), {
+        status: 400,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
     }
 
     let formData = new FormData();

@@ -35,19 +35,19 @@ export const TemplateForm = () => {
     showToast("loading", "Enviando email...");
     try {
       const token = window.turnstile.getResponse();
-
-      const response = await fetch("/api/turnstile", {
+      const rptaCf = await fetch("/api/cf", {
         method: "POST",
-        body: JSON.stringify({ token }),
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({ token }),
       });
 
-      const { success } = await response.json();
+      const { success } = await rptaCf.json();
 
       if (success) {
-        const response = await fetch("/api/send", {
+        console.log('soy un success');
+        /* const response = await fetch("/api/email", {
           method: "POST",
           body: JSON.stringify(formData),
         });
@@ -58,7 +58,7 @@ export const TemplateForm = () => {
           );
         }
         showToast("success", "¡Email enviado!");
-        reset();
+        reset(); */
       } else {
         window.turnstile.reset();
         showToast(
