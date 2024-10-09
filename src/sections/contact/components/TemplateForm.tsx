@@ -1,74 +1,75 @@
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
 import {
   AtSign,
   Loader2,
   Mail,
   MessagesSquare,
+  OctagonX,
   RefreshCw,
   Send,
+  ShieldAlert,
   UserRoundCheck,
 } from "lucide-react";
 import { ButtonComponent } from "@/components/react/ButtonComponent";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { useToast } from "@/hooks/useToast";
 import { Toast } from "@/components/react/Toast";
+import { schema } from "../lib/middleware";
+import { TurnstileWidget } from "./TurnstileWidget";
 
 export const TemplateForm = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    name: "",
-    subject: "",
-    message: "",
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting, isValid },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: "onChange",
   });
   const { toastState, showToast } = useToast();
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const isFormValid =
-    formData.email && formData.name && formData.subject && formData.message;
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (formData: any) => {
     showToast("loading", "Enviando email...");
     try {
-      const response = await fetch("/api/send", {
+      const token = window.turnstile.getResponse();
+
+      const response = await fetch("/api/turnstile", {
         method: "POST",
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ token }),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(
-          data.message || `HTTP error! status: ${response.status}`
+
+      const { success } = await response.json();
+
+      if (success) {
+        const response = await fetch("/api/send", {
+          method: "POST",
+          body: JSON.stringify(formData),
+        });
+        const data = await response.json();
+        if (!response.ok) {
+          throw new Error(
+            data.message || `HTTP error! status: ${response.status}`
+          );
+        }
+        showToast("success", "¡Email enviado!");
+        reset();
+      } else {
+        window.turnstile.reset();
+        showToast(
+          "error",
+          "¡Error Interno! Por favor, inténtelo de nuevo más tarde."
         );
       }
-      showToast(
-        "success",
-        "¡Email enviado!"
-      );
-      handleReset();
     } catch (error) {
-      showToast(
-        "error",
-        "¡Error! Por favor, inténtelo de nuevo más tarde."
-      );
+      showToast("error", "¡Error! Por favor, inténtelo de nuevo más tarde.");
       console.error("Error:", error);
     }
-  };
-
-  const handleReset = () => {
-    setFormData({
-      email: "",
-      name: "",
-      subject: "",
-      message: "",
-    });
   };
 
   return (
@@ -89,7 +90,7 @@ export const TemplateForm = () => {
         </h2>
       </header>
       <div className="px-2 md:px-6 lg:px-8 pb-6 md:pb-6 lg:pb-8 w-full h-full">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <motion.div
             className="h-full px-4"
             initial={{ opacity: 0 }}
@@ -114,14 +115,24 @@ export const TemplateForm = () => {
                   <input
                     type="email"
                     id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
+                    {...register("email")}
                     placeholder="sayayin.ss3@gmail.com"
                     className="flex-grow bg-transparent text-stone-600 dark:text-stone-400 placeholder:text-stone-500 px-1 md:px-2 py-1 text-base lg:text-base focus:outline-none focus:border-none autofill-custom-light dark:autofill-custom-dark"
                     required
                   />
                 </div>
+                {errors.email && (
+                  <motion.p
+                    className="text-red-500 text-sm flex items-center gap-x-2 py-2 ml-1.5 lg:text-base font-medium"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <OctagonX className="w-5 h-5" />
+                    {errors.email.message}
+                  </motion.p>
+                )}
               </motion.div>
 
               <motion.div
@@ -141,14 +152,24 @@ export const TemplateForm = () => {
                   <input
                     type="text"
                     id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
+                    {...register("name")}
                     placeholder="Son Gokú"
                     className="flex-grow bg-transparent text-stone-600 dark:text-stone-400 placeholder:text-stone-500 px-1 md:px-2 py-1 text-base lg:text-base focus:outline-none focus:border-none autofill-custom-light dark:autofill-custom-dark"
                     required
                   />
                 </div>
+                {errors.name && (
+                  <motion.p
+                    className="text-red-500 text-sm flex items-center gap-x-2 py-2 ml-1.5 lg:text-base font-medium"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <OctagonX className="w-5 h-5" />
+                    {errors.name.message}
+                  </motion.p>
+                )}
               </motion.div>
 
               <motion.div
@@ -168,14 +189,24 @@ export const TemplateForm = () => {
                   <input
                     type="text"
                     id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
+                    {...register("subject")}
                     placeholder="Sobre tu último proyecto..."
                     className="flex-grow bg-transparent text-stone-600 dark:text-stone-400 placeholder:text-stone-500 px-1 md:px-2 py-1 text-base lg:text-base focus:outline-none focus:border-none autofill-custom-light dark:autofill-custom-dark"
                     required
                   />
                 </div>
+                {errors.subject && (
+                  <motion.p
+                    className="text-red-500 text-sm flex items-center gap-x-2 py-2 ml-1.5 lg:text-base font-medium"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <OctagonX className="w-5 h-5" />
+                    {errors.subject.message}
+                  </motion.p>
+                )}
               </motion.div>
 
               <motion.div
@@ -192,39 +223,61 @@ export const TemplateForm = () => {
                   <span>Mensaje:</span>
                 </label>
                 <textarea
-                  name="message"
                   id="message"
-                  value={formData.message}
-                  onChange={handleChange}
+                  {...register("message")}
                   placeholder="Déjame saber tus pensamientos, preguntas o ideas..."
                   className="w-full min-h-80 resize-none outline-none border-none p-4 md:p-6 rounded-xl bg-white/50 dark:bg-black shadow-lg shadow-white dark:shadow-black text-base lg:text-base font-normal text-pretty text-stone-800 dark:text-stone-400 dark:placeholder-[#8d8d8d] placeholder-[#999999]"
                 ></textarea>
+                {errors.message && (
+                  <motion.p
+                    className="text-red-500 text-sm flex items-center gap-x-2 py-2 ml-1.5 lg:text-base font-medium"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <OctagonX className="w-5 h-5" />
+                    {errors.message.message}
+                  </motion.p>
+                )}
               </motion.div>
 
               <motion.div
-                className="w-full flex items-center justify-center md:justify-end py-2 space-x-6"
+                className="w-full flex flex-col md:flex-row items-center justify-center py-2 gap-y-4 md:gap-y-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
-                <ButtonComponent type="reset" onClick={handleReset}>
-                  <RefreshCw className="w-5 h-5" />
-                  <span className="text-base md:text-lg lg:text-xl font-medium">
-                    Reset
-                  </span>
-                </ButtonComponent>
-                <ButtonComponent
-                  type="submit"
-                  disabled={!isFormValid}
-                >
-                  {isFormValid ? (
-                    toastState.type === "loading" ? (
-                      <>
-                        <Loader2 className="w-5 h-5" />
-                        <span className="text-base md:text-lg lg:text-xl font-medium">
-                          Enviando
-                        </span>
-                      </>
+                <div className="flex items-center justify-center md:justify-start w-full">
+                  <TurnstileWidget />
+                </div>
+                <div className="flex items-center justify-center md:justify-end w-full space-x-6">
+                  <ButtonComponent type="reset" onClick={() => reset()}>
+                    <RefreshCw className="w-5 h-5" />
+                    <span className="text-base md:text-lg lg:text-xl font-medium">
+                      Reset
+                    </span>
+                  </ButtonComponent>
+                  <ButtonComponent
+                    type="submit"
+                    disabled={!isValid || isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      toastState.type === "loading" ? (
+                        <>
+                          <Loader2 className="w-5 h-5" />
+                          <span className="text-base md:text-lg lg:text-xl font-medium">
+                            Enviando
+                          </span>
+                        </>
+                      ) : (
+                        <>
+                          <Send className="w-5 h-5" />
+                          <span className="text-base md:text-lg lg:text-xl font-medium">
+                            Enviar
+                          </span>
+                        </>
+                      )
                     ) : (
                       <>
                         <Send className="w-5 h-5" />
@@ -232,16 +285,9 @@ export const TemplateForm = () => {
                           Enviar
                         </span>
                       </>
-                    )
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      <span className="text-base md:text-lg lg:text-xl font-medium">
-                        Enviar
-                      </span>
-                    </>
-                  )}
-                </ButtonComponent>
+                    )}
+                  </ButtonComponent>
+                </div>
               </motion.div>
             </div>
           </motion.div>

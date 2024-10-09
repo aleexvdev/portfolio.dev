@@ -49,7 +49,7 @@ export const Toast = ({ message, type, isVisible, onHide }: ToastProps) => {
             className={`flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg border ${bgColors[type]}`}
           >
             {icons[type]}
-            <span className="text-gray-700 font-medium text-sm md:text-base lg:text-lg">{"Correo enviado con éxito!"}</span>
+            <span className="text-gray-700 font-medium text-sm md:text-base lg:text-lg">{message}</span>
           </motion.div>
         </motion.div>
       )}
