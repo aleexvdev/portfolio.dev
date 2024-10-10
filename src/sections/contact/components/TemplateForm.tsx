@@ -9,7 +9,6 @@ import {
   OctagonX,
   RefreshCw,
   Send,
-  ShieldAlert,
   UserRoundCheck,
 } from "lucide-react";
 import { ButtonComponent } from "@/components/react/ButtonComponent";
@@ -18,6 +17,13 @@ import { useToast } from "@/hooks/useToast";
 import { Toast } from "@/components/react/Toast";
 import { schema } from "../lib/middleware";
 import { TurnstileWidget } from "./TurnstileWidget";
+import { useState } from "react";
+
+declare global {
+  interface Window {
+    turnstile: any;
+  }
+}
 
 export const TemplateForm = () => {
   const {
@@ -30,55 +36,37 @@ export const TemplateForm = () => {
     mode: "onChange",
   });
   const { toastState, showToast } = useToast();
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
 
   const onSubmit = async (formData: any) => {
     showToast("loading", "Enviando email...");
-    try {
-      const response = await fetch("/api/email", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(
-          data.message || `HTTP error! status: ${response.status}`
-        );
-      }
-      showToast("success", "¡Email enviado!");
-      reset();
-      /* const token = window.turnstile.getResponse();
-      const rptaCf = await fetch("/api/cf", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ token }),
-      });
-      const { success } = await rptaCf.json();
 
-      if (success) {
-        const response = await fetch("/api/email", {
-          method: "POST",
-          body: JSON.stringify(formData),
-        });
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(
-            data.message || `HTTP error! status: ${response.status}`
-          );
-        }
+    if (!turnstileToken) {
+      showToast("error", 'Parece que no eres humano...');
+      return;
+    }
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken,
+        }),
+      });
+
+      if (response.ok) {
         showToast("success", "¡Email enviado!");
         reset();
       } else {
-        window.turnstile.reset();
-        showToast(
-          "error",
-          "¡Error Interno! Por favor, inténtelo de nuevo más tarde."
-        );
-      } */
+        showToast("error", "¡Error! Intente más tarde.");
+      }
     } catch (error) {
+      console.error('Error sending email:', error);
       showToast("error", "¡Error! Por favor, inténtelo de nuevo más tarde.");
-      console.error("Error:", error);
     }
   };
 
@@ -259,7 +247,7 @@ export const TemplateForm = () => {
                 transition={{ duration: 0.5, delay: 1.2 }}
               >
                 <div className="flex items-center justify-center md:justify-start w-full">
-                  <TurnstileWidget />
+                  <TurnstileWidget onVerify={setTurnstileToken} />
                 </div>
                 <div className="flex items-center justify-center md:justify-end w-full space-x-6">
                   <ButtonComponent type="reset" onClick={() => reset()}>
