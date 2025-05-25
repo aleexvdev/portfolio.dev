@@ -1,13 +1,22 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Hero from "@/sections/Hero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Experience from "@/sections/Experience.astro";
+import Projects from "@/sections/Projects.astro";
+import CallToAction from "@/sections/CallToAction.astro";
+import About from "@/sections/About.astro";
+import Contact from "@/sections/Contact.astro";
+import Footer from "@/sections/Footer.astro";
 ---
 
-<Layout>
-	<Hero />
-	<Experience />
-	<Projects />
-	<CallToAction />
-	<About />
-	<Contact />
-	<Footer />
+<Layout title="Alexander Valverde - Full Stack Developer">
+  <main>
+    <Hero />
+    <Experience />
+    <Projects />
+    <CallToAction />
+    <About />
+    <Contact />
+    <Footer />
+  </main>
 </Layout>
