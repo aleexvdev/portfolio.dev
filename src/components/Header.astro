@@ -1,0 +1,72 @@
+---
+import { ModeToggle } from "./ModeToggle";
+import { LanguageToogle } from "./LanguageToogle";
+import ExperienceIcon from "@/assets/icons/briefcaseBusiness.astro";
+import ProjectsIcon from "@/assets/icons/folder-code.astro";
+import AboutIcon from "@/assets/icons/user-round.astro";
+import ContactIcon from "@/assets/icons/mail.astro";
+import { MenuToogle } from "./MenuToogle";
+
+const logo = "{av.}";
+
+const navs = [
+  {
+    name: "Experiencia",
+    href: "#experience",
+    icon: ExperienceIcon,
+  },
+  {
+    name: "Proyectos",
+    href: "#projects",
+    icon: ProjectsIcon,
+  },
+  {
+    name: "Sobre mi",
+    href: "#about",
+    icon: AboutIcon,
+  },
+  {
+    name: "Contacto",
+    href: "#contact",
+    icon: ContactIcon,
+  },
+];
+
+---
+
+<nav
+  class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 lg:px-8"
+>
+  <a
+    href="#"
+    class="logo text-2xl lg:text-3xl font-bold select-none transition-transform duration-200"
+  >
+    {logo}
+  </a>
+  <ul class="hidden md:flex items-center gap-6 justify-center">
+    {
+      navs.map((nav) => (
+        <li>
+          <a href={nav.href} class="flex items-center gap-2 relative text-sm/6 font-semibold text-primary after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 hover:after:bg-blue-500">
+            <nav.icon class="w-6 h-6" />
+            <span class="font-semibold text-nowrap md:text-base lg:text-lg text-sm/6 leading-6">{nav.name}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="flex items-center justify-end gap-x-2.5">
+    <LanguageToogle client:load />
+    <ModeToggle client:load />
+    <MenuToogle client:load />
+  </div>
+</nav>
+
+<style>
+  .logo {
+    text-decoration: none;
+    background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
