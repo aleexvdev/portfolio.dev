@@ -33,15 +33,15 @@ const navs = [
     href: nav.about.href,
     label: nav.about.label,
     ariaLabel: nav.about.ariaLabel,
-    icon: AboutIcon
+    icon: AboutIcon,
   },
   {
     name: nav.contact.title,
     href: nav.contact.href,
     label: nav.contact.label,
     ariaLabel: nav.contact.ariaLabel,
-    icon: ContactIcon
-  }
+    icon: ContactIcon,
+  },
 ];
 ---
 
@@ -92,12 +92,15 @@ const navs = [
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.querySelector("nav");
     const sections = document.querySelectorAll("section");
     const navItems = document.querySelectorAll("header nav ul li a");
-
     const setActiveNav = (id) => {
       navItems.forEach((item) => {
-        const targetId = item.getAttribute("href")?.substring(1).replace(/\/$/, "");
+        const targetId = item
+          .getAttribute("href")
+          ?.substring(1)
+          .replace(/\/$/, "");
         if (targetId === id) {
           item.classList.add("active");
         } else {
@@ -140,19 +143,17 @@ const navs = [
         });
       }
     };
-  });
-</script>
-<script>
-  window.addEventListener("scroll", () => {
-    const nav = document.getElementById("nav");
-    if (!nav) return;
-    if (window.scrollY > 10) {
-      nav.classList.add("nav-scrolled");
-      nav.classList.remove("bg-transparent");
-    } else {
-      nav.classList.remove("nav-scrolled");
-      nav.classList.add("bg-transparent");
-    }
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > 0) {
+        navbar?.classList.add("nav-scrolled");
+      } else {
+        navbar?.classList.remove("nav-scrolled");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
   });
 </script>
 
@@ -180,14 +181,15 @@ const navs = [
   }
 
   .nav-scrolled {
-    background-color: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
-    padding-top: 0.5rem !important;
-    padding-bottom: 0.5rem !important;
+    background-color: rgb(223 225 230 / 82%);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 18px;
+    padding: 10px 20px;
+    margin-top: 15px;
   }
 
-  .dark .nav-scrolled {
-    background-color: rgba(15, 23, 42, 0.8) !important;
+  html.dark .nav-scrolled {
+    background-color: rgb(59 59 59 / 82%);
   }
 </style>
