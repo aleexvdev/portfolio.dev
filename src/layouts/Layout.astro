@@ -1,7 +1,10 @@
 ---
 import Header from "@/components/Header.astro";
 import BackToTop from "@/components/BackToTop.astro";
+import { getLangFromUrl } from "@/i18n/i18n";
 import "@/styles/global.css";
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <script is:inline>
@@ -28,14 +31,18 @@ import "@/styles/global.css";
   }
 </script>
 
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro Basics</title>
   </head>
-  <body class="bg-background w-screen overflow-x-hidden">
+  <body class="bg-background relative w-screen overflow-x-hidden">
+    <div
+      class="bg-background absolute top-0 z-[-2] h-screen w-screen bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"
+    >
+    </div>
     <Header />
     <slot />
     <BackToTop />
@@ -46,11 +53,12 @@ import "@/styles/global.css";
   html,
   body {
     margin: 0;
-		padding: 0;
+    padding: 0;
     width: 100%;
     height: 100%;
-		overflow-x: hidden;
-		overflow-y: auto;
-		box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
   }
 </style>

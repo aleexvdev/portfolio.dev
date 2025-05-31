@@ -1,3 +1,136 @@
-<section id="hero" class="h-screen">
-  <h2 class="text-2xl font-bold">hero</h2>
+---
+import { Tooltip } from "@/components/Tooltip";
+import { AvailableToWork } from "@/components/AvailableToWork";
+import Linkedin from "@/assets/icons/linkedin.astro";
+import Github from "@/assets/icons/github.astro";
+import Mail from "@/assets/icons/mail.astro";
+import CvIcon from "@/assets/icons/scroll-text.astro";
+
+const saludo = "Hi! I'm";
+const author = "Alexander Valverde";
+const profession = "Desarrollador Full Stack";
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/alexvdev/",
+    icon: Linkedin,
+    ariaLabel: "Visitar perfil de LinkedIn",
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/aleexvdev",
+    icon: Github,
+    ariaLabel: "Visitar perfil de GitHub",
+  },
+  {
+    name: "Curriculum",
+    url: "https://drive.google.com/file/d/1Lj-Fx0J0Mazz9DKWsw1egcyUl7zzGUDP/view?usp=sharing",
+    icon: CvIcon,
+    ariaLabel: "Descargar curriculum vitae",
+  },
+  {
+    name: "Email",
+    url: "mailto:alexvalverde.dev@example.com",
+    icon: Mail,
+    ariaLabel: "Enviar correo electrónico",
+  },
+];
+---
+
+<section
+  id="home"
+  class="mx-auto flex h-screen w-screen max-w-6xl items-center justify-between px-4 py-8 transition-all duration-300 lg:px-8"
+  aria-labelledby="hero-title"
+>
+  <div class="w-full space-y-6">
+    <div class="space-y-2">
+      <h1
+        class="hero-title onest-700 text-center text-6xl font-bold tracking-tighter capitalize md:text-start md:text-8xl lg:text-9xl"
+      >
+        {author}
+      </h1>
+      <p
+        class="onest-500 mt-2 mb-4 text-center text-2xl font-semibold text-stone-600 sm:text-xl md:text-start md:text-3xl lg:text-5xl dark:text-stone-400"
+      >
+        {profession}
+      </p>
+    </div>
+    <div
+      class="flex h-max w-full flex-col items-center justify-center py-4 md:flex-row md:justify-between md:py-10"
+    >
+      <AvailableToWork client:load />
+      <div
+        class="my-4 block h-px w-[60%] rounded-full bg-stone-400 md:hidden dark:text-stone-400"
+      >
+      </div>
+      <ul
+        class="flex justify-center gap-3 sm:gap-4"
+        aria-label="Redes sociales y contacto"
+      >
+        {
+          socialLinks.map((link) => (
+            <li>
+              <Tooltip content={link.name} position="bottom" client:load>
+                <a
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={link.ariaLabel}
+                  class="group hover:bg-accent flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:shadow-sm focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                >
+                  <span class="sr-only">{link.name}</span>
+                  <span class="text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-500">
+                    <link.icon
+                      class="h-7 w-7 sm:h-8 sm:w-8"
+                      width="32"
+                      height="32"
+                    />
+                  </span>
+                </a>
+              </Tooltip>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </section>
+
+<style is:global>
+  .hero-title {
+    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.346);
+  }
+
+  .animate-custom-pulse {
+    animation: custom-pulse 1.2s infinite;
+  }
+
+  .animate-ripple {
+    animation: ripple-effect 1.2s infinite;
+  }
+
+  @keyframes custom-pulse {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    50% {
+      transform: scale(1.1);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes ripple-effect {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+</style>

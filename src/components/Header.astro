@@ -6,61 +6,155 @@ import ProjectsIcon from "@/assets/icons/folder-code.astro";
 import AboutIcon from "@/assets/icons/user-round.astro";
 import ContactIcon from "@/assets/icons/mail.astro";
 import { MenuToogle } from "./MenuToogle";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const logo = "{av.}";
-
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const nav = t("nav");
 const navs = [
   {
-    name: "Experiencia",
-    href: "#experience",
+    name: nav.experience.title,
+    href: nav.experience.href,
+    label: nav.experience.label,
+    ariaLabel: nav.experience.ariaLabel,
     icon: ExperienceIcon,
   },
   {
-    name: "Proyectos",
-    href: "#projects",
+    name: nav.projects.title,
+    href: nav.projects.href,
+    label: nav.projects.label,
+    ariaLabel: nav.projects.ariaLabel,
     icon: ProjectsIcon,
   },
   {
-    name: "Sobre mi",
-    href: "#about",
-    icon: AboutIcon,
+    name: nav.about.title,
+    href: nav.about.href,
+    label: nav.about.label,
+    ariaLabel: nav.about.ariaLabel,
+    icon: AboutIcon
   },
   {
-    name: "Contacto",
-    href: "#contact",
-    icon: ContactIcon,
-  },
+    name: nav.contact.title,
+    href: nav.contact.href,
+    label: nav.contact.label,
+    ariaLabel: nav.contact.ariaLabel,
+    icon: ContactIcon
+  }
 ];
-
 ---
 
-<nav
-  class="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 lg:px-8"
+<header
+  id="header"
+  class="header fixed top-0 z-[100] w-full bg-transparent py-2"
 >
-  <a
-    href="#"
-    class="logo text-2xl lg:text-3xl font-bold select-none transition-transform duration-200"
+  <nav
+    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 transition-all duration-300 lg:px-8"
+    id="nav"
   >
-    {logo}
-  </a>
-  <ul class="hidden md:flex items-center gap-6 justify-center">
-    {
-      navs.map((nav) => (
-        <li>
-          <a href={nav.href} class="flex items-center gap-2 relative text-sm/6 font-semibold text-primary after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:bg-foreground after:transition-all after:duration-300 hover:after:w-full hover:text-blue-500 hover:after:bg-blue-500">
-            <nav.icon class="w-6 h-6" />
-            <span class="font-semibold text-nowrap md:text-base lg:text-lg text-sm/6 leading-6">{nav.name}</span>
-          </a>
-        </li>
-      ))
+    <a
+      href="#home"
+      class="logo text-2xl font-bold transition-transform duration-200 select-none hover:scale-105 lg:text-3xl"
+    >
+      {logo}
+    </a>
+    <ul class="hidden items-center justify-center gap-6 md:flex">
+      {
+        navs.map((nav) => (
+          <li>
+            <a
+              href={nav.href}
+              aria-label={nav.label}
+              title={nav.ariaLabel}
+              class="text-primary after:bg-foreground relative flex items-center gap-1 text-sm/6 font-semibold after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:text-blue-500 hover:after:w-full hover:after:bg-blue-500"
+            >
+              <nav.icon
+                class="transition-all duration-300"
+                width="24"
+                height="24"
+              />
+              <span class="text-sm/6 leading-6 font-semibold text-nowrap transition-all duration-300 md:text-base lg:text-lg">
+                {nav.name}
+              </span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="flex items-center justify-end gap-x-2.5">
+      <LanguageToogle client:load currentLang={lang} />
+      <ModeToggle client:load />
+      <MenuToogle client:load />
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav ul li a");
+
+    const setActiveNav = (id) => {
+      navItems.forEach((item) => {
+        const targetId = item.getAttribute("href")?.substring(1).replace(/\/$/, "");
+        if (targetId === id) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+    };
+    const callback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveNav(entry.target.id);
+        }
+      });
+    };
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0.6,
+    });
+    sections.forEach((section) => {
+      if (section.id) observer.observe(section);
+    });
+    const initialHash = window.location.hash;
+    if (initialHash) {
+      const targetId = initialHash.substring(1).replace(/\/$/, "");
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        setTimeout(() => {
+          targetSection.scrollIntoView({ behavior: "smooth", block: "start" });
+          setActiveNav(targetId);
+        }, 100);
+      }
     }
-  </ul>
-  <div class="flex items-center justify-end gap-x-2.5">
-    <LanguageToogle client:load />
-    <ModeToggle client:load />
-    <MenuToogle client:load />
-  </div>
-</nav>
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect();
+      } else {
+        sections.forEach((section) => {
+          if (section.id) observer.observe(section);
+        });
+      }
+    };
+  });
+</script>
+<script>
+  window.addEventListener("scroll", () => {
+    const nav = document.getElementById("nav");
+    if (!nav) return;
+    if (window.scrollY > 10) {
+      nav.classList.add("nav-scrolled");
+      nav.classList.remove("bg-transparent");
+    } else {
+      nav.classList.remove("nav-scrolled");
+      nav.classList.add("bg-transparent");
+    }
+  });
+</script>
 
 <style>
   .logo {
@@ -68,5 +162,32 @@ const navs = [
     background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  header nav ul li a.active {
+    color: #3377ff !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  header nav ul li a.active:after {
+    width: 100% !important;
+    background-color: #3377ff !important;
+    position: absolute !important;
+    bottom: -2px !important;
+    left: 0 !important;
+    height: 2px !important;
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .nav-scrolled {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  .dark .nav-scrolled {
+    background-color: rgba(15, 23, 42, 0.8) !important;
   }
 </style>

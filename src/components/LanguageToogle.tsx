@@ -5,25 +5,36 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Languages } from "lucide-react";
 
-export function LanguageToogle() {
+interface LanguageToggleProps {
+  currentLang: string;
+}
+
+export function LanguageToogle({ currentLang }: LanguageToggleProps) {
+  const toggleLanguage = (lang: string) => {
+    const currentPath = window.location.pathname;
+    const basePath = currentPath.replace(/^\/en(\/|$)/, "/");
+    const newPath = lang === "es" ? basePath : `/en${basePath}`;
+    window.location.href = newPath;
+  };
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon" aria-label="Language menu" className="cursor-pointer border-none hover:scale-110 transition-all">
-          <span className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0">EN</span>
-          <span className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100">ES</span>
-          <span className="sr-only">Toggle language</span>
+        <Button variant="navbar" className="cursor-pointer border-none transition-all hover:scale-110">
+          <Languages className="mr-0.5 h-4 w-4" />
+          {currentLang.toUpperCase()}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem>
-          English
+        <DropdownMenuItem onClick={() => toggleLanguage("es")} disabled={currentLang === "es"}>
+          Español
         </DropdownMenuItem>
-        <DropdownMenuItem>
-          Spanish
+        <DropdownMenuItem onClick={() => toggleLanguage("en")} disabled={currentLang === "en"}>
+          English
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
-  )
+  );
 }
