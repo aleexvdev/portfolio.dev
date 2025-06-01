@@ -56,7 +56,7 @@ export const ScrollUp = () => {
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <motion.button
-        className={`bg-[#959595] dark:bg-[#181818] cursor-pointer bg-opacity-20 backdrop-blur-md rounded-full p-3 ${isVisible ? 'shadow-2xl' : 'shadow-xl'} text-[#181818] dark:text-[#d2d2d2] border dark:border-[#1f1f1f] border-opacity-30 hover:bg-opacity-30 transition-colors duration-300`}
+        className={`bg-[#e4e5eb] dark:bg-[#323233] cursor-pointer bg-opacity-20 backdrop-blur-md rounded-full p-3 ${isVisible ? 'shadow-2xl' : 'shadow-xl'} text-[#181818] dark:text-[#d2d2d2] border dark:border-[#1f1f1f] border-opacity-30 hover:bg-opacity-30 transition-colors duration-300`}
         onClick={scrollToTop}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

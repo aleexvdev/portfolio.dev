@@ -40,8 +40,6 @@ const socialLinks = [
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const hero = t("hero");
-console.log(hero);
-
 const profession = hero.profession;
 const badge = hero.title;
 const disponibility = hero.disponibility;
@@ -54,8 +52,8 @@ const disponibility = hero.disponibility;
 >
   <div class="animate-fade-in-up w-full space-y-6">
     <div class="space-y-2">
-      <div class="flex w-full items-center justify-center">
-        <div class="flex w-max items-center justify-center">
+      <div class="flex w-full items-center justify-center mb-4">
+        <div class="flex w-max items-center justify-center font-medium">
           <AnimatedGradientText client:load>{badge}</AnimatedGradientText>
         </div>
       </div>

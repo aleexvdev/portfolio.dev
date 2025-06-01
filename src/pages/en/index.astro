@@ -7,11 +7,15 @@ import CallToAction from "@/sections/CallToAction.astro";
 import About from "@/sections/About.astro";
 import Contact from "@/sections/Contact.astro";
 import Footer from "@/sections/Footer.astro";
+import { Particles } from "@/components/background/Particles";
 ---
 
 <Layout title="Alexander Valverde - Full Stack Developer">
   <main>
-    <Hero />
+    <div>
+      <Particles client:idle />
+      <Hero />
+    </div>
     <Experience />
     <Projects />
     <CallToAction />

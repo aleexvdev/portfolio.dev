@@ -2,11 +2,291 @@
 import Section from "@/components/Section.astro";
 import MailCheck from "@/assets/icons/mail-check.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+import AtSign from "@/assets/icons/at-sign.astro";
+import UserCheck from "@/assets/icons/user-round-check.astro";
+import Message from "@/assets/icons/messages-square.astro";
+import Linkedin from "@/assets/icons/linkedin.astro";
+import CardSocialContact from "@/components/CardSocialContact.astro";
+import Discord from "@/assets/icons/discord.astro";
+import Facebook from "@/assets/icons/facebook.astro";
+import Mail from "@/assets/icons/mail.astro";
+import Gmail from "@/assets/icons/gmail.astro";
+import Instagram from "@/assets/icons/instagram.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const contactMethods = [
+  {
+    icon: Gmail,
+    label: "Correo electrónico",
+    value: "alex@example.com",
+    href: "mailto:alex@example.com",
+    color: "from-neutral-700 to-neutral-600",
+    labelColor: "text-red-600",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/alexrodriguez",
+    href: "https://linkedin.com/in/alexrodriguez",
+    color: "from-sky-600 to-sky-700",
+    labelColor: "text-sky-700",
+  },
+  {
+    icon: Discord,
+    label: "Discord",
+    value: "alex#1234",
+    href: "https://discord.com/users/alex",
+    color: "from-indigo-400 to-indigo-600",
+    labelColor: "text-indigo-500",
+  },
+  {
+    icon: Facebook,
+    label: "Facebook",
+    value: "alex.fb",
+    href: "https://facebook.com/alex",
+    color: "from-blue-600 to-blue-700",
+    labelColor: "text-blue-700",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    value: "@alex_ig",
+    href: "https://instagram.com/alex",
+    color: "from-neutral-700 to-gray-600",
+    labelColor: "text-pink-600",
+  }
+];
+
 ---
 
-<Section title="Envíame un mensaje" icon={MailCheck} id="contact">
-  <h2 class="text-2xl font-bold">dsadas</h2>
+<Section
+  title="Envíame un mensaje"
+  icon={MailCheck}
+  id="contact"
+  className="bg-gradient-to-br from-blue-500/5 via-blue-100/5 to-[#ffffff] dark:bg-none"
+>
+  <div class="mt-6 flex flex-col lg:flex-row w-full h-full items-start justify-between mb-8">
+    <div
+      class="group relative mb-8 w-full rounded-2xl border border-gray-400/30 bg-[#ffffff] p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20 dark:border-white/10 dark:bg-zinc-800/40"
+    >
+      <div class="absolute top-4 left-4 flex space-x-2">
+        <span class="h-3 w-3 rounded-full bg-red-500"></span>
+        <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+        <span class="h-3 w-3 rounded-full bg-green-500"></span>
+      </div>
+      <div class="mb-8 text-center">
+        <h2 class="mt-2 text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white">
+          ¡Contáctame cuando quieras!
+        </h2>
+        <p class="mt-2.5 text-base font-medium text-black/75 dark:text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
+          Tu próximo gran proyecto podría estar a un email de distancia. Ya sea
+          para resolver dudas, explorar colaboraciones o simplemente
+          intercambiar ideas.
+        </p>
+      </div>
+      <form class="space-y-6">
+        <div class="group relative">
+          <label
+            for="email"
+            class="mb-1 flex items-center gap-2 text-lg font-medium text-gray-700 dark:text-gray-300"
+          >
+            <AtSign
+              class="text-blue-400 transition group-hover:scale-110"
+              width="20"
+              height="20"
+            />
+            Correo electrónico
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="goku.ss2@capsulecorp.com"
+            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+          />
+        </div>
+        <div class="group relative">
+          <label
+            for="name"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+          >
+            <UserCheck
+              class="text-blue-400 transition group-hover:scale-110"
+              width="20"
+              height="20"
+            />
+            Tu nombre
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Son Gokú"
+            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+          />
+        </div>
+        <div class="group relative">
+          <label
+            for="subject"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+          >
+            <Mail
+              class="text-blue-400 transition group-hover:scale-110"
+              width="20"
+              height="20"
+            />
+            Asunto
+          </label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            placeholder="Colaboración intergaláctica"
+            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+          />
+        </div>
+        <div class="group relative">
+          <label
+            for="message"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+          >
+            <Message
+              class="text-blue-400 transition group-hover:scale-110"
+              width="20"
+              height="20"
+            />
+            Mensaje
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            placeholder="Hola, estoy interesado en tu trabajo..."
+            class="mt-2 w-full resize-none rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+          ></textarea>
+        </div>
+        <div class="py-4 text-end">
+          <button
+            type="submit"
+            class="rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+          >
+            🚀 Enviar mensaje
+          </button>
+        </div>
+      </form>
+      <div
+        class="mt-4 text-center text-sm font-semibold text-gray-800 dark:text-gray-400"
+      >
+        <span>No conservo ni comparto ninguno de tus datos personales.</span>
+      </div>
+    </div>
+    <div
+      class="flex h-full w-full flex-col items-center justify-center overflow-hidden pl-6 transition-all duration-300 mt-6 lg:mt-0 md:pl-0"
+    >
+      <header
+        class="mb-4 w-full text-center text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white"
+      >
+        ¡Muchas gracias por tu tiempo!
+      </header>
+      <p
+        class="w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:text-lg dark:text-white/75"
+      >
+        Conéctate conmigo en las redes y descubre cómo podemos colaborar en
+        proyectos emocionantes.
+      </p>
+      <p
+        class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:mb-10 md:text-lg dark:text-white/75"
+      >
+        Tu idea <span class="text-green-600">+</span> mi experiencia <span
+          class="text-green-600">=</span
+        > ¡posibilidades infinitas!
+      </p>
+      <div class="w-full h-full grid grid-cols-1 items-center space-y-6 px-6 mb-8">
+        {
+          contactMethods.map((method, index) => (
+            <CardSocialContact
+              method={method}
+              label={method.label}
+              value={method.value}
+              color={method.color}
+              icon={method.icon}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </Section>
+
+<style>
+  input,
+  textarea {
+    text-decoration: none;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    color: #3e3e3d;
+  }
+
+  /* Autofill fix */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus {
+    box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+    -webkit-text-fill-color: #57534e !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  .form-label {
+    width: 12rem;
+    min-width: 12rem;
+    flex-shrink: 0;
+  }
+
+  .form-row {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid rgba(79, 85, 94, 0.2);
+    padding-bottom: 0.25rem;
+  }
+
+  .form-row textarea {
+    min-height: 20rem;
+    resize: none;
+    border-radius: 0.75rem;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1rem;
+    font-weight: 400;
+    box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    input,
+    textarea {
+      color: #a7a5a4;
+    }
+
+    .form-row textarea {
+      background-color: #000000;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    }
+
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover,
+    input:-webkit-autofill:focus {
+      -webkit-text-fill-color: #a8a29e !important;
+    }
+  }
+</style>

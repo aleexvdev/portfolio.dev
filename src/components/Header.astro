@@ -14,13 +14,13 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const nav = t("nav");
 const navs = [
-  // {
-  //   name: nav.experience.title,
-  //   href: nav.experience.href,
-  //   label: nav.experience.label,
-  //   ariaLabel: nav.experience.ariaLabel,
-  //   icon: ExperienceIcon,
-  // },
+  {
+    name: nav.experience.title,
+    href: nav.experience.href,
+    label: nav.experience.label,
+    ariaLabel: nav.experience.ariaLabel,
+    icon: ExperienceIcon,
+  },
   {
     name: nav.projects.title,
     href: nav.projects.href,
@@ -195,9 +195,19 @@ const navs = [
     background-color: rgb(59 59 59 / 82%);
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     header {
       padding: 0 15px;
+    }
+
+    .nav-scrolled {
+      padding: 6px 15px;
+    }    
+  }
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 0 25px;
     }
 
     .nav-scrolled {

@@ -1,0 +1,39 @@
+---
+interface CardSocialContactProps {
+  method: any;
+  label: string;
+  value: string;
+  color: string;
+  icon: any;
+  labelColor: string;
+}
+
+const { method, label, value, color, icon: Icon, labelColor } = Astro.props as CardSocialContactProps;
+---
+
+<a
+  href={method.href}
+  class={`relative group flex items-center space-x-5 rounded-xl border border-border bg-background p-5 transition-all duration-300 shadow-sm hover:shadow-xl hover:border-transparent hover:translate-x-1 overflow-hidden`}
+>
+  <!-- Icon container -->
+  <div
+    class={`relative z-10 flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${color} text-white transition-transform duration-500 ease-out group-hover:scale-110`}
+  >
+    <Icon width="24" height="24" class="transition-transform duration-300" />
+  </div>
+
+  <!-- Text content -->
+  <div class="relative z-10 flex flex-col">
+    <h3 class={`text-base font-semibold transition-colors duration-300 ${labelColor}`}>
+      {label}
+    </h3>
+    <p class="text-sm text-muted-foreground transition-opacity duration-300 group-hover:opacity-95">
+      {value}
+    </p>
+  </div>
+
+  <!-- Glow effect background -->
+  <div
+    class={`pointer-events-none absolute inset-0 z-0 rounded-xl bg-gradient-to-r ${color} opacity-0 blur-lg transition-opacity duration-700 group-hover:opacity-20`}
+  ></div>
+</a>
