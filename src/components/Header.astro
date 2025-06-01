@@ -1,11 +1,11 @@
 ---
-import { ModeToggle } from "./ModeToggle";
-import { LanguageToogle } from "./LanguageToogle";
+import { ModeToggle } from "./react/ModeToggle";
+import { LanguageToogle } from "./react/LanguageToogle";
 import ExperienceIcon from "@/assets/icons/briefcaseBusiness.astro";
 import ProjectsIcon from "@/assets/icons/folder-code.astro";
 import AboutIcon from "@/assets/icons/user-round.astro";
 import ContactIcon from "@/assets/icons/mail.astro";
-import { MenuToogle } from "./MenuToogle";
+import { MenuToogle } from "./react/MenuToogle";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
@@ -14,13 +14,13 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const nav = t("nav");
 const navs = [
-  {
-    name: nav.experience.title,
-    href: nav.experience.href,
-    label: nav.experience.label,
-    ariaLabel: nav.experience.ariaLabel,
-    icon: ExperienceIcon,
-  },
+  // {
+  //   name: nav.experience.title,
+  //   href: nav.experience.href,
+  //   label: nav.experience.label,
+  //   ariaLabel: nav.experience.ariaLabel,
+  //   icon: ExperienceIcon,
+  // },
   {
     name: nav.projects.title,
     href: nav.projects.href,
@@ -50,16 +50,18 @@ const navs = [
   class="header fixed top-0 z-[100] w-full bg-transparent py-2"
 >
   <nav
-    class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 transition-all duration-300 lg:px-8"
+    class="mx-auto flex max-w-6xl items-center justify-between px-0 py-4 transition-all duration-300 lg:px-8"
     id="nav"
   >
     <a
       href="#home"
-      class="logo text-2xl font-bold transition-transform duration-200 select-none hover:scale-105 lg:text-3xl"
+      class="logo text-2xl md:text-3xl font-bold transition-transform duration-200 select-none hover:scale-105 lg:text-4xl pb-1.5"
     >
       {logo}
     </a>
-    <ul class="hidden items-center justify-center gap-6 md:flex">
+    <ul
+      class="hidden items-center justify-center gap-6 transition-all duration-300 md:flex"
+    >
       {
         navs.map((nav) => (
           <li>
@@ -185,11 +187,21 @@ const navs = [
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 18px;
-    padding: 10px 20px;
+    padding: 8px 20px;
     margin-top: 15px;
   }
 
   html.dark .nav-scrolled {
     background-color: rgb(59 59 59 / 82%);
+  }
+
+  @media screen and (max-width: 768px) {
+    header {
+      padding: 0 15px;
+    }
+
+    .nav-scrolled {
+      padding: 6px 15px;
+    }
   }
 </style>

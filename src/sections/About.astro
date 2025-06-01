@@ -1,0 +1,12 @@
+---
+import Section from "@/components/Section.astro";
+import AboutMe from "@/assets/icons/user-round.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Section title="Un poco sobre mí" icon={AboutMe} id="about">
+  <h2 class="text-2xl font-bold">dsadas</h2>
+</Section>

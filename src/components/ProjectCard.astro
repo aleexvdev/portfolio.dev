@@ -1,0 +1,12 @@
+---
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  image: string;
+  demoLink: string;
+  codeLink: string;
+  tech: string[];
+}
+
+const { title, description, image, demoLink, codeLink, tech } = Astro.props as ProjectCardProps;
+---

@@ -23,8 +23,8 @@ export function LanguageToogle({ currentLang }: LanguageToggleProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="navbar" className="cursor-pointer border-none transition-all hover:scale-110">
-          <Languages className="mr-0.5 h-4 w-4" />
-          {currentLang.toUpperCase()}
+          <Languages className="mr-0.5 h-5 w-5" />
+          {/* {currentLang.toUpperCase()} */}
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">

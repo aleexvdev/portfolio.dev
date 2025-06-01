@@ -1,3 +1,30 @@
-<section id="projects" class="mx-auto flex h-screen w-screen max-w-6xl px-4 py-8 transition-all duration-300 lg:px-8">
-  <h2 class="text-2xl font-bold">Proyectos</h2>
-</section>
+---
+import Section from "@/components/Section.astro";
+import FolderCode from "@/assets/icons/folder-code.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+import ProjectCard from "@/components/ProjectCard.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Section title="Algunos de mis proyectos" icon={FolderCode} id="projects">
+
+</Section>
+
+<style>
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+</style>

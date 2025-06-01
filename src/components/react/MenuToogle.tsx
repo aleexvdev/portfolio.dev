@@ -46,7 +46,7 @@ export function MenuToogle() {
     <Drawer>
       <DrawerTrigger asChild>
         <Button
-          variant="outline"
+          variant="navbar"
           size="icon"
           aria-label="Toggle menu"
           className="cursor-pointer border-none transition-all hover:scale-110 md:hidden"

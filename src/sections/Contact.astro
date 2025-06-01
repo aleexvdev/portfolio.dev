@@ -1,0 +1,12 @@
+---
+import Section from "@/components/Section.astro";
+import MailCheck from "@/assets/icons/mail-check.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Section title="Envíame un mensaje" icon={MailCheck} id="contact">
+  <h2 class="text-2xl font-bold">dsadas</h2>
+</Section>

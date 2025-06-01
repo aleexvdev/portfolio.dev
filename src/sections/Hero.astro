@@ -1,10 +1,11 @@
 ---
-import { Tooltip } from "@/components/Tooltip";
-import { AvailableToWork } from "@/components/AvailableToWork";
+import { Tooltip } from "@/components/react/Tooltip";
+import { AvailableToWork } from "@/components/react/AvailableToWork";
 import Linkedin from "@/assets/icons/linkedin.astro";
 import Github from "@/assets/icons/github.astro";
 import Mail from "@/assets/icons/mail.astro";
 import CvIcon from "@/assets/icons/scroll-text.astro";
+import { AnimatedGradientText } from "@/components/react/AnimatedGradientText";
 
 const saludo = "Hi! I'm";
 const author = "Alexander Valverde";
@@ -37,30 +38,37 @@ const socialLinks = [
 ];
 ---
 
-<section
+<div
   id="home"
-  class="mx-auto flex min-h-screen w-screen max-w-6xl items-center justify-between px-4 py-8 transition-all duration-300 lg:px-8"
+  class="relative mx-auto flex min-h-screen w-screen max-w-6xl flex-col items-center justify-center px-4 py-8 transition-all duration-300 lg:px-8"
   aria-labelledby="hero-title"
 >
-  <div class="w-full space-y-6">
+  <div class="animate-fade-in-up w-full space-y-6">
     <div class="space-y-2">
+      <div class="flex w-full items-center justify-center">
+        <div class="flex w-max items-center justify-center">
+          <AnimatedGradientText client:idle>Welcome to my portfolio</AnimatedGradientText>
+        </div>
+      </div>
       <h1
-        class="hero-title onest-700 text-center text-6xl font-bold tracking-tighter capitalize md:text-start md:text-8xl lg:text-9xl"
+        id="hero-title"
+        class="hero-title onest-700 text-center text-6xl font-bold tracking-tighter capitalize delay-[400ms] md:text-left md:text-8xl lg:text-9xl"
       >
         {author}
       </h1>
       <p
-        class="onest-500 mt-2 mb-4 text-center text-2xl font-semibold text-stone-600 sm:text-xl md:text-start md:text-3xl lg:text-5xl dark:text-stone-400"
+        class="onest-500 text-center text-2xl font-semibold text-stone-600 delay-[600ms] sm:text-xl md:text-left md:text-3xl lg:text-5xl dark:text-stone-400"
       >
         {profession}
       </p>
     </div>
+
     <div
-      class="flex h-max w-full flex-col items-center justify-center py-4 md:flex-row md:justify-between md:py-10"
+      class="flex w-full flex-col items-center justify-center pt-6 delay-[800ms] md:flex-row md:justify-between md:pt-10"
     >
       <AvailableToWork client:load />
       <div
-        class="my-4 block h-px w-[60%] rounded-full bg-stone-400 md:hidden dark:text-stone-400"
+        class="my-6 block h-px w-[60%] rounded-full bg-stone-400 md:hidden dark:text-stone-400"
       >
       </div>
       <ul
@@ -76,10 +84,10 @@ const socialLinks = [
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.ariaLabel}
-                  class="group hover:bg-accent flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:shadow-sm focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  class="group flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 >
                   <span class="sr-only">{link.name}</span>
-                  <span class="text-gray-700 transition-all duration-300 group-hover:scale-110 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-500">
+                  <span class="glow-icon text-gray-700 transition duration-300 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-500">
                     <link.icon
                       class="h-7 w-7 sm:h-8 sm:w-8"
                       width="32"
@@ -94,43 +102,95 @@ const socialLinks = [
       </ul>
     </div>
   </div>
-</section>
+
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2">
+    <div class="mouse animate-bounce">
+      <div class="scroll-wheel"></div>
+    </div>
+  </div>
+</div>
 
 <style is:global>
   .hero-title {
-    text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.346);
+    text-shadow: 0 4px 10px rgba(215, 75, 75, 0.2);
   }
 
-  .animate-custom-pulse {
-    animation: custom-pulse 1.2s infinite;
+  .glow-icon {
+    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.5));
   }
 
-  .animate-ripple {
-    animation: ripple-effect 1.2s infinite;
+  .mouse {
+    width: 28px;
+    height: 48px;
+    border: 2px solid #a3a3a3;
+    border-radius: 14px;
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding-top: 6px;
   }
 
-  @keyframes custom-pulse {
-    0%,
-    100% {
-      transform: scale(1);
-      opacity: 1;
-    }
-
-    50% {
-      transform: scale(1.1);
-      opacity: 0.6;
-    }
+  .scroll-wheel {
+    width: 4px;
+    height: 8px;
+    background: #a3a3a3;
+    border-radius: 4px;
+    animation: wheelMove 1.5s infinite;
   }
 
-  @keyframes ripple-effect {
+  @keyframes wheelMove {
     0% {
-      transform: scale(1);
       opacity: 1;
+      transform: translateY(0);
     }
-
+    50% {
+      opacity: 0.6;
+      transform: translateY(8px);
+    }
     100% {
-      transform: scale(2);
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
       opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .delay-\[200ms\] {
+    animation-delay: 0.2s;
+  }
+
+  .delay-\[400ms\] {
+    animation-delay: 0.4s;
+  }
+
+  .delay-\[600ms\] {
+    animation-delay: 0.6s;
+  }
+
+  .delay-\[800ms\] {
+    animation-delay: 0.8s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in-up,
+    .animate-bounce {
+      animation: none;
+      opacity: 1;
     }
   }
 </style>
