@@ -1,11 +1,50 @@
-"use client";
-
 export const languages = {
   es: "Español",
   en: "English",
 }
 
 export const defaultLang = "es"
+
+type UILang = {
+  nav: {
+    home: {
+      title: string;
+      label: string;
+      ariaLabel: string;
+      href: string;
+    };
+    experience: {
+      title: string;
+      label: string;
+      ariaLabel: string;
+      href: string;
+    };
+    projects: {
+      title: string;
+      label: string;
+      ariaLabel: string;
+      href: string;
+    };
+    about: {
+      title: string;
+      label: string;
+      ariaLabel: string;
+      href: string;
+    };
+    contact: {
+      title: string;
+      label: string;
+      ariaLabel: string;
+      href: string;
+    };
+  };
+  hero: {
+    title: string;
+    profession: string;
+    disponibility: string;
+  };
+};
+
 
 export const ui = {
   es: {
@@ -41,6 +80,11 @@ export const ui = {
         href: "#contact",
       },
     },
+    hero: {
+      title: "Bienvenido a mi portafolio",
+      profession: "Desarrollador Full Stack",
+      disponibility: "Disponible para trabajar",
+    }
   },
   en: {
     nav: {
@@ -75,6 +119,11 @@ export const ui = {
         href: "#contact",
       },
     },
+    hero: {
+      title: "Welcome to my portfolio",
+      profession: "Full Stack Developer",
+      disponibility: "Available to work",
+    }
   }
 } as const
 
@@ -85,7 +134,7 @@ export function getLangFromUrl(url: URL) {
 }
 
 export function useTranslations(lang: keyof typeof ui) {
-  return function t(key: keyof typeof ui[typeof defaultLang]) {
+  return function t<K extends keyof UILang>(key: K): UILang[K] {
     return ui[lang][key] || ui[defaultLang][key];
   }
 }

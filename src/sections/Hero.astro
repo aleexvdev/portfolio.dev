@@ -6,10 +6,11 @@ import Github from "@/assets/icons/github.astro";
 import Mail from "@/assets/icons/mail.astro";
 import CvIcon from "@/assets/icons/scroll-text.astro";
 import { AnimatedGradientText } from "@/components/react/AnimatedGradientText";
+import { FlipText } from "@/components/react/FlipText";
+import { getLangFromUrl } from "@/i18n/i18n";
+import { useTranslations } from "@/i18n/i18n";
 
-const saludo = "Hi! I'm";
 const author = "Alexander Valverde";
-const profession = "Desarrollador Full Stack";
 const socialLinks = [
   {
     name: "LinkedIn",
@@ -36,6 +37,14 @@ const socialLinks = [
     ariaLabel: "Enviar correo electrónico",
   },
 ];
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const hero = t("hero");
+console.log(hero);
+
+const profession = hero.profession;
+const badge = hero.title;
+const disponibility = hero.disponibility;
 ---
 
 <div
@@ -47,17 +56,17 @@ const socialLinks = [
     <div class="space-y-2">
       <div class="flex w-full items-center justify-center">
         <div class="flex w-max items-center justify-center">
-          <AnimatedGradientText client:idle>Welcome to my portfolio</AnimatedGradientText>
+          <AnimatedGradientText client:load>{badge}</AnimatedGradientText>
         </div>
       </div>
       <h1
         id="hero-title"
-        class="hero-title onest-700 text-center text-6xl font-bold tracking-tighter capitalize delay-[400ms] md:text-left md:text-8xl lg:text-9xl"
+        class="hero-title onest-700 text-center text-6xl font-bold -tracking-wide capitalize  lg:text-left md:text-7xl lg:text-8xl"
       >
-        {author}
+        {author.toUpperCase()}
       </h1>
       <p
-        class="onest-500 text-center text-2xl font-semibold text-stone-600 delay-[600ms] sm:text-xl md:text-left md:text-3xl lg:text-5xl dark:text-stone-400"
+        class="onest-500 text-center text-2xl font-semibold text-stone-500 sm:text-xl lg:text-left md:text-3xl lg:text-5xl dark:text-stone-500"
       >
         {profession}
       </p>
@@ -66,7 +75,7 @@ const socialLinks = [
     <div
       class="flex w-full flex-col items-center justify-center pt-6 delay-[800ms] md:flex-row md:justify-between md:pt-10"
     >
-      <AvailableToWork client:load />
+      <AvailableToWork client:load text={disponibility} />
       <div
         class="my-6 block h-px w-[60%] rounded-full bg-stone-400 md:hidden dark:text-stone-400"
       >
@@ -112,7 +121,7 @@ const socialLinks = [
 
 <style is:global>
   .hero-title {
-    text-shadow: 0 4px 10px rgba(215, 75, 75, 0.2);
+    text-shadow: 0 4px 10px rgba(21, 20, 20, 0.681);
   }
 
   .glow-icon {
