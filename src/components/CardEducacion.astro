@@ -1,0 +1,74 @@
+---
+interface CardEducacionProps {
+  title: string;
+  degree: string;
+  location: string;
+  years: string;
+  description: string;
+}
+
+const { title, degree, location, years, description } = Astro.props as CardEducacionProps;
+---
+
+<article class="group card-hover-effect relative overflow-hidden flex flex-col items-center justify-stretch col-span-1 row-span-1 md:col-span-2 md:row-span-2 lg:col-span-2 lg:row-span-1 rounded-3xl border border-gray-600/20 bg-[#e3e6e8] hover:bg-[#d7dadc] dark:bg-[#181818] dark:hover:bg-[#1f1f1f] transition-all duration-300">
+  <div class="p-6 md:p-6 lg:p-8 w-full h-full">
+    <header class="w-full h-max flex items-start mb-6">
+      <h2 class="title-animate text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty text-black dark:text-white">
+        {title}
+      </h2>
+    </header>
+
+    <div class="w-full">
+      <h3 class="text-xl md:text-2xl text-wrap font-semibold text-black dark:text-white">
+        {degree}
+      </h3>
+
+      <div class="w-full mt-2 mb-3 flex items-start justify-start">
+        <span class="text-nowrap font-semibold text-base md:text-base lg:text-lg text-stone-500 dark:text-[#6E6E6F]">
+          {location}
+        </span>
+        <span class="w-px h-4 md:h-5 bg-stone-500 mx-2 my-1"></span>
+        <span class="text-nowrap font-semibold text-base md:text-base lg:text-lg text-stone-500 dark:text-[#6E6E6F]">
+          {years}
+        </span>
+      </div>
+
+      <p class="text-base md:text-base lg:text-lg text-pretty leading-relaxed font-medium text-black/75 dark:text-white/75">
+        {description}
+      </p>
+    </div>
+  </div>
+</article>
+
+<style>
+  .card-hover-effect {
+    transition:
+      transform 0.4s ease-in-out,
+      box-shadow 0.4s ease-in-out,
+      background 0.4s;
+  }
+
+  .card-hover-effect:hover {
+    transform: scale(1.015);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .title-animate {
+    transition: color 0.3s ease-in-out;
+  }
+
+  .group:hover .title-animate {
+    color: #2563eb; /* Tailwind's blue-600 */
+  }
+
+  .icon-animate {
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  .icon-animate:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.1);
+  }
+</style>

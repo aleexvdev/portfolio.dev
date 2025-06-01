@@ -2,11 +2,77 @@
 import Section from "@/components/Section.astro";
 import AboutMe from "@/assets/icons/user-round.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+import CardProfile from "@/components/CardProfile.astro";
+import CardPersonalSide from "@/components/CardPersonalSide.astro";
+import CardSkills from "@/components/CardSkills.astro";
+import CardEducation from "@/components/CardEducacion.astro";
+import CardWork from "@/components/CardWork.astro";
+import CardLocation from "@/components/CardLocation.astro";
+import { skills } from "@/data/data";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const now = new Date();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+const currentDate = now.toLocaleDateString("es-PE", {
+  weekday: "long",
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
 ---
 
 <Section title="Un poco sobre mí" icon={AboutMe} id="about">
-  <h2 class="text-2xl font-bold">dsadas</h2>
+  <div
+    class="mt-6 mb-8 grid h-full w-full grid-flow-row grid-cols-1 gap-y-4 p-0 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:grid-rows-6 select-none"
+  >
+    <!-- Profile -->
+    <CardProfile
+      name="Ing. Alexander Valverde"
+      username="@aleexvdev"
+      image="/about-images/profile.webp"
+      status="En línea"
+      quote='"Cree en ti y todo será posible."'
+    />
+
+    <CardPersonalSide
+      title="Mi lado personal"
+      paragraphs={[
+        "Me considero una persona resiliente, responsable y optimista. No importa cuán complejo sea el desafío que enfrente, siempre encuentro una manera de superarlo, manteniendo una perspectiva positiva y una fuerte independencia en mis decisiones y acciones. Además de ser resiliente, me considero una persona comprometida y enfocada en mis metas.",
+        "Siempre busco mejorar y aprender de cada experiencia, lo que me permite crecer tanto personal como profesionalmente. Estoy convencido de que cada reto es una oportunidad para evolucionar y que con determinación y una actitud positiva, todo es posible.",
+      ]}
+      icons={[
+        { src: "/about-images/soccer.png", alt: "Soccer" },
+        { src: "/about-images/dog.png", alt: "Perrito" },
+        { src: "/about-images/pasta.png", alt: "Pasta" },
+        { src: "/about-images/joystick.png", alt: "Joystick" },
+      ]}
+    />
+    <CardSkills title="Habilidades" skills={skills} />
+    <CardWork
+      title="Mi experiencia laboral"
+      paragraph1="Con casi 3 años de experiencia en desarrollo web, me especializo en crear aplicaciones escalables y adaptadas a las necesidades del cliente. Mi enfoque combina un entendimiento profundo de los requisitos con la capacidad de trabajar eficazmente en equipos multidisciplinarios o de manera independiente. Soy adaptable y proactivo, siempre buscando mejorar procesos y contribuir al éxito de cada proyecto."
+      paragraph2="Estoy continuamente explorando nuevas tecnologías y metodologías para mantenerme actualizado con las mejores prácticas en el campo, lo que me permite contribuir de manera significativa a los proyectos en los que trabajo."
+      imageSrc="/about-images/method_work.png"
+      imageAlt="Mi método de trabajo"
+    />
+    <CardEducation
+      title="Educación"
+      degree="Bachiller en Ingeniería Informática"
+      location="Lima, Perú"
+      years="2016 - 2021"
+      description="Graduado por la Universidad Nacional José Faustino Sánchez Carrión en Ingeniería Informática, donde desarrollé una base sólida en áreas clave como la gestión de tecnologías de la información, desarrollo de software, y la seguridad informática. Mi formación me preparó para alinear estrategias empresariales con soluciones tecnológicas avanzadas, garantizando la eficiencia y seguridad en los sistemas de información."
+    />
+    <CardLocation
+      location="Lima"
+      country="Perú"
+      flagSrc="/about-images/bandera.png"
+      timeDifference="3 horas por detrás de tu ubicación actual"
+      hours={hours}
+      minutes={minutes}
+      utcOffset="UTC-5"
+      currentDate={currentDate}
+    />
+  </div>
 </Section>

@@ -1,0 +1,135 @@
+---
+interface CardLocationProps {
+  location: string;
+  country: string;
+  flagSrc: string;
+  timeDifference: string;
+  hours: number;
+  minutes: number;
+  utcOffset: string;
+  currentDate: string;
+}
+
+const {
+  location,
+  country,
+  flagSrc,
+  timeDifference,
+  hours,
+  minutes,
+  utcOffset,
+  currentDate,
+} = Astro.props as CardLocationProps;
+---
+
+<article
+  class="group card-hover-effect relative col-span-1 row-span-1 flex h-full w-full flex-col items-center justify-center overflow-hidden rounded-3xl border border-gray-600/20 bg-[#e3e6e8] transition-all duration-300 md:col-span-2 md:row-span-2 lg:col-span-1 lg:row-span-1 dark:bg-[#181818]"
+>
+  <div class="h-full w-full p-6 md:p-6 lg:p-8">
+    <header class="mb-6 flex h-max w-full items-start">
+      <h2
+        class="title-animate text-3xl font-semibold text-pretty text-black md:text-3xl lg:text-4xl dark:text-white"
+      >
+        Mi ubicación
+      </h2>
+    </header>
+
+    <div class="h-max w-full">
+      <div
+        class="flex h-full w-full flex-col items-center justify-center md:flex-row md:items-center md:justify-center lg:flex-col lg:justify-start"
+      >
+        <div
+          class="flex w-full flex-col items-center justify-center gap-y-2 lg:pt-6"
+        >
+          <p class="text-3xl font-bold text-black md:text-4xl dark:text-white">
+            Sede en
+            <span
+              class="ml-2 bg-gradient-to-r from-red-600 via-slate-300 to-red-600 bg-clip-text text-transparent dark:from-red-600 dark:via-white dark:to-red-600"
+            >
+              {location}
+            </span>
+          </p>
+
+          <div class="flex items-center gap-x-2">
+            <img
+              src={flagSrc}
+              alt={`Bandera de ${country}`}
+              class="h-6 w-6 object-cover"
+            />
+            <p class="text-xl text-black/90 md:text-2xl dark:text-white/90">
+              {country}
+            </p>
+          </div>
+
+          <p
+            class="text-center text-lg leading-relaxed text-pretty text-black/75 dark:text-white/75"
+          >
+            {timeDifference}
+          </p>
+        </div>
+
+        <div
+          class="my-4 h-px w-4/5 bg-[#6E6E6F] md:mx-4 md:my-0 md:h-32 md:w-px lg:mx-0 lg:my-6 lg:h-px lg:w-4/5"
+        >
+        </div>
+
+        <div
+          class="flex w-full flex-col items-center justify-end lg:justify-center"
+        >
+          <div class="flex h-max w-full items-end justify-center gap-x-2">
+            <span
+              class="w-max text-center text-4xl font-bold text-nowrap text-[#2563EB] md:text-5xl"
+            >
+              {hours === 0 ? "00" : hours}:{
+                minutes < 10 ? `0${minutes}` : minutes
+              }
+            </span>
+            <span
+              class="mb-0.5 text-center text-base leading-relaxed text-pretty text-black/75 md:text-base lg:text-lg dark:text-white/75"
+            >
+              {utcOffset}
+            </span>
+          </div>
+          <p
+            class="mt-2 text-center text-base leading-relaxed text-pretty text-black/75 md:text-base lg:text-lg dark:text-white/75"
+          >
+            {currentDate}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .card-hover-effect {
+    transition:
+      transform 0.4s ease-in-out,
+      box-shadow 0.4s ease-in-out,
+      background 0.4s;
+  }
+
+  .card-hover-effect:hover {
+    transform: scale(1.015);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .title-animate {
+    transition: color 0.3s ease-in-out;
+  }
+
+  .group:hover .title-animate {
+    color: #2563eb; /* Tailwind's blue-600 */
+  }
+
+  .icon-animate {
+    transition:
+      transform 0.3s ease,
+      filter 0.3s ease;
+  }
+
+  .icon-animate:hover {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.1);
+  }
+</style>
