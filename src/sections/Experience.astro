@@ -2,11 +2,17 @@
 import Section from "@/components/Section.astro";
 import BriefcaseBusiness from "@/assets/icons/briefcaseBusiness.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+import { experiences } from "@/data/experiences";
+import { ExperienceCard } from "@/components/react/ExperienceCard";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Section title="¿Dónde he trabajado?" icon={BriefcaseBusiness} id="experience">
-  <h2 class="text-2xl font-bold">dsadas</h2>
+<Section title="¿Dónde he trabajado?" icon={BriefcaseBusiness} id="experience" minHeight="h-auto">
+  <div class="space-y-8 mt-6">
+    {experiences.map((experience) => (
+      <ExperienceCard experience={experience} client:load />
+    ))}
+  </div>
 </Section>

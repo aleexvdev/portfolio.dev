@@ -8,6 +8,7 @@ interface CardLocationProps {
   minutes: number;
   utcOffset: string;
   currentDate: string;
+  title: string;
 }
 
 const {
@@ -19,6 +20,7 @@ const {
   minutes,
   utcOffset,
   currentDate,
+  title
 } = Astro.props as CardLocationProps;
 ---
 
@@ -30,7 +32,7 @@ const {
       <h2
         class="title-animate text-3xl font-semibold text-pretty text-black md:text-3xl lg:text-4xl dark:text-white"
       >
-        Mi ubicación
+      {title}
       </h2>
     </header>
 
@@ -119,7 +121,7 @@ const {
   }
 
   .group:hover .title-animate {
-    color: #2563eb; /* Tailwind's blue-600 */
+    color: #2563eb; 
   }
 
   .icon-animate {
