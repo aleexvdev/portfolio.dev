@@ -23,16 +23,15 @@ export function LanguageToogle({ currentLang }: LanguageToggleProps) {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="navbar" className="cursor-pointer border-none transition-all hover:scale-110">
-          <Languages className="mr-0.5 h-5 w-5" />
-          {/* {currentLang.toUpperCase()} */}
+          <Languages className="w-10 h-10" />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuItem onClick={() => toggleLanguage("es")} disabled={currentLang === "es"}>
-          Español
+          <span className="text-base font-medium text-gray-300">Español</span>
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => toggleLanguage("en")} disabled={currentLang === "en"}>
-          English
+          <span className="text-base font-medium text-gray-300">English</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

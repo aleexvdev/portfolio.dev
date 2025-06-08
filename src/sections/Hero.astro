@@ -6,7 +6,6 @@ import Github from "@/assets/icons/github.astro";
 import Mail from "@/assets/icons/mail.astro";
 import CvIcon from "@/assets/icons/scroll-text.astro";
 import { AnimatedGradientText } from "@/components/react/AnimatedGradientText";
-import { FlipText } from "@/components/react/FlipText";
 import { getLangFromUrl } from "@/i18n/i18n";
 import { useTranslations } from "@/i18n/i18n";
 
@@ -45,33 +44,39 @@ const badge = hero.title;
 const disponibility = hero.disponibility;
 ---
 
-<div
+<section
   id="home"
   class="relative mx-auto flex min-h-screen w-screen max-w-6xl flex-col items-center justify-center px-4 py-8 transition-all duration-300 lg:px-8"
   aria-labelledby="hero-title"
 >
-  <div class="animate-fade-in-up w-full space-y-6">
-    <div class="space-y-2">
-      <div class="flex w-full items-center justify-center mb-4">
-        <div class="flex w-max items-center justify-center font-medium">
-          <AnimatedGradientText client:load>{badge}</AnimatedGradientText>
+  <div class="animate-fade-in-up w-full space-y-8">
+    <div class="space-y-4">
+      <div class="flex w-full items-center justify-center">
+        <div
+          class="flex w-max items-center justify-center text-sm font-semibold tracking-widest"
+        >
+          <AnimatedGradientText client:load>
+            {badge}
+          </AnimatedGradientText>
         </div>
       </div>
+
       <h1
         id="hero-title"
-        class="hero-title onest-700 text-center text-6xl font-bold -tracking-wide capitalize  lg:text-left md:text-7xl lg:text-8xl"
+        class="animate-glow-fade hero-title text-center text-6xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl"
       >
         {author.toUpperCase()}
       </h1>
+
       <p
-        class="onest-500 text-center text-2xl font-semibold text-stone-500 sm:text-xl lg:text-left md:text-3xl lg:text-5xl dark:text-stone-500"
+        class="animate-soft-glow profession-text mt-4 bg-gradient-to-r from-indigo-400 via-sky-400 to-purple-400 bg-clip-text text-center text-2xl font-semibold text-transparent md:text-3xl lg:text-5xl"
       >
         {profession}
       </p>
     </div>
 
     <div
-      class="flex w-full flex-col items-center justify-center pt-6 delay-[800ms] md:flex-row md:justify-between md:pt-10"
+      class="flex w-full flex-col items-center justify-center pt-8 md:flex-row md:justify-between"
     >
       <AvailableToWork client:load text={disponibility} />
       <div
@@ -91,10 +96,10 @@ const disponibility = hero.disponibility;
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.ariaLabel}
-                  class="group flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-110 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  class="group flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-125 hover:text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 >
                   <span class="sr-only">{link.name}</span>
-                  <span class="glow-icon text-gray-700 transition duration-300 group-hover:text-blue-600 dark:text-gray-400 dark:group-hover:text-blue-500">
+                  <span class="glow-icon text-gray-700 transition duration-300 group-hover:text-blue-600 dark:text-gray-300 dark:group-hover:text-blue-400">
                     <link.icon
                       class="h-7 w-7 sm:h-8 sm:w-8"
                       width="32"
@@ -115,15 +120,16 @@ const disponibility = hero.disponibility;
       <div class="scroll-wheel"></div>
     </div>
   </div>
-</div>
+</section>
 
 <style is:global>
   .hero-title {
-    text-shadow: 0 4px 10px rgba(21, 20, 20, 0.681);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   }
 
   .glow-icon {
-    filter: drop-shadow(0 0 2px rgba(59, 130, 246, 0.5));
+    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
+    transition: filter 0.3s ease;
   }
 
   .mouse {
@@ -132,7 +138,6 @@ const disponibility = hero.disponibility;
     border: 2px solid #a3a3a3;
     border-radius: 14px;
     position: relative;
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
     align-items: start;
@@ -153,8 +158,8 @@ const disponibility = hero.disponibility;
       transform: translateY(0);
     }
     50% {
-      opacity: 0.6;
-      transform: translateY(8px);
+      opacity: 0.5;
+      transform: translateY(10px);
     }
     100% {
       opacity: 1;
@@ -174,30 +179,104 @@ const disponibility = hero.disponibility;
   }
 
   .animate-fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
+    animation: fadeInUp 1s ease-out forwards;
   }
 
-  .delay-\[200ms\] {
-    animation-delay: 0.2s;
+  @keyframes glow {
+    0%,
+    100% {
+      text-shadow:
+        0 0 10px rgba(59, 130, 246, 0.9),
+        0 0 20px rgba(59, 130, 246, 0.6),
+        0 0 30px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+      text-shadow:
+        0 0 20px rgba(59, 130, 246, 1),
+        0 0 30px rgba(59, 130, 246, 0.8),
+        0 0 40px rgba(59, 130, 246, 0.6);
+    }
   }
 
-  .delay-\[400ms\] {
-    animation-delay: 0.4s;
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
   }
 
-  .delay-\[600ms\] {
-    animation-delay: 0.6s;
+  @keyframes flipIn {
+    0% {
+      transform: rotateX(90deg);
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0);
+      opacity: 1;
+    }
   }
 
-  .delay-\[800ms\] {
-    animation-delay: 0.8s;
+  .animate-flip-in {
+    animation: flipIn 0.8s ease-out forwards;
+    transform-origin: top;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in-up,
-    .animate-bounce {
-      animation: none;
-      opacity: 1;
+    .animate-bounce,
+    .animate-glow,
+    .animate-flip-in {
+      animation: none !important;
+      opacity: 1 !important;
     }
+  }
+
+  .hero-title {
+    text-shadow:
+      0 0 6px rgba(255, 255, 255, 0.25),
+      0 0 12px rgba(173, 216, 230, 0.15),
+      0 0 20px rgba(173, 216, 230, 0.1);
+  }
+
+  .profession-text {
+    text-shadow: 0 0 3px rgba(255, 255, 255, 0.1);
+  }
+
+  /* ✨ Ráfaga suave animada atravesando el texto */
+  @keyframes lightBurst {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  .animate-light-burst {
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: lightBurst 3s ease-in-out infinite;
+  }
+
+  /* 🌠 Profesión con glow sutil */
+  @keyframes softGlow {
+    0%,
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    50% {
+      opacity: 0.92;
+      transform: translateY(-2px);
+    }
+  }
+
+  .animate-soft-glow {
+    animation: softGlow 4s ease-in-out infinite;
   }
 </style>

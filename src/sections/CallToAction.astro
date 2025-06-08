@@ -1,0 +1,222 @@
+---
+import Linkedin from "@/assets/icons/linkedin.astro";
+import Mail from "@/assets/icons/mail.astro";
+import { ArrowRight, Coffee } from "lucide-react";
+---
+
+<div
+  id="meteor-container"
+  class="relative mt-8 flex flex-col items-center justify-center px-4 py-20"
+>
+  <div
+    class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8"
+  >
+    <div class="mb-6 flex justify-center">
+      <div
+        class="flex items-center space-x-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-2 shadow-md backdrop-blur-md"
+      >
+        <Coffee className="animate-float h-8 w-8 text-amber-400" />
+        <span class="text-base font-medium md:text-lg"
+          >¡Disponible para nuevos proyectos!</span
+        >
+      </div>
+    </div>
+
+    <h2
+      class="flex flex-col items-center justify-center text-4xl font-extrabold md:text-6xl"
+    >
+      <span class="text-white drop-shadow-md">¿Tienes una idea?</span>
+      <span
+        class="shimmer-text bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-400 bg-clip-text text-transparent drop-shadow-md"
+        >Hagámosla realidad</span
+      >
+    </h2>
+
+    <p class="my-6 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
+      Como desarrollador full stack, me especializo en transformar ideas en
+      aplicaciones web <span class="font-semibold text-blue-400">modernas</span>
+      y
+      <span class="font-semibold text-purple-400">escalables</span>.<br /><span
+        class="font-medium text-cyan-300">¡Hagamos equipo!</span
+      >
+    </p>
+
+    <div
+      class="mt-8 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6"
+    >
+      <a
+        href="https://www.linkedin.com/in/alexvdev/"
+        target="_blank"
+        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto"
+      >
+        <Linkedin class="text-white" width="24" height="24" />
+        <span>LinkedIn</span>
+        <ArrowRight
+          className="h-5 w-5 transition-transform group-hover:translate-x-1"
+        />
+      </a>
+
+      <a
+        href="mailto:alexvalverde.dev@gmail.com"
+        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto"
+      >
+        <Mail class="text-white" width="24" height="24" />
+        <span>Contáctame</span>
+        <ArrowRight
+          className="h-5 w-5 transition-transform group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style is:inline>
+  #meteor-container {
+    background: radial-gradient(ellipse at bottom, #05080c 0%, #000 80%);
+    overflow: hidden;
+  }
+  .star {
+    position: absolute;
+    background: white;
+    opacity: 0;
+    border-radius: 50%;
+    animation: twinkle 4s infinite ease-in-out;
+  }
+  @keyframes twinkle {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .meteor {
+    position: absolute;
+    top: -40px;
+    width: 60px;
+    height: 20px;
+    animation: fall linear infinite;
+    pointer-events: none;
+  }
+  @keyframes fall {
+    to {
+      transform: translateY(120vh) translateX(30px) rotate(45deg);
+      opacity: 0;
+    }
+  }
+
+  .explosion {
+    position: absolute;
+    bottom: 0;
+    width: 16px;
+    height: 16px;
+    background: radial-gradient(circle, #93c5fd, transparent);
+    border-radius: 50%;
+    animation: explode 0.5s ease-out forwards;
+    pointer-events: none;
+  }
+  @keyframes explode {
+    from {
+      transform: scale(0.5);
+      opacity: 0.8;
+    }
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+  }
+
+  .glow-hover:hover {
+    box-shadow:
+      0 0 12px rgba(255, 255, 255, 0.4),
+      0 0 30px var(--tw-shadow-color);
+  }
+  @keyframes floatPulse {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .animate-float {
+    animation: floatPulse 3s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  .shimmer-text {
+    background-size: 400% auto;
+    animation: shimmer 6s linear infinite;
+  }
+</style>
+
+<script is:inline>
+  const container = document.querySelector("#meteor-container");
+  if (container) {
+    // Estrellas aleatorias
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      const size = Math.random() * 2 + 1;
+      star.style.width = star.style.height = `${size}px`;
+      star.style.left = `${Math.random() * 100}vw`;
+      star.style.top = `${Math.random() * 100}vh`;
+      star.style.animationDuration = `${2 + Math.random() * 3}s`;
+      container.appendChild(star);
+    }
+
+    // Meteoritos
+    setInterval(() => {
+      const meteor = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+      );
+      meteor.classList.add("meteor");
+      meteor.style.left = `${Math.random() * 100}vw`;
+      meteor.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
+
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line"
+      );
+      line.setAttribute("x1", "0");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", "60");
+      line.setAttribute("y2", "0");
+      line.setAttribute("stroke", "url(#grad)");
+      line.setAttribute("stroke-width", "4");
+      meteor.appendChild(line);
+
+      const grad = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "defs"
+      );
+      grad.innerHTML = `
+        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3b82f6" />
+          <stop offset="100%" stop-color="transparent" />
+        </linearGradient>`;
+      meteor.appendChild(grad);
+
+      meteor.addEventListener("animationend", () => {
+        const explosion = document.createElement("div");
+        explosion.className = "explosion";
+        explosion.style.left = meteor.style.left;
+        container.appendChild(explosion);
+        setTimeout(() => explosion.remove(), 600);
+        meteor.remove();
+      });
+
+      container.appendChild(meteor);
+    }, 300);
+  }
+</script>

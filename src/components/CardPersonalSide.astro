@@ -9,10 +9,9 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
 ---
 
 <article
-  class="group card-hover-effect relative col-span-1 row-span-2 flex flex-col items-center justify-start overflow-hidden rounded-3xl border border-gray-600/20 bg-[#e3e6e8] hover:bg-[#d7dadc] lg:col-span-2 lg:row-span-3 dark:bg-[#181818] dark:hover:bg-[#1f1f1f] transition-all duration-300"
+  class="group card-hover-effect relative col-span-1 row-span-2 flex flex-col items-center justify-start overflow-hidden rounded-3xl border border-gray-600/20 bg-[#e3e6e8] transition-all duration-300 hover:bg-[#d7dadc] lg:col-span-2 lg:row-span-3 dark:bg-[#181818] dark:hover:bg-[#1f1f1f]"
 >
   <div class="h-full w-full p-6 md:p-6 lg:p-8">
-    <!-- Header with animated title -->
     <header class="mb-6 flex h-max w-full items-start">
       <h2
         class="title-animate text-3xl font-semibold text-pretty text-black md:text-3xl lg:text-4xl dark:text-white"
@@ -20,8 +19,6 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
         {title}
       </h2>
     </header>
-
-    <!-- Paragraphs -->
     <div class="mb-14 h-max w-full flex-col items-start justify-start">
       {
         paragraphs.map((text) => (
@@ -31,18 +28,31 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
         ))
       }
     </div>
-
-    <!-- Icons with animation -->
     <div class="flex h-max w-full items-center justify-between px-4 lg:px-10">
       {
-        icons.map(({ src, alt }) => (
-          <img
-            src={src}
-            alt={alt}
-            loading="lazy"
-            class="icon-animate h-14 w-14 object-contain lg:h-20 lg:w-20"
-          />
-        ))
+        icons.map(({ src, alt }, index) => {
+          const iconClass = [
+            "icon-animate",
+            index === 0
+              ? "ball-float"
+              : index === 1
+                ? "dog-float"
+                : index === 2
+                  ? "food-float"
+                  : index === 3
+                    ? "joystick-float"
+                    : "",
+          ].join(" ");
+
+          return (
+            <img
+              src={src}
+              alt={alt}
+              loading="lazy"
+              class={iconClass + " h-14 w-14 object-contain lg:h-20 lg:w-20"}
+            />
+          );
+        })
       }
     </div>
   </div>
@@ -57,7 +67,7 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
   }
 
   .card-hover-effect:hover {
-    transform: scale(1.015);
+    transform: scale(1.01);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
   }
 
@@ -66,7 +76,7 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
   }
 
   .group:hover .title-animate {
-    color: #2563eb; /* Tailwind's blue-600 */
+    color: #2563eb;
   }
 
   .icon-animate {
@@ -76,7 +86,114 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
   }
 
   .icon-animate:hover {
-    transform: scale(1.1) rotate(2deg);
+    transform: scale(1.1);
     filter: brightness(1.1);
+  }
+
+  .ball-float {
+    animation: ball-float 3s ease-in-out infinite;
+  }
+
+  @keyframes ball-float {
+    0% {
+      transform: translateY(-50px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(50px) rotate(180deg);
+    }
+    100% {
+      transform: translateY(-50px) rotate(360deg);
+    }
+  }
+
+  .dog-float {
+    animation: dog-float 2.8s ease-in-out infinite;
+  }
+
+  @keyframes dog-float {
+    0%,
+    100% {
+      transform: translateY(50px) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.2);
+    }
+  }
+
+  .food-float {
+    animation: food-float 4s ease-in-out infinite;
+  }
+
+  @keyframes food-float {
+    0% {
+      transform: translateY(60px);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+    100% {
+      transform: translateY(60px);
+    }
+  }
+
+  .joystick-float {
+    animation: joystick-float-updown 4s ease-in-out infinite;
+  }
+
+  @keyframes joystick-float-updown {
+    0% {
+      transform: translateY(70px);
+    }
+    50% {
+      transform: translateY(-40px);
+    }
+    100% {
+      transform: translateY(70px) rotate(360deg);
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    @keyframes food-float {
+      0% {
+        transform: translateY(10px);
+      }
+      50% {
+        transform: translateY(-40px);
+      }
+      100% {
+        transform: translateY(10px);
+      }
+    }
+    @keyframes joystick-float-updown {
+      0% {
+        transform: translateY(-50px);
+      }
+      50% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(-50px) rotate(360deg);
+      }
+    }
+    @keyframes dog-float {
+      0%,
+      100% {
+        transform: translateY(10px) scale(1);
+      }
+      50% {
+        transform: translateY(-30px) scale(1.2);
+      }
+    }
+    @keyframes ball-float {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(10px) rotate(180deg);
+      }
+      100% {
+        transform: translateY(-50px) rotate(360deg);
+      }
+    }
   }
 </style>

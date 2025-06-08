@@ -9,10 +9,17 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<Section title="¿Dónde he trabajado?" icon={BriefcaseBusiness} id="experience" minHeight="h-auto">
-  <div class="space-y-8 mt-6">
-    {experiences.map((experience) => (
-      <ExperienceCard experience={experience} client:load />
-    ))}
+<Section
+  title="¿Dónde he trabajado?"
+  icon={BriefcaseBusiness}
+  id="experience"
+  minHeight="min-h-max"
+>
+  <div class="mt-6 space-y-8 pb-8">
+    {
+      experiences.map((experience) => (
+        <ExperienceCard experience={experience} client:load />
+      ))
+    }
   </div>
 </Section>

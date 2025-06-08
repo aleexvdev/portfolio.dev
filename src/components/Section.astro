@@ -7,7 +7,7 @@ interface SectionProps {
   minHeight?: string;
 }
 
-const { title, icon: Icon, id, className, minHeight = "min-h-screen" } = Astro.props as SectionProps;
+const { title, icon: Icon, id, className = "", minHeight = "min-h-screen" } = Astro.props as SectionProps;
 ---
 
 <section
