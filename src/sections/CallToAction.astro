@@ -1,7 +1,22 @@
 ---
 import Linkedin from "@/assets/icons/linkedin.astro";
 import Mail from "@/assets/icons/mail.astro";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import { ArrowRight, Coffee } from "lucide-react";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const cta = t("cta");
+const available = cta.available;
+const idea = cta.idea;
+const makeReal = cta.makeReal;
+const description = cta.description;
+const modern = cta.modern;
+const and = cta.and;
+const scalable = cta.scalable;
+const team = cta.team;
+const contact = cta.contact;
+
 ---
 
 <div
@@ -17,7 +32,7 @@ import { ArrowRight, Coffee } from "lucide-react";
       >
         <Coffee className="animate-float h-8 w-8 text-amber-400" />
         <span class="text-base font-medium md:text-lg"
-          >¡Disponible para nuevos proyectos!</span
+          >{available}</span
         >
       </div>
     </div>
@@ -25,22 +40,19 @@ import { ArrowRight, Coffee } from "lucide-react";
     <h2
       class="flex flex-col items-center justify-center text-4xl font-extrabold md:text-6xl"
     >
-      <span class="text-white drop-shadow-md">¿Tienes una idea?</span>
+      <span class="text-white drop-shadow-md">{idea}</span>
       <span
         class="shimmer-text bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-400 bg-clip-text text-transparent drop-shadow-md"
-        >Hagámosla realidad</span
+        >{makeReal}</span
       >
     </h2>
-
     <p class="my-6 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
-      Como desarrollador full stack, me especializo en transformar ideas en
-      aplicaciones web <span class="font-semibold text-blue-400">modernas</span>
-      y
-      <span class="font-semibold text-purple-400">escalables</span>.<br /><span
-        class="font-medium text-cyan-300">¡Hagamos equipo!</span
+      {description}<span class="font-semibold text-blue-400">{modern}</span>
+      {and}
+      <span class="font-semibold text-purple-400">{scalable}</span>.<br /><span
+        class="font-medium text-cyan-300">{team}</span
       >
     </p>
-
     <div
       class="mt-8 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-y-0 sm:space-x-6"
     >
@@ -55,13 +67,12 @@ import { ArrowRight, Coffee } from "lucide-react";
           className="h-5 w-5 transition-transform group-hover:translate-x-1"
         />
       </a>
-
       <a
         href="mailto:alexvalverde.dev@gmail.com"
         class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto"
       >
         <Mail class="text-white" width="24" height="24" />
-        <span>Contáctame</span>
+        <span>{contact}</span>
         <ArrowRight
           className="h-5 w-5 transition-transform group-hover:translate-x-1"
         />

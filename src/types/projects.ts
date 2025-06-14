@@ -1,6 +1,9 @@
 export interface Project {
   title: string;
-  description: string;
+  description: {
+    en: string;
+    es: string;
+  };
   image: string;
   skills: Tags[];
   repoLink: string;

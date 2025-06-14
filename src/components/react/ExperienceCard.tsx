@@ -9,9 +9,13 @@ import {
   Target,
 } from "lucide-react";
 import type { Experience } from "@/types/experience";
+import type { ui } from "@/i18n/i18n";
 
 interface Props {
   experience: Experience;
+  lang: keyof typeof ui;
+  titleAchievements: string;
+  titleSkills: string;
 }
 
 const itemVariants = {
@@ -26,9 +30,8 @@ const itemVariants = {
   },
 };
 
-export const ExperienceCard = ({ experience }: Props) => {
-  const { id, company, role, period, description, achievements, skills } =
-    experience;
+export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkills }: Props) => {
+  const { id, company, role, period, description, achievements, skills } = experience;
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isActive, setIsActive] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -106,20 +109,20 @@ export const ExperienceCard = ({ experience }: Props) => {
           <p
             className={`text-lg md:text-lg lg:text-xl font-medium ${isActive || isExpanded ? "text-gray-600 dark:text-stone-400" : "text-gray-500 dark:text-[#6E6E6F]"}`}
           >
-            {role}
+            {role[lang]}
           </p>
         </div>
           <div
             className={`flex items-center mt-4 md:mt-0 ${isActive || isExpanded ? "text-[#2563EB]" : "text-black/75 dark:text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
-            <span className="text-base md:text-base lg:text-lg font-medium">{period}</span>
+            <span className="text-base md:text-base lg:text-lg font-medium">{period[lang]}</span>
           </div>
         </div>
         <p
           className={`text-base md:text-base lg:text-lg leading-relaxed font-medium ${isActive || isExpanded ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"} mb-4 text-pretty`}
         >
-          {description}
+          {description[lang]}
         </p>
         <motion.div
           initial={false}
@@ -136,7 +139,7 @@ export const ExperienceCard = ({ experience }: Props) => {
                 className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-black dark:text-white"}`}
               >
                 <Target className="mr-2" size={20} />
-                Logros Destacados
+                {titleAchievements}
               </h4>
               <ul className="space-y-2 pl-6">
                 {achievements.map((achievement, i) => (
@@ -153,7 +156,7 @@ export const ExperienceCard = ({ experience }: Props) => {
                     <span
                       className={`text-base md:text-base lg:text-lg leading-relaxed font-medium ${isActive || isExpanded ? "text-black/90 dark:text-white/90" : "text-black/75 dark:text-white/75"} text-pretty`}
                     >
-                      {achievement}
+                      {achievement[lang]}
                     </span>
                   </motion.li>
                 ))}
@@ -164,7 +167,7 @@ export const ExperienceCard = ({ experience }: Props) => {
                 className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-black dark:text-white"}`}
               >
                 <Sparkles className="mr-2" size={20} />
-                Habilidades Clave
+                {titleSkills}
               </h4>
               <div className="flex flex-wrap gap-2 justify-center">
                 {skills.map(({ id, name, icon }, i) => (

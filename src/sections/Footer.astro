@@ -1,3 +1,12 @@
+---
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const footer = t("footer");
+const madeWith = footer.madeWith;
+const andLotsOf = footer.andLotsOf;
+---
 <footer
   class="h-24 w-full bg-transparent transition-transform duration-300 select-none"
 >
@@ -8,9 +17,7 @@
       class="flex h-max w-max items-center justify-center space-x-2 hover:scale-105 transition-all duration-300"
     >
       <span class="text-sm font-semibold text-[#2563EB] md:text-base lg:text-lg">@alexvdev.</span>
-      <span
-        class="text-sm font-semibold text-black md:text-base lg:text-lg dark:text-white"
-        >Hecho con <span class="animate-pulse opacity-100">❤️</span> y mucho ☕.
+      <span class="text-sm font-semibold text-black md:text-base lg:text-lg dark:text-white">{madeWith}{" "}<span class="animate-pulse opacity-100">❤️</span>{" "}{andLotsOf}{" "}☕.
       </span>
     </a>
   </div>

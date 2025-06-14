@@ -7,10 +7,14 @@ import { ExperienceCard } from "@/components/react/ExperienceCard";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
----
+const experience = t("experience");
+const title = experience.title;
+const achievements = experience.achievements;
+const skills = experience.skills;
 
+---
 <Section
-  title="¿Dónde he trabajado?"
+  title={title}
   icon={BriefcaseBusiness}
   id="experience"
   minHeight="min-h-max"
@@ -18,7 +22,7 @@ const t = useTranslations(lang);
   <div class="mt-6 space-y-8 pb-8">
     {
       experiences.map((experience) => (
-        <ExperienceCard experience={experience} client:load />
+        <ExperienceCard experience={experience} lang={lang} titleAchievements={achievements} titleSkills={skills} client:load />
       ))
     }
   </div>

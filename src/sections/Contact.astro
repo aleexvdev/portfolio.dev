@@ -15,6 +15,16 @@ import Instagram from "@/assets/icons/instagram.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const contact = t("contact");
+const title = contact.title;
+const heading = contact.heading;
+const description = contact.description;
+const form = contact.form;
+const thanks = contact.thanks;
+const connect = contact.connect;
+const equationIdea = contact.equationIdea;
+const equationExperience = contact.equationExperience;
+const equationEquals = contact.equationEquals;
 
 const contactMethods = [
   {
@@ -58,11 +68,10 @@ const contactMethods = [
     labelColor: "text-pink-600",
   }
 ];
-
 ---
 
 <Section
-  title="Envíame un mensaje"
+  title={title}
   icon={MailCheck}
   id="contact"
   className="bg-gradient-to-br from-blue-500/5 via-blue-100/5 to-[#ffffff] dark:bg-none"
@@ -78,12 +87,10 @@ const contactMethods = [
       </div>
       <div class="mb-8 text-center">
         <h2 class="mt-2 text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white">
-          ¡Contáctame cuando quieras!
+          {heading}
         </h2>
         <p class="mt-2.5 text-base font-medium text-black/75 dark:text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
-          Tu próximo gran proyecto podría estar a un email de distancia. Ya sea
-          para resolver dudas, explorar colaboraciones o simplemente
-          intercambiar ideas.
+          {description}
         </p>
       </div>
       <form class="space-y-6">
@@ -97,14 +104,14 @@ const contactMethods = [
               width="20"
               height="20"
             />
-            Correo electrónico
+            {form.email}
           </label>
           <input
             type="email"
             id="email"
             name="email"
             required
-            placeholder="goku.ss2@capsulecorp.com"
+            placeholder={form.emailPlaceholder}
             class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
           />
         </div>
@@ -118,14 +125,14 @@ const contactMethods = [
               width="20"
               height="20"
             />
-            Tu nombre
+            {form.name}
           </label>
           <input
             type="text"
             id="name"
             name="name"
             required
-            placeholder="Son Gokú"
+            placeholder={form.namePlaceholder}
             class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
           />
         </div>
@@ -139,14 +146,14 @@ const contactMethods = [
               width="20"
               height="20"
             />
-            Asunto
+            {form.subject}
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
             required
-            placeholder="Colaboración intergaláctica"
+            placeholder={form.subjectPlaceholder}
             class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
           />
         </div>
@@ -160,14 +167,14 @@ const contactMethods = [
               width="20"
               height="20"
             />
-            Mensaje
+            {form.message}
           </label>
           <textarea
             id="message"
             name="message"
             rows="5"
             required
-            placeholder="Hola, estoy interesado en tu trabajo..."
+            placeholder={form.messagePlaceholder}
             class="mt-2 w-full resize-none rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
           ></textarea>
         </div>
@@ -176,14 +183,14 @@ const contactMethods = [
             type="submit"
             class="rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
           >
-            🚀 Enviar mensaje
+            🚀 {form.submit}
           </button>
         </div>
       </form>
       <div
         class="mt-4 text-center text-sm font-semibold text-gray-800 dark:text-gray-400"
       >
-        <span>No conservo ni comparto ninguno de tus datos personales.</span>
+        <span>{form.privacy}</span>
       </div>
     </div>
     <div
@@ -192,20 +199,17 @@ const contactMethods = [
       <header
         class="mb-4 w-full text-center text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white"
       >
-        ¡Muchas gracias por tu tiempo!
+        {thanks}
       </header>
       <p
         class="w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:text-lg dark:text-white/75"
       >
-        Conéctate conmigo en las redes y descubre cómo podemos colaborar en
-        proyectos emocionantes.
+        {connect}
       </p>
       <p
         class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:mb-10 md:text-lg dark:text-white/75"
       >
-        Tu idea <span class="text-green-600">+</span> mi experiencia <span
-          class="text-green-600">=</span
-        > ¡posibilidades infinitas!
+        {equationIdea}{" "}<span class="text-green-600">+</span>{" "}{equationExperience}{" "}<span class="text-green-600">=</span>{" "}{equationEquals}
       </p>
       <div class="w-full h-full grid grid-cols-1 items-center space-y-6 px-6 mb-8">
         {
