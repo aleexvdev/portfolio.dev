@@ -65,6 +65,9 @@ type UILang = {
     title: string;
     viewMore: string;
     archive: string;
+    archiveTitle: string;
+    achiveDescripction: string;
+    backHome: string;
   };
   about: {
     title: string;
@@ -183,7 +186,10 @@ export const ui = {
     projects: {
       title: "Algunos de mis proyectos",
       viewMore: "Ver más de mis proyectos en",
-      archive: "el archivo"
+      archive: "el archivo",
+      archiveTitle: "Archivo de proyectos",
+      achiveDescripction: "Aquí presento una lista de proyectos que considero destacables. Échale un vistazo!",
+      backHome: "Volver al inicio"
     },
     about: {
       title: "Un poco sobre mí",
@@ -233,7 +239,7 @@ export const ui = {
         subjectPlaceholder: "Colaboración intergaláctica",
         message: "Mensaje",
         messagePlaceholder: "Hola, estoy interesado en tu trabajo...",
-        submit: "🚀 Enviar mensaje",
+        submit: "Enviar mensaje",
         privacy: "No conservo ni comparto ninguno de tus datos personales."
       },
       thanks: "¡Muchas gracias por tu tiempo!",
@@ -306,7 +312,10 @@ export const ui = {
     projects: {
       title: "Some of my projects",
       viewMore: "View more projects in the",
-      archive: "archive"
+      archive: "archive",
+      archiveTitle: "Projects archive",
+      achiveDescripction: "Here you can find a list of projects that I consider worthy of attention. Take a look!",
+      backHome: "Back to home"
     },
     about: {
       title: "A bit about me",
@@ -356,7 +365,7 @@ export const ui = {
         subjectPlaceholder: "Intergalactic collaboration",
         message: "Message",
         messagePlaceholder: "Hello, I'm interested in your work...",
-        submit: "🚀 Send message",
+        submit: "Send message",
         privacy: "I don't store or share any of your personal data."
       },
       thanks: "Thank you for your time!",

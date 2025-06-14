@@ -86,7 +86,7 @@ const contactMethods = [
         <span class="h-3 w-3 rounded-full bg-green-500"></span>
       </div>
       <div class="mb-8 text-center">
-        <h2 class="mt-2 text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white">
+        <h2 class="mt-4 lg:mt-2 text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white">
           {heading}
         </h2>
         <p class="mt-2.5 text-base font-medium text-black/75 dark:text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
@@ -178,10 +178,10 @@ const contactMethods = [
             class="mt-2 w-full resize-none rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
           ></textarea>
         </div>
-        <div class="py-4 text-end">
+        <div class="py-4 text-center md:text-end">
           <button
             type="submit"
-            class="rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+            class="w-full md:w-max rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
           >
             🚀 {form.submit}
           </button>
@@ -194,7 +194,7 @@ const contactMethods = [
       </div>
     </div>
     <div
-      class="flex h-full w-full flex-col items-center justify-center overflow-hidden pl-6 transition-all duration-300 mt-6 lg:mt-0 md:pl-0"
+      class="flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 mt-6 lg:mt-0 md:pl-0"
     >
       <header
         class="mb-4 w-full text-center text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white"
@@ -211,7 +211,7 @@ const contactMethods = [
       >
         {equationIdea}{" "}<span class="text-green-600">+</span>{" "}{equationExperience}{" "}<span class="text-green-600">=</span>{" "}{equationEquals}
       </p>
-      <div class="w-full h-full grid grid-cols-1 items-center space-y-6 px-6 mb-8">
+      <div class="w-full h-full grid grid-cols-1 items-center space-y-6 px-0 md:px-6 mb-8">
         {
           contactMethods.map((method, index) => (
             <CardSocialContact

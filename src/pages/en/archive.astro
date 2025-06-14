@@ -2,7 +2,7 @@
 import { LanguageToogle } from "@/components/react/LanguageToogle";
 import { ModeToggle } from "@/components/react/ModeToggle";
 import { projects } from "@/data/projects";
-import { getLangFromUrl } from "@/i18n/i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import ArchivePage from "@/layouts/ArchivePage.astro";
 import Footer from "@/sections/Footer.astro";
 import { ArrowLeft, ExternalLink, FolderGit, Github } from "lucide-react";
@@ -13,6 +13,11 @@ const description =
 const canonicalPathname = "https://alexvdev.netlify.app";
 const logo = "{av.}";
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const archive = t("projects");
+const titleArchive = archive.archiveTitle;
+const descriptionArchive = archive.achiveDescripction;
+const backHome = archive.backHome;
 ---
 
 <ArchivePage
@@ -55,7 +60,7 @@ const lang = getLangFromUrl(Astro.url);
           <h2
             class="w-auto text-3xl font-bold text-pretty break-words text-black transition-all duration-500 md:text-4xl lg:text-5xl dark:text-white"
           >
-            Archivo de proyectos
+            {titleArchive}
           </h2>
         </div>
       </div>
@@ -69,7 +74,7 @@ const lang = getLangFromUrl(Astro.url);
             class="relative flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2"
           >
             <ArrowLeft className="h-5 w-5" />
-            <span>Back to home</span>
+            <span>{backHome}</span>
             <div
               class="absolute right-0 -bottom-1 left-0 h-1.5 w-full rounded-full bg-blue-700"
             >
@@ -80,8 +85,7 @@ const lang = getLangFromUrl(Astro.url);
           class="w-full py-10 text-left leading-relaxed font-medium text-pretty text-black/75 dark:text-white/75"
         >
           <p class="text-lg md:text-xl">
-            Aquí presento una lista de proyectos que considero destacables.
-            Échale un vistazo! 👀
+            {descriptionArchive}{" "}👀
           </p>
         </div>
         <div class="w-full pb-10">
