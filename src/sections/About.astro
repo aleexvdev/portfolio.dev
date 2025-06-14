@@ -23,11 +23,10 @@ const currentDate = now.toLocaleDateString("es-PE", {
 });
 ---
 
-<Section title="Un poco sobre mí" icon={AboutMe} id="about">
+<Section title="Un poco sobre mí" icon={AboutMe} id="about" minHeight="h-max">
   <div
     class="mt-6 mb-8 grid h-full w-full grid-flow-row grid-cols-1 gap-y-4 p-0 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:grid-rows-6 select-none"
   >
-    <!-- Profile -->
     <CardProfile
       name="Ing. Alexander Valverde"
       username="@aleexvdev"
@@ -35,7 +34,6 @@ const currentDate = now.toLocaleDateString("es-PE", {
       status="En línea"
       quote='"Cree en ti y todo será posible."'
     />
-
     <CardPersonalSide
       title="Mi lado personal"
       paragraphs={[

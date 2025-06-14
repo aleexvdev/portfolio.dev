@@ -1,30 +1,51 @@
 ---
+// Section.astro
 import Section from "@/components/Section.astro";
 import FolderCode from "@/assets/icons/folder-code.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import ProjectCard from "@/components/ProjectCard.astro";
+import { projects } from "@/data/projects";
+import { ArrowRight } from "lucide-react";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const topProjects = projects.slice(0, 3);
 ---
 
-<Section title="Algunos de mis proyectos" icon={FolderCode} id="projects">
+<Section
+  title="Algunos de mis proyectos"
+  icon={FolderCode}
+  id="projects"
+  minHeight="h-max"
+>
+  <div
+    class="relative grid w-full grid-cols-1 gap-6 py-8 md:grid-cols-2 md:grid-rows-2"
+  >
+    {
+      projects.slice(0, 4).map((project, idx) => (
+        <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] p-0 shadow-xl transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl dark:from-[#181c20] dark:to-[#23272f]">
+          <ProjectCard project={project} class="h-full" />
+          <div
+            class="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-700 hover:opacity-20"
+            style="background: radial-gradient(circle at 70% 30%, #3b82f6 0%, transparent 70%);"
+          ></div>
+        </div>
+      ))
+    }
+  </div>
 
+  <div class="mt-5 flex min-h-10 w-full items-center justify-end">
+    <p
+      class="flex items-center gap-x-1.5 text-base leading-relaxed font-semibold text-pretty md:text-xl lg:text-2xl text-white"
+    >
+      Ver más de mis proyectos en{" "}
+      <a
+        href="archive/"
+        class="flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2"
+      >
+        <span>el archivo</span>
+        <ArrowRight className="h-5 w-5" />
+      </a>
+    </p>
+  </div>
 </Section>
-
-<style>
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .fade-in-up {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-</style>
