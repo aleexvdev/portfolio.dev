@@ -5,11 +5,11 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}CodeRender.png`,
     skills: [
-      { name: "React", color: "text-cyan-600 dark:text-cyan-500", icon: `${baseImagePath}react.svg` },
-      { name: "TypeScript", color: "text-blue-600 dark:text-blue-400", icon: `${baseImagePath}typescript.svg` },
-      { name: "Tailwind CSS", color: "text-teal-500 dark:text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
-      { name: "Framer Motion", color: "text-gray-800 dark:text-gray-400", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-600 dark:text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
+      { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
       en: "A secure authentication web application that allows users to register and log in to their accounts. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",
@@ -22,11 +22,11 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}SecureAuth.png`,
     skills: [
-      { name: "React", color: "text-cyan-600 dark:text-cyan-500", icon: `${baseImagePath}react.svg` },
-      { name: "TypeScript", color: "text-blue-600 dark:text-blue-400", icon: `${baseImagePath}typescript.svg` },
-      { name: "Tailwind CSS", color: "text-teal-500 dark:text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
-      { name: "Framer Motion", color: "text-gray-800 dark:text-gray-400", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-600 dark:text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
+      { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
       en: "A secure authentication web application that allows users to register and log in to their accounts. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",
@@ -39,11 +39,11 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}Weather.png`,
     skills: [
-      { name: "React", color: "text-cyan-600 dark:text-cyan-500", icon: `${baseImagePath}react.svg` },
-      { name: "TypeScript", color: "text-blue-600 dark:text-blue-400", icon: `${baseImagePath}typescript.svg` },
-      { name: "Tailwind CSS", color: "text-teal-500 dark:text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
-      { name: "Framer Motion", color: "text-gray-800 dark:text-gray-400", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-600 dark:text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
+      { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
       en: "A weather web application using the OpenWeather API provides users with real-time weather information such as temperature, humidity, and forecasts. Allows searching conditions anywhere and customizing favorite cities, ideal for staying informed about the weather.",
@@ -56,12 +56,12 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}FoodRecipes.png`,
     skills: [
-      { name: "React", color: "text-cyan-600 dark:text-cyan-500", icon: `${baseImagePath}react.svg` },
-      { name: "TypeScript", color: "text-blue-600 dark:text-blue-400", icon: `${baseImagePath}typescript.svg` },
-      { name: "Node.js", color: "text-green-600 dark:text-green-400", icon: `${baseImagePath}nodejs.svg` },
-      { name: "Express.js", color: "text-pink-600 dark:text-pink-400", icon: `${baseImagePath}expressjs_dark.svg` },
-      { name: "MongoDB", color: "text-green-700 dark:text-green-500", icon: `${baseImagePath}mongodb.svg` },
-      { name: "Tailwind CSS", color: "text-teal-600 dark:text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
+      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Node.js", color: "text-green-400", icon: `${baseImagePath}nodejs.svg` },
+      { name: "Express.js", color: "text-pink-400", icon: `${baseImagePath}expressjs_dark.svg` },
+      { name: "MongoDB", color: "text-green-500", icon: `${baseImagePath}mongodb.svg` },
+      { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
     ],
     description: {
       en: "This web application allows users to search and explore food recipes using the Edamam API. Users can save their favorite recipes, share them across different platforms, and leave comments on a blog.",
@@ -74,11 +74,11 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}TodoList.png`,
     skills: [
-      { name: "React", color: "text-cyan-600 dark:text-cyan-500", icon: `${baseImagePath}react.svg` },
-      { name: "TypeScript", color: "text-blue-600 dark:text-blue-400", icon: `${baseImagePath}typescript.svg` },
-      { name: "Tailwind CSS", color: "text-teal-500 dark:text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
-      { name: "Framer Motion", color: "text-gray-800 dark:text-gray-400", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-600 dark:text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
+      { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
       en: "A task management web application that allows users to create, edit and delete tasks, as well as view their progress and prioritize them. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",

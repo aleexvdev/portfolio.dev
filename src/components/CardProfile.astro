@@ -11,11 +11,11 @@ const { name, username, image, status, quote } = Astro.props as CardProfileProps
 ---
 
 <article
-  class="card-animate animate-delay-100 relative col-span-1 row-span-1 flex flex-col items-center justify-between rounded-3xl border border-gray-600/20 bg-[#e3e6e8] p-6 transition-all duration-300 ease-in-out hover:scale-[1.01] hover:bg-[#d7dadc] hover:shadow-xl md:p-7 lg:col-span-1 lg:row-span-1 dark:bg-[#181818] dark:hover:bg-[#1f1f1f]"
+  class="card-animate animate-delay-100 relative col-span-1 row-span-1 flex flex-col items-center justify-between rounded-3xl border border-gray-600/20 p-6 transition-all duration-300 ease-in-out hover:scale-[1.01] hover:shadow-xl md:p-7 lg:col-span-1 lg:row-span-1 bg-[#181818] hover:bg-[#1f1f1f]"
 >
   <header class="flex h-max w-full items-start justify-between">
     <div
-      class="h-auto w-24 overflow-hidden rounded-full border border-green-500 bg-black/80 dark:bg-white/80"
+      class="h-auto w-24 overflow-hidden rounded-full border border-green-500 bg-white/80"
     >
       <img
         src={image}
@@ -27,7 +27,7 @@ const { name, username, image, status, quote } = Astro.props as CardProfileProps
       class="ml-4 flex h-full w-full flex-col items-start justify-center gap-y-1"
     >
       <h2
-        class="text-xl font-medium tracking-wide text-nowrap text-black md:text-xl lg:text-xl dark:text-white"
+        class="text-xl font-medium tracking-wide text-nowrap md:text-xl lg:text-xl text-white"
       >
         {name}
       </h2>
@@ -46,7 +46,7 @@ const { name, username, image, status, quote } = Astro.props as CardProfileProps
 
   <div class="mt-2 flex h-full w-full items-center justify-center">
     <p
-      class="pt-4 text-center text-lg font-medium text-gray-800 md:pt-2 md:text-xl dark:text-gray-300"
+      class="pt-4 text-center text-lg font-medium md:pt-2 md:text-xl text-gray-300"
     >
       {quote}
     </p>

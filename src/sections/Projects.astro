@@ -20,13 +20,14 @@ const archive = porj.archive;
   icon={FolderCode}
   id="projects"
   minHeight="h-max"
+  order={2}
 >
   <div
     class="relative grid w-full grid-cols-1 gap-6 py-8 md:grid-cols-2 md:grid-rows-2"
   >
     {
       projects.slice(0, 4).map((project, idx) => (
-        <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-[#f8fafc] to-[#e0e7ef] p-0 shadow-xl transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl dark:from-[#181c20] dark:to-[#23272f]">
+        <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-[#f8fafc] p-0 shadow-xl transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl to-[#23272f]">
           <ProjectCard project={project} class="h-full" lang={lang} />
           <div
             class="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-700 hover:opacity-20"
@@ -39,12 +40,12 @@ const archive = porj.archive;
 
   <div class="mt-5 flex min-h-10 w-full items-center justify-end">
     <p
-      class="flex items-center gap-x-1.5 text-base leading-relaxed font-semibold text-pretty md:text-xl lg:text-2xl text-black dark:text-white"
+      class="flex items-center gap-x-1.5 text-base leading-relaxed font-semibold text-pretty md:text-xl lg:text-2xl text-white"
     >
       {viewMore}{" "}
       <a
         href="archive/"
-        class="flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2"
+        class="flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2 font-semibold"
       >
         <span>{archive}</span>
         <ArrowRight className="h-5 w-5" />

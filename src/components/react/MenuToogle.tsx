@@ -70,7 +70,7 @@ export function MenuToogle() {
                   <li>
                     <a
                       href={nav.href}
-                      className={`text-black dark:text-white after:bg-foreground relative flex items-center gap-2 text-sm/6 font-semibold after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:text-blue-500 hover:after:w-full hover:after:bg-blue-500`}
+                      className={`text-white after:bg-foreground relative flex items-center gap-2 text-sm/6 font-semibold after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 hover:text-blue-500 hover:after:w-full hover:after:bg-blue-500`}
                     >
                       <nav.icon className="h-6 w-6" />
                       <span className="text-sm/6 leading-6 font-semibold text-nowrap md:text-base lg:text-lg">
@@ -84,9 +84,9 @@ export function MenuToogle() {
           </div>
           <DrawerFooter>
             <div className="mt-auto p-4">
-              <div className="mx-auto flex max-w-md justify-center gap-x-4 text-black dark:text-white">
+              <div className="mx-auto flex max-w-md justify-center gap-x-4 text-white">
                 <a
-                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB] hover:dark:text-[#2563EB]"
+                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB]"
                   href="https://github.com/aleexvdev/"
                   target="_blank"
                 >
@@ -109,7 +109,7 @@ export function MenuToogle() {
                   </svg>
                 </a>
                 <a
-                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB] hover:dark:text-[#2563EB]"
+                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB]"
                   href="https://www.linkedin.com/in/alexvdev/"
                   target="_blank"
                 >
@@ -132,7 +132,7 @@ export function MenuToogle() {
                   </svg>
                 </a>
                 <a
-                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB] hover:dark:text-[#2563EB]"
+                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB]"
                   href="https://www.facebook.com/alexvalverde666/"
                   target="_blank"
                 >
@@ -155,7 +155,7 @@ export function MenuToogle() {
                   </svg>
                 </a>
                 <a
-                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB] hover:dark:text-[#2563EB]"
+                  className="flex items-center gap-0.25 text-xs hover:text-[#2563EB]"
                   href="https://www.instagram.com/alexvalverde._/"
                   target="_blank"
                 >

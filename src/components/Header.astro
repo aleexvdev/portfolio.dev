@@ -1,5 +1,4 @@
 ---
-import { ModeToggle } from "./react/ModeToggle";
 import { LanguageToogle } from "./react/LanguageToogle";
 import ExperienceIcon from "@/assets/icons/briefcaseBusiness.astro";
 import ProjectsIcon from "@/assets/icons/folder-code.astro";
@@ -7,7 +6,6 @@ import AboutIcon from "@/assets/icons/user-round.astro";
 import ContactIcon from "@/assets/icons/mail.astro";
 import { MenuToogle } from "./react/MenuToogle";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
-import { getRelativeLocaleUrl } from "astro:i18n";
 
 const logo = "{av.}";
 const lang = getLangFromUrl(Astro.url);
@@ -50,7 +48,7 @@ const navs = [
   class="header fixed top-0 z-[100] w-full bg-transparent py-2"
 >
   <nav
-    class="mx-auto flex max-w-6xl items-center justify-between px-0 py-4 transition-all duration-300 lg:px-8"
+    class="mx-auto flex max-w-7xl items-center justify-between px-0 py-4 transition-all duration-300"
     id="nav"
   >
     <a
@@ -86,7 +84,6 @@ const navs = [
     </ul>
     <div class="flex items-center justify-end gap-x-2.5">
       <LanguageToogle client:load currentLang={lang} />
-      <ModeToggle client:load />
       <MenuToogle client:load />
     </div>
   </nav>
@@ -183,16 +180,12 @@ const navs = [
   }
 
   .nav-scrolled {
-    background-color: rgb(223 225 230 / 82%);
+    background-color: rgb(59 59 59 / 82%);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     border-radius: 18px;
     padding: 8px 20px;
     margin-top: 15px;
-  }
-
-  html.dark .nav-scrolled {
-    background-color: rgb(59 59 59 / 82%);
   }
 
   @media screen and (max-width: 1024px) {

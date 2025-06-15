@@ -46,7 +46,7 @@ const disponibility = hero.disponibility;
 
 <section
   id="home"
-  class="relative mx-auto flex min-h-screen w-screen max-w-6xl flex-col items-center justify-center px-4 py-8 transition-all duration-300 lg:px-8"
+  class="relative mx-auto flex min-h-screen w-screen max-w-7xl flex-col items-center justify-center px-4 py-8 transition-all duration-300 lg:px-8"
   aria-labelledby="hero-title"
 >
   <div class="animate-fade-in-up w-full space-y-8">
@@ -63,7 +63,7 @@ const disponibility = hero.disponibility;
 
       <h1
         id="hero-title"
-        class="animate-glow-fade hero-title text-center text-6xl font-bold tracking-tight text-black dark:text-white md:text-7xl lg:text-8xl"
+        class="animate-glow-fade hero-title text-center text-6xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl"
       >
         {author.toUpperCase()}
       </h1>
@@ -80,7 +80,7 @@ const disponibility = hero.disponibility;
     >
       <AvailableToWork client:load text={disponibility} />
       <div
-        class="my-6 block h-px w-[60%] rounded-full bg-stone-400 md:hidden dark:text-stone-400"
+        class="my-6 block h-px w-[60%] rounded-full bg-stone-400 md:hidden text-stone-400"
       >
       </div>
       <ul
@@ -99,7 +99,7 @@ const disponibility = hero.disponibility;
                   class="group flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-125 hover:text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
                 >
                   <span class="sr-only">{link.name}</span>
-                  <span class="glow-icon text-gray-700 transition duration-300 group-hover:text-blue-600 dark:text-gray-300 dark:group-hover:text-blue-400">
+                  <span class="glow-icon  transition duration-300 text-gray-300 group-hover:text-blue-600">
                     <link.icon
                       class="h-7 w-7 sm:h-8 sm:w-8"
                       width="32"

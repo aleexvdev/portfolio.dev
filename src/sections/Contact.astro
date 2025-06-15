@@ -74,11 +74,11 @@ const contactMethods = [
   title={title}
   icon={MailCheck}
   id="contact"
-  className="bg-gradient-to-br from-blue-500/5 via-blue-100/5 to-[#ffffff] dark:bg-none"
+  order={4}
 >
   <div class="mt-6 flex flex-col lg:flex-row w-full h-full items-start justify-between mb-8">
     <div
-      class="group relative mb-8 w-full rounded-2xl border border-gray-400/30 bg-[#ffffff] p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20 dark:border-white/10 dark:bg-zinc-800/40"
+      class="group relative mb-8 w-full rounded-2xl border p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20 border-white/10 bg-zinc-800/40"
     >
       <div class="absolute top-4 left-4 flex space-x-2">
         <span class="h-3 w-3 rounded-full bg-red-500"></span>
@@ -86,10 +86,10 @@ const contactMethods = [
         <span class="h-3 w-3 rounded-full bg-green-500"></span>
       </div>
       <div class="mb-8 text-center">
-        <h2 class="mt-4 lg:mt-2 text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white">
+        <h2 class="mt-4 lg:mt-2 text-3xl font-semibold text-pretty md:text-4xl text-white">
           {heading}
         </h2>
-        <p class="mt-2.5 text-base font-medium text-black/75 dark:text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
+        <p class="mt-2.5 text-base font-medium text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
           {description}
         </p>
       </div>
@@ -97,7 +97,7 @@ const contactMethods = [
         <div class="group relative">
           <label
             for="email"
-            class="mb-1 flex items-center gap-2 text-lg font-medium text-gray-700 dark:text-gray-300"
+            class="mb-1 flex items-center gap-2 text-lg font-medium text-gray-300"
           >
             <AtSign
               class="text-blue-400 transition group-hover:scale-110"
@@ -112,13 +112,13 @@ const contactMethods = [
             name="email"
             required
             placeholder={form.emailPlaceholder}
-            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
           />
         </div>
         <div class="group relative">
           <label
             for="name"
-            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-300"
           >
             <UserCheck
               class="text-blue-400 transition group-hover:scale-110"
@@ -133,13 +133,13 @@ const contactMethods = [
             name="name"
             required
             placeholder={form.namePlaceholder}
-            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
           />
         </div>
         <div class="group relative">
           <label
             for="subject"
-            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-300"
           >
             <Mail
               class="text-blue-400 transition group-hover:scale-110"
@@ -154,13 +154,13 @@ const contactMethods = [
             name="subject"
             required
             placeholder={form.subjectPlaceholder}
-            class="mt-2 w-full rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
           />
         </div>
         <div class="group relative">
           <label
             for="message"
-            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-700 dark:text-gray-300"
+            class="mb-1 flex items-center gap-2 text-base font-medium text-gray-300"
           >
             <Message
               class="text-blue-400 transition group-hover:scale-110"
@@ -175,7 +175,7 @@ const contactMethods = [
             rows="5"
             required
             placeholder={form.messagePlaceholder}
-            class="mt-2 w-full resize-none rounded-lg bg-white/30 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-gray-400/70 focus:ring-2 focus:ring-transparent focus:outline-none dark:bg-white/10 dark:placeholder:text-stone-400/65"
+            class="mt-2 w-full resize-none rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
           ></textarea>
         </div>
         <div class="py-4 text-center md:text-end">
@@ -188,26 +188,26 @@ const contactMethods = [
         </div>
       </form>
       <div
-        class="mt-4 text-center text-sm font-semibold text-gray-800 dark:text-gray-400"
+        class="mt-4 text-center text-sm font-semibold text-gray-400"
       >
         <span>{form.privacy}</span>
       </div>
     </div>
     <div
-      class="flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 mt-6 lg:mt-0 md:pl-0"
+      class="flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 mt-6 lg:mt-10 md:pl-0"
     >
       <header
-        class="mb-4 w-full text-center text-3xl font-semibold text-pretty text-black md:text-4xl dark:text-white"
+        class="mb-4 w-full text-center text-3xl font-semibold text-pretty md:text-4xl text-white"
       >
         {thanks}
       </header>
       <p
-        class="w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:text-lg dark:text-white/75"
+        class="w-full text-center text-base leading-relaxed font-medium text-pretty md:text-lg text-white/75"
       >
         {connect}
       </p>
       <p
-        class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty text-black/75 md:mb-10 md:text-lg dark:text-white/75"
+        class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty md:mb-10 md:text-lg text-white/75"
       >
         {equationIdea}{" "}<span class="text-green-600">+</span>{" "}{equationExperience}{" "}<span class="text-green-600">=</span>{" "}{equationEquals}
       </p>

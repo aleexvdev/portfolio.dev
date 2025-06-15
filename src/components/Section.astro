@@ -5,27 +5,25 @@ interface SectionProps {
   id: string;
   className?: string;
   minHeight?: string;
+  order?: number;
 }
 
-const { title, icon: Icon, id, className = "", minHeight = "min-h-screen" } = Astro.props as SectionProps;
+const { title, icon: Icon, id, className = "", minHeight = "min-h-screen", order = 1 } = Astro.props as SectionProps;
 ---
 
 <section
   id={id}
   aria-labelledby={`${id}-label`}
-  class={`relative flex w-full ${minHeight} flex-col items-center justify-start overflow-hidden px-6 pt-24 md:pt-28 lg:pt-32`}
+  class={`relative flex w-full ${minHeight} flex-col items-center justify-start overflow-hidden px-6 pt-24 md:pt-28 lg:pt-32 max-w-7xl mx-auto`}
 >
   <div class={`absolute inset-0 ${className}`}></div>
-  <div class="flex w-full max-w-6xl flex-col gap-6 opacity-0 animate-fade-in">
+  <div class="flex w-full max-w-7xl flex-col gap-6 opacity-0 animate-fade-in">
     <div class="flex items-end gap-4">
-      <div class="shrink-0 animate-icon-pop text-primary dark:text-primary-dark">
-        <Icon class="text-black dark:text-white" width="30" height="30" />
-      </div>
       <h2
         id={`${id}-label`}
-        class="text-pretty break-words text-3xl font-bold text-black dark:text-white md:text-4xl lg:text-5xl animate-fade-in-up"
+        class="text-pretty break-words text-3xl font-bold text-blue-700 md:text-4xl lg:text-5xl animate-fade-in-up"
       >
-        {title}
+        0{order}. {title}
       </h2>
     </div>
     <div class="animate-fade-in-up delay-[300ms] w-full">
