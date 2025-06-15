@@ -22,34 +22,37 @@ const archive = porj.archive;
   minHeight="h-max"
   order={2}
 >
-  <div
-    class="relative grid w-full grid-cols-1 gap-6 py-8 md:grid-cols-2 md:grid-rows-2"
-  >
+  <div class="relative grid h-full w-full grid-cols-1 gap-6 py-8">
     {
-      projects.slice(0, 4).map((project, idx) => (
-        <div class="relative flex flex-col justify-between overflow-hidden rounded-3xl bg-gradient-to-br from-[#f8fafc] p-0 shadow-xl transition-all duration-500 hover:scale-[1.015] hover:shadow-2xl to-[#23272f]">
-          <ProjectCard project={project} class="h-full" lang={lang} />
-          <div
-            class="pointer-events-none absolute inset-0 z-0 opacity-0 transition-opacity duration-700 hover:opacity-20"
-            style="background: radial-gradient(circle at 70% 30%, #3b82f6 0%, transparent 70%);"
-          ></div>
+      projects.slice(0, 3).map((project, idx) => (
+        <div class="relative flex flex-col justify-between overflow-hidden rounded-xl p-0 shadow-xl transition-all duration-300 hover:scale-[1.015] hover:shadow-2xl md:rounded-3xl">
+          <ProjectCard project={project} lang={lang} />
         </div>
       ))
     }
   </div>
 
-  <div class="mt-5 flex min-h-10 w-full items-center justify-end">
-    <p
-      class="flex items-center gap-x-1.5 text-base leading-relaxed font-semibold text-pretty md:text-xl lg:text-2xl text-white"
+  <div class="mt-8 flex w-full justify-center md:justify-end">
+    <a
+      href="archive/"
+      class="group inline-flex items-center gap-1.5 text-white transition-all duration-300"
     >
-      {viewMore}{" "}
-      <a
-        href="archive/"
-        class="flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2 font-semibold"
+      <span class="text-base font-medium md:text-lg lg:text-xl">
+        {viewMore}
+      </span>
+
+      <span
+        class="relative text-base font-semibold text-blue-500 md:text-lg lg:text-xl"
       >
-        <span>{archive}</span>
-        <ArrowRight className="h-5 w-5" />
-      </a>
-    </p>
+        {archive}
+        <span
+          class="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
+        ></span>
+      </span>
+
+      <ArrowRight
+        className="h-5 w-5 text-blue-500 transition-transform duration-300 group-hover:translate-x-1"
+      />
+    </a>
   </div>
 </Section>

@@ -1,0 +1,58 @@
+---
+import Seo from "@/layouts/seo.astro";
+
+// #F1F5F9
+interface Props {
+  title: string;
+  description: string;
+  canonicalPathname: string;
+}
+
+const { title, description, canonicalPathname } = Astro.props;
+
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <Seo
+      title={title}
+      description={description}
+      canonicalPathname={canonicalPathname}
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<style is:global>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  :root {
+    --bg-dark: #09090b;
+  }
+  html {
+    font-family: "Onest Variable", system-ui, sans-serif;
+    background-color: var(--bg-dark);
+    overflow-x: hidden;
+  }
+  body {
+    position: relative;
+  }
+  .hover-pause:hover .animate-slide-logos {
+    animation-play-state: paused;
+  }
+</style>
