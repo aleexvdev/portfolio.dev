@@ -12,8 +12,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
-      en: "A secure authentication web application that allows users to register and log in to their accounts. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",
-      es: "Una aplicación web de autenticación segura que permite a los usuarios registrarse y iniciar sesión en sus cuentas. Proporciona una interfaz intuitiva y fácil de usar, y permite personalizar la apariencia y funcionalidad según las necesidades del usuario."
+      en: "A web application that creates and shares stunning images of your code. CodeRender is a web tool that lets you transform your code snippets into elegant, customizable images, ready to share on social media, blogs, or in your documentation.",
+      es: "Una aplicación web que crea y comparte imágenes de tu código con un aspecto increíble. CodeRender es una herramienta web que te permite transformar tus fragmentos de código en imágenes elegantes y personalizables, listas para compartir en redes sociales, blogs o en tu documentación."
     },
     title: "Secure Auth",
     repoLink: "https://github.com/aleexvdev/secure-auth/",
@@ -29,8 +29,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
-      en: "A secure authentication web application that allows users to register and log in to their accounts. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",
-      es: "Una aplicación web de autenticación segura que permite a los usuarios registrarse y iniciar sesión en sus cuentas. Proporciona una interfaz intuitiva y fácil de usar, y permite personalizar la apariencia y funcionalidad según las necesidades del usuario."
+      en: "SecureAuth is a robust, full-stack application designed to provide a secure and feature-rich foundation for user authentication and management. It features a modern Next.js frontend and a powerful Express.js backend, incorporating best practices for security and user experience.",
+      es: "SecureAuth es una aplicación robusta de pila completa diseñada para ofrecer una base segura y con muchas funciones para la autenticación y gestión de usuarios. Cuenta con un frontend moderno en Next.js y un backend potente en Express.js, incorporando las mejores prácticas en seguridad y experiencia del usuario."
     },
     title: "Secure Auth",
     repoLink: "https://github.com/aleexvdev/secure-auth/",
