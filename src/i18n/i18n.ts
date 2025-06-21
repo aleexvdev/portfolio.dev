@@ -112,6 +112,8 @@ type UILang = {
       message: string;
       messagePlaceholder: string;
       submit: string;
+      reset: string;
+      sending: string;
       privacy: string;
     };
     thanks: string;
@@ -240,6 +242,8 @@ export const ui = {
         message: "Mensaje",
         messagePlaceholder: "Hola, estoy interesado en tu trabajo...",
         submit: "Enviar mensaje",
+        reset: "Limpiar",
+        sending: "Enviando...",
         privacy: "No conservo ni comparto ninguno de tus datos personales."
       },
       thanks: "¡Muchas gracias por tu tiempo!",
@@ -318,7 +322,7 @@ export const ui = {
       backHome: "Back to home"
     },
     about: {
-      title: "A bit about me",
+      title: "A little about me",
       profile: {
         status: "Online",
         quote: '"I build complete solutions, from backend to the final pixel."'
@@ -366,7 +370,9 @@ export const ui = {
         message: "Message",
         messagePlaceholder: "Hello, I'm interested in your work...",
         submit: "Send message",
-        privacy: "I don't store or share any of your personal data."
+        reset: "Reset",
+        sending: "Sending...",
+        privacy: "I do not keep or share any of your personal data."
       },
       thanks: "Thank you for your time!",
       connect: "Connect with me on social media and discover how we can collaborate on exciting projects.",

@@ -10,7 +10,15 @@ interface TurnstileWidgetProps {
   onVerify: (token: string) => void;
 }
 
-const publicKey = import.meta.env.PUBLIC_TURNSTILE;
+const getPublicKey = () => {
+  const key = import.meta.env.PUBLIC_TURNSTILE_PUBLIC_KEY;  
+  if (typeof key === 'string' && key.trim() !== '') {
+    return key;
+  }
+  return "1x00000000000000000000AA"; // Test key for development
+};
+
+const publicKey = getPublicKey();
 
 export const TurnstileWidget = ({ onVerify }: TurnstileWidgetProps) => {
 
@@ -24,12 +32,16 @@ export const TurnstileWidget = ({ onVerify }: TurnstileWidgetProps) => {
     document.body.appendChild(script);
 
     return () => {
-      document.body.removeChild(script);
+      const existingScript = document.querySelector('script[src="https://challenges.cloudflare.com/turnstile/v0/api.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
     };
   }, []);
 
   useEffect(() => {
-    if (window.turnstile && turnstileRef.current) {
+    if (window.turnstile && turnstileRef.current && publicKey) {
+      console.log("Rendering Turnstile with key:", publicKey);
       window.turnstile.render(turnstileRef.current, {
         sitekey: publicKey,
         callback: onVerify,

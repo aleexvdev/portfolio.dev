@@ -12,6 +12,9 @@ import Facebook from "@/assets/icons/facebook.astro";
 import Mail from "@/assets/icons/mail.astro";
 import Gmail from "@/assets/icons/gmail.astro";
 import Instagram from "@/assets/icons/instagram.astro";
+import { TurnstileWidget } from "@/components/react/TurnstileWidget";
+import RefreshCcw from "@/assets/icons/refresh-ccw.astro";
+import { Toast } from "@/components/react/Toast";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -66,19 +69,16 @@ const contactMethods = [
     href: "https://www.instagram.com/alexvalverde._/",
     color: "from-neutral-700 to-gray-600",
     labelColor: "text-pink-600",
-  }
+  },
 ];
 ---
 
-<Section
-  title={title}
-  icon={MailCheck}
-  id="contact"
-  order={4}
->
-  <div class="mt-6 flex flex-col lg:flex-row w-full h-full items-start justify-between mb-8">
+<Section title={title} icon={MailCheck} id="contact" order={4}>
+  <div
+    class="mt-6 mb-8 flex h-full w-full flex-col items-start justify-between lg:flex-row"
+  >
     <div
-      class="group relative mb-8 w-full rounded-2xl border p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20 border-white/10 bg-zinc-800/40"
+      class="group relative mb-8 w-full rounded-2xl border border-white/10 bg-zinc-800/40 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20"
     >
       <div class="absolute top-4 left-4 flex space-x-2">
         <span class="h-3 w-3 rounded-full bg-red-500"></span>
@@ -86,14 +86,22 @@ const contactMethods = [
         <span class="h-3 w-3 rounded-full bg-green-500"></span>
       </div>
       <div class="mb-8 text-center">
-        <h2 class="mt-4 lg:mt-2 text-3xl font-semibold text-pretty md:text-4xl text-white">
+        <h2
+          class="mt-4 text-3xl font-semibold text-pretty text-white md:text-4xl lg:mt-2"
+        >
           {heading}
         </h2>
-        <p class="mt-2.5 text-base font-medium text-white/75 w-full text-center leading-relaxed text-pretty md:text-lg">
+        <p
+          class="mt-2.5 w-full text-center text-base leading-relaxed font-medium text-pretty text-white/75 md:text-lg"
+        >
           {description}
         </p>
       </div>
-      <form class="space-y-6">
+      <form
+        id="contact-form"
+        class="space-y-6"
+        data-form-translations={JSON.stringify(form)}
+      >
         <div class="group relative">
           <label
             for="email"
@@ -112,8 +120,9 @@ const contactMethods = [
             name="email"
             required
             placeholder={form.emailPlaceholder}
-            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
           />
+          <p id="email-error" class="mt-1 text-sm text-red-500"></p>
         </div>
         <div class="group relative">
           <label
@@ -133,8 +142,9 @@ const contactMethods = [
             name="name"
             required
             placeholder={form.namePlaceholder}
-            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
           />
+          <p id="name-error" class="mt-1 text-sm text-red-500"></p>
         </div>
         <div class="group relative">
           <label
@@ -154,8 +164,9 @@ const contactMethods = [
             name="subject"
             required
             placeholder={form.subjectPlaceholder}
-            class="mt-2 w-full rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
+            class="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
           />
+          <p id="subject-error" class="mt-1 text-sm text-red-500"></p>
         </div>
         <div class="group relative">
           <label
@@ -175,43 +186,61 @@ const contactMethods = [
             rows="5"
             required
             placeholder={form.messagePlaceholder}
-            class="mt-2 w-full resize-none rounded-lg px-4 py-3 backdrop-blur-md transition placeholder:font-normal focus:ring-2 focus:ring-transparent focus:outline-none bg-white/10 placeholder:text-stone-400/65"
+            class="mt-2 w-full resize-none rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
           ></textarea>
+          <p id="message-error" class="mt-1 text-sm text-red-500"></p>
         </div>
-        <div class="py-4 text-center md:text-end">
+        <div class="flex justify-center w-full">
+          <TurnstileWidget
+            client:load
+            onVerify={(token) => (window as any).setTurnstileToken(token)}
+          />
+        </div>
+        <div class="py-2 text-center md:text-end flex flex-col md:flex-row items-center justify-center gap-2 w-full">
           <button
+            id="reset-btn"
+            type="button"
+            class="cursor-pointer w-full rounded-xl bg-gradient-to-r from-gray-500 to-gray-600 px-4 py-2 flex items-center justify-center gap-x-2 font-semibold text-white shadow-lg transition hover:from-gray-600 hover:to-gray-700 hover:shadow-xl focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:outline-none md:w-full"
+          >
+            <RefreshCcw class="mr-2 inline-block" width="20" height="20" />
+            {form.reset}
+          </button>
+          <button
+            id="submit-btn"
             type="submit"
-            class="w-full md:w-max rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 px-6 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+            class="cursor-pointer w-full rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none md:w-full"
           >
             🚀 {form.submit}
           </button>
         </div>
       </form>
-      <div
-        class="mt-4 text-center text-sm font-semibold text-gray-400"
-      >
+      <div class="mt-4 text-center text-sm font-semibold text-gray-400">
         <span>{form.privacy}</span>
       </div>
     </div>
     <div
-      class="flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 mt-6 lg:mt-10 md:pl-0"
+      class="mt-6 flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 md:pl-4 lg:mt-10"
     >
       <header
-        class="mb-4 w-full text-center text-3xl font-semibold text-pretty md:text-4xl text-white"
+        class="mb-4 w-full text-center text-3xl font-semibold text-pretty text-white md:text-4xl"
       >
         {thanks}
       </header>
       <p
-        class="w-full text-center text-base leading-relaxed font-medium text-pretty md:text-lg text-white/75"
+        class="w-full text-center text-base leading-relaxed font-medium text-pretty text-white/75 md:text-lg"
       >
         {connect}
       </p>
       <p
-        class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty md:mb-10 md:text-lg text-white/75"
+        class="mb-6 w-full text-center text-base leading-relaxed font-medium text-pretty text-white/75 md:mb-10 md:text-lg"
       >
-        {equationIdea}{" "}<span class="text-green-600">+</span>{" "}{equationExperience}{" "}<span class="text-green-600">=</span>{" "}{equationEquals}
+        {equationIdea}{" "}<span class="text-green-600">+</span>{" "}{
+          equationExperience
+        }{" "}<span class="text-green-600">=</span>{" "}{equationEquals}
       </p>
-      <div class="w-full h-full grid grid-cols-1 items-center space-y-6 px-0 md:px-6 mb-8">
+      <div
+        class="mb-8 grid h-full w-full grid-cols-1 items-center space-y-6 px-0 md:px-6"
+      >
         {
           contactMethods.map((method, index) => (
             <CardSocialContact
@@ -227,6 +256,8 @@ const contactMethods = [
     </div>
   </div>
 </Section>
+
+<Toast client:load type="" message="" isVisible={false} />
 
 <style>
   input,
@@ -294,3 +325,142 @@ const contactMethods = [
     }
   }
 </style>
+
+<script>
+  import * as yup from "yup";
+  import { schema } from "@/lib/middleware";
+
+  // Toast state management
+  let toastVisible = false;
+  let toastType = "";
+  let toastMessage = "";
+
+  function showToast(message: string, type: 'success' | 'error' = 'success') {
+    toastMessage = message;
+    toastType = type;
+    toastVisible = true;
+    
+    // Dispatch custom event to update toast
+    window.dispatchEvent(new CustomEvent('updateToast', {
+      detail: { message, type, isVisible: true }
+    }));
+
+    // Hide toast after 5 seconds
+    setTimeout(() => {
+      toastVisible = false;
+      window.dispatchEvent(new CustomEvent('updateToast', {
+        detail: { message: '', type: '', isVisible: false }
+      }));
+    }, 5000);
+  }
+
+  function initializeForm() {
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+    const resetBtn = document.getElementById("reset-btn") as HTMLButtonElement;
+    
+    if (!form || !submitBtn || !resetBtn) {
+      console.error("Form elements not found");
+      return;
+    }
+
+    const translations = JSON.parse(form.dataset.formTranslations || "{}");
+    let turnstileToken: string | null = null;
+
+    (window as any).setTurnstileToken = (token: string) => {
+      turnstileToken = token;
+      console.log("Turnstile token set:", token);
+    };
+    
+    const resetForm = () => {
+      form.reset();
+      turnstileToken = null;
+      document.getElementById("email-error")!.textContent = "";
+      document.getElementById("name-error")!.textContent = "";
+      document.getElementById("subject-error")!.textContent = "";
+      document.getElementById("message-error")!.textContent = "";
+      if (window.turnstile) {
+        window.turnstile.reset();
+      }
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `🚀 ${translations.submit}`;
+    };
+
+    resetBtn.addEventListener("click", resetForm);
+
+    form.addEventListener("submit", async (e) => {
+      console.log("Form submit event triggered");
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      console.log("Form data:", data);
+
+      try {
+        await schema.validate(data, { abortEarly: false });
+        
+        document.getElementById("email-error")!.textContent = "";
+        document.getElementById("name-error")!.textContent = "";
+        document.getElementById("subject-error")!.textContent = "";
+        document.getElementById("message-error")!.textContent = "";
+
+        if (!turnstileToken) {
+          showToast("Por favor completa la verificación de Turnstile.", "error");
+          return;
+        }
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = translations.sending;
+        console.log("Sending email...");
+
+        const response = await fetch("/api/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ...data,
+            turnstileToken,
+          }),
+        });
+
+        console.log("Response status:", response.status);
+
+        if (response.ok) {
+          showToast("¡Mensaje enviado exitosamente!", "success");
+          resetForm();
+        } else {
+          const errorData = await response.json();
+          showToast(`Error al enviar el mensaje: ${errorData.error}`, "error");
+        }
+      } catch (error) {
+        console.error("Form submission error:", error);
+        if (error instanceof yup.ValidationError) {
+          error.inner.forEach((err) => {
+            const errorElement = document.getElementById(`${err.path}-error`);
+            if (errorElement) {
+              errorElement.textContent = err.message;
+            }
+          });
+          showToast("Por favor corrige los errores en el formulario.", "error");
+        } else {
+          showToast("Error inesperado. Intenta nuevamente.", "error");
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = `🚀 ${translations.submit}`;
+      }
+    });
+  }
+
+  // Try multiple ways to initialize
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeForm);
+  } else {
+    initializeForm();
+  }
+
+  // Also try astro:page-load as backup
+  document.addEventListener("astro:page-load", initializeForm);
+</script>
