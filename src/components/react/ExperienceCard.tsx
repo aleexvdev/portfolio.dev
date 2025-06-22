@@ -30,8 +30,14 @@ const itemVariants = {
   },
 };
 
-export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkills }: Props) => {
-  const { id, company, role, period, description, achievements, skills } = experience;
+export const ExperienceCard = ({
+  experience,
+  lang,
+  titleAchievements,
+  titleSkills,
+}: Props) => {
+  const { id, company, link, role, period, description, achievements, skills } =
+    experience;
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [isActive, setIsActive] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
@@ -40,7 +46,7 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
   useEffect(() => {
     const checkTouchDevice = () => {
       setIsTouchDevice(
-        "ontouchstart" in window || navigator.maxTouchPoints > 0
+        "ontouchstart" in window || navigator.maxTouchPoints > 0,
       );
     };
     checkTouchDevice();
@@ -73,19 +79,18 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
     <motion.article
       key={id}
       variants={itemVariants}
-      className="relative w-full rounded-3xl overflow-hidden border border-gray-600/20 bg-[#181818] hover:bg-[#1f1f1f] transition-colors duration-300 mb-8"
+      className="relative mb-8 w-full overflow-hidden rounded-3xl border border-gray-600/20 bg-[#181818] transition-colors duration-300 hover:bg-[#1f1f1f]"
       whileHover={
         !isTouchDevice
           ? {
-            boxShadow:
-            "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 20px 20px -2px rgba(0, 0, 0, 0.05)",
-          
+              boxShadow:
+                "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 20px 20px -2px rgba(0, 0, 0, 0.05)",
             }
           : {}
       }
     >
       <motion.div
-        className="px-6 py-5 md:px-12 md:py-10 cursor-pointer"
+        className="cursor-pointer px-6 py-5 md:px-12 md:py-10"
         onClick={handleInteraction}
         variants={cardVariants}
         initial="inactive"
@@ -94,33 +99,37 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
         onHoverStart={() => !isTouchDevice && setIsActive(true)}
         onHoverEnd={() => !isTouchDevice && setIsActive(false)}
       >
-        <div className="flex flex-col md:flex-row justify-between items-start mb-4">
-        <div>
-          <div className="flex items-center mb-1 transition-colors duration-300">
-            <Building2
-              className={`mr-2 w-6 h-6 md:w-6 md:h-6 lg:w-7 lg:h-7 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
-            />
-            <h2
-              className={`text-3xl md:text-3xl lg:text-4xl font-semibold text-pretty ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+        <div className="mb-4 flex flex-col items-start justify-between md:flex-row">
+          <div>
+            <div className="mb-1 flex items-center transition-colors duration-300">
+              <Building2
+                className={`mr-2 h-6 w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+              />
+              <a href={link} target="_blank" rel="noreferrer">
+                <h2
+                  className={`text-3xl font-semibold text-pretty md:text-3xl lg:text-4xl ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                >
+                  {company}
+                </h2>
+              </a>
+            </div>
+            <p
+              className={`text-lg font-medium md:text-lg lg:text-xl ${isActive || isExpanded ? "text-stone-400" : "text-[#6E6E6F]"}`}
             >
-              {company}
-            </h2>
+              {role[lang]}
+            </p>
           </div>
-          <p
-            className={`text-lg md:text-lg lg:text-xl font-medium ${isActive || isExpanded ? "text-stone-400" : "text-[#6E6E6F]"}`}
-          >
-            {role[lang]}
-          </p>
-        </div>
           <div
-            className={`flex items-center mt-4 md:mt-0 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white/75"}`}
+            className={`mt-4 flex items-center md:mt-0 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
-            <span className="text-base md:text-base lg:text-lg font-medium">{period[lang]}</span>
+            <span className="text-base font-medium md:text-base lg:text-lg">
+              {period[lang]}
+            </span>
           </div>
         </div>
         <p
-          className={`text-base md:text-base lg:text-lg leading-relaxed font-medium ${isActive || isExpanded ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
+          className={`text-base leading-relaxed font-medium md:text-base lg:text-lg ${isActive || isExpanded ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
         >
           {description[lang]}
         </p>
@@ -136,7 +145,7 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
           <div className="mt-4 space-y-4">
             <div className="mb-6">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
               >
                 <Target className="mr-2" size={20} />
                 {titleAchievements}
@@ -145,16 +154,16 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
                 {achievements.map((achievement, i) => (
                   <motion.li
                     key={i}
-                    className="flex items-start mb-4"
+                    className="mb-4 flex items-start"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
                   >
                     <ArrowRight
-                      className={`w-5 h-5 mr-2 mt-1 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"} flex-shrink-0`}
+                      className={`mt-1 mr-2 h-5 w-5 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"} flex-shrink-0`}
                     />
                     <span
-                      className={`text-base md:text-base lg:text-lg leading-relaxed font-medium ${isActive || isExpanded ? "text-white/90" : "text-white/75"} text-pretty`}
+                      className={`text-base leading-relaxed font-medium md:text-base lg:text-lg ${isActive || isExpanded ? "text-white/90" : "text-white/75"} text-pretty`}
                     >
                       {achievement[lang]}
                     </span>
@@ -164,16 +173,21 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
             </div>
             <div className="mb-4">
               <h4
-                className={`text-lg font-semibold mb-4 flex items-center ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
               >
                 <Sparkles className="mr-2" size={20} />
                 {titleSkills}
               </h4>
-              <div className="flex flex-wrap gap-2 justify-center">
+              <div className="flex flex-wrap justify-center gap-2">
                 {skills.map(({ id, name, icon }, i) => (
-                  <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-full shadow-sm transition-colors duration-200 bg-black/90">
-                    <img src={icon} alt={name} className="w-6 h-6" />
-                    <span className="text-sm font-medium text-white/95">{name}</span>
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 rounded-full bg-black/90 px-4 py-2 shadow-sm transition-colors duration-200"
+                  >
+                    <img src={icon} alt={name} className="h-6 w-6" />
+                    <span className="text-sm font-medium text-white/95">
+                      {name}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -189,7 +203,7 @@ export const ExperienceCard = ({ experience, lang, titleAchievements, titleSkill
         </motion.div>
       </motion.div>
       <motion.div
-        className="h-1 bg-gradient-to-r from-blue-500 to-green-500 absolute bottom-0 left-0 right-0"
+        className="absolute right-0 bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-green-500"
         initial={{ width: "0%" }}
         animate={{ width: isActive || isExpanded ? "100%" : "0%" }}
         transition={{ duration: 0.3 }}

@@ -5,6 +5,7 @@ export const experiences: Experience[] = [
   {
     id: 1,
     company: "Softnet SPA",
+    link: "https://softnet.cl/",
     role: {
       es: "Desarrollador Full Stack",
       en: "Full Stack Developer"

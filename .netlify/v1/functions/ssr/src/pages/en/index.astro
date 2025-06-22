@@ -1,0 +1,29 @@
+---
+import Hero from "@/sections/Hero.astro";
+import Layout from "@/layouts/Layout.astro";
+import Experience from "@/sections/Experience.astro";
+import Projects from "@/sections/Projects.astro";
+import CallToAction from "@/sections/CallToAction.astro";
+import About from "@/sections/About.astro";
+import Contact from "@/sections/Contact.astro";
+import Footer from "@/sections/Footer.astro";
+import { Particles } from "@/components/background/Particles";
+
+const title = "Alexander Valverde | Computer Engineer";
+const description = "Hello! I'm Alexander Valverde, a computer engineer specialized in software development and web programming. I'm committed to creating innovative and useful solutions to enhance user experience. Skilled in both frontend and backend development.";
+const canonicalPathname = "https://alexvdev.netlify.app";
+---
+<Layout title={title} description={description} canonicalPathname={canonicalPathname}>
+  <main>
+    <div>
+      <Particles client:idle />
+      <Hero />
+    </div>
+    <Experience />
+    <CallToAction />
+    <Projects />
+    <About />
+    <Contact />
+    <Footer />
+  </main>
+</Layout>
