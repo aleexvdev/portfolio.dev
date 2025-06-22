@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@astrojs/ts-plugin": "^1.10.4",
+    "@hookform/resolvers": "^5.1.1",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
     "@radix-ui/react-select": "^2.2.5",
@@ -26,6 +27,7 @@
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.58.1",
     "resend": "^4.6.0",
     "tailwind-merge": "^3.3.0",
     "tailwindcss-animated": "^2.0.0",
