@@ -10,7 +10,7 @@ interface TurnstileWidgetProps {
   onVerify: (token: string) => void;
 }
 
-const publicKey = import.meta.env.PUBLIC_TURNSTILE_PUBLIC_KEY;
+const publicKey = "0x4AAAAAAAxB3NisfwmGnTy7";
 
 export const TurnstileWidget = ({ onVerify }: TurnstileWidgetProps) => {
 
