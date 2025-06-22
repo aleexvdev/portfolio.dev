@@ -5,11 +5,11 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}CodeRender.png`,
     skills: [
-      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "Next.js", color: "text-white", icon: `${baseImagePath}nextjs.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
       { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
       { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` },
     ],
     description: {
       en: "A web application that creates and shares stunning images of your code. CodeRender is a web tool that lets you transform your code snippets into elegant, customizable images, ready to share on social media, blogs, or in your documentation.",
@@ -22,11 +22,13 @@ export const projects: Project[] = [
   {
     image: `${baseImagePath}SecureAuth.png`,
     skills: [
-      { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
+      { name: "Next.js", color: "text-white", icon: `${baseImagePath}nextjs.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
+      { name: "Express.js", color: "text-pink-400", icon: `${baseImagePath}expressjs_dark.svg` },
+      { name: "PostgreSQL", color: "text-sky-700", icon: `${baseImagePath}postgresql.svg` },
       { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
       { name: "Framer Motion", color: "text-white", icon: `${baseImagePath}framer_dark.svg` },
-      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
+      { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` },
     ],
     description: {
       en: "SecureAuth is a robust, full-stack application designed to provide a secure and feature-rich foundation for user authentication and management. It features a modern Next.js frontend and a powerful Express.js backend, incorporating best practices for security and user experience.",

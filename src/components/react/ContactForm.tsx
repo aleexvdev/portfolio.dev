@@ -87,7 +87,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         }),
       });
 
-      if (response.status === 200) {
+      if (response.ok) {
         showToast("success", "¡Email enviado!");
         setTimeout(() => {
           reset();
@@ -142,7 +142,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {...register("email")}
               required
               placeholder={translations.emailPlaceholder}
-              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
+              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
             {errors.email && (
               <motion.p
@@ -175,7 +175,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {...register("name")}
               required
               placeholder={translations.namePlaceholder}
-              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
+              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
             {errors.name && (
               <motion.p
@@ -208,7 +208,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {...register("subject")}
               required
               placeholder={translations.subjectPlaceholder}
-              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
+              className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
             {errors.subject && (
               <motion.p
@@ -240,7 +240,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {...register("message")}
               placeholder="Déjame saber tus pensamientos, preguntas o ideas..."
               rows={5}
-              className="mt-2 w-full resize-none rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
+              className="mt-2 w-full resize-none rounded-lg bg-white/10 px-4 py-3 text-white backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             ></textarea>
             {errors.message && (
               <motion.p
