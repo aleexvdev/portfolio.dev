@@ -69,7 +69,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   const onSubmit = async (formData: SendForm) => {
     showToast("loading", "Enviando email...");
-    console.log(toastState);
 
     if (!turnstileToken) {
       showToast("error", "Parece que no eres humano...");
@@ -275,7 +274,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </button>
             <button
               type="submit"
-              // disabled={!isValid || isSubmitting}
+              disabled={!isValid || isSubmitting}
               className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-full"
             >
               {isSubmitting ? (
