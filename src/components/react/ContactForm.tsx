@@ -1,5 +1,5 @@
+"use client";
 import React, { useState } from "react";
-import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { TurnstileWidget } from "./TurnstileWidget";
@@ -317,8 +317,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           <span>{translations.privacy}</span>
         </div>
       </motion.div>
-
-      <Toast {...toastState} onHide={() => setTimeout(() => reset(), 1000)} />
+      <Toast {...toastState} />
     </>
   );
 };

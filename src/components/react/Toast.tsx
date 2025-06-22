@@ -13,38 +13,18 @@ export interface ToastProps {
 }
 
 export const Toast = ({ 
-  message: initialMessage = "", 
-  type: initialType = "", 
-  isVisible: initialIsVisible = false, 
-  onHide 
-}: ToastProps = {}) => {
-  const [isClient, setIsClient] = useState(false);
-  const [message, setMessage] = useState(initialMessage);
-  const [type, setType] = useState<ToastType>(initialType);
-  const [isVisible, setIsVisible] = useState(initialIsVisible);
+  message = "", 
+  type = "", 
+  isVisible = false 
+}: ToastProps) => {
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setMounted(true);
+    return () => setMounted(false);
   }, []);
 
-  useEffect(() => {
-    const handleUpdateToast = (event: CustomEvent) => {
-      const { message: newMessage, type: newType, isVisible: newIsVisible } = event.detail;
-      setMessage(newMessage);
-      setType(newType);
-      setIsVisible(newIsVisible);
-    };
-
-    window.addEventListener('updateToast', handleUpdateToast as EventListener);
-    
-    return () => {
-      window.removeEventListener('updateToast', handleUpdateToast as EventListener);
-    };
-  }, []);
-
-  if (!isClient) {
-    return null;
-  }
+  if (!mounted || !isVisible || !type) return null;
 
   const icons = {
     success: <CheckCircle className="w-6 h-6 text-green-500" />,
@@ -60,22 +40,16 @@ export const Toast = ({
 
   return ReactDOM.createPortal(
     <AnimatePresence>
-      {isVisible && type !== "" && (
-        <motion.div
-          initial={{ opacity: 0, x: -100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100, transition: { duration: 0.2 } }}
-          className="fixed bottom-4 left-5 z-50"
-        >
-          <motion.div
-            layout
-            className={`flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg border ${bgColors[type]}`}
-          >
-            {icons[type]}
-            <span className="text-gray-700 font-medium text-sm md:text-base lg:text-lg">{message}</span>
-          </motion.div>
-        </motion.div>
-      )}
+      <motion.div
+        key="toast"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -100 }}
+        className={`fixed bottom-4 left-5 z-[9999] flex items-center gap-3 px-6 py-4 rounded-lg shadow-lg border ${bgColors[type]}`}
+      >
+        {icons[type]}
+        <span className="text-gray-700 font-medium">{message}</span>
+      </motion.div>
     </AnimatePresence>,
     document.body
   );
