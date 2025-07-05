@@ -13,45 +13,21 @@ const logo = "{av.}";
   description={description}
   canonicalPathname={canonicalPathname}
 >
-  <header class="fixed z-[99999] h-max w-full transition-colors duration-300">
-    <div
-      class="relative mx-auto flex h-full w-full max-w-screen-lg justify-center"
-    >
-      <div
-        class="flex h-max w-full items-center justify-between rounded-3xl px-6 py-1 transition-all duration-300 md:py-3"
-      >
-        <div class="flex h-max w-max items-center">
-          <a
-            href="/#"
-            class="gradient-text flex flex-col items-center justify-center text-2xl leading-6 font-bold transition-transform duration-200 select-none lg:text-3xl"
-            style={{
-              background:
-                "linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            {logo}
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
   <main
-    class="relative mx-auto flex min-h-screen w-full max-w-screen-lg flex-col items-center justify-center"
+    class="flex h-screen w-full flex-col items-center justify-center"
   >
     <img
       src="./thinking-face.png"
       alt="404: Página no encontrada"
       class="animate-float mb-5"
     />
-    <h1 class="mb-5 text-6xl font-bold text-black/80 dark:text-white/80">
+    <h1 class="mb-5 text-4xl md:text-6xl font-bold text-white/80">
       Hmmm...
     </h1>
-    <p class="text-2xl font-bold text-black/80 dark:text-white/80">
+    <p class="text-xl md:text-2xl font-bold text-white/80">
       Parece que aquí no hay nada.
     </p>
-    <p class="mt-1 text-2xl font-bold text-black/80 dark:text-white/80">
+    <p class="mt-1 text-xl md:text-2xl font-bold text-white/80">
       <span>Quizás deberías volver a</span>
       <a
         href="/#"
