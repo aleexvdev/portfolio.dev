@@ -15,9 +15,9 @@ export const projects: Project[] = [
       en: "A web application that creates and shares stunning images of your code. CodeRender is a web tool that lets you transform your code snippets into elegant, customizable images, ready to share on social media, blogs, or in your documentation.",
       es: "Una aplicación web que crea y comparte imágenes de tu código con un aspecto increíble. CodeRender es una herramienta web que te permite transformar tus fragmentos de código en imágenes elegantes y personalizables, listas para compartir en redes sociales, blogs o en tu documentación."
     },
-    title: "Secure Auth",
-    repoLink: "https://github.com/aleexvdev/secure-auth/",
-    viewLink: "https://secureauth-alexvdev.netlify.app/",
+    title: "CodeRender",
+    repoLink: "https://github.com/aleexvdev/coderender",
+    viewLink: "https://coderender.vercel.app/",
   },
   {
     image: `${baseImagePath}SecureAuth.png`,
@@ -35,8 +35,8 @@ export const projects: Project[] = [
       es: "SecureAuth es una aplicación robusta de pila completa diseñada para ofrecer una base segura y con muchas funciones para la autenticación y gestión de usuarios. Cuenta con un frontend moderno en Next.js y un backend potente en Express.js, incorporando las mejores prácticas en seguridad y experiencia del usuario."
     },
     title: "Secure Auth",
-    repoLink: "https://github.com/aleexvdev/secure-auth/",
-    viewLink: "https://secureauth-alexvdev.netlify.app/",
+    repoLink: "https://github.com/aleexvdev/secureauth-next",
+    viewLink: "https://secure-auth-v1.netlify.app/",
   },
   {
     image: `${baseImagePath}Weather.png`,
@@ -52,8 +52,8 @@ export const projects: Project[] = [
       es: "Una aplicación web de clima que usa la API de OpenWeather ofrece a los usuarios información meteorológica en tiempo real, como temperatura, humedad y pronósticos. Permite buscar condiciones en cualquier lugar y personalizar ciudades favoritas, ideal para mantenerse informado sobre el clima."
     },
     title: "Weather App",
-    repoLink: "https://github.com/aleexvdev/weather-app/",
-    viewLink: "https://weatherapp-alexvdev.netlify.app/",
+    repoLink: "https://github.com/aleexvdev/app-weather",
+    viewLink: "https://app-weather-v2.vercel.app/",
   },
   {
     image: `${baseImagePath}FoodRecipes.png`,
@@ -70,7 +70,7 @@ export const projects: Project[] = [
       es: "Esta aplicación web permite a los usuarios buscar y explorar recetas de comida utilizando la API de Edamam. Los usuarios pueden guardar sus recetas favoritas, compartirlas a través de diferentes plataformas y dejar comentarios en un blog."
     },
     title: "Food Recipes",
-    repoLink: "https://github.com/aleexvdev/food-recipes/",
+    repoLink: "https://github.com/aleexvdev/food-recipes",
     viewLink: "https://foodrecipes-alexvdev.netlify.app/",
   },
   {
