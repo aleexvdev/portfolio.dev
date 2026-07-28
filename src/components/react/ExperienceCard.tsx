@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion, useAnimation, type Variants } from "framer-motion";
 import {
   ArrowRight,
   Building2,
@@ -18,7 +18,7 @@ interface Props {
   titleSkills: string;
 }
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
