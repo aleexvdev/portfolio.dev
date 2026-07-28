@@ -23,3 +23,13 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Claude Code
+CLAUDE.md
+.claude/
+
+# Cursor
+.cursor/
+
+# Task tracking (planning interno)
+docs/tasks.md
