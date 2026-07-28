@@ -32,4 +32,6 @@ CLAUDE.md
 .cursor/
 
 # Task tracking (planning interno)
-docs/tasks.md
+docs/
+# Local Netlify folder
+.netlify
