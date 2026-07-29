@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alexvdev.netlify.app/sitemap-index.xml
+Sitemap: https://alexvalverde.dev/sitemap-index.xml

@@ -2,7 +2,7 @@
 interface CardLocationProps {
   location: string;
   country: string;
-  flagSrc: string;
+  flagBase: string;
   flagAlt: string;
   timeDifference: string;
   hours: number;
@@ -12,10 +12,12 @@ interface CardLocationProps {
   title: string;
 }
 
+import Picture from "@/components/Picture.astro";
+
 const {
   location,
   country,
-  flagSrc,
+  flagBase,
   flagAlt,
   timeDifference,
   hours,
@@ -50,8 +52,8 @@ const {
           </p>
 
           <div class="flex items-center gap-x-2">
-            <img
-              src={flagSrc}
+            <Picture
+              base={flagBase}
               alt={flagAlt}
               class="h-6 w-6 object-cover"
             />

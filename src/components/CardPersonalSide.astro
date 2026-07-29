@@ -2,8 +2,10 @@
 interface CardPersonalProps {
   title: string;
   paragraphs: string[];
-  icons: { src: string; alt: string }[];
+  icons: { base: string; alt: string }[];
 }
+
+import Picture from "@/components/Picture.astro";
 
 const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
 ---
@@ -30,7 +32,7 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
     </div>
     <div class="flex h-max w-full items-center justify-between px-4 lg:px-10">
       {
-        icons.map(({ src, alt }, index) => {
+        icons.map(({ base, alt }, index) => {
           const iconClass = [
             "icon-animate",
             index === 0
@@ -45,12 +47,19 @@ const { title, paragraphs, icons } = Astro.props as CardPersonalProps;
           ].join(" ");
 
           return (
-            <img
-              src={src}
-              alt={alt}
-              loading="lazy"
-              class={iconClass + " h-14 w-14 object-contain lg:h-20 lg:w-20"}
-            />
+            <span
+              class:list={[
+                iconClass,
+                "inline-flex h-14 w-14 shrink-0 items-center justify-center lg:h-20 lg:w-20",
+              ]}
+            >
+              <Picture
+                base={base}
+                alt={alt}
+                loading="lazy"
+                class="h-full w-full object-contain"
+              />
+            </span>
           );
         })
       }

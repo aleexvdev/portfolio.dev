@@ -1,5 +1,6 @@
 ---
 import Github from "@/assets/icons/github.astro";
+import Picture from "@/components/Picture.astro";
 import { useTranslations, type ui } from "@/i18n/i18n";
 import type { Project } from "@/types/projects";
 import { ExternalLink } from "lucide-react";
@@ -15,12 +16,12 @@ const projectsT = useTranslations(lang)("projects");
 ---
 
 <article
-  class={`relative overflow-hidden rounded-xl md:rounded-3xl shadow-lg group ${className} select-none flex flex-col md:flex-row items-center justify-between gap-y-4 md:gap-x-4`}
+  class={`relative overflow-hidden rounded-xl md:rounded-3xl shadow-lg group ${className} select-none flex flex-col md:flex-row items-stretch gap-y-4 md:gap-x-4`}
 >
-  <img
-    src={project.image}
+  <Picture
+    base={project.image}
     alt={project.title}
-    class="h-full w-full md:w-1/2 rounded-xl md:rounded-3xl object-cover"
+    class="h-56 w-full object-cover rounded-xl md:h-full md:min-h-[300px] md:w-1/2 md:rounded-3xl lg:min-h-[340px]"
   />
   <div
     class="w-full flex flex-col items-center justify-between gap-y-2 p-2 md:p-6 lg:p-8"

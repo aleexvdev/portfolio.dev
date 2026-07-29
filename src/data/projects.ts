@@ -3,7 +3,7 @@ import type { Project } from "@/types/projects";
 const baseImagePath = "/projects/";
 export const projects: Project[] = [
   {
-    image: `${baseImagePath}CodeRender.png`,
+    image: `${baseImagePath}CodeRender`,
     skills: [
       { name: "Next.js", color: "text-white", icon: `${baseImagePath}nextjs.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
@@ -20,7 +20,7 @@ export const projects: Project[] = [
     viewLink: "https://coderender.vercel.app/",
   },
   {
-    image: `${baseImagePath}SecureAuth.png`,
+    image: `${baseImagePath}SecureAuth`,
     skills: [
       { name: "Next.js", color: "text-white", icon: `${baseImagePath}nextjs.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
@@ -39,7 +39,7 @@ export const projects: Project[] = [
     viewLink: "https://secure-auth-v1.netlify.app/",
   },
   {
-    image: `${baseImagePath}Weather.png`,
+    image: `${baseImagePath}Weather`,
     skills: [
       { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     viewLink: "https://app-weather-v2.vercel.app/",
   },
   {
-    image: `${baseImagePath}FoodRecipes.png`,
+    image: `${baseImagePath}FoodRecipes`,
     skills: [
       { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },
@@ -74,7 +74,7 @@ export const projects: Project[] = [
     viewLink: "https://foodrecipes-alexvdev.netlify.app/",
   },
   {
-    image: `${baseImagePath}TodoList.png`,
+    image: `${baseImagePath}TodoList`,
     skills: [
       { name: "React", color: "text-cyan-500", icon: `${baseImagePath}react.svg` },
       { name: "TypeScript", color: "text-blue-400", icon: `${baseImagePath}typescript.svg` },

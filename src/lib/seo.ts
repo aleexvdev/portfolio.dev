@@ -1,4 +1,9 @@
-const SITE_ORIGIN = "https://alexvdev.netlify.app";
+const SITE_ORIGIN = "https://alexvalverde.dev";
+
+export const SITE_NAME = "Alexander Valverde";
+export const TWITTER_SITE = "@alexvdev";
+export const OG_IMAGE_WIDTH = 1200;
+export const OG_IMAGE_HEIGHT = 630;
 
 export function toAbsoluteUrl(
   pathname: string,

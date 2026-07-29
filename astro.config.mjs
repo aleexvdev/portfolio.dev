@@ -9,7 +9,7 @@ import dotenv from "dotenv";
 // https://astro.build/config
 dotenv.config();
 
-const site = "https://alexvdev.netlify.app";
+const site = "https://alexvalverde.dev";
 
 export default defineConfig({
   site,

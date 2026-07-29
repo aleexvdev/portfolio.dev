@@ -1,0 +1,28 @@
+---
+interface Props {
+  base: string;
+  alt: string;
+  class?: string;
+  loading?: "lazy" | "eager";
+  decoding?: "async" | "auto" | "sync";
+}
+
+const {
+  base,
+  alt,
+  class: className,
+  loading,
+  decoding,
+} = Astro.props;
+---
+
+<picture class="contents">
+  <source srcset={`${base}.webp`} type="image/webp" />
+  <img
+    src={`${base}.png`}
+    alt={alt}
+    class={className}
+    loading={loading}
+    decoding={decoding}
+  />
+</picture>

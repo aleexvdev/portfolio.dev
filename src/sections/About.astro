@@ -40,7 +40,7 @@ const currentDate = now.toLocaleDateString(locale, {
     <CardProfile
       name="Ing. Alexander Valverde"
       username="@aleexvdev"
-      image="/about-images/profile.webp"
+      imageBase="/about-images/profile"
       status={profile.status}
       quote={profile.quote}
     />
@@ -48,10 +48,10 @@ const currentDate = now.toLocaleDateString(locale, {
       title={personal.title}
       paragraphs={personal.paragraphs}
       icons={[
-        { src: "/about-images/soccer.png", alt: "Soccer" },
-        { src: "/about-images/dog.png", alt: "Perrito" },
-        { src: "/about-images/pasta.png", alt: "Pasta" },
-        { src: "/about-images/joystick.png", alt: "Joystick" },
+        { base: "/about-images/soccer", alt: "Soccer" },
+        { base: "/about-images/dog", alt: "Perrito" },
+        { base: "/about-images/pasta", alt: "Pasta" },
+        { base: "/about-images/joystick", alt: "Joystick" },
       ]}
     />
     <CardSkills title={skillsTitle.title} skills={skills} />
@@ -59,7 +59,7 @@ const currentDate = now.toLocaleDateString(locale, {
       title={work.title}
       paragraph1={work.paragraphs[0]}
       paragraph2={work.paragraphs[1]}
-      imageSrc="/about-images/method_work.png"
+      imageBase="/about-images/method_work"
       imageAlt="Mi método de trabajo"
     />
     <CardEducation
@@ -72,7 +72,7 @@ const currentDate = now.toLocaleDateString(locale, {
     <CardLocation
       location={location.location}
       country="Perú"
-      flagSrc="/about-images/bandera.png"
+      flagBase="/about-images/bandera"
       flagAlt={location.flagAlt.replace("{country}", "Perú")}
       timeDifference={location.timeDifference}
       hours={hours}

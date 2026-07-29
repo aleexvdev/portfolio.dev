@@ -2,12 +2,15 @@
 interface CardProfileProps {
   name: string;
   username: string;
-  image: string;
+  imageBase: string;
   status: string;
   quote: string;
 }
 
-const { name, username, image, status, quote } = Astro.props as CardProfileProps;
+import Picture from "@/components/Picture.astro";
+
+const { name, username, imageBase, status, quote } =
+  Astro.props as CardProfileProps;
 ---
 
 <article
@@ -17,8 +20,8 @@ const { name, username, image, status, quote } = Astro.props as CardProfileProps
     <div
       class="h-auto w-24 overflow-hidden rounded-full border border-green-500 bg-white/80"
     >
-      <img
-        src={image}
+      <Picture
+        base={imageBase}
         alt={name}
         class="h-full w-full scale-110 bg-transparent object-cover"
       />
