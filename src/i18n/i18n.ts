@@ -191,8 +191,9 @@ export const ui = {
       available: "¡Disponible para nuevos proyectos!",
       idea: "¿Listo para crear",
       makeReal: "tu próximo proyecto?",
-      description: "Convierte tu idea en una solución digital.",
-      closing: "Yo me encargo de desarrollar el software que necesitas.",
+      description:
+        "Convierte tu idea en una solución digital. Yo me encargo de desarrollar el software que necesitas.",
+      closing: "Cuéntame tu idea. Estaré encantado de conversar contigo.",
       linkedin: "LinkedIn",
       contact: "Hablemos",
     },
@@ -327,8 +328,9 @@ export const ui = {
       available: "Available for new projects!",
       idea: "Ready to build",
       makeReal: "your next project?",
-      description: "Turn your idea into a digital solution.",
-      closing: "I'll take care of developing the software you need.",
+      description:
+        "Turn your idea into a digital solution. I'll take care of developing the software you need.",
+      closing: "Tell me your idea. I'd be happy to talk with you.",
       linkedin: "LinkedIn",
       contact: "Let's talk",
     },
