@@ -52,25 +52,21 @@ const contact = cta.contact;
     >
       <a
         href="mailto:alexvalverde.dev@gmail.com"
-        class="group glow-hover flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-brand to-brand-deep px-8 py-3.5 text-lg font-semibold text-white shadow-lg transition-[transform,box-shadow] duration-300 hover:scale-105 active:scale-[0.97] sm:w-auto"
+        class="cta-btn cta-btn-primary group flex w-full items-center justify-center gap-3 rounded-xl bg-gradient-to-br from-brand to-brand-deep px-8 py-3.5 text-lg font-semibold text-white shadow-lg active:scale-[0.97] sm:w-auto"
       >
         <Mail class="text-white" width="24" height="24" />
         <span>{contact}</span>
-        <ArrowRight
-          className="h-5 w-5 transition-transform group-hover:translate-x-1"
-        />
+        <ArrowRight className="cta-btn-arrow h-5 w-5" />
       </a>
       <a
         href="https://www.linkedin.com/in/alexvdev/"
         target="_blank"
         rel="noopener noreferrer"
-        class="group glow-hover flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/5 px-8 py-3.5 text-lg font-semibold text-white shadow-lg backdrop-blur-sm transition-[transform,box-shadow,border-color,background-color] duration-300 hover:scale-105 hover:border-brand/40 hover:bg-brand/10 active:scale-[0.97] sm:w-auto"
+        class="cta-btn cta-btn-secondary group flex w-full items-center justify-center gap-3 rounded-xl border border-white/20 bg-white/5 px-8 py-3.5 text-lg font-semibold text-white shadow-lg backdrop-blur-sm active:scale-[0.97] sm:w-auto"
       >
         <Linkedin class="text-white" width="24" height="24" />
         <span>{linkedin}</span>
-        <ArrowRight
-          className="h-5 w-5 transition-transform group-hover:translate-x-1"
-        />
+        <ArrowRight className="cta-btn-arrow h-5 w-5" />
       </a>
     </div>
   </div>
@@ -140,10 +136,40 @@ const contact = cta.contact;
     }
   }
 
-  .glow-hover:hover {
-    box-shadow:
-      0 0 12px rgba(255, 255, 255, 0.4),
-      0 0 30px var(--brand-muted);
+  .cta-btn {
+    transition:
+      transform 0.45s var(--ease-out),
+      box-shadow 0.45s var(--ease-out),
+      border-color 0.45s var(--ease-out),
+      background-color 0.45s var(--ease-out);
+  }
+
+  .cta-btn-arrow {
+    transition: transform 0.45s var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .cta-btn:hover {
+      transform: scale(1.03);
+    }
+
+    .cta-btn:hover .cta-btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .cta-btn-primary:hover {
+      box-shadow:
+        0 4px 20px oklch(0.78 0.12 175 / 0.35),
+        0 0 28px oklch(0.78 0.12 175 / 0.2);
+    }
+
+    .cta-btn-secondary:hover {
+      border-color: oklch(0.78 0.12 175 / 0.4);
+      background-color: oklch(0.78 0.12 175 / 0.1);
+      box-shadow:
+        0 4px 16px oklch(0.78 0.12 175 / 0.15),
+        0 0 24px oklch(0.78 0.12 175 / 0.12);
+    }
   }
 
   @keyframes floatPulse {
@@ -184,6 +210,16 @@ const contact = cta.contact;
 
     .cta-section::before {
       opacity: 0.8;
+    }
+
+    .cta-btn,
+    .cta-btn-arrow {
+      transition: none !important;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:hover .cta-btn-arrow {
+      transform: none !important;
     }
   }
 </style>

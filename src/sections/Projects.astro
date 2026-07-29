@@ -28,7 +28,7 @@ const eyebrow = nav.projects.label;
     {
       topProjects.map((project, idx) => (
         <div
-          class="relative flex flex-col justify-between overflow-hidden rounded-xl p-0 opacity-0 shadow-xl transition-[transform,box-shadow] duration-300 animate-fade-in-projects hover:scale-[1.015] hover:shadow-2xl md:rounded-3xl"
+          class="relative flex flex-col justify-between overflow-hidden rounded-xl p-0 opacity-0 shadow-xl transition-[transform,box-shadow] duration-300 animate-fade-in-projects md:rounded-3xl"
           style={`animation-delay: ${idx * 80}ms`}
         >
           <ProjectCard project={project} lang={lang} />
@@ -47,16 +47,16 @@ const eyebrow = nav.projects.label;
       </span>
 
       <span
-        class="relative text-base font-semibold text-brand-muted md:text-lg lg:text-xl"
+        class="relative text-base font-semibold text-blue-500 md:text-lg lg:text-xl"
       >
         {archive}
         <span
-          class="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-brand-muted transition-all duration-300 group-hover:w-full"
+          class="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-blue-500 transition-all duration-300 group-hover:w-full"
         ></span>
       </span>
 
       <ArrowRight
-        className="h-5 w-5 text-brand-muted transition-transform duration-300 group-hover:translate-x-1"
+        className="h-5 w-5 text-blue-500 transition-transform duration-300 group-hover:translate-x-1"
       />
     </a>
   </div>

@@ -97,10 +97,10 @@ const socialLinks = [
                 rel="noopener noreferrer"
                 aria-label={link.ariaLabel}
                 title={link.name}
-                class="group flex items-center justify-center rounded-lg p-2 transition-[transform,color] duration-300 hover:scale-125 hover:text-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none active:scale-[0.97]"
+                class="social-link group flex items-center justify-center rounded-lg p-2 text-gray-300 focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none active:scale-[0.97]"
               >
                 <span class="sr-only">{link.name}</span>
-                <span class="glow-icon transition duration-300 text-gray-300 group-hover:text-brand">
+                <span class="glow-icon social-link-icon">
                   <link.icon
                     class="h-7 w-7 sm:h-8 sm:w-8"
                     width="32"
@@ -127,9 +127,42 @@ const socialLinks = [
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
   }
 
+  .social-link {
+    transition:
+      transform 0.45s var(--ease-out),
+      color 0.45s var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .social-link:hover {
+      transform: scale(1.08);
+      color: var(--brand-muted);
+    }
+  }
+
+  .social-link-icon {
+    display: flex;
+    color: inherit;
+    transition:
+      color 0.45s var(--ease-out),
+      filter 0.45s var(--ease-out),
+      transform 0.45s var(--ease-out);
+  }
+
+  @media (hover: hover) {
+    .social-link:hover .social-link-icon {
+      transform: scale(1.02);
+    }
+  }
+
   .glow-icon {
-    filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.7));
-    transition: filter 0.3s ease;
+    filter: drop-shadow(0 0 2px oklch(0.62 0.14 250 / 0.25));
+  }
+
+  @media (hover: hover) {
+    .social-link:hover .glow-icon {
+      filter: drop-shadow(0 0 10px oklch(0.78 0.12 175 / 0.55));
+    }
   }
 
   .mouse {
@@ -225,6 +258,16 @@ const socialLinks = [
     .animate-flip-in {
       animation: none !important;
       opacity: 1 !important;
+    }
+
+    .social-link,
+    .social-link-icon {
+      transition: none !important;
+    }
+
+    .social-link:hover,
+    .social-link:hover .social-link-icon {
+      transform: none !important;
     }
   }
 
