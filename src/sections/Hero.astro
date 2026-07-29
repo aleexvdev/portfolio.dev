@@ -1,12 +1,11 @@
 ---
-import { Tooltip } from "@/components/react/Tooltip";
-import { AvailableToWork } from "@/components/react/AvailableToWork";
 import Linkedin from "@/assets/icons/linkedin.astro";
 import Github from "@/assets/icons/github.astro";
 import Mail from "@/assets/icons/mail.astro";
 import CvIcon from "@/assets/icons/scroll-text.astro";
-import { AnimatedGradientText } from "@/components/react/AnimatedGradientText";
 import { HeroTerminal } from "@/components/react/HeroTerminal";
+import HeroBadge from "@/components/HeroBadge.astro";
+import AvailableToWorkBadge from "@/components/AvailableToWorkBadge.astro";
 import { getLangFromUrl } from "@/i18n/i18n";
 import { useTranslations } from "@/i18n/i18n";
 
@@ -57,9 +56,7 @@ const socialLinks = [
         <div
           class="flex w-max items-center justify-center text-sm font-semibold tracking-widest"
         >
-          <AnimatedGradientText client:load>
-            {badge}
-          </AnimatedGradientText>
+          <HeroBadge text={badge} />
         </div>
       </div>
 
@@ -82,7 +79,7 @@ const socialLinks = [
     <div
       class="flex w-full flex-col items-center justify-center pt-8 md:flex-row md:justify-between"
     >
-      <AvailableToWork client:load text={disponibility} />
+      <AvailableToWorkBadge text={disponibility} />
       <div
         class="my-6 block h-px w-[60%] rounded-full bg-stone-400 md:hidden text-stone-400"
       >
@@ -94,24 +91,23 @@ const socialLinks = [
         {
           socialLinks.map((link) => (
             <li>
-              <Tooltip content={link.name} position="bottom" client:load>
-                <a
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.ariaLabel}
-                  class="group flex items-center justify-center rounded-lg p-2 transition-[transform,color] duration-300 hover:scale-125 hover:text-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none active:scale-[0.97]"
-                >
-                  <span class="sr-only">{link.name}</span>
-                  <span class="glow-icon transition duration-300 text-gray-300 group-hover:text-brand">
-                    <link.icon
-                      class="h-7 w-7 sm:h-8 sm:w-8"
-                      width="32"
-                      height="32"
-                    />
-                  </span>
-                </a>
-              </Tooltip>
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.ariaLabel}
+                title={link.name}
+                class="group flex items-center justify-center rounded-lg p-2 transition-[transform,color] duration-300 hover:scale-125 hover:text-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none active:scale-[0.97]"
+              >
+                <span class="sr-only">{link.name}</span>
+                <span class="glow-icon transition duration-300 text-gray-300 group-hover:text-brand">
+                  <link.icon
+                    class="h-7 w-7 sm:h-8 sm:w-8"
+                    width="32"
+                    height="32"
+                  />
+                </span>
+              </a>
             </li>
           ))
         }

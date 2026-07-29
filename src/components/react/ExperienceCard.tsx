@@ -8,13 +8,11 @@ import {
   Sparkles,
   Target,
 } from "lucide-react";
-import type { Experience } from "@/types/experience";
-import type { ui } from "@/i18n/i18n";
+import type { LocalizedExperience } from "@/lib/experience";
 import { easeOut } from "@/lib/motion";
 
 interface Props {
-  experience: Experience;
-  lang: keyof typeof ui;
+  experience: LocalizedExperience;
   titleAchievements: string;
   titleSkills: string;
 }
@@ -34,7 +32,6 @@ const itemVariants: Variants = {
 
 export const ExperienceCard = ({
   experience,
-  lang,
   titleAchievements,
   titleSkills,
 }: Props) => {
@@ -118,7 +115,7 @@ export const ExperienceCard = ({
             <p
               className={`text-lg font-medium md:text-lg lg:text-xl ${isActive || isExpanded ? "text-stone-400" : "text-[#6E6E6F]"}`}
             >
-              {role[lang]}
+              {role}
             </p>
           </div>
           <div
@@ -126,14 +123,14 @@ export const ExperienceCard = ({
           >
             <CalendarDays className="mr-2" size={16} />
             <span className="text-base font-medium md:text-base lg:text-lg">
-              {period[lang]}
+              {period}
             </span>
           </div>
         </div>
         <p
           className={`text-base leading-relaxed font-medium md:text-base lg:text-lg ${isActive || isExpanded ? "text-white/90" : "text-white/75"} mb-4 text-pretty`}
         >
-          {description[lang]}
+          {description}
         </p>
         <motion.div
           initial={false}
@@ -167,7 +164,7 @@ export const ExperienceCard = ({
                     <span
                       className={`text-base leading-relaxed font-medium md:text-base lg:text-lg ${isActive || isExpanded ? "text-white/90" : "text-white/75"} text-pretty`}
                     >
-                      {achievement[lang]}
+                      {achievement}
                     </span>
                   </motion.li>
                 ))}

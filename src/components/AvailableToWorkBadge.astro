@@ -1,0 +1,22 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div class="relative inline-flex h-full w-max overflow-hidden rounded-lg p-0.5">
+  <div
+    class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"
+  ></div>
+  <div
+    class="flex h-full w-full items-center justify-center space-x-3 rounded-lg px-3 py-2 backdrop-blur-3xl bg-[#0C0A09]"
+  >
+    <span class="animate-custom-pulse block h-3 w-3 rounded-full bg-green-500"></span>
+    <span class="animate-ripple absolute left-0 ml-3 h-3 w-3 rounded-full bg-green-500"></span>
+    <span class="inline-flex text-sm font-medium text-nowrap md:text-base lg:text-lg text-white">
+      {text}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+---
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<div
+  class="group relative mx-auto flex items-center justify-center rounded-full px-4 py-1.5 shadow-[inset_0_-8px_10px_#8fdfff1f] transition-shadow duration-500 ease-out hover:shadow-[inset_0_-5px_10px_#8fdfff3f]"
+>
+  <span
+    class="absolute inset-0 block h-full w-full animate-gradient rounded-[inherit] bg-gradient-to-r from-brand-muted/50 via-brand-highlight/50 to-brand-muted/50 bg-[length:300%_100%] p-[1px]"
+    style="mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: subtract; -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: destination-out;"
+  ></span>
+  🎉
+  <hr class="mx-2 h-4 w-px shrink-0 bg-neutral-500" />
+  <span
+    class="inline animate-gradient bg-gradient-to-r from-[var(--brand-muted)] via-[var(--brand-highlight)] to-[var(--brand-muted)] bg-[length:300%_100%] bg-clip-text text-transparent"
+  >
+    {text}
+  </span>
+</div>

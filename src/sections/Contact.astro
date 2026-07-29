@@ -77,7 +77,7 @@ const contactMethods = [
   <div
     class="mt-6 mb-8 flex h-full w-full flex-col items-start justify-between lg:flex-row"
   >
-    <ContactForm client:visible translations={form} heading={heading} description={description} />
+    <ContactForm client:only="react" translations={form} heading={heading} description={description} />
     <div
       class="mt-6 flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 md:pl-4 lg:mt-10"
     >

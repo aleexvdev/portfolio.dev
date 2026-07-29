@@ -37,9 +37,6 @@ const cleanTitle = title.trim();
 const cleanDescription = description.replace(/\s+/g, " ").trim();
 const canonicalURL = toAbsoluteUrl(canonicalPathname, Astro.site);
 
-const keywords =
-  "desarrollo de software, programación web, ingeniero informático, Php, Laravel, Node.js, React, Full Stack, aplicaciones web, SEO, programador web, JavaScript, tecnologías web";
-
 const imageAltText =
   lang === "es"
     ? "Desarrollador Full Stack - Alexander Valverde"
@@ -65,7 +62,6 @@ const personJsonLd = includeJsonLd ? getPersonJsonLd(lang, Astro.site) : null;
 <!-- Meta Tags esenciales -->
 <title>{cleanTitle}</title>
 <meta name="description" content={cleanDescription} />
-<meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonicalURL} />
 
 {

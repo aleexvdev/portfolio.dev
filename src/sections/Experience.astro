@@ -4,6 +4,7 @@ import BriefcaseBusiness from "@/assets/icons/briefcaseBusiness.astro";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import { experiences } from "@/data/experiences";
 import { ExperienceCard } from "@/components/react/ExperienceCard";
+import { localizeExperience } from "@/lib/experience";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -25,7 +26,12 @@ const eyebrow = nav.experience.label;
   <div class="mt-6 space-y-8 pb-8">
     {
       experiences.map((experience) => (
-        <ExperienceCard experience={experience} lang={lang} titleAchievements={achievements} titleSkills={skills} client:load />
+        <ExperienceCard
+          experience={localizeExperience(experience, lang)}
+          titleAchievements={achievements}
+          titleSkills={skills}
+          client:only="react"
+        />
       ))
     }
   </div>

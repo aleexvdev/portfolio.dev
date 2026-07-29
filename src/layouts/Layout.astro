@@ -35,7 +35,7 @@ const { title, description, canonicalPathname } = Astro.props;
     </div>
     <Header />
     <slot />
-    <ScrollUp client:load />
+    <ScrollUp client:idle />
   </body>
 </html>
 
