@@ -1,8 +1,7 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { TurnstileWidget } from "./TurnstileWidget";
 import { Toast } from "./Toast";
 import {
   AtSign,
@@ -60,20 +59,48 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   });
   const { toastState, showToast } = useToast();
   const [turnstileToken, setTurnstileToken] = useState<string>("");
-
-  const handleTurnstileVerify = useCallback((token: string) => {
-    setTurnstileToken(token);
-  }, []);
+  const [turnstileReady, setTurnstileReady] = useState(false);
 
   const handleTurnstileReset = useCallback(() => {
     setTurnstileToken("");
+    setTurnstileReady(false);
   }, []);
+
+  useEffect(() => {
+    const handleToken = (event: Event) => {
+      const token = (event as CustomEvent<string>).detail;
+      if (token) {
+        setTurnstileToken(token);
+        setTurnstileReady(true);
+      } else {
+        handleTurnstileReset();
+      }
+    };
+
+    const existingToken = (
+      window as Window & { __portfolioTurnstileToken?: string }
+    ).__portfolioTurnstileToken;
+
+    if (existingToken) {
+      setTurnstileToken(existingToken);
+      setTurnstileReady(true);
+    }
+
+    window.addEventListener("portfolio-turnstile-token", handleToken);
+    return () =>
+      window.removeEventListener("portfolio-turnstile-token", handleToken);
+  }, [handleTurnstileReset]);
 
   const onSubmit = async (formData: SendForm) => {
     showToast("loading", "Enviando email...");
 
     if (!turnstileToken) {
-      showToast("error", "Parece que no eres humano...");
+      showToast(
+        "error",
+        turnstileReady
+          ? "La verificación expiró. Completá el captcha de nuevo."
+          : "Completá la verificación de Cloudflare antes de enviar.",
+      );
       return;
     }
 
@@ -214,12 +241,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             {errors.message && <FieldError message={errors.message.message} />}
           </motion.div>
 
-          <div className="flex w-full justify-center">
-            <TurnstileWidget
-              onVerify={handleTurnstileVerify}
-              onError={handleTurnstileReset}
-              onExpire={handleTurnstileReset}
+          <div className="flex w-full flex-col items-center gap-2">
+            <div
+              id="turnstile-mount"
+              className="flex min-h-[65px] w-full justify-center"
             />
+            {!turnstileToken && (
+              <p className="text-center text-xs text-white/50">
+                Completá la verificación de Cloudflare para habilitar el envío.
+              </p>
+            )}
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-2 py-2 text-center md:flex-row md:text-end">
             <button
@@ -236,7 +267,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </button>
             <button
               type="submit"
-              disabled={!isValid || isSubmitting}
+              disabled={!isValid || isSubmitting || !turnstileToken}
               className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-brand to-brand-deep px-4 py-2 font-semibold text-white shadow-lg transition hover:from-brand-hover hover:to-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-full"
             >
               {isSubmitting ? (

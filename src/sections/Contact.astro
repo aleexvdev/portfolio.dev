@@ -9,6 +9,10 @@ import Facebook from "@/assets/icons/facebook.astro";
 import Gmail from "@/assets/icons/gmail.astro";
 import Instagram from "@/assets/icons/instagram.astro";
 import { ContactForm } from "@/components/react/ContactForm";
+import TurnstileCaptcha from "@/components/TurnstileCaptcha.astro";
+import { getTurnstileSiteKey } from "@/lib/turnstile";
+
+const turnstileSiteKey = getTurnstileSiteKey();
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -69,10 +73,11 @@ const contactMethods = [
 ---
 
 <Section title={title} eyebrow={nav.contact.label} icon={MailCheck} id="contact">
+  <TurnstileCaptcha siteKey={turnstileSiteKey} />
   <div
     class="mt-6 mb-8 flex h-full w-full flex-col items-start justify-between lg:flex-row"
   >
-    <ContactForm client:load translations={form} heading={heading} description={description} />
+    <ContactForm client:visible translations={form} heading={heading} description={description} />
     <div
       class="mt-6 flex h-full w-full flex-col items-center justify-center overflow-hidden transition-all duration-300 md:pl-4 lg:mt-10"
     >
