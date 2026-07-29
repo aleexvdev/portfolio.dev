@@ -4,7 +4,9 @@ import {
   getPersonJsonLd,
   OG_IMAGE_HEIGHT,
   OG_IMAGE_WIDTH,
+  OG_IMAGE_TYPE,
   SITE_NAME,
+  TWITTER_CREATOR,
   TWITTER_SITE,
   toAbsoluteUrl,
 } from "@/lib/seo";
@@ -45,6 +47,7 @@ const imageAltText =
 
 const ogImage = toAbsoluteUrl("/og-image-es.png", Astro.site);
 const ogLocale = lang === "es" ? "es_ES" : "en_US";
+const ogLocaleAlternate = lang === "es" ? "en_US" : "es_ES";
 
 const alternatePathnames = alternateLocales
   ? getAlternatePathnames(canonicalPathname)
@@ -88,12 +91,15 @@ const personJsonLd = includeJsonLd ? getPersonJsonLd(lang, Astro.site) : null;
 <meta property="og:image:width" content={String(OG_IMAGE_WIDTH)} />
 <meta property="og:image:height" content={String(OG_IMAGE_HEIGHT)} />
 <meta property="og:image:alt" content={imageAltText} />
+<meta property="og:image:type" content={OG_IMAGE_TYPE} />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content={ogLocale} />
+<meta property="og:locale:alternate" content={ogLocaleAlternate} />
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content={TWITTER_SITE} />
+<meta name="twitter:creator" content={TWITTER_CREATOR} />
 <meta name="twitter:title" content={cleanTitle} />
 <meta name="twitter:description" content={cleanDescription} />
 <meta name="twitter:image" content={ogImage} />
