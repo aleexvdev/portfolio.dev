@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { TurnstileWidget } from "./TurnstileWidget";
@@ -37,12 +37,6 @@ interface ContactFormProps {
   description: string;
 }
 
-declare global {
-  interface Window {
-    turnstile: any;
-  }
-}
-
 interface SendForm {
   email: string;
   name: string;
@@ -66,6 +60,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   });
   const { toastState, showToast } = useToast();
   const [turnstileToken, setTurnstileToken] = useState<string>("");
+
+  const handleTurnstileVerify = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  const handleTurnstileReset = useCallback(() => {
+    setTurnstileToken("");
+  }, []);
 
   const onSubmit = async (formData: SendForm) => {
     showToast("loading", "Enviando email...");
@@ -213,7 +215,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           </motion.div>
 
           <div className="flex w-full justify-center">
-            <TurnstileWidget onVerify={setTurnstileToken} />
+            <TurnstileWidget
+              onVerify={handleTurnstileVerify}
+              onError={handleTurnstileReset}
+              onExpire={handleTurnstileReset}
+            />
           </div>
           <div className="flex w-full flex-col items-center justify-center gap-2 py-2 text-center md:flex-row md:text-end">
             <button

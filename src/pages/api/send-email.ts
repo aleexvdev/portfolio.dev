@@ -39,25 +39,43 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   // Verificar Turnstile
-  let turnstileResult: { success?: boolean };
+  let turnstileResult: { success?: boolean; "error-codes"?: string[] };
   try {
-    const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret: secretKey, response: turnstileToken }),
-      signal: AbortSignal.timeout(10_000),
+    const remoteip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      undefined;
+
+    const verifyBody = new URLSearchParams({
+      secret: secretKey,
+      response: turnstileToken,
     });
+
+    if (remoteip) {
+      verifyBody.set("remoteip", remoteip);
+    }
+
+    const turnstileRes = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: verifyBody.toString(),
+        signal: AbortSignal.timeout(10_000),
+      },
+    );
 
     turnstileResult = await turnstileRes.json();
   } catch (error) {
-    console.error('Error al verificar Turnstile:', error);
-    return new Response(JSON.stringify({ error: 'Error al verificar Turnstile.', success: false }), {
+    console.error("Error al verificar Turnstile:", error);
+    return new Response(JSON.stringify({ error: "Error al verificar Turnstile.", success: false }), {
       status: 502,
       headers: jsonHeaders,
     });
   }
 
   if (!turnstileResult.success) {
+    console.error("Turnstile rechazado:", turnstileResult["error-codes"]);
     return new Response(JSON.stringify({ error: 'Verificación de Turnstile fallida.', success: false }), {
       status: 400,
       headers: jsonHeaders,
