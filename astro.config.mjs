@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-import netlify from '@astrojs/netlify';
+import vercel from '@astrojs/vercel';
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import dotenv from "dotenv";
@@ -14,7 +14,7 @@ const site = "https://alexvdev.netlify.app";
 export default defineConfig({
   site,
   output: 'server',
-  adapter: netlify(),
+  adapter: vercel(),
   vite: {
     plugins: [tailwindcss()],
     ssr: {
