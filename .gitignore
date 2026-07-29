@@ -35,10 +35,10 @@ CLAUDE.md
 docs/
 
 # Local Netlify folder
-.netlify
+.netlify/
 
 # Local Vercel folder
-.vercel
+.vercel/
 
 # Agents
 .agents/
