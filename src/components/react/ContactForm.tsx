@@ -60,6 +60,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const { toastState, showToast } = useToast();
   const [turnstileToken, setTurnstileToken] = useState<string>("");
   const [turnstileReady, setTurnstileReady] = useState(false);
+  const [turnstileError, setTurnstileError] = useState<string | null>(null);
 
   const handleTurnstileReset = useCallback(() => {
     setTurnstileToken("");
@@ -77,6 +78,12 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       }
     };
 
+    const handleError = (event: Event) => {
+      const code = String((event as CustomEvent<string | number>).detail ?? "");
+      setTurnstileError(code);
+      handleTurnstileReset();
+    };
+
     const existingToken = (
       window as Window & { __portfolioTurnstileToken?: string }
     ).__portfolioTurnstileToken;
@@ -87,8 +94,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     }
 
     window.addEventListener("portfolio-turnstile-token", handleToken);
-    return () =>
+    window.addEventListener("portfolio-turnstile-error", handleError);
+
+    const existingError = (
+      window as Window & { __portfolioTurnstileError?: string }
+    ).__portfolioTurnstileError;
+    if (existingError) {
+      setTurnstileError(String(existingError));
+    }
+
+    return () => {
       window.removeEventListener("portfolio-turnstile-token", handleToken);
+      window.removeEventListener("portfolio-turnstile-error", handleError);
+    };
   }, [handleTurnstileReset]);
 
   const onSubmit = async (formData: SendForm) => {
@@ -246,7 +264,20 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               id="turnstile-mount"
               className="flex min-h-[65px] w-full justify-center"
             />
-            {!turnstileToken && (
+            {turnstileError === "110200" && (
+              <p className="text-center text-sm text-red-400">
+                Dominio no autorizado en Cloudflare Turnstile. Agregá{" "}
+                <strong>{window.location.hostname}</strong> en Turnstile → tu
+                widget → Hostname Management.
+              </p>
+            )}
+            {turnstileError && turnstileError !== "110200" && (
+              <p className="text-center text-sm text-red-400">
+                Error de verificación Cloudflare ({turnstileError}). Recargá la
+                página o probá sin bloqueador de anuncios.
+              </p>
+            )}
+            {!turnstileToken && !turnstileError && (
               <p className="text-center text-xs text-white/50">
                 Completá la verificación de Cloudflare para habilitar el envío.
               </p>

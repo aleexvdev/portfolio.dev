@@ -23,10 +23,15 @@ const { siteKey } = Astro.props;
     );
   };
 
-  window.onPortfolioTurnstileError = function () {
+  window.onPortfolioTurnstileError = function (errorCode) {
+    console.error("[Turnstile] error:", errorCode);
     window.__portfolioTurnstileToken = "";
+    window.__portfolioTurnstileError = errorCode;
     window.dispatchEvent(
       new CustomEvent("portfolio-turnstile-token", { detail: "" }),
+    );
+    window.dispatchEvent(
+      new CustomEvent("portfolio-turnstile-error", { detail: errorCode }),
     );
   };
 
