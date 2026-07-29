@@ -3,7 +3,7 @@ import type { Experience } from "@/types/experience";
 export interface LocalizedExperience {
   id: number;
   company: string;
-  link: string;
+  link?: string;
   role: string;
   period: string;
   description: string;

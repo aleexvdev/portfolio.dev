@@ -104,13 +104,21 @@ export const ExperienceCard = ({
               <Building2
                 className={`mr-2 h-6 w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 ${isActive || isExpanded ? "text-brand" : "text-white"}`}
               />
-              <a href={link} target="_blank" rel="noreferrer">
+              {link ? (
+                <a href={link} target="_blank" rel="noreferrer">
+                  <h2
+                    className={`text-3xl font-semibold text-pretty md:text-3xl lg:text-4xl ${isActive || isExpanded ? "text-brand" : "text-white"}`}
+                  >
+                    {company}
+                  </h2>
+                </a>
+              ) : (
                 <h2
                   className={`text-3xl font-semibold text-pretty md:text-3xl lg:text-4xl ${isActive || isExpanded ? "text-brand" : "text-white"}`}
                 >
                   {company}
                 </h2>
-              </a>
+              )}
             </div>
             <p
               className={`text-lg font-medium md:text-lg lg:text-xl ${isActive || isExpanded ? "text-stone-400" : "text-[#6E6E6F]"}`}

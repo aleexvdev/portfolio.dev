@@ -12,6 +12,7 @@ const experience = t("experience");
 const nav = t("nav");
 const title = experience.title;
 const achievements = experience.achievements;
+const responsibilities = experience.responsibilities;
 const skills = experience.skills;
 const eyebrow = nav.experience.label;
 ---
@@ -25,10 +26,12 @@ const eyebrow = nav.experience.label;
 >
   <div class="mt-6 space-y-8 pb-8">
     {
-      experiences.map((experience) => (
+      experiences.map((item) => (
         <ExperienceCard
-          experience={localizeExperience(experience, lang)}
-          titleAchievements={achievements}
+          experience={localizeExperience(item, lang)}
+          titleAchievements={
+            item.company === "Freelance" ? responsibilities : achievements
+          }
           titleSkills={skills}
           client:only="react"
         />

@@ -53,6 +53,7 @@ type UILang = {
     current: string;
     remote: string;
     achievements: string;
+    responsibilities: string;
     skills: string;
   };
   cta: {
@@ -185,6 +186,7 @@ export const ui = {
       current: "Presente",
       remote: "remoto",
       achievements: "Logros destacados",
+      responsibilities: "Responsabilidades",
       skills: "Habilidades Clave",
     },
     cta: {
@@ -228,7 +230,7 @@ export const ui = {
       work: {
         title: "En el trabajo",
         paragraphs: [
-          "Con casi 3 años de experiencia en desarrollo web, me especializo en crear aplicaciones escalables y adaptadas a las necesidades del cliente. Mi enfoque combina un entendimiento profundo de los requisitos con la capacidad de trabajar eficazmente en equipos multidisciplinarios o de manera independiente. Soy adaptable y proactivo, siempre buscando mejorar procesos y contribuir al éxito de cada proyecto.",
+          "Con casi 4 años de experiencia en desarrollo web, me especializo en crear aplicaciones escalables y adaptadas a las necesidades del cliente. Mi enfoque combina un entendimiento profundo de los requisitos con la capacidad de trabajar eficazmente en equipos multidisciplinarios o de manera independiente. Soy adaptable y proactivo, siempre buscando mejorar procesos y contribuir al éxito de cada proyecto.",
           "Estoy continuamente explorando nuevas tecnologías y metodologías para mantenerme actualizado con las mejores prácticas en el campo, lo que me permite contribuir de manera significativa a los proyectos en los que trabajo."
         ]
       },
@@ -322,6 +324,7 @@ export const ui = {
       current: "Present",
       remote: "remote",
       achievements: "Highlighted achievements",
+      responsibilities: "Responsibilities",
       skills: "Key Skills",
     },
     cta: {
@@ -365,7 +368,7 @@ export const ui = {
       work: {
         title: "At work",
         paragraphs: [
-          "With nearly 3 years of web development experience, I specialize in creating scalable applications tailored to client needs. My approach combines a deep understanding of requirements with the ability to work effectively in multidisciplinary teams or independently. I'm adaptable and proactive, always looking to improve processes and contribute to each project's success.",
+          "With nearly 4 years of web development experience, I specialize in creating scalable applications tailored to client needs. My approach combines a deep understanding of requirements with the ability to work effectively in multidisciplinary teams or independently. I'm adaptable and proactive, always looking to improve processes and contribute to each project's success.",
           "I'm continuously exploring new technologies and methodologies to stay updated with best practices in the field, allowing me to make meaningful contributions to the projects I work on."
         ]
       },

@@ -1,7 +1,7 @@
 export interface Experience {
   id: number;
   company: string;
-  link: string;
+  link?: string;
   role: {
     es: string;
     en: string;

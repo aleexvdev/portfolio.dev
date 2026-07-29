@@ -3,6 +3,65 @@ import type { Experience } from "@/types/experience";
 const baseImagePath = "/skills/";
 export const experiences: Experience[] = [
   {
+    id: 2,
+    company: "Freelance",
+    role: {
+      es: "Desarrollador Full Stack",
+      en: "Full Stack Developer",
+    },
+    period: {
+      es: "2024 - Presente",
+      en: "2024 - Present",
+    },
+    location: {
+      es: "remoto",
+      en: "remote",
+    },
+    description: {
+      es: "Desarrollo soluciones de software para clientes, participando en todo el ciclo del proyecto: análisis de requerimientos, diseño técnico, desarrollo, despliegue y soporte. He trabajado en aplicaciones web, sistemas a medida, landing pages y sitios web administrables, adaptando cada solución a los objetivos de negocio de cada cliente.",
+      en: "I build software solutions for clients across the full project lifecycle: requirements analysis, technical design, development, deployment, and support. I've delivered web applications, custom systems, landing pages, and manageable websites, tailoring each solution to each client's business goals.",
+    },
+    achievements: [
+      {
+        es: "Diseño e implemento aplicaciones web y sistemas a medida con arquitecturas full stack.",
+        en: "Design and build web applications and custom systems with full stack architectures.",
+      },
+      {
+        es: "Desarrollo landing pages y sitios web administrables con foco en rendimiento, experiencia de usuario y facilidad de gestión.",
+        en: "Build landing pages and manageable websites focused on performance, user experience, and ease of content management.",
+      },
+      {
+        es: "Defino soluciones técnicas, implemento APIs, lógica de negocio, bases de datos e interfaces de usuario.",
+        en: "Define technical solutions and implement APIs, business logic, databases, and user interfaces.",
+      },
+      {
+        es: "Gestiono la relación con el cliente durante todo el proyecto, desde la definición del alcance hasta la entrega y puesta en producción.",
+        en: "Manage client relationships throughout the project, from scope definition through delivery and production rollout.",
+      },
+      {
+        es: "Entrego soluciones listas para producción, priorizando mantenibilidad, escalabilidad y calidad del código.",
+        en: "Ship production-ready solutions, prioritizing maintainability, scalability, and code quality.",
+      },
+    ],
+    skills: [
+      { id: 11, name: "Laravel", icon: `${baseImagePath}laravel.svg` },
+      { id: 12, name: "Node.js", icon: `${baseImagePath}nodejs.svg` },
+      { id: 13, name: "Express", icon: `${baseImagePath}express.svg` },
+      { id: 14, name: "MySQL", icon: `${baseImagePath}mysql.svg` },
+      { id: 15, name: "MongoDB", icon: `${baseImagePath}mongodb.svg` },
+      { id: 16, name: "PostgreSQL", icon: `${baseImagePath}postgresql.svg` },
+      { id: 17, name: "TypeScript", icon: `${baseImagePath}typescript.svg` },
+      { id: 18, name: "React", icon: `${baseImagePath}react.svg` },
+      { id: 19, name: "Next.js", icon: `${baseImagePath}nextjs.svg` },
+      { id: 20, name: "Angular", icon: `${baseImagePath}angular.svg` },
+      { id: 21, name: "Astro", icon: `${baseImagePath}astro.svg` },
+      { id: 22, name: "Tailwind", icon: `${baseImagePath}tailwind.svg` },
+      { id: 23, name: "Docker", icon: `${baseImagePath}docker.svg` },
+      { id: 24, name: "Git", icon: `${baseImagePath}git.svg` },
+      { id: 25, name: "Jira", icon: `${baseImagePath}jira.svg` },
+    ],
+  },
+  {
     id: 1,
     company: "Softnet SPA",
     link: "https://softnet.cl/",
@@ -50,51 +109,18 @@ export const experiences: Experience[] = [
       },
     ],
     skills: [
-      {
-        id: 1,
-        name: "PHP",
-        icon: `${baseImagePath}php_dark.svg`
-      },
-      {
-        id: 2,
-        name: "Laravel",
-        icon: `${baseImagePath}laravel.svg`
-      },
-      {
-        id: 3,
-        name: "Javascript",
-        icon: `${baseImagePath}javascript.svg`
-      },
-      {
-        id: 4,
-        name: "Jquery",
-        icon: `${baseImagePath}jquery_dark.svg`
-      },
-      {
-        id: 5,
-        name: "HTML5",
-        icon: `${baseImagePath}html5.svg`
-      },
-      {
-        id: 6,
-        name: "CSS3",
-        icon: `${baseImagePath}css.svg`
-      },
-      {
-        id: 7,
-        name: "MySQL",
-        icon: `${baseImagePath}mysql.svg`
-      },
-      {
-        id: 9,
-        name: "Jira Software",
-        icon: `${baseImagePath}jira.svg`
-      },
-      {
-        id: 10,
-        name: "Git",
-        icon: `${baseImagePath}git.svg`
-      }
-    ]
+      { id: 1, name: "PHP", icon: `${baseImagePath}php_dark.svg` },
+      { id: 2, name: "Laravel", icon: `${baseImagePath}laravel.svg` },
+      { id: 3, name: "MySQL", icon: `${baseImagePath}mysql.svg` },
+      { id: 4, name: "Javascript", icon: `${baseImagePath}javascript.svg` },
+      { id: 5, name: "Jquery", icon: `${baseImagePath}jquery_dark.svg` },
+      { id: 6, name: "React", icon: `${baseImagePath}react.svg` },
+      { id: 7, name: "Bootstrap", icon: `${baseImagePath}bootstrap.svg` },
+      { id: 8, name: "HTML5", icon: `${baseImagePath}html5.svg` },
+      { id: 9, name: "CSS3", icon: `${baseImagePath}css.svg` },
+      { id: 10, name: "Docker", icon: `${baseImagePath}docker.svg` },
+      { id: 11, name: "Git", icon: `${baseImagePath}git.svg` },
+      { id: 12, name: "Jira", icon: `${baseImagePath}jira.svg` },
+    ],
   }
 ]; 
