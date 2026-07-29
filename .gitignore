@@ -33,5 +33,12 @@ CLAUDE.md
 
 # Task tracking (planning interno)
 docs/
+
 # Local Netlify folder
 .netlify
+
+# Agents
+.agents/
+
+# Cursor / Claude skills lockfile
+skills-lock.json

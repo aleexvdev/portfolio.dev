@@ -3,12 +3,16 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import netlify from '@astrojs/netlify';
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
 import dotenv from "dotenv";
 
 // https://astro.build/config
 dotenv.config();
+
+const site = "https://alexvdev.netlify.app";
+
 export default defineConfig({
-  site: "http://localhost:4321/",
+  site,
   output: 'server',
   adapter: netlify(),
   vite: {
@@ -20,7 +24,24 @@ export default defineConfig({
   build: {
     inlineStylesheets: "always",
   },
-  integrations: [react()],
+  integrations: [
+    react(),
+    sitemap({
+      customPages: [
+        `${site}/`,
+        `${site}/en`,
+        `${site}/archive`,
+        `${site}/en/archive`,
+      ],
+      i18n: {
+        defaultLocale: "es",
+        locales: {
+          es: "es-ES",
+          en: "en-US",
+        },
+      },
+    }),
+  ],
   i18n: {
     defaultLocale: 'es',
     locales: ['es', 'en'],

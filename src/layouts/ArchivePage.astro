@@ -1,6 +1,7 @@
 ---
 import { ScrollUp } from "@/components/react/ScrollUp";
 import { getLangFromUrl } from "@/i18n/i18n";
+import Seo from "@/layouts/seo.astro";
 import "@/styles/global.css";
 
 interface Props {
@@ -11,14 +12,24 @@ interface Props {
 
 const { title, description, canonicalPathname } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
-
 ---
+
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <Seo
+      title={title}
+      description={description}
+      canonicalPathname={canonicalPathname}
+      lang={lang}
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body class="bg-background relative w-screen overflow-x-hidden">
     <div

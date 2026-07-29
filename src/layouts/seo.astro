@@ -1,9 +1,17 @@
 ---
+import {
+  getAlternatePathnames,
+  getPersonJsonLd,
+  toAbsoluteUrl,
+} from "@/lib/seo";
+
 type Props = {
   title: string;
   description: string;
   canonicalPathname: string;
-  site?: string;
+  lang?: "es" | "en";
+  alternateLocales?: boolean;
+  includeJsonLd?: boolean;
   noindex?: boolean;
   nofollow?: boolean;
 };
@@ -12,23 +20,39 @@ const {
   title,
   description,
   canonicalPathname,
-  site = Astro.site?.origin,
+  lang = "es",
+  alternateLocales = true,
+  includeJsonLd = false,
   noindex = false,
   nofollow = false,
-  ...props
 } = Astro.props;
-
-const makeProductionUrl = (pathname: string) => `${pathname}`;
 
 const cleanTitle = title.trim();
 const cleanDescription = description.replace(/\s+/g, " ").trim();
-const canonicalURL = makeProductionUrl(canonicalPathname);
+const canonicalURL = toAbsoluteUrl(canonicalPathname, Astro.site);
 
 const keywords =
   "desarrollo de software, programación web, ingeniero informático, Php, Laravel, Node.js, React, Full Stack, aplicaciones web, SEO, programador web, JavaScript, tecnologías web";
+
 const imageAltText =
-  "Desarrollador Full Stack - Alexander Valverde";
-const ogImage = makeProductionUrl(canonicalPathname + "/og-image-es.png"); 
+  lang === "es"
+    ? "Desarrollador Full Stack - Alexander Valverde"
+    : "Full Stack Developer - Alexander Valverde";
+
+const ogImage = toAbsoluteUrl("/og-image-es.png", Astro.site);
+const ogLocale = lang === "es" ? "es_ES" : "en_US";
+
+const alternatePathnames = alternateLocales
+  ? getAlternatePathnames(canonicalPathname)
+  : null;
+const esAlternateUrl = alternatePathnames
+  ? toAbsoluteUrl(alternatePathnames.es, Astro.site)
+  : null;
+const enAlternateUrl = alternatePathnames
+  ? toAbsoluteUrl(alternatePathnames.en, Astro.site)
+  : null;
+
+const personJsonLd = includeJsonLd ? getPersonJsonLd(lang, Astro.site) : null;
 ---
 
 <!-- Meta Tags esenciales -->
@@ -36,6 +60,16 @@ const ogImage = makeProductionUrl(canonicalPathname + "/og-image-es.png");
 <meta name="description" content={cleanDescription} />
 <meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonicalURL} />
+
+{
+  alternatePathnames && (
+    <>
+      <link rel="alternate" hreflang="es" href={esAlternateUrl} />
+      <link rel="alternate" hreflang="en" href={enAlternateUrl} />
+      <link rel="alternate" hreflang="x-default" href={esAlternateUrl} />
+    </>
+  )
+}
 
 <!-- Noindex y Nofollow Condicional -->
 {noindex && <meta name="robots" content="noindex" />}
@@ -47,7 +81,7 @@ const ogImage = makeProductionUrl(canonicalPathname + "/og-image-es.png");
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:type" content="website" />
-<meta property="og:locale" content="es_ES" />
+<meta property="og:locale" content={ogLocale} />
 <meta property="og:image:alt" content={imageAltText} />
 
 <!-- Twitter Cards -->
@@ -56,6 +90,12 @@ const ogImage = makeProductionUrl(canonicalPathname + "/og-image-es.png");
 <meta name="twitter:description" content={cleanDescription} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={imageAltText} />
+
+{
+  personJsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+  )
+}
 
 <!-- Favicon y precarga de recursos críticos -->
 <link rel="icon" href="/favicon.ico" />

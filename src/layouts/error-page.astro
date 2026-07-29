@@ -1,8 +1,8 @@
 ---
+import { getLangFromUrl } from "@/i18n/i18n";
 import Seo from "@/layouts/seo.astro";
 import "@/styles/global.css";
 
-// #F1F5F9
 interface Props {
   title: string;
   description: string;
@@ -10,11 +10,11 @@ interface Props {
 }
 
 const { title, description, canonicalPathname } = Astro.props;
-
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -22,13 +22,15 @@ const { title, description, canonicalPathname } = Astro.props;
       title={title}
       description={description}
       canonicalPathname={canonicalPathname}
+      lang={lang}
+      alternateLocales={false}
+      noindex={true}
     />
     <link rel="manifest" href="/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </head>
   <body>
