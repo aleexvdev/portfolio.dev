@@ -105,11 +105,11 @@ export const ExperienceCard = ({
           <div>
             <div className="mb-1 flex items-center transition-colors duration-300">
               <Building2
-                className={`mr-2 h-6 w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                className={`mr-2 h-6 w-6 md:h-6 md:w-6 lg:h-7 lg:w-7 ${isActive || isExpanded ? "text-brand" : "text-white"}`}
               />
               <a href={link} target="_blank" rel="noreferrer">
                 <h2
-                  className={`text-3xl font-semibold text-pretty md:text-3xl lg:text-4xl ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                  className={`text-3xl font-semibold text-pretty md:text-3xl lg:text-4xl ${isActive || isExpanded ? "text-brand" : "text-white"}`}
                 >
                   {company}
                 </h2>
@@ -122,7 +122,7 @@ export const ExperienceCard = ({
             </p>
           </div>
           <div
-            className={`mt-4 flex items-center md:mt-0 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white/75"}`}
+            className={`mt-4 flex items-center md:mt-0 ${isActive || isExpanded ? "text-brand" : "text-white/75"}`}
           >
             <CalendarDays className="mr-2" size={16} />
             <span className="text-base font-medium md:text-base lg:text-lg">
@@ -147,7 +147,7 @@ export const ExperienceCard = ({
           <div className="mt-4 space-y-4">
             <div className="mb-6">
               <h4
-                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-brand" : "text-white"}`}
               >
                 <Target className="mr-2" size={20} />
                 {titleAchievements}
@@ -162,7 +162,7 @@ export const ExperienceCard = ({
                     transition={{ duration: 0.5, delay: 0.5 + i * 0.1, ease: easeOut }}
                   >
                     <ArrowRight
-                      className={`mt-1 mr-2 h-5 w-5 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"} flex-shrink-0`}
+                      className={`mt-1 mr-2 h-5 w-5 ${isActive || isExpanded ? "text-brand" : "text-white"} flex-shrink-0`}
                     />
                     <span
                       className={`text-base leading-relaxed font-medium md:text-base lg:text-lg ${isActive || isExpanded ? "text-white/90" : "text-white/75"} text-pretty`}
@@ -175,7 +175,7 @@ export const ExperienceCard = ({
             </div>
             <div className="mb-4">
               <h4
-                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"}`}
+                className={`mb-4 flex items-center text-lg font-semibold ${isActive || isExpanded ? "text-brand" : "text-white"}`}
               >
                 <Sparkles className="mr-2" size={20} />
                 {titleSkills}
@@ -205,7 +205,7 @@ export const ExperienceCard = ({
         </motion.div>
       </motion.div>
       <motion.div
-        className="absolute right-0 bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-green-500"
+        className="absolute right-0 bottom-0 left-0 h-1 bg-gradient-to-r from-brand to-emerald-500"
         initial={{ width: "0%" }}
         animate={{ width: isActive || isExpanded ? "100%" : "0%" }}
         transition={{ duration: 0.3 }}

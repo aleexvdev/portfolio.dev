@@ -1,6 +1,5 @@
 ---
 import { LanguageToogle } from "@/components/react/LanguageToogle";
-import { ModeToggle } from "@/components/react/ModeToggle";
 import { projects } from "@/data/projects";
 import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import ArchivePage from "@/layouts/ArchivePage.astro";
@@ -42,7 +41,6 @@ const backHome = archive.backHome;
 
       <div class="flex items-center justify-end gap-x-2.5">
         <LanguageToogle client:load currentLang={lang} />
-        <ModeToggle client:load />
       </div>
     </nav>
   </header>

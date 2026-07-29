@@ -16,12 +16,11 @@ const and = cta.and;
 const scalable = cta.scalable;
 const team = cta.team;
 const contact = cta.contact;
-
 ---
 
 <div
-  id="meteor-container"
-  class="relative mt-8 flex flex-col items-center justify-center px-4 py-20"
+  id="cta-section"
+  class="cta-section relative mt-8 flex flex-col items-center justify-center overflow-hidden px-4 py-20"
 >
   <div
     class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white sm:px-6 lg:px-8"
@@ -31,9 +30,7 @@ const contact = cta.contact;
         class="flex items-center space-x-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-2 shadow-md backdrop-blur-md"
       >
         <Coffee className="animate-float h-8 w-8 text-amber-400" />
-        <span class="text-base font-medium md:text-lg"
-          >{available}</span
-        >
+        <span class="text-base font-medium md:text-lg">{available}</span>
       </div>
     </div>
 
@@ -42,15 +39,15 @@ const contact = cta.contact;
     >
       <span class="text-white drop-shadow-md">{idea}</span>
       <span
-        class="shimmer-text bg-gradient-to-r from-cyan-400 via-sky-500 to-indigo-400 bg-clip-text text-transparent drop-shadow-md"
+        class="shimmer-text bg-gradient-to-r from-brand-muted via-brand to-brand-highlight bg-clip-text text-transparent drop-shadow-md"
         >{makeReal}</span
       >
     </h2>
     <p class="my-6 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
-      {description}<span class="font-semibold text-blue-400">{" "}{modern}</span>
+      {description}<span class="font-semibold text-brand-muted">{" "}{modern}</span>
       {and}
-      <span class="font-semibold text-purple-400">{scalable}</span>.<br /><span
-        class="font-medium text-cyan-300">{team}</span
+      <span class="font-semibold text-brand-highlight">{scalable}</span>.<br /><span
+        class="font-medium text-brand-muted">{team}</span
       >
     </p>
     <div
@@ -59,7 +56,8 @@ const contact = cta.contact;
       <a
         href="https://www.linkedin.com/in/alexvdev/"
         target="_blank"
-        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-600 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto"
+        rel="noopener noreferrer"
+        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-brand to-brand-deep px-6 py-3 text-lg font-semibold text-white shadow-lg transition-[transform,box-shadow] duration-300 hover:scale-105 active:scale-[0.97] sm:w-auto"
       >
         <Linkedin class="text-white" width="24" height="24" />
         <span>LinkedIn</span>
@@ -69,7 +67,7 @@ const contact = cta.contact;
       </a>
       <a
         href="mailto:alexvalverde.dev@gmail.com"
-        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:scale-105 sm:w-auto"
+        class="group glow-hover flex items-center space-x-3 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 px-6 py-3 text-lg font-semibold text-white shadow-lg transition-[transform,box-shadow] duration-300 hover:scale-105 active:scale-[0.97] sm:w-auto"
       >
         <Mail class="text-white" width="24" height="24" />
         <span>{contact}</span>
@@ -81,60 +79,66 @@ const contact = cta.contact;
   </div>
 </div>
 
-<style is:inline>
-  #meteor-container {
+<style>
+  .cta-section {
     background: radial-gradient(ellipse at bottom, #05080c 0%, #000 80%);
-    overflow: hidden;
-  }
-  .star {
-    position: absolute;
-    background: white;
-    opacity: 0;
-    border-radius: 50%;
-    animation: twinkle 4s infinite ease-in-out;
-  }
-  @keyframes twinkle {
-    0%,
-    100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 0.8;
-    }
   }
 
-  .meteor {
+  .cta-section::before,
+  .cta-section::after {
+    content: "";
     position: absolute;
-    top: -40px;
-    width: 60px;
-    height: 20px;
-    animation: fall linear infinite;
+    inset: 0;
     pointer-events: none;
-  }
-  @keyframes fall {
-    to {
-      transform: translateY(120vh) translateX(30px) rotate(45deg);
-      opacity: 0;
-    }
   }
 
-  .explosion {
-    position: absolute;
-    bottom: 0;
-    width: 16px;
-    height: 16px;
-    background: radial-gradient(circle, #93c5fd, transparent);
-    border-radius: 50%;
-    animation: explode 0.5s ease-out forwards;
-    pointer-events: none;
+  .cta-section::before {
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, rgba(255, 255, 255, 0.7), transparent),
+      radial-gradient(1px 1px at 80px 120px, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(1.5px 1.5px at 160px 60px, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(1px 1px at 240px 180px, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 320px 90px, rgba(255, 255, 255, 0.55), transparent),
+      radial-gradient(1.5px 1.5px at 420px 140px, rgba(255, 255, 255, 0.45), transparent),
+      radial-gradient(1px 1px at 520px 40px, rgba(255, 255, 255, 0.65), transparent),
+      radial-gradient(1px 1px at 640px 200px, rgba(255, 255, 255, 0.35), transparent);
+    background-size: 700px 220px;
+    animation: star-twinkle 6s ease-in-out infinite alternate;
   }
-  @keyframes explode {
+
+  .cta-section::after {
+    background: linear-gradient(
+      115deg,
+      transparent 40%,
+      rgba(59, 130, 246, 0.08) 50%,
+      transparent 60%
+    );
+    animation: meteor-pass 12s linear infinite;
+  }
+
+  @keyframes star-twinkle {
     from {
-      transform: scale(0.5);
-      opacity: 0.8;
+      opacity: 0.55;
     }
     to {
-      transform: scale(4);
+      opacity: 1;
+    }
+  }
+
+  @keyframes meteor-pass {
+    from {
+      transform: translateX(-30%) translateY(-10%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    20% {
+      transform: translateX(30%) translateY(20%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(30%) translateY(20%);
       opacity: 0;
     }
   }
@@ -142,8 +146,9 @@ const contact = cta.contact;
   .glow-hover:hover {
     box-shadow:
       0 0 12px rgba(255, 255, 255, 0.4),
-      0 0 30px var(--tw-shadow-color);
+      0 0 30px var(--brand-muted);
   }
+
   @keyframes floatPulse {
     0%,
     100% {
@@ -153,9 +158,11 @@ const contact = cta.contact;
       transform: translateY(-5px);
     }
   }
+
   .animate-float {
     animation: floatPulse 3s ease-in-out infinite;
   }
+
   @keyframes shimmer {
     0% {
       background-position: -200% center;
@@ -164,70 +171,22 @@ const contact = cta.contact;
       background-position: 200% center;
     }
   }
+
   .shimmer-text {
     background-size: 400% auto;
     animation: shimmer 6s linear infinite;
   }
-</style>
 
-<script is:inline>
-  const container = document.querySelector("#meteor-container");
-  if (container) {
-    // Estrellas aleatorias
-    for (let i = 0; i < 100; i++) {
-      const star = document.createElement("div");
-      star.className = "star";
-      const size = Math.random() * 2 + 1;
-      star.style.width = star.style.height = `${size}px`;
-      star.style.left = `${Math.random() * 100}vw`;
-      star.style.top = `${Math.random() * 100}vh`;
-      star.style.animationDuration = `${2 + Math.random() * 3}s`;
-      container.appendChild(star);
+  @media (prefers-reduced-motion: reduce) {
+    .cta-section::before,
+    .cta-section::after,
+    .animate-float,
+    .shimmer-text {
+      animation: none;
     }
 
-    // Meteoritos
-    setInterval(() => {
-      const meteor = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "svg"
-      );
-      meteor.classList.add("meteor");
-      meteor.style.left = `${Math.random() * 100}vw`;
-      meteor.style.animationDuration = `${1.2 + Math.random() * 0.8}s`;
-
-      const line = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "line"
-      );
-      line.setAttribute("x1", "0");
-      line.setAttribute("y1", "0");
-      line.setAttribute("x2", "60");
-      line.setAttribute("y2", "0");
-      line.setAttribute("stroke", "url(#grad)");
-      line.setAttribute("stroke-width", "4");
-      meteor.appendChild(line);
-
-      const grad = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "defs"
-      );
-      grad.innerHTML = `
-        <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#3b82f6" />
-          <stop offset="100%" stop-color="transparent" />
-        </linearGradient>`;
-      meteor.appendChild(grad);
-
-      meteor.addEventListener("animationend", () => {
-        const explosion = document.createElement("div");
-        explosion.className = "explosion";
-        explosion.style.left = meteor.style.left;
-        container.appendChild(explosion);
-        setTimeout(() => explosion.remove(), 600);
-        meteor.remove();
-      });
-
-      container.appendChild(meteor);
-    }, 300);
+    .cta-section::before {
+      opacity: 0.8;
+    }
   }
-</script>
+</style>

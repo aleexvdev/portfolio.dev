@@ -8,17 +8,19 @@ import { ExperienceCard } from "@/components/react/ExperienceCard";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const experience = t("experience");
+const nav = t("nav");
 const title = experience.title;
 const achievements = experience.achievements;
 const skills = experience.skills;
-
+const eyebrow = nav.experience.label;
 ---
+
 <Section
   title={title}
+  eyebrow={eyebrow}
   icon={BriefcaseBusiness}
   id="experience"
   minHeight="min-h-max"
-  order={1}
 >
   <div class="mt-6 space-y-8 pb-8">
     {

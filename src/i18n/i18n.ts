@@ -133,31 +133,31 @@ export const ui = {
     nav: {
       home: {
         title: "Inicio",
-        label: "home",
+        label: "inicio",
         ariaLabel: "Ir a la página de inicio",
         href: "#home",
       },
       experience: {
         title: "Experiencia",
-        label: "experience",
+        label: "experiencia",
         ariaLabel: "Ir a la sección de experiencia",
         href: "#experience",
       },
       projects: {
         title: "Proyectos",
-        label: "projects",
+        label: "proyectos",
         ariaLabel: "Ir a la sección de proyectos",
         href: "#projects",
       },
       about: {
         title: "Sobre mi",
-        label: "about",
+        label: "sobre mí",
         ariaLabel: "Ir a la sección de sobre mi",
         href: "#about",
       },
       contact: {
         title: "Contacto",
-        label: "contact",
+        label: "contacto",
         ariaLabel: "Ir a la sección de contacto",
         href: "#contact",
       },

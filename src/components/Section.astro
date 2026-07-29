@@ -1,14 +1,23 @@
 ---
 interface SectionProps {
   title: string;
+  eyebrow?: string;
   icon: any;
   id: string;
   className?: string;
   minHeight?: string;
-  order?: number;
 }
 
-const { title, icon: Icon, id, className = "", minHeight = "min-h-screen", order = 1 } = Astro.props as SectionProps;
+const {
+  title,
+  eyebrow,
+  icon: Icon,
+  id,
+  className = "",
+  minHeight = "min-h-screen",
+} = Astro.props as SectionProps;
+
+const sectionEyebrow = eyebrow ?? id;
 ---
 
 <section
@@ -18,12 +27,17 @@ const { title, icon: Icon, id, className = "", minHeight = "min-h-screen", order
 >
   <div class={`absolute inset-0 ${className}`}></div>
   <div class="flex w-full max-w-7xl flex-col gap-6 opacity-0 animate-fade-in">
-    <div class="flex items-end gap-4">
+    <div class="flex flex-col gap-2">
+      <p
+        class="text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted md:text-sm"
+      >
+        {sectionEyebrow}
+      </p>
       <h2
         id={`${id}-label`}
         class="text-pretty break-words text-3xl font-bold text-white md:text-4xl lg:text-5xl animate-fade-in-up"
       >
-        0{order}. {title}
+        {title}
       </h2>
     </div>
     <div class="animate-fade-in-up delay-[300ms] w-full">

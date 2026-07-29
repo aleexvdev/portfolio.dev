@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&family=Open+Sans&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "tailwindcss-animated";
@@ -44,6 +44,14 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
   --scroll-bar: #f8f3f3;
+  --brand: #2563eb;
+  --brand-hover: #3377ff;
+  --brand-muted: #60a5fa;
+  --brand-deep: #1d4ed8;
+  --brand-highlight: #3b82f6;
+  --gradient-brand: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
+  --gradient-hero: linear-gradient(to right, #818cf8, #38bdf8, #c084fc);
+  --gradient-cta: linear-gradient(to right, #22d3ee, #0ea5e9, #6366f1);
 }
 
 .dark {
@@ -151,6 +159,12 @@
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --color-brand: var(--brand);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-muted: var(--brand-muted);
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-highlight: var(--brand-highlight);
 
   --ease-out-custom: var(--ease-out);
 

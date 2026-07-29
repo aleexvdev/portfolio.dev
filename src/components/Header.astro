@@ -67,7 +67,7 @@ const navs = [
               href={nav.href}
               aria-label={nav.label}
               title={nav.ariaLabel}
-              class="text-primary after:bg-foreground relative flex items-center gap-1 text-sm/6 font-semibold transition-[color,transform] duration-300 active:scale-[0.97] after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:transition-[width,background-color] after:duration-300 hover:text-blue-500 hover:after:w-full hover:after:bg-blue-500"
+              class="text-primary after:bg-foreground relative flex items-center gap-1 text-sm/6 font-semibold transition-[color,transform] duration-300 active:scale-[0.97] after:absolute after:bottom-[-2px] after:left-0 after:h-0.5 after:w-0 after:transition-[width,background-color] after:duration-300 hover:text-brand-muted hover:after:w-full hover:after:bg-brand-muted"
             >
               <nav.icon
                 class="transition-all duration-300"
@@ -159,7 +159,7 @@ const navs = [
 <style>
   .logo {
     text-decoration: none;
-    background: linear-gradient(90deg, #9845e8 0%, #3377ff 55%, #dd5789 100%);
+    background: var(--gradient-brand);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -175,12 +175,12 @@ const navs = [
   }
 
   header nav ul li a.active {
-    color: #3377ff;
+    color: var(--brand-hover);
   }
 
   header nav ul li a.active::after {
     width: 100%;
-    background-color: #3377ff;
+    background-color: var(--brand-hover);
   }
 
   .nav-scrolled {

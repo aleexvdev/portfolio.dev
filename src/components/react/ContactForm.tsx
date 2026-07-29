@@ -103,7 +103,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   return (
     <>
-      <motion.div className="group relative mb-8 w-full rounded-2xl border border-white/10 bg-zinc-800/40 p-8 shadow-2xl backdrop-blur-xl transition-all duration-500 hover:shadow-blue-500/20">
+      <motion.div className="group relative mb-8 w-full rounded-2xl border border-white/10 bg-zinc-800/40 p-8 shadow-2xl backdrop-blur-xl transition-shadow duration-500 hover:shadow-brand/20">
         <div className="absolute top-4 left-4 flex space-x-2">
           <span className="h-3 w-3 rounded-full bg-red-500"></span>
           <span className="h-3 w-3 rounded-full bg-yellow-400"></span>
@@ -130,7 +130,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               className="mb-1 flex items-center gap-2 text-lg font-medium text-gray-300"
             >
               <AtSign
-                className="text-blue-600 transition group-hover:scale-110"
+                className="text-brand transition group-hover:scale-110"
                 width="20"
                 height="20"
               />
@@ -152,7 +152,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               className="mb-1 flex items-center gap-2 text-lg font-medium text-gray-300"
             >
               <UserCheck
-                className="text-blue-600 transition group-hover:scale-110"
+                className="text-brand transition group-hover:scale-110"
                 width="20"
                 height="20"
               />
@@ -174,7 +174,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               className="mb-1 flex items-center gap-2 text-lg font-medium text-gray-300"
             >
               <Mail
-                className="text-blue-600 transition group-hover:scale-110"
+                className="text-brand transition group-hover:scale-110"
                 width="20"
                 height="20"
               />
@@ -196,7 +196,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               className="mb-1 flex items-center gap-2 text-lg font-medium text-gray-300"
             >
               <MessagesSquare
-                className="text-blue-600 transition group-hover:scale-110"
+                className="text-brand transition group-hover:scale-110"
                 width="20"
                 height="20"
               />
@@ -231,7 +231,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             <button
               type="submit"
               disabled={!isValid || isSubmitting}
-              className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-blue-500 to-indigo-600 px-4 py-2 font-semibold text-white shadow-lg transition hover:from-blue-600 hover:to-indigo-700 hover:shadow-xl focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-full"
+              className="w-full cursor-pointer rounded-xl bg-gradient-to-r from-brand to-brand-deep px-4 py-2 font-semibold text-white shadow-lg transition hover:from-brand-hover hover:to-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:w-full"
             >
               {isSubmitting ? (
                 toastState.type === "loading" ? (

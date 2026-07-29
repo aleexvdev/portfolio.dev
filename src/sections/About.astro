@@ -13,6 +13,7 @@ import { skills } from "@/data/data";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const about = t("about");
+const nav = t("nav");
 const title = about.title;
 const profile = about.profile;
 const personal = about.personal;
@@ -31,7 +32,7 @@ const currentDate = now.toLocaleDateString("es-PE", {
 });
 ---
 
-<Section title={title} icon={AboutMe} id="about" minHeight="h-max" order={3}>
+<Section title={title} eyebrow={nav.about.label} icon={AboutMe} id="about" minHeight="h-max">
   <div
     class="mt-6 mb-8 grid h-full w-full grid-flow-row grid-cols-1 gap-y-4 p-0 md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:grid-rows-6 select-none"
   >

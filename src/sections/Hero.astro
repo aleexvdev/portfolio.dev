@@ -6,6 +6,7 @@ import Github from "@/assets/icons/github.astro";
 import Mail from "@/assets/icons/mail.astro";
 import CvIcon from "@/assets/icons/scroll-text.astro";
 import { AnimatedGradientText } from "@/components/react/AnimatedGradientText";
+import { HeroTerminal } from "@/components/react/HeroTerminal";
 import { getLangFromUrl } from "@/i18n/i18n";
 import { useTranslations } from "@/i18n/i18n";
 
@@ -69,10 +70,12 @@ const disponibility = hero.disponibility;
       </h1>
 
       <p
-        class="animate-soft-glow profession-text mt-4 bg-gradient-to-r from-indigo-400 via-sky-400 to-purple-400 bg-clip-text text-center text-2xl font-semibold text-transparent md:text-3xl lg:text-5xl"
+        class="animate-soft-glow profession-text mt-4 bg-gradient-to-r from-brand-highlight via-brand-muted to-brand bg-clip-text text-center text-2xl font-semibold text-transparent md:text-3xl lg:text-5xl"
       >
         {profession}
       </p>
+
+      <HeroTerminal client:idle />
     </div>
 
     <div
@@ -96,10 +99,10 @@ const disponibility = hero.disponibility;
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.ariaLabel}
-                  class="group flex items-center justify-center rounded-lg p-2 transition-all duration-300 hover:scale-125 hover:text-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
+                  class="group flex items-center justify-center rounded-lg p-2 transition-[transform,color] duration-300 hover:scale-125 hover:text-brand focus:ring-2 focus:ring-brand focus:ring-offset-2 focus:outline-none active:scale-[0.97]"
                 >
                   <span class="sr-only">{link.name}</span>
-                  <span class="glow-icon  transition duration-300 text-gray-300 group-hover:text-blue-600">
+                  <span class="glow-icon transition duration-300 text-gray-300 group-hover:text-brand">
                     <link.icon
                       class="h-7 w-7 sm:h-8 sm:w-8"
                       width="32"
