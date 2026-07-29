@@ -6,8 +6,8 @@ export interface Project {
   };
   image: string;
   skills: Tags[];
-  repoLink: string;
-  viewLink: string;
+  repoLink?: string;
+  viewLink?: string;
 }
 
 export interface Tags {

@@ -10,13 +10,13 @@ import {
   Mail,
   MessagesSquare,
   RefreshCcw,
-  OctagonX,
   Loader2,
   Send,
 } from "lucide-react";
 import { schema } from "@/lib/middleware";
 import { useToast } from "@/hooks/useToast";
 import { motion } from "framer-motion";
+import { FieldError } from "./FieldError";
 
 interface ContactFormProps {
   translations: {
@@ -144,18 +144,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               placeholder={translations.emailPlaceholder}
               className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
-            {errors.email && (
-              <motion.p
-                className="ml-1.5 flex items-center gap-x-2 py-2 text-sm font-medium text-red-500 lg:text-base"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <OctagonX className="h-5 w-5" />
-                {errors.email.message}
-              </motion.p>
-            )}
+            {errors.email && <FieldError message={errors.email.message} />}
           </motion.div>
           <motion.div className="group relative w-full">
             <label
@@ -177,18 +166,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               placeholder={translations.namePlaceholder}
               className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
-            {errors.name && (
-              <motion.p
-                className="ml-1.5 flex items-center gap-x-2 py-2 text-sm font-medium text-red-500 lg:text-base"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <OctagonX className="h-5 w-5" />
-                {errors.name.message}
-              </motion.p>
-            )}
+            {errors.name && <FieldError message={errors.name.message} />}
           </motion.div>
           <motion.div className="group relative w-full">
             <label
@@ -210,18 +188,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               placeholder={translations.subjectPlaceholder}
               className="mt-2 w-full rounded-lg bg-white/10 px-4 py-3 backdrop-blur-md text-white transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             />
-            {errors.subject && (
-              <motion.p
-                className="ml-1.5 flex items-center gap-x-2 py-2 text-sm font-medium text-red-500 lg:text-base"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <OctagonX className="h-5 w-5" />
-                {errors.subject.message}
-              </motion.p>
-            )}
+            {errors.subject && <FieldError message={errors.subject.message} />}
           </motion.div>
           <motion.div className="group relative w-full">
             <label
@@ -242,18 +209,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               rows={5}
               className="mt-2 w-full resize-none rounded-lg bg-white/10 px-4 py-3 text-white backdrop-blur-md transition placeholder:font-normal placeholder:text-stone-400/65 focus:ring-2 focus:ring-transparent focus:outline-none"
             ></textarea>
-            {errors.message && (
-              <motion.p
-                className="ml-1.5 flex items-center gap-x-2 py-2 text-sm font-medium text-red-500 lg:text-base"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                <OctagonX className="h-5 w-5" />
-                {errors.message.message}
-              </motion.p>
-            )}
+            {errors.message && <FieldError message={errors.message.message} />}
           </motion.div>
 
           <div className="flex w-full justify-center">

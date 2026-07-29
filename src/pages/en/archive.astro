@@ -104,15 +104,32 @@ const backHome = archive.backHome;
                         {index + 1}. {project.title}
                       </h3>
                       <div class="flex items-center justify-between gap-x-4">
-                        <a
-                          href={project.repoLink}
-                          target="_blank"
-                          aria-label="Repositorio de GitHub"
-                          class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
-                        >
-                          <Github className="w-5 h-5 md:w-6 md:h-6" />
-                        </a>
-                        <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
+                        {
+                          project.repoLink && (
+                            <a
+                              href={project.repoLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Repositorio de GitHub"
+                              class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
+                            >
+                              <Github className="w-5 h-5 md:w-6 md:h-6" />
+                            </a>
+                          )
+                        }
+                        {
+                          project.viewLink && (
+                            <a
+                              href={project.viewLink}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-label="Ver demo del proyecto"
+                              class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
+                            >
+                              <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />
+                            </a>
+                          )
+                        }
                       </div>
                     </div>
                     <p class="mt-2 text-gray-300">

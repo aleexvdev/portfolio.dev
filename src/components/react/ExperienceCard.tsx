@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import type { Experience } from "@/types/experience";
 import type { ui } from "@/i18n/i18n";
+import { easeOut } from "@/lib/motion";
 
 interface Props {
   experience: Experience;
@@ -26,6 +27,7 @@ const itemVariants: Variants = {
     transition: {
       type: "spring",
       stiffness: 100,
+      ease: easeOut,
     },
   },
 };
@@ -139,7 +141,7 @@ export const ExperienceCard = ({
             height: isExpanded ? "auto" : 0,
             opacity: isExpanded ? 1 : 0,
           }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+          transition={{ duration: 0.3, ease: easeOut }}
           className="overflow-hidden"
         >
           <div className="mt-4 space-y-4">
@@ -157,7 +159,7 @@ export const ExperienceCard = ({
                     className="mb-4 flex items-start"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
+                    transition={{ duration: 0.5, delay: 0.5 + i * 0.1, ease: easeOut }}
                   >
                     <ArrowRight
                       className={`mt-1 mr-2 h-5 w-5 ${isActive || isExpanded ? "text-[#2563EB]" : "text-white"} flex-shrink-0`}
@@ -197,7 +199,7 @@ export const ExperienceCard = ({
         <motion.div
           className="mt-5 flex justify-center"
           animate={{ rotate: isExpanded ? 180 : 0 }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.3, ease: easeOut }}
         >
           <ChevronDown className="text-white/75" size={24} />
         </motion.div>

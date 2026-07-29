@@ -11,6 +11,7 @@
 
 :root {
   --radius: 0.5rem;
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: #151517;
@@ -150,6 +151,11 @@
   --color-sidebar-border: var(--sidebar-border);
 
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --ease-out-custom: var(--ease-out);
+
+  --animate-fade-in-projects: fade-in-projects 0.6s var(--ease-out) forwards;
+  --animate-gradient: gradient 15s ease infinite;
 }
 
 @layer base {
@@ -182,16 +188,29 @@
   }
 }
 
-@keyframes custom-pulse {
-  0%,
+@keyframes fade-in-projects {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
   100% {
-    transform: "scale(1)";
-    opacity: "1";
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
   }
 
   50% {
-    transform: "scale(1.1)";
-    opacity: "0.6";
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
 

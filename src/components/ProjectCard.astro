@@ -49,9 +49,7 @@ const { project, lang, class: className = "" } = Astro.props as Props;
         )
       }
     </div>
-    <div
-      class="animate-fade-in-projects mt-auto flex items-center justify-center gap-4"
-    >
+    <div class="mt-auto flex items-center justify-center gap-4">
       {
         project.repoLink && (
           <a
@@ -59,7 +57,7 @@ const { project, lang, class: className = "" } = Astro.props as Props;
             target="_blank"
             aria-label="Repositorio de GitHub"
             rel="noopener noreferrer"
-            class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-150 md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
+            class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-[color,background-color,transform] duration-150 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
           >
             <Github className="text-white" width="24" height="24" />
             <span class="relative text-base font-medium md:text-lg">
@@ -76,7 +74,7 @@ const { project, lang, class: className = "" } = Astro.props as Props;
             target="_blank"
             aria-label="Ver demo del proyecto"
             rel="noopener noreferrer"
-            class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-150 md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
+            class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-[color,background-color,transform] duration-150 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
           >
             <span class="relative text-base font-medium md:text-lg">
               Demo
