@@ -20,29 +20,33 @@ export const experiences: Experience[] = [
       en: "remote"
     },
     description: {
-      es: "Contribuyo al desarrollo y soporte del ERP de facturación electrónica mediante la implementación de nuevas funcionalidades, con un enfoque en mejorar la eficiencia operativa y la experiencia del usuario. Trabajo en soluciones robustas y escalables, además de encargarme del mantenimiento continuo del sistema para garantizar su estabilidad y rendimiento.",
-      en: "I contribute to the development and support of the electronic invoicing ERP by implementing new features, focusing on improving operational efficiency and user experience. I work on robust and scalable solutions, in addition to handling continuous system maintenance to ensure its stability and performance."
+      es: "Contribuyo al desarrollo y soporte del ERP de facturación electrónica: implementación de nuevas funcionalidades, integraciones con entidades externas, automatización de flujos comerciales y de cobranza, y estabilidad en producción. Mi trabajo abarca módulos transaccionales y soluciones de reportería que permiten a las áreas comercial y gerencial monitorear indicadores clave.",
+      en: "I contribute to the development and support of the electronic invoicing ERP: implementing new features, external integrations, commercial and collections workflow automation, and production stability. My work spans transactional modules and reporting solutions that enable commercial and management teams to monitor key indicators."
     },
     achievements: [
       {
-        es: "Desarrollo e implementación de nuevas funcionalidades que mejoraron la eficiencia en los procesos del ERP de facturación electrónica.",
-        en: "Development and implementation of new features that improved efficiency in the electronic invoicing ERP processes."
+        es: "Integré un flujo bancario automatizado para obtener y conciliar pagos con documentos emitidos, registrando el cobro sin intervención manual de tesorería.",
+        en: "Integrated an automated banking flow to retrieve and reconcile payments against issued documents, recording collections without manual treasury intervention.",
       },
       {
-        es: "Planificación y revisión de módulos clave, contribuyendo a la alineación de los desarrollos técnicos con las necesidades empresariales.",
-        en: "Planning and review of key modules, contributing to the alignment of technical developments with business needs."
+        es: "Automatizé el ciclo de revisión de pago, aprobación de cotización y emisión de nota de venta, cerrando el flujo comercial sin reprocesos.",
+        en: "Automated the payment review, quotation approval, and sales note issuance cycle, closing the commercial workflow without reprocessing."
       },
       {
-        es: "Optimización de las diferentes interfaces de usuario, mejorando la accesibilidad y la usabilidad del sistema.",
-        en: "Optimization of different user interfaces, improving system accessibility and usability."
+        es: "Diseñé e implementé un visualizador de datos empresariales con tableros interactivos de ventas, compras, márgenes e inventario, consolidando información operativa para apoyar la toma de decisiones gerencial.",
+        en: "Designed and implemented a business data visualizer with interactive dashboards for sales, purchases, margins, and inventory, consolidating operational data to support management decision-making."
       },
       {
-        es: "Colaboración en equipos multidisciplinarios para asegurar entregas de alta calidad y cumplimiento de plazos.",
-        en: "Collaboration in multidisciplinary teams to ensure high-quality deliveries and meeting deadlines."
+        es: "Rediseñé interfaces clave del ERP, simplificando formularios de alto tráfico y mejorando la navegación para usuarios de operación y back-office.",
+        en: "Redesigned key ERP interfaces, simplifying high-traffic forms and improving navigation for operations and back-office users."
       },
       {
-        es: "Desarrollo de soluciones robustas y escalables para manejar grandes cantidades de datos y usuarios.",
-        en: "Development of robust and scalable solutions to handle large amounts of data and users."
+        es: "Automatizé validaciones y flujos de emisión de documentos tributarios, reduciendo errores en ciclos de facturación y carga de soporte post-release.",
+        en: "Automated validations and tax document issuance workflows, reducing errors in billing cycles and post-release support load."
+      },
+      {
+        es: "Optimicé consultas y servicios en módulos de alto volumen transaccional, mejorando tiempos de respuesta en operaciones masivas de facturación y consulta.",
+        en: "Optimized queries and services in high-transaction modules, improving response times during bulk invoicing and lookup operations."
       },
     ],
     skills: [
@@ -80,11 +84,6 @@ export const experiences: Experience[] = [
         id: 7,
         name: "MySQL",
         icon: `${baseImagePath}mysql.svg`
-      },
-      {
-        id: 8,
-        name: "Trabajo en equipo",
-        icon: `${baseImagePath}team_work.png`
       },
       {
         id: 9,
