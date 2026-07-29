@@ -3,6 +3,7 @@ interface CardLocationProps {
   location: string;
   country: string;
   flagSrc: string;
+  flagAlt: string;
   timeDifference: string;
   hours: number;
   minutes: number;
@@ -15,6 +16,7 @@ const {
   location,
   country,
   flagSrc,
+  flagAlt,
   timeDifference,
   hours,
   minutes,
@@ -44,13 +46,13 @@ const {
           class="flex w-full flex-col items-center justify-center gap-y-2 lg:pt-4"
         >
           <p class="text-3xl font-bold md:text-4xl text-white">
-            {location}{" "}<span class="bg-gradient-to-r bg-clip-text text-transparent from-red-600 via-white to-red-600">Perú</span>
+            {location}{" "}<span class="bg-gradient-to-r bg-clip-text text-transparent from-red-600 via-white to-red-600">{country}</span>
           </p>
 
           <div class="flex items-center gap-x-2">
             <img
               src={flagSrc}
-              alt={`Bandera de ${country}`}
+              alt={flagAlt}
               class="h-6 w-6 object-cover"
             />
             <p class="text-xl md:text-2xl text-white/90">

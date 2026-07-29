@@ -24,7 +24,8 @@ const location = about.location;
 const now = new Date();
 const hours = now.getHours();
 const minutes = now.getMinutes();
-const currentDate = now.toLocaleDateString("es-PE", {
+const locale = lang === "en" ? "en-US" : "es-PE";
+const currentDate = now.toLocaleDateString(locale, {
   weekday: "long",
   year: "numeric",
   month: "long",
@@ -72,10 +73,11 @@ const currentDate = now.toLocaleDateString("es-PE", {
       location={location.location}
       country="Perú"
       flagSrc="/about-images/bandera.png"
+      flagAlt={location.flagAlt.replace("{country}", "Perú")}
       timeDifference={location.timeDifference}
       hours={hours}
       minutes={minutes}
-      utcOffset="UTC-5"
+      utcOffset={location.utcOffset}
       currentDate={currentDate}
       title={location.title}
     />

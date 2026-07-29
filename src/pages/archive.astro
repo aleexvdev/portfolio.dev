@@ -1,7 +1,7 @@
 ---
 import { LanguageToogle } from "@/components/react/LanguageToogle";
 import { projects } from "@/data/projects";
-import { getLangFromUrl } from "@/i18n/i18n";
+import { getLangFromUrl, useTranslations } from "@/i18n/i18n";
 import ArchivePage from "@/layouts/ArchivePage.astro";
 import Footer from "@/sections/Footer.astro";
 import { ArrowLeft, ExternalLink, FolderGit, Github } from "lucide-react";
@@ -12,6 +12,11 @@ const description =
 const canonicalPathname = "/archive";
 const logo = "{av.}";
 const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const archive = t("projects");
+const titleArchive = archive.archiveTitle;
+const descriptionArchive = archive.achiveDescripction;
+const backHome = archive.backHome;
 ---
 
 <ArchivePage
@@ -42,7 +47,7 @@ const lang = getLangFromUrl(Astro.url);
   <main class="mx-auto min-h-screen w-full max-w-screen-lg mt-20">
     <section
       class="flex h-max w-full flex-col items-center justify-center overflow-hidden px-6 pt-6 md:pt-12 lg:pt-10"
-      title="Archivo de proyectos"
+      title={titleArchive}
       id="archiveProjects"
     >
       <div class="inline-flex w-full items-start gap-x-6 pb-10">
@@ -53,7 +58,7 @@ const lang = getLangFromUrl(Astro.url);
           <h2
             class="w-auto text-3xl font-bold text-pretty break-words transition-all duration-500 md:text-4xl lg:text-5xl text-white"
           >
-            Archivo de proyectos
+            {titleArchive}
           </h2>
         </div>
       </div>
@@ -67,7 +72,7 @@ const lang = getLangFromUrl(Astro.url);
             class="relative flex items-center gap-x-1 text-blue-700 transition-all duration-300 hover:gap-x-2"
           >
             <ArrowLeft className="h-5 w-5" />
-            <span>Back to home</span>
+            <span>{backHome}</span>
             <div
               class="absolute right-0 -bottom-1 left-0 h-1.5 w-full rounded-full bg-blue-700"
             >
@@ -78,8 +83,7 @@ const lang = getLangFromUrl(Astro.url);
           class="w-full py-10 text-left leading-relaxed font-medium text-pretty text-white/75"
         >
           <p class="text-lg md:text-xl">
-            Aquí presento una lista de proyectos que considero destacables.
-            Échale un vistazo! 👀
+            {descriptionArchive}{" "}👀
           </p>
         </div>
         <div class="w-full pb-10">
@@ -104,7 +108,7 @@ const lang = getLangFromUrl(Astro.url);
                               href={project.repoLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label="Repositorio de GitHub"
+                              aria-label={archive.repoAriaLabel}
                               class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
                             >
                               <Github className="w-5 h-5 md:w-6 md:h-6" />
@@ -117,7 +121,7 @@ const lang = getLangFromUrl(Astro.url);
                               href={project.viewLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label="Ver demo del proyecto"
+                              aria-label={archive.demoAriaLabel}
                               class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
                             >
                               <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />

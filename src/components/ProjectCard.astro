@@ -1,6 +1,6 @@
 ---
 import Github from "@/assets/icons/github.astro";
-import type { ui } from "@/i18n/i18n";
+import { useTranslations, type ui } from "@/i18n/i18n";
 import type { Project } from "@/types/projects";
 import { ExternalLink } from "lucide-react";
 
@@ -11,6 +11,7 @@ interface Props {
 }
 
 const { project, lang, class: className = "" } = Astro.props as Props;
+const projectsT = useTranslations(lang)("projects");
 ---
 
 <article
@@ -55,13 +56,13 @@ const { project, lang, class: className = "" } = Astro.props as Props;
           <a
             href={project.repoLink}
             target="_blank"
-            aria-label="Repositorio de GitHub"
+            aria-label={projectsT.repoAriaLabel}
             rel="noopener noreferrer"
             class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-[color,background-color,transform] duration-150 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-brand"
           >
             <Github className="text-white" width="24" height="24" />
             <span class="relative text-base font-medium md:text-lg">
-              Ver Repositorio
+              {projectsT.viewRepo}
               <span class="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-brand-deep transition-all duration-150 group-hover:w-full" />
             </span>
           </a>
@@ -72,12 +73,12 @@ const { project, lang, class: className = "" } = Astro.props as Props;
           <a
             href={project.viewLink}
             target="_blank"
-            aria-label="Ver demo del proyecto"
+            aria-label={projectsT.demoAriaLabel}
             rel="noopener noreferrer"
             class="group relative flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-[color,background-color,transform] duration-150 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-brand"
           >
             <span class="relative text-base font-medium md:text-lg">
-              Demo
+              {projectsT.demo}
               <span class="absolute -bottom-0.5 left-0 h-0.5 w-0 bg-brand-deep transition-all duration-150 group-hover:w-full" />
             </span>
             <ExternalLink width="24" height="24" />

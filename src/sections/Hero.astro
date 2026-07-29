@@ -11,38 +11,39 @@ import { getLangFromUrl } from "@/i18n/i18n";
 import { useTranslations } from "@/i18n/i18n";
 
 const author = "Alexander Valverde";
-const socialLinks = [
-  {
-    name: "LinkedIn",
-    url: "https://www.linkedin.com/in/alexvdev/",
-    icon: Linkedin,
-    ariaLabel: "Visitar perfil de LinkedIn",
-  },
-  {
-    name: "GitHub",
-    url: "https://github.com/aleexvdev",
-    icon: Github,
-    ariaLabel: "Visitar perfil de GitHub",
-  },
-  {
-    name: "Curriculum",
-    url: "https://drive.google.com/file/d/1JuRTnObZjbznSwJvetDGYR1EvSt9vpBz/view?usp=sharing",
-    icon: CvIcon,
-    ariaLabel: "Descargar curriculum vitae",
-  },
-  {
-    name: "Email",
-    url: "mailto:alexvalverde.dev@gmail.com",
-    icon: Mail,
-    ariaLabel: "Enviar correo electrónico",
-  },
-];
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const hero = t("hero");
 const profession = hero.profession;
 const badge = hero.title;
 const disponibility = hero.disponibility;
+
+const socialLinks = [
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/alexvdev/",
+    icon: Linkedin,
+    ariaLabel: hero.linkedinAriaLabel,
+  },
+  {
+    name: "GitHub",
+    url: "https://github.com/aleexvdev",
+    icon: Github,
+    ariaLabel: hero.githubAriaLabel,
+  },
+  {
+    name: "Curriculum",
+    url: "https://drive.google.com/file/d/1JuRTnObZjbznSwJvetDGYR1EvSt9vpBz/view?usp=sharing",
+    icon: CvIcon,
+    ariaLabel: hero.cvAriaLabel,
+  },
+  {
+    name: "Email",
+    url: "mailto:alexvalverde.dev@gmail.com",
+    icon: Mail,
+    ariaLabel: hero.emailAriaLabel,
+  },
+];
 ---
 
 <section
@@ -88,7 +89,7 @@ const disponibility = hero.disponibility;
       </div>
       <ul
         class="flex justify-center gap-3 sm:gap-4"
-        aria-label="Redes sociales y contacto"
+        aria-label={hero.socialListAriaLabel}
       >
         {
           socialLinks.map((link) => (

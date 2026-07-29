@@ -42,6 +42,11 @@ type UILang = {
     title: string;
     profession: string;
     disponibility: string;
+    socialListAriaLabel: string;
+    linkedinAriaLabel: string;
+    githubAriaLabel: string;
+    cvAriaLabel: string;
+    emailAriaLabel: string;
   };
   experience: {
     title: string;
@@ -55,10 +60,8 @@ type UILang = {
     idea: string;
     makeReal: string;
     description: string;
-    modern: string;
-    and: string;
-    scalable: string;
-    team: string;
+    closing: string;
+    linkedin: string;
     contact: string;
   };
   projects: {
@@ -68,6 +71,10 @@ type UILang = {
     archiveTitle: string;
     achiveDescripction: string;
     backHome: string;
+    viewRepo: string;
+    demo: string;
+    repoAriaLabel: string;
+    demoAriaLabel: string;
   };
   about: {
     title: string;
@@ -96,6 +103,7 @@ type UILang = {
       location: string;
       timeDifference: string;
       utcOffset: string;
+      flagAlt: string;
     };
   };
   contact: {
@@ -166,6 +174,11 @@ export const ui = {
       title: "Bienvenido a mi portafolio",
       profession: "Desarrollador Full Stack",
       disponibility: "Disponible para trabajar",
+      socialListAriaLabel: "Redes sociales y contacto",
+      linkedinAriaLabel: "Visitar perfil de LinkedIn",
+      githubAriaLabel: "Visitar perfil de GitHub",
+      cvAriaLabel: "Descargar curriculum vitae",
+      emailAriaLabel: "Enviar correo electrónico",
     },
     experience: {
       title: "¿Dónde he trabajado?",
@@ -176,14 +189,12 @@ export const ui = {
     },
     cta: {
       available: "¡Disponible para nuevos proyectos!",
-      idea: "¿Tienes una idea?",
-      makeReal: "Hagámosla realidad",
-      description: "Como desarrollador full stack, me especializo en transformar ideas en aplicaciones web",
-      modern: "modernas",
-      and: "y",
-      scalable: "escalables",
-      team: "¡Hagamos equipo!",
-      contact: "Contáctame"
+      idea: "¿Listo para crear",
+      makeReal: "tu próximo proyecto?",
+      description: "Convierte tu idea en una solución digital.",
+      closing: "Yo me encargo de desarrollar el software que necesitas.",
+      linkedin: "LinkedIn",
+      contact: "Hablemos",
     },
     projects: {
       title: "Algunos de mis proyectos",
@@ -191,7 +202,11 @@ export const ui = {
       archive: "el archivo",
       archiveTitle: "Archivo de proyectos",
       achiveDescripction: "Aquí presento una lista de proyectos que considero destacables. Échale un vistazo!",
-      backHome: "Volver al inicio"
+      backHome: "Volver al inicio",
+      viewRepo: "Ver Repositorio",
+      demo: "Demo",
+      repoAriaLabel: "Repositorio de GitHub",
+      demoAriaLabel: "Ver demo del proyecto",
     },
     about: {
       title: "Un poco sobre mí",
@@ -225,7 +240,8 @@ export const ui = {
         title: "Mi ubicación",
         location: "Sede en",
         timeDifference: "horas por detrás de tu ubicación actual",
-        utcOffset: "UTC-5"
+        utcOffset: "UTC-5",
+        flagAlt: "Bandera de {country}",
       }
     },
     contact: {
@@ -294,6 +310,11 @@ export const ui = {
       title: "Welcome to my portfolio",
       profession: "Full Stack Developer",
       disponibility: "Available to work",
+      socialListAriaLabel: "Social media and contact",
+      linkedinAriaLabel: "Visit LinkedIn profile",
+      githubAriaLabel: "Visit GitHub profile",
+      cvAriaLabel: "Download resume",
+      emailAriaLabel: "Send email",
     },
     experience: {
       title: "Where have I worked?",
@@ -304,14 +325,12 @@ export const ui = {
     },
     cta: {
       available: "Available for new projects!",
-      idea: "Got an idea?",
-      makeReal: "Let's make it real",
-      description: "As a full stack developer, I specialize in turning ideas into",
-      modern: "modern",
-      and: "and",
-      scalable: "scalable",
-      team: "Let's team up!",
-      contact: "Contact me"
+      idea: "Ready to build",
+      makeReal: "your next project?",
+      description: "Turn your idea into a digital solution.",
+      closing: "I'll take care of developing the software you need.",
+      linkedin: "LinkedIn",
+      contact: "Let's talk",
     },
     projects: {
       title: "Some of my projects",
@@ -319,7 +338,11 @@ export const ui = {
       archive: "archive",
       archiveTitle: "Projects archive",
       achiveDescripction: "Here you can find a list of projects that I consider worthy of attention. Take a look!",
-      backHome: "Back to home"
+      backHome: "Back to home",
+      viewRepo: "View Repository",
+      demo: "Demo",
+      repoAriaLabel: "GitHub repository",
+      demoAriaLabel: "View project demo",
     },
     about: {
       title: "A little about me",
@@ -353,7 +376,8 @@ export const ui = {
         title: "My location",
         location: "Living in",
         timeDifference: "hours behind your current location",
-        utcOffset: "UTC-5"
+        utcOffset: "UTC-5",
+        flagAlt: "Flag of {country}",
       }
     },
     contact: {

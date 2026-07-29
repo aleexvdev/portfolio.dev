@@ -12,8 +12,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` },
     ],
     description: {
-      en: "A web application that creates and shares stunning images of your code. CodeRender is a web tool that lets you transform your code snippets into elegant, customizable images, ready to share on social media, blogs, or in your documentation.",
-      es: "Una aplicación web que crea y comparte imágenes de tu código con un aspecto increíble. CodeRender es una herramienta web que te permite transformar tus fragmentos de código en imágenes elegantes y personalizables, listas para compartir en redes sociales, blogs o en tu documentación."
+      en: "Ever had a snippet that looks great in the editor but falls apart when you share it? CodeRender turns your code into polished images ready for social posts, docs, or that thread you want to look sharp. Customize themes, typography, and spacing, then export — with your presets saved between sessions.",
+      es: "¿Te ha pasado que un snippet se ve genial en el editor pero al compartirlo pierde todo el estilo? CodeRender nace de ahí: convierte tu código en imágenes con buena pinta, listas para redes, documentación o ese hilo que quieres que se vea prolijo. Ajusta temas, tipografía y espaciado, exporta al toque y retoma justo donde lo dejaste — sin empezar de cero cada vez."
     },
     title: "CodeRender",
     repoLink: "https://github.com/aleexvdev/coderender",
@@ -31,8 +31,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` },
     ],
     description: {
-      en: "SecureAuth is a robust, full-stack application designed to provide a secure and feature-rich foundation for user authentication and management. It features a modern Next.js frontend and a powerful Express.js backend, incorporating best practices for security and user experience.",
-      es: "SecureAuth es una aplicación robusta de pila completa diseñada para ofrecer una base segura y con muchas funciones para la autenticación y gestión de usuarios. Cuenta con un frontend moderno en Next.js y un backend potente en Express.js, incorporando las mejores prácticas en seguridad y experiencia del usuario."
+      en: "Authentication shouldn't be a headache on every new project. SecureAuth is the reusable foundation I built for that: email verification, reliable sessions, two-factor when you need it, and routes that stay locked without permission — so you can focus on what your app actually does.",
+      es: "Montar un login seguro en cada proyecto nuevo cansa, y encima suele salir a medias. SecureAuth es la base que armé para evitar eso: registro con verificación por correo, sesiones que no se pierden a mitad de camino, doble factor cuando lo necesitas y rutas que solo abren si tienes permiso. Pensado para reutilizar, no para reinventar la rueda una y otra vez."
     },
     title: "Secure Auth",
     repoLink: "https://github.com/aleexvdev/secureauth-next",
@@ -48,8 +48,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
-      en: "A weather web application using the OpenWeather API provides users with real-time weather information such as temperature, humidity, and forecasts. Allows searching conditions anywhere and customizing favorite cities, ideal for staying informed about the weather.",
-      es: "Una aplicación web de clima que usa la API de OpenWeather ofrece a los usuarios información meteorológica en tiempo real, como temperatura, humedad y pronósticos. Permite buscar condiciones en cualquier lugar y personalizar ciudades favoritas, ideal para mantenerse informado sobre el clima."
+      en: "A quick glance at the weather for your city — or the one you're planning to visit. Search, save favorites, and get forecasts without the clutter.",
+      es: "Antes de salir, un vistazo al clima de tu ciudad — o de la que estás planeando visitar. Buscas, guardas tus favoritas y el pronóstico te acompaña sin tantas vueltas. Simple, directo, hecho para el día a día."
     },
     title: "Weather App",
     repoLink: "https://github.com/aleexvdev/app-weather",
@@ -66,8 +66,8 @@ export const projects: Project[] = [
       { name: "Tailwind CSS", color: "text-teal-400", icon: `${baseImagePath}tailwindcss.svg` },
     ],
     description: {
-      en: "This web application allows users to search and explore food recipes using the Edamam API. Users can save their favorite recipes, share them across different platforms, and leave comments on a blog.",
-      es: "Esta aplicación web permite a los usuarios buscar y explorar recetas de comida utilizando la API de Edamam. Los usuarios pueden guardar sus recetas favoritas, compartirlas a través de diferentes plataformas y dejar comentarios en un blog."
+      en: "What's for dinner? Browse recipes, save the ones you love, and come back to them when hunger actually strikes — your favorites stay put, ready for the next craving.",
+      es: "¿Qué cocino hoy? La pregunta del millón, y esta app intenta responderla sin estrés. Exploras recetas, guardas las que te tientan y las tienes a la mano cuando el hambre aprieta de verdad — sin perder tus favoritas entre visita y visita."
     },
     title: "Food Recipes",
     repoLink: "https://github.com/aleexvdev/food-recipes",
@@ -83,8 +83,8 @@ export const projects: Project[] = [
       { name: "Vite", color: "text-pink-400", icon: `${baseImagePath}vitejs.svg` }
     ],
     description: {
-      en: "A task management web application that allows users to create, edit and delete tasks, as well as view their progress and prioritize them. Provides an intuitive and easy-to-use interface, and allows customization of appearance and functionality according to user needs.",
-      es: "Una aplicación web de gestión de tareas que permite a los usuarios crear, editar y eliminar tareas, así como ver su progreso y priorizarlas. Proporciona una interfaz intuitiva y fácil de usar, y permite personalizar la apariencia y funcionalidad según las necesidades del usuario."
+      en: "Organizing your day doesn't have to feel dull. Prioritize what matters, filter what can't wait, and enjoy smooth transitions that make staying on top of things almost enjoyable.",
+      es: "Organizar el día no tiene por qué sentirse aburrido. Priorizas lo importante, filtras lo que urge y todo fluye con transiciones que hacen que usarla sea casi entretenido — orden sin perderse en menús ni complicarse la vida."
     },
     title: "ToDo App",
     repoLink: "https://github.com/aleexvdev/app-todolist/",

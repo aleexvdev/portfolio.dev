@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 
 const STACK = [
-  "React",
-  "TypeScript",
-  "Astro",
+  "PHP",
+  "Laravel",
+  "React.js",
+  "Next.js",
   "Node.js",
+  "Astro",
+  "TypeScript",
+  "AWS",
+  "MySQL",
+  "MongoDB",
   "PostgreSQL",
-  "Tailwind CSS",
+  "Docker",
 ];
 
 export function HeroTerminal() {

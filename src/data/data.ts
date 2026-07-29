@@ -21,7 +21,7 @@ export const skills: { skill: string; className: string }[] = [
   },
   {
     skill: "Next.js",
-    className: "text-gray-800 dark:text-gray-300", 
+    className: "text-white",
   },
   {
     skill: "Node.js",
@@ -41,7 +41,7 @@ export const skills: { skill: string; className: string }[] = [
   },
   {
     skill: "PostgreSQL",
-    className: "text-sky-700",
+    className: "text-sky-400",
   },
   {
     skill: "Redux",
@@ -73,7 +73,7 @@ export const skills: { skill: string; className: string }[] = [
   },
   {
     skill: "Linux",
-    className: "text-gray-800 dark:text-gray-300", 
+    className: "text-amber-400",
   },
   {
     skill: "Jira",

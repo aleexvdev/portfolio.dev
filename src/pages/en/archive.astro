@@ -47,7 +47,7 @@ const backHome = archive.backHome;
   <main class="mx-auto min-h-screen w-full max-w-screen-lg mt-20">
     <section
       class="flex h-max w-full flex-col items-center justify-center overflow-hidden px-6 pt-6 md:pt-12 lg:pt-10"
-      title="Archivo de proyectos"
+      title={titleArchive}
       id="archiveProjects"
     >
       <div class="inline-flex w-full items-start gap-x-6 pb-10">
@@ -108,7 +108,7 @@ const backHome = archive.backHome;
                               href={project.repoLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label="Repositorio de GitHub"
+                              aria-label={archive.repoAriaLabel}
                               class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
                             >
                               <Github className="w-5 h-5 md:w-6 md:h-6" />
@@ -121,7 +121,7 @@ const backHome = archive.backHome;
                               href={project.viewLink}
                               target="_blank"
                               rel="noopener noreferrer"
-                              aria-label="Ver demo del proyecto"
+                              aria-label={archive.demoAriaLabel}
                               class="group flex w-max cursor-pointer items-center justify-center space-x-1.5 rounded-lg bg-transparent p-3 transition-all duration-300 active:scale-[0.97] md:space-x-2 text-white hover:bg-black hover:text-[#2563EB]"
                             >
                               <ExternalLink className="w-5 h-5 md:w-6 md:h-6" />

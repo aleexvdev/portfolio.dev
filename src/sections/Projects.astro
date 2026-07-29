@@ -26,7 +26,7 @@ const eyebrow = nav.projects.label;
 >
   <div class="relative grid h-full w-full grid-cols-1 gap-6 py-8">
     {
-      projects.slice(0, 3).map((project, idx) => (
+      topProjects.map((project, idx) => (
         <div
           class="relative flex flex-col justify-between overflow-hidden rounded-xl p-0 opacity-0 shadow-xl transition-[transform,box-shadow] duration-300 animate-fade-in-projects hover:scale-[1.015] hover:shadow-2xl md:rounded-3xl"
           style={`animation-delay: ${idx * 80}ms`}
